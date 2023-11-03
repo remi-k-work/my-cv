@@ -1,0 +1,95 @@
+.contact-form {
+  /* Local custom properties */
+  --_width: 90vw;
+  --_max-width: 600px;
+  --_border-radius: 0.25em;
+
+  --_button-padding: 0.5em;
+  --_button-border-radius: 0.5em;
+
+  /* width: var(--_width); */
+  max-width: var(--_max-width);
+  background: var(--clr-primary-800);
+  border-radius: var(--_border-radius);
+  padding: 1em;
+}
+
+.contact-form > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
+  width: 100%;
+  border: 1px solid var(--clr-primary-200);
+  border-radius: var(--_border-radius);
+  box-shadow: inset 1px 1px 3px var(--clr-primary-800);
+  background: var(--clr-primary-200);
+  outline: none;
+  padding: 0.25em;
+}
+
+.contact-form textarea {
+  vertical-align: top;
+  overflow: auto;
+}
+
+/* 
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: var(--clr-primary-200);
+  border: 1px solid var(--clr-primary-200);
+}
+
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+  border: 1px solid var(--clr-accent-400);
+}
+
+.contact-form input:valid,
+.contact-form textarea:valid {
+  background: var(--clr-primary-200);
+} */
+
+.contact-form button {
+  padding: var(--_button-padding);
+  border: 1px solid var(--clr-primary-300);
+  border-radius: var(--_button-border-radius);
+  box-shadow: inset 1px 1px 3px var(--clr-neutral-100);
+  background: var(--clr-primary-800);
+}
+
+.contact-form button:hover,
+.contact-form button:focus {
+  border: 1px solid var(--clr-accent-400);
+  box-shadow: inset 1px 1px 3px var(--clr-accent-400);
+}
+
+.contact-form li + li {
+  margin-top: 1em;
+}
+
+.contact-form__row {
+  background: var(--clr-primary-800);
+}
+
+.contact-form__row label {
+  display: block;
+  padding: 0.25em 0;
+  color: var(--clr-primary-200);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-semi-bold);
+  text-transform: uppercase;
+}
+
+.contact-form__row--split {
+  display: flex;
+  gap: 0 1em;
+}
+
+.contact-form__row--split > * {
+  flex: 1 1 auto;
+}

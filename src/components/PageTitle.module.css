@@ -1,0 +1,23 @@
+.page-title {
+  display: block;
+}
+
+.page-title__eyebrow {
+  color: var(--clr-secondary-400);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.page-title__heading {
+  font-size: var(--fs-700);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.page-title__intro {
+  font-size: var(--fs-500);
+  max-width: 45ch;
+}

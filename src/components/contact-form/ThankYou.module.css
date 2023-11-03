@@ -1,0 +1,16 @@
+.thank-you {
+  /* Local custom properties */
+  --_width: 90vw;
+  --_max-width: 600px;
+  --_border-radius: 0.5em;
+
+  /* width: var(--_width); */
+  max-width: var(--_max-width);
+  text-align: center;
+  border-radius: var(--_border-radius);
+  box-shadow: inset 1px 1px 3px var(--clr-secondary-400);
+  background: var(--clr-primary-700);
+  color: var(--clr-secondary-400);
+  margin: 1em 0;
+  padding: 1em;
+}
