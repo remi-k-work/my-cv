@@ -3,7 +3,7 @@ import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider } 
 // *** Pages ***
 import Home from "./pages/Home";
 import Education from "./pages/Education";
-import Contact from "./pages/Contact";
+import Contact, { contactAction } from "./pages/Contact";
 
 // *** Layouts ***
 import { default as RootLayout } from "./layouts/Root";
@@ -37,7 +37,7 @@ const router = createBrowserRouter(
         <Route path="education" element={<Education />} />
       </Route>
       <Route element={<RootLayout pageTitle={pageTitleContact} />}>
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<Contact />} action={contactAction} />
       </Route>
     </>
   )

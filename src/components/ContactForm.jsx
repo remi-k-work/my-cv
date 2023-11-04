@@ -1,18 +1,14 @@
 import styles from "./ContactForm.module.css";
-
 import { useState } from "react";
-import { Form } from "react-router-dom";
-
+import { Form, useSubmit } from "react-router-dom";
 import cn from "classnames";
-import { handleInput, handleInvalid, submitForm } from "../assets/components/contact-form/validation";
 
-import SubmError from "./contact-form/SubmError";
-import ThankYou from "./contact-form/ThankYou";
+import { handleInput, handleInvalid } from "../assets/components/contact-form/validation";
 
 function ContactForm() {
   const [contact, setContact] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("empty");
-  const [error, setError] = useState(null);
+  const submit = useSubmit();
 
   function handleChange(ev) {
     const newContact = { ...contact, [ev.target.name]: ev.target.value };
@@ -32,7 +28,7 @@ function ContactForm() {
     }
   }
 
-  async function handleSubmit(ev) {
+  function handleSubmit(ev) {
     ev.preventDefault();
 
     // Do not allow submitting an invalid form
@@ -44,29 +40,13 @@ function ContactForm() {
     // The form is being submitted; please deactivate all fields
     setStatus("submitting");
 
-    let anyError = false;
-    try {
-      await submitForm(false);
-      setStatus("success");
-    } catch (error) {
-      setError(error);
-      setStatus("ready");
-      anyError = true;
-    }
-
-    // Finally, submit the form, but only if there are no errors
-    if (!anyError) {
-      theForm.submit();
-    }
+    // Finally, submit the form
+    submit(theForm);
   }
 
   function handleReset(ev) {
     setContact({ name: "", email: "", subject: "", message: "" });
     setStatus("empty");
-  }
-
-  if (status === "success") {
-    return <ThankYou />;
   }
 
   return (
@@ -80,7 +60,6 @@ function ContactForm() {
       onInvalid={handleInvalid}
     >
       <ul>
-        <li className={styles["contact-form__row"]}>{error && <SubmError error={error.message} />}</li>
         <li className={cn(styles["contact-form__row"], styles["contact-form__row--split"])}>
           <div>
             <label htmlFor="name">Name</label>
