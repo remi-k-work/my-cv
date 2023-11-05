@@ -1,3 +1,14 @@
 .contact {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  /* background: #fff; */
+}
+
+/* .contact section {
+  background: #fff;
+} */
+
+.contact > * {
+  flex: 1 1 0;
 }

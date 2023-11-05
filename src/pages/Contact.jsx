@@ -5,15 +5,21 @@ import { submitForm } from "../assets/components/contact-form/validation";
 import ContactForm from "../components/ContactForm";
 import SubmError from "../components/contact-form/SubmError";
 import ThankYou from "../components/contact-form/ThankYou";
+import ContactMap from "../components/ContactMap";
 
 function Contact() {
   const actionData = useActionData();
 
   return (
     <div className={styles["contact"]}>
-      {actionData?.status === "error" && <SubmError error={actionData?.error} />}
-      {actionData?.status === "success" && <ThankYou />}
-      {!actionData && <ContactForm />}
+      <section>
+        {actionData?.status === "error" && <SubmError error={actionData?.error} />}
+        {actionData?.status === "success" && <ThankYou />}
+        {!actionData && <ContactForm />}
+      </section>
+      <section>
+        <ContactMap />
+      </section>
     </div>
   );
 }
