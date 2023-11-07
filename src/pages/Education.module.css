@@ -1,3 +1,9 @@
 .education {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.education > * {
+  flex: 1 1 0;
 }
