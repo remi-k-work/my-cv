@@ -1,0 +1,27 @@
+.my-education {
+  display: block;
+}
+
+.my-education__school {
+  margin-bottom: 1em;
+  font-size: var(--fs-400);
+  color: var(--clr-primary-300);
+}
+
+.my-education__info {
+  margin-bottom: 1em;
+}
+
+.school__name {
+  color: var(--clr-primary-200);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+}
+
+.school__year {
+  color: var(--clr-accent-400);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+}

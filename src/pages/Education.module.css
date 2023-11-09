@@ -1,7 +1,16 @@
 .education {
+  /* Local custom properties */
+  --_border-radius: 1em;
+
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+}
+
+.education section {
+  background: var(--clr-primary-800);
+  border-radius: var(--_border-radius);
+  padding: 1em;
 }
 
 .education > * {

@@ -25,7 +25,7 @@ function ContactMap() {
         Poland
         <br />
         <br />
-        remi.k.work@gmail.com
+        remi.k.work@gmx.com
       </div>
     </div>
   );

@@ -11,9 +11,6 @@
   width: var(--_width);
   min-width: var(--_min-width);
   max-width: var(--_max-width);
-  background: var(--clr-primary-800);
-  border-radius: var(--_border-radius);
-  padding: 1em;
 }
 
 .contact-form > ul {
