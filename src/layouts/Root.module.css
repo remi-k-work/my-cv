@@ -7,11 +7,11 @@
   align-items: start;
 
   display: grid;
-  grid-template-columns: var(--_aside-width) 1fr 9fr;
+  grid-template-columns: var(--_aside-width) 1fr 11fr 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "sidebar header header"
-    "sidebar . content";
+    "sidebar header header header"
+    "sidebar . content . ";
 }
 
 aside {
@@ -34,7 +34,7 @@ header::after {
   position: absolute;
   left: calc(-1 * var(--_aside-width));
   top: 50%;
-  width: 100vw;
+  width: calc(100% + var(--_aside-width));
   border-bottom: 1px solid var(--clr-primary-300);
   z-index: -1;
 }
@@ -49,8 +49,8 @@ header nav a {
   text-decoration: none;
   margin: 0.5em;
   padding: 0.5em;
-  border-radius: 15%;
-  background: var(--clr-primary-800);
+  border-radius: 1em;
+  background: var(--clr-primary-700);
   color: var(--clr-primary-200);
   border: 1px solid var(--clr-primary-300);
 }

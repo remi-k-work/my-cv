@@ -72,6 +72,7 @@ body {
   color: var(--clr-neutral-100);
   background: var(--clr-primary-700);
   margin: 0;
+  padding: 0;
 }
 
 /* || UTILITIES */

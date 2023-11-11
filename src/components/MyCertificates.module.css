@@ -1,3 +1,16 @@
 .my-certificates {
   display: block;
 }
+
+.my-certificates figcaption {
+  background: var(--clr-primary-300);
+  font-style: italic;
+  padding: 0.35em;
+  float: right;
+  margin-bottom: 1em;
+  border-radius: 1em 0;
+}
+
+.my-certificates picture + picture {
+  margin-top: 1em;
+}

@@ -2,6 +2,15 @@
   display: block;
 }
 
+.my-education figcaption {
+  background: var(--clr-primary-300);
+  font-style: italic;
+  padding: 0.35em;
+  float: right;
+  margin-bottom: 1em;
+  border-radius: 1em 0;
+}
+
 .my-education__school {
   margin-bottom: 1em;
   font-size: var(--fs-400);
@@ -9,7 +18,7 @@
 }
 
 .my-education__info {
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 
 .school__name {
