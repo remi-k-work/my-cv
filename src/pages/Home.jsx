@@ -4,9 +4,9 @@ import JobExperience from "../components/JobExperience";
 
 function Home() {
   return (
-    <div className={styles["home"]}>
+    <article className={styles["home"]}>
       <JobExperience />
-    </div>
+    </article>
   );
 }
 

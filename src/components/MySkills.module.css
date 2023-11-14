@@ -1,18 +1,19 @@
 .my-skills {
-  height: 100%;
-  display: flex;
-  justify-content: end;
+  --_aside-width: 6em;
 }
 
 .my-skills__list {
+  width: var(--_aside-width);
   height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   align-content: center;
-  gap: 3rem;
+  gap: 3em;
   border-left: 1px solid var(--clr-primary-300);
+  position: fixed;
+  left: 1em;
 }
 
 .my-skills__list > li {
@@ -22,8 +23,13 @@
   position: relative;
 }
 
+.my-skills__list > li img {
+  width: 3em;
+  height: 3em;
+}
+
 .my-skills__list > li::after {
-  --_size: 0.5rem;
+  --_size: 0.5em;
 
   content: "";
   position: absolute;

@@ -1,5 +1,8 @@
 .my-education {
-  display: block;
+  width: clamp(10em, 100%, 36em);
+  min-width: 10em;
+  max-width: 36em;
+  margin: auto;
 }
 
 .my-education figcaption {

@@ -1,14 +1,14 @@
 /* || MAIN LAYOUT */
 
 .main-grid {
-  --_aside-width: clamp(7.5em, 20vw, 15em);
+  --_aside-width: 6em;
 
   min-height: 100vh;
   align-items: start;
 
   display: grid;
   grid-template-columns: var(--_aside-width) 1fr 11fr 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 8em 1fr;
   grid-template-areas:
     "sidebar header header header"
     "sidebar . content . ";
@@ -16,7 +16,6 @@
 
 aside {
   grid-area: sidebar;
-  align-self: stretch;
 }
 
 main {
@@ -25,8 +24,11 @@ main {
 }
 
 header {
+  width: 100%;
   grid-area: header;
-  position: relative;
+  position: fixed;
+  background-image: linear-gradient(to right, transparent var(--_aside-width), var(--clr-primary-700) var(--_aside-width));
+  z-index: 1;
 }
 
 header::after {

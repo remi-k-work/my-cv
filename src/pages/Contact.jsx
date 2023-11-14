@@ -11,7 +11,7 @@ function Contact() {
   const actionData = useActionData();
 
   return (
-    <div className={styles["contact"]}>
+    <article className={styles["contact"]}>
       <section>
         {actionData?.status === "error" && <SubmError error={actionData?.error} />}
         {actionData?.status === "success" && <ThankYou />}
@@ -20,7 +20,7 @@ function Contact() {
       <section>
         <ContactMap />
       </section>
-    </div>
+    </article>
   );
 }
 

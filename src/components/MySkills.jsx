@@ -8,7 +8,7 @@ import inkscape from "../assets/components/my-skills/inkscape.svg";
 
 function MySkills() {
   return (
-    <div className={styles["my-skills"]}>
+    <article className={styles["my-skills"]}>
       <ul className={styles["my-skills__list"]}>
         <li>
           <img src={html} width="48" height="48" alt="HTML" />
@@ -31,7 +31,7 @@ function MySkills() {
           Inkscape
         </li>
       </ul>
-    </div>
+    </article>
   );
 }
 

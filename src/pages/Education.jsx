@@ -5,14 +5,14 @@ import MyEducation from "../components/MyEducation";
 
 function Education() {
   return (
-    <div className={styles["education"]}>
+    <article className={styles["education"]}>
       <section>
         <MyCertificates />
       </section>
       <section>
         <MyEducation />
       </section>
-    </div>
+    </article>
   );
 }
 
