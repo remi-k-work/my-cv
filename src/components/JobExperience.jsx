@@ -22,13 +22,15 @@ function JobExperience() {
           <h2 className={styles["job-info__role"]}>Full-Stack Developer</h2>
           <span className={styles["job-info__company"]}>DanceShopper</span>
         </div>
-        <picture className={styles["job-experience__pic"]}>
-          <source media="(min-width: 992px)" width={1200} height={1187} srcSet={danceshopperLg} />
-          <source media="(min-width: 768px)" width={992} height={981} srcSet={danceshopperMd} />
-          <source media="(min-width: 576px)" width={768} height={759} srcSet={danceshopperSm} />
-          <source media="(min-width: 1px)" width={576} height={570} srcSet={danceshopperXs} />
-          <img src={danceshopperXs} width={576} height={570} alt="DanceShopper" />
-        </picture>
+        <a href="https://www.danceshopper.com/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={danceshopperLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={danceshopperMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={danceshopperSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={danceshopperXs} />
+            <img src={danceshopperXs} width={576} height={570} alt="DanceShopper" />
+          </picture>
+        </a>
         <p className={styles["job-experience__txt"]}>
           We met at the ALCC English School in New York, where you get a chance to meet people from all over the world. He was originally from Taiwan, was
           really interested in technology and e-commerce, and had this brilliant idea to sell items for professional dancers online. How could you possibly sell
@@ -46,13 +48,15 @@ function JobExperience() {
           <h2 className={styles["job-info__role"]}>Web Consultant</h2>
           <span className={styles["job-info__company"]}>Not For Tourists</span>
         </div>
-        <picture className={styles["job-experience__pic"]}>
-          <source media="(min-width: 992px)" width={1200} height={1187} srcSet={notfortouristsLg} />
-          <source media="(min-width: 768px)" width={992} height={981} srcSet={notfortouristsMd} />
-          <source media="(min-width: 576px)" width={768} height={759} srcSet={notfortouristsSm} />
-          <source media="(min-width: 1px)" width={576} height={570} srcSet={notfortouristsXs} />
-          <img src={notfortouristsXs} width={576} height={570} alt="NotForTourists" />
-        </picture>
+        <a href="https://www.notfortourists.com/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={notfortouristsLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={notfortouristsMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={notfortouristsSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={notfortouristsXs} />
+            <img src={notfortouristsXs} width={576} height={570} alt="NotForTourists" />
+          </picture>
+        </a>
         <p className={styles["job-experience__txt"]}>
           The Not For Tourists Guide to New York City is a map-based, neighborhood-by-neighborhood dream guide designed to lighten the load of already
           street-savvy New Yorkers, commuters, business travelers, and, yes, tourists too. I was hired as a web consultant to assist in the implementation of a
@@ -70,13 +74,15 @@ function JobExperience() {
           <h2 className={styles["job-info__role"]}>.NET Programmer</h2>
           <span className={styles["job-info__company"]}>Syncro Services</span>
         </div>
-        <picture className={styles["job-experience__pic"]}>
-          <source media="(min-width: 992px)" width={1200} height={1187} srcSet={syncroLg} />
-          <source media="(min-width: 768px)" width={992} height={981} srcSet={syncroMd} />
-          <source media="(min-width: 576px)" width={768} height={759} srcSet={syncroSm} />
-          <source media="(min-width: 1px)" width={576} height={570} srcSet={syncroXs} />
-          <img src={syncroXs} width={576} height={570} alt="Syncro" />
-        </picture>
+        <a href="https://www.syncroservices.com/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={syncroLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={syncroMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={syncroSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={syncroXs} />
+            <img src={syncroXs} width={576} height={570} alt="Syncro" />
+          </picture>
+        </a>
         <p className={styles["job-experience__txt"]}>
           For over 60 years, Syncro Services has been a pioneer in content distribution. They are putting their experience to work to maximize cloud-based
           content management, whether it be asset management for individual clients or the distribution of some of the most popular television shows in the

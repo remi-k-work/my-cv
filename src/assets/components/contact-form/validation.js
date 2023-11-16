@@ -18,29 +18,29 @@ function handleInvalid(ev) {
   switch (invalidFieldName) {
     case "name":
       if (itsValidityState.valueMissing) {
-        invalidFieldElem.setCustomValidity("Proszę podać imię");
+        invalidFieldElem.setCustomValidity("Please provide your name; this is a necessary field.");
         invalidFieldElem.setAttribute("title", invalidFieldElem.validationMessage);
       }
       break;
     case "email":
       if (itsValidityState.valueMissing) {
-        invalidFieldElem.setCustomValidity("Proszę podać email");
+        invalidFieldElem.setCustomValidity("Please provide your email address so that I can contact you. Email is a mandatory field.");
         invalidFieldElem.setAttribute("title", invalidFieldElem.validationMessage);
       }
       if (itsValidityState.typeMismatch) {
-        invalidFieldElem.setCustomValidity("Proszę podać właściwy adres email");
+        invalidFieldElem.setCustomValidity("The email address you gave appears to be incorrect; please update it.");
         invalidFieldElem.setAttribute("title", invalidFieldElem.validationMessage);
       }
       break;
     case "subject":
       if (itsValidityState.valueMissing) {
-        invalidFieldElem.setCustomValidity("Proszę podać tytuł komunikatu");
+        invalidFieldElem.setCustomValidity("Your message's subject is a required field.");
         invalidFieldElem.setAttribute("title", invalidFieldElem.validationMessage);
       }
       break;
     case "message":
       if (itsValidityState.valueMissing) {
-        invalidFieldElem.setCustomValidity("Proszę podać treść komunikatu");
+        invalidFieldElem.setCustomValidity("What is the message you want to send? This is a mandatory field.");
         invalidFieldElem.setAttribute("title", invalidFieldElem.validationMessage);
       }
       break;
