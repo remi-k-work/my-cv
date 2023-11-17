@@ -14,6 +14,10 @@
   border-radius: 1em 0;
 }
 
+.my-certificates dl {
+  clear: both;
+}
+
 .my-certificates picture + picture {
   margin-top: 1em;
 }

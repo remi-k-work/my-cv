@@ -14,6 +14,10 @@
   border-radius: 1em 0;
 }
 
+.my-education dl {
+  clear: both;
+}
+
 .my-education__school {
   margin-bottom: 1em;
   font-size: var(--fs-400);
@@ -22,6 +26,10 @@
 
 .my-education__info {
   margin-bottom: 3em;
+}
+
+.my-education__info:last-child {
+  margin-bottom: 0;
 }
 
 .school__name {

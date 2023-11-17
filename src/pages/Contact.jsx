@@ -1,7 +1,7 @@
 import styles from "./Contact.module.css";
 import { useActionData } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
-import { submitForm } from "../assets/components/contact-form/validation";
 import ContactForm from "../components/ContactForm";
 import SubmError from "../components/contact-form/SubmError";
 import ThankYou from "../components/contact-form/ThankYou";
@@ -34,11 +34,11 @@ async function contactAction({ request }) {
   const newContact = Object.fromEntries(formData);
 
   try {
-    // Send your post request (to the database, for example)
-    await submitForm(true);
+    // Utilize EmailJS to assist with sending emails solely using client-side technology
+    await emailjs.send("default_service", "template_mmqusic", newContact, "0fnfLWUGIs3XYQ3b-");
   } catch (error) {
     // There was an error; return the status along with the error message, and the UI will respond to it
-    return { status: "error", error: error.message };
+    return { status: "error", error: error.text };
   }
 
   // The contact form has been submitted successfully

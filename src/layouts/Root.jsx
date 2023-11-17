@@ -1,5 +1,4 @@
 import styles from "./Root.module.css";
-
 import { Outlet, NavLink } from "react-router-dom";
 
 import MySkills from "../components/MySkills";
