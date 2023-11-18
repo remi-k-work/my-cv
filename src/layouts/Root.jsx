@@ -7,6 +7,7 @@ import PageTitle from "../components/PageTitle";
 function Root({ pageTitle }) {
   return (
     <div className={styles["main-grid"]}>
+      <div className={styles["main-grid__placehl"]}></div>
       <header>
         <nav>
           <NavLink to="/">Home</NavLink>

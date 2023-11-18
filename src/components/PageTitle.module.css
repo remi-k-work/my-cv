@@ -1,5 +1,5 @@
 .page-title {
-  display: block;
+  margin-bottom: 3em;
 }
 
 .page-title__eyebrow {
@@ -19,5 +19,5 @@
 
 .page-title__intro {
   font-size: var(--fs-500);
-  max-width: 45ch;
+  max-width: 65ch;
 }

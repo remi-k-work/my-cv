@@ -76,3 +76,19 @@
   font-weight: var(--fw-bold);
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 576px) {
+  .job-experience__job {
+    width: 18em;
+    padding: 1em;
+  }
+
+  .job-experience__txt {
+    text-align: justify;
+    line-height: 1.3;
+  }
+
+  .job-info__role {
+    font-size: var(--fs-500);
+  }
+}
