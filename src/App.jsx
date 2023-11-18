@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <Analytics />
+      <Analytics debug={false} />
     </>
   );
 }
