@@ -21,8 +21,8 @@
 
 .job-experience__job {
   width: 29em;
-  border-radius: 0.5em;
-  padding: 2em;
+  border-radius: 1em;
+  padding: 1em;
   background: var(--clr-primary-800);
 
   display: grid;
@@ -77,9 +77,12 @@
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 576px) {
+/* || MEDIA QUERIES */
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
   .job-experience__job {
-    width: 18em;
+    width: 22em;
     padding: 1em;
   }
 

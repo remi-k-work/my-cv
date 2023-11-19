@@ -31,3 +31,13 @@
   height: 100%;
   z-index: 0;
 }
+
+/* || MEDIA QUERIES */
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+  .contact-map {
+    height: clamp(24em, 100%, 36em);
+    min-height: 24em;
+  }
+}

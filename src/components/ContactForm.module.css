@@ -32,22 +32,22 @@
   overflow: auto;
 }
 
-/* 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  background: var(--clr-primary-200);
-  border: 1px solid var(--clr-primary-200);
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 1px solid var(--clr-primary-200);
+  outline-offset: 2px;
 }
 
 .contact-form input:invalid,
 .contact-form textarea:invalid {
-  border: 1px solid var(--clr-accent-400);
+  outline: 1px solid var(--clr-accent-400);
+  outline-offset: 2px;
 }
 
 .contact-form input:valid,
 .contact-form textarea:valid {
-  background: var(--clr-primary-200);
-} */
+  outline: none;
+}
 
 .contact-form button {
   padding: var(--_button-padding);
@@ -58,9 +58,14 @@
 }
 
 .contact-form button:hover,
-.contact-form button:focus {
-  border: 1px solid var(--clr-accent-400);
+.contact-form button:focus-visible {
   box-shadow: inset 1px 1px 3px var(--clr-accent-400);
+}
+
+.contact-form button:disabled {
+  border: 1px solid var(--clr-primary-700);
+  box-shadow: inset 1px 1px 3px var(--clr-primary-200);
+  color: var(--clr-primary-400);
 }
 
 .contact-form li + li {
