@@ -1,6 +1,11 @@
 import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
+import avatar from "./assets/components/page-title/avatar.jpg";
+
+// *** Components ***
+import PageTitle from "./components/PageTitle";
+
 // *** Pages ***
 import Home from "./pages/Home";
 import Education from "./pages/Education";
@@ -31,13 +36,24 @@ const pageTitleContact = {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route element={<RootLayout pageTitle={pageTitleHome} />}>
+      <Route
+        element={
+          <RootLayout
+            pageTitle={
+              <PageTitle {...pageTitleHome}>
+                <img src={avatar} width={288} height={288} alt="Avatar" />
+                {pageTitleHome.intro}
+              </PageTitle>
+            }
+          />
+        }
+      >
         <Route index element={<Home />} />
       </Route>
-      <Route element={<RootLayout pageTitle={pageTitleEducation} />}>
+      <Route element={<RootLayout pageTitle={<PageTitle {...pageTitleEducation}>{pageTitleEducation.intro}</PageTitle>} />}>
         <Route path="education" element={<Education />} />
       </Route>
-      <Route element={<RootLayout pageTitle={pageTitleContact} />}>
+      <Route element={<RootLayout pageTitle={<PageTitle {...pageTitleContact}>{pageTitleContact.intro}</PageTitle>} />}>
         <Route path="contact" element={<Contact />} action={contactAction} />
       </Route>
     </>

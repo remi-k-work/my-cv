@@ -2,7 +2,6 @@ import styles from "./Root.module.css";
 import { Outlet, NavLink } from "react-router-dom";
 
 import MySkills from "../components/MySkills";
-import PageTitle from "../components/PageTitle";
 
 function Root({ pageTitle }) {
   return (
@@ -19,7 +18,7 @@ function Root({ pageTitle }) {
         <MySkills />
       </aside>
       <main>
-        <PageTitle {...pageTitle} />
+        {pageTitle}
         <Outlet />
       </main>
     </div>
