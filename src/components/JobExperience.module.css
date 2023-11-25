@@ -47,6 +47,27 @@
   letter-spacing: 0.2em;
 }
 
+.job-experience__year > a {
+  float: right;
+}
+
+.job-experience__year > a:hover {
+  border-radius: 1em;
+  outline: 1px solid var(--clr-accent-400);
+}
+
+.job-experience__year > span {
+  width: 3em;
+  height: 3em;
+  display: block;
+  float: right;
+}
+
+.job-experience__year > img {
+  width: 3em;
+  height: 3em;
+}
+
 .job-experience__info {
   grid-area: info;
   display: flex;
