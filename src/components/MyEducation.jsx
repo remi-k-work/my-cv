@@ -6,16 +6,16 @@ function MyEducation() {
       <figcaption>My Education</figcaption>
       <dl>
         <dt className={styles["my-education__school"]}>
-          <h2 className={styles["school__name"]}>Ignacy Łukasiewicz Rzeszów University of Technology</h2>
+          <h2 className={styles["school__name"]}>Rzeszów University of Technology</h2>
           <p className={styles["school__year"]}>&#8226; 1997 &#8212; 1999 &#8226;</p>
           <p className={styles["school__location"]}>Rzeszów, Poland</p>
         </dt>
         <dd className={styles["my-education__info"]}>
-          Ignacy Łukasiewicz Rzeszów University of Technology is a state-funded academic university that makes up a part of the Polish national education and
-          science system. Rzeszów University of Technology offers its students a wide variety of programs and courses. It also undertakes research and
-          scientific projects in the following specialized fields of the applied sciences: engineering, mathematics, physics, economics, as well as the chemical
-          and biological sciences. I originally studied "Computer Science" there, but I was unable to complete my degree owing to personal issues and an
-          imminent opportunity to travel to the United States.
+          Rzeszów University of Technology is a state-funded academic university that makes up a part of the Polish national education and science system.
+          Rzeszów University of Technology offers its students a wide variety of programs and courses. It also undertakes research and scientific projects in
+          the following specialized fields of the applied sciences: engineering, mathematics, physics, economics, as well as the chemical and biological
+          sciences. I originally studied "Computer Science" there, but I was unable to complete my degree owing to personal issues and an imminent opportunity
+          to travel to the United States.
         </dd>
         <dt className={styles["my-education__school"]}>
           <h2 className={styles["school__name"]}>American Language Communication Center</h2>

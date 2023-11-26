@@ -52,7 +52,11 @@ function JobExperience() {
           <a href="https://codinginpublic.dev/" target="_blank">
             Coding in Public
           </a>
-          . So, starting now, "take charge" of your spending during the holiday season!
+          . So, starting now,&nbsp;
+          <a href="https://react-router-budget.vercel.app/" target="_blank">
+            take charge
+          </a>
+          &nbsp;of your spending especially during the holiday season!
         </p>
       </div>
 
@@ -88,10 +92,7 @@ function JobExperience() {
       </div>
 
       <div className={styles["job-experience__job"]}>
-        <p className={styles["job-experience__year"]}>
-          2006, 2007
-          <span>&nbsp;</span>
-        </p>
+        <p className={styles["job-experience__year"]}>2006, 2007</p>
         <div className={styles["job-experience__info"]}>
           <h2 className={styles["job-info__role"]}>.NET Programmer</h2>
           <span className={styles["job-info__company"]}>Syncro Services</span>
@@ -119,10 +120,7 @@ function JobExperience() {
       </div>
 
       <div className={styles["job-experience__job"]}>
-        <p className={styles["job-experience__year"]}>
-          2004 &#8212; 2006
-          <span>&nbsp;</span>
-        </p>
+        <p className={styles["job-experience__year"]}>2004 &#8212; 2006</p>
         <div className={styles["job-experience__info"]}>
           <h2 className={styles["job-info__role"]}>Web Consultant</h2>
           <span className={styles["job-info__company"]}>Not For Tourists</span>
@@ -149,10 +147,7 @@ function JobExperience() {
       </div>
 
       <div className={styles["job-experience__job"]}>
-        <p className={styles["job-experience__year"]}>
-          2001 &#8212; 2003
-          <span>&nbsp;</span>
-        </p>
+        <p className={styles["job-experience__year"]}>2001 &#8212; 2003</p>
         <div className={styles["job-experience__info"]}>
           <h2 className={styles["job-info__role"]}>Full-Stack Developer</h2>
           <span className={styles["job-info__company"]}>DanceShopper</span>

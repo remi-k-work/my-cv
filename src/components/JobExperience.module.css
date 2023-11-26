@@ -26,8 +26,9 @@
   background: var(--clr-primary-800);
 
   display: grid;
+  align-items: start;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: minmax(3em, min-content) min-content min-content 1fr;
   grid-template-areas:
     "year"
     "info"
@@ -54,13 +55,6 @@
 .job-experience__year > a:hover {
   border-radius: 1em;
   outline: 1px solid var(--clr-accent-400);
-}
-
-.job-experience__year > span {
-  width: 3em;
-  height: 3em;
-  display: block;
-  float: right;
 }
 
 .job-experience__year > img {
