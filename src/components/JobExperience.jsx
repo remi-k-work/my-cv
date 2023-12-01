@@ -16,6 +16,10 @@ import notForTouristsLg from "../assets/components/job-experience/job-experience
 import notForTouristsMd from "../assets/components/job-experience/job-experience-notfortourists-md.webp";
 import notForTouristsSm from "../assets/components/job-experience/job-experience-notfortourists-sm.webp";
 import notForTouristsXs from "../assets/components/job-experience/job-experience-notfortourists-xs.webp";
+import routerContactsLg from "../assets/components/job-experience/job-experience-router-contacts-lg.webp";
+import routerContactsMd from "../assets/components/job-experience/job-experience-router-contacts-md.webp";
+import routerContactsSm from "../assets/components/job-experience/job-experience-router-contacts-sm.webp";
+import routerContactsXs from "../assets/components/job-experience/job-experience-router-contacts-xs.webp";
 import syncroLg from "../assets/components/job-experience/job-experience-syncro-lg.webp";
 import syncroMd from "../assets/components/job-experience/job-experience-syncro-md.webp";
 import syncroSm from "../assets/components/job-experience/job-experience-syncro-sm.webp";
@@ -25,6 +29,34 @@ import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 function JobExperience() {
   return (
     <div className={styles["job-experience"]}>
+      <div className={styles["job-experience__job"]}>
+        <p className={styles["job-experience__year"]}>
+          Dec 2023
+          <a href="https://github.com/remi-k-work/react-router-tut" target="_blank" title="Go and see the GitHub Repo">
+            <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+          </a>
+        </p>
+        <div className={styles["job-experience__info"]}>
+          <h2 className={styles["job-info__role"]}>React Developer</h2>
+          <span className={styles["job-info__company"]}>Personal</span>
+        </div>
+        <a href="https://react-router-tut-rho.vercel.app/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={routerContactsLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={routerContactsMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={routerContactsSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={routerContactsXs} />
+            <img src={routerContactsXs} width={576} height={570} alt="Router Contacts" />
+          </picture>
+        </a>
+        <p className={styles["job-experience__txt"]}>
+          Another day, another lesson &#128516; This time, I took the original instructions from React Router's website and tweaked them somewhat. This is a
+          basic yet functional program for keeping track of your contacts. Do not be concerned; it stores all data locally in the browser using IndexedDB (local
+          storage), so there should be no privacy problems. I added the option to generate some random contacts, and instead of pointing to a web URL, you may
+          upload an avatar for each contact.
+        </p>
+      </div>
+
       <div className={styles["job-experience__job"]}>
         <p className={styles["job-experience__year"]}>
           Nov 2023
