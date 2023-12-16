@@ -35,7 +35,7 @@ async function contactAction({ request }) {
 
   try {
     // Utilize EmailJS to assist with sending emails solely using client-side technology
-    await emailjs.send("default_service", "template_mmqusic", newContact, "0fnfLWUGIs3XYQ3b-");
+    await emailjs.send("default_service", "template_mmqusic", newContact, import.meta.env.VITE_EMAILJS_KEY);
   } catch (error) {
     // There was an error; return the status along with the error message, and the UI will respond to it
     return { status: "error", error: error.text };

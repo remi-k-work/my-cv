@@ -8,6 +8,10 @@ import homeBudgetLg from "../assets/components/job-experience/job-experience-hom
 import homeBudgetMd from "../assets/components/job-experience/job-experience-home-budget-md.webp";
 import homeBudgetSm from "../assets/components/job-experience/job-experience-home-budget-sm.webp";
 import homeBudgetXs from "../assets/components/job-experience/job-experience-home-budget-xs.webp";
+import memoryGameLg from "../assets/components/job-experience/job-experience-memory-game-lg.webp";
+import memoryGameMd from "../assets/components/job-experience/job-experience-memory-game-md.webp";
+import memoryGameSm from "../assets/components/job-experience/job-experience-memory-game-sm.webp";
+import memoryGameXs from "../assets/components/job-experience/job-experience-memory-game-xs.webp";
 import myCvLg from "../assets/components/job-experience/job-experience-my-cv-lg.webp";
 import myCvMd from "../assets/components/job-experience/job-experience-my-cv-md.webp";
 import myCvSm from "../assets/components/job-experience/job-experience-my-cv-sm.webp";
@@ -32,40 +36,40 @@ function JobExperience() {
       <div className={styles["job-experience__job"]}>
         <p className={styles["job-experience__year"]}>
           Dec 2023
-          <a href="https://github.com/remi-k-work/react-router-tut" target="_blank" title="Go and see the GitHub Repo">
+          <a href="https://github.com/remi-k-work/memory-game" target="_blank" title="Go and see the GitHub Repo">
             <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
           </a>
         </p>
         <div className={styles["job-experience__info"]}>
-          <h2 className={styles["job-info__role"]}>React Developer</h2>
+          <h2 className={styles["job-info__role"]}>Memory Game</h2>
           <span className={styles["job-info__company"]}>Personal</span>
         </div>
-        <a href="https://react-router-tut-rho.vercel.app/" target="_blank">
+        <a href="https://memory-game-nine-rho-39.vercel.app/" target="_blank">
           <picture className={styles["job-experience__pic"]}>
-            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={routerContactsLg} />
-            <source media="(min-width: 768px)" width={992} height={981} srcSet={routerContactsMd} />
-            <source media="(min-width: 576px)" width={768} height={759} srcSet={routerContactsSm} />
-            <source media="(min-width: 1px)" width={576} height={570} srcSet={routerContactsXs} />
-            <img src={routerContactsXs} width={576} height={570} alt="Router Contacts" />
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={memoryGameLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={memoryGameMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={memoryGameSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={memoryGameXs} />
+            <img src={memoryGameXs} width={576} height={570} alt="Memory Game" />
           </picture>
         </a>
         <p className={styles["job-experience__txt"]}>
-          Another day, another lesson &#128516; This time, I took the original instructions from React Router's website and tweaked them somewhat. This is a
-          basic yet functional program for keeping track of your contacts. Do not be concerned; it stores all data locally in the browser using IndexedDB (local
-          storage), so there should be no privacy problems. I added the option to generate some random contacts, and instead of pointing to a web URL, you may
-          upload an avatar for each contact.
+          Would you like to enhance your visual memory by putting it to the test? Let us see how many turns it takes you to reveal the entire board. You will be
+          able to select from a wide range of image collections that will always surprise you because they are acquired at random from PixaBay servers. This
+          should increase the game's interest and make it quite unpredictable. When you believe you are improving, try a more difficult level. Keep track of
+          your scores and compare them with your previous ones. Push yourself to the limit and try to beat your best score. Enjoy the challenge and have fun!
         </p>
       </div>
 
       <div className={styles["job-experience__job"]}>
         <p className={styles["job-experience__year"]}>
-          Nov 2023
+          Dec 2023
           <a href="https://github.com/remi-k-work/react-router-budget" target="_blank" title="Go and see the GitHub Repo">
             <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
           </a>
         </p>
         <div className={styles["job-experience__info"]}>
-          <h2 className={styles["job-info__role"]}>React Developer</h2>
+          <h2 className={styles["job-info__role"]}>Home Budget</h2>
           <span className={styles["job-info__company"]}>Personal</span>
         </div>
         <a href="https://react-router-budget.vercel.app/" target="_blank">
@@ -95,12 +99,40 @@ function JobExperience() {
       <div className={styles["job-experience__job"]}>
         <p className={styles["job-experience__year"]}>
           Nov 2023
+          <a href="https://github.com/remi-k-work/react-router-tut" target="_blank" title="Go and see the GitHub Repo">
+            <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+          </a>
+        </p>
+        <div className={styles["job-experience__info"]}>
+          <h2 className={styles["job-info__role"]}>Router Contacts</h2>
+          <span className={styles["job-info__company"]}>Personal</span>
+        </div>
+        <a href="https://react-router-tut-rho.vercel.app/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={routerContactsLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={routerContactsMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={routerContactsSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={routerContactsXs} />
+            <img src={routerContactsXs} width={576} height={570} alt="Router Contacts" />
+          </picture>
+        </a>
+        <p className={styles["job-experience__txt"]}>
+          Another day, another lesson &#128516; This time, I took the original instructions from React Router's website and tweaked them somewhat. This is a
+          basic yet functional program for keeping track of your contacts. Do not be concerned; it stores all data locally in the browser using IndexedDB (local
+          storage), so there should be no privacy problems. I added the option to generate some random contacts, and instead of pointing to a web URL, you may
+          upload an avatar for each contact.
+        </p>
+      </div>
+
+      <div className={styles["job-experience__job"]}>
+        <p className={styles["job-experience__year"]}>
+          Oct 2023
           <a href="https://github.com/remi-k-work/my-cv" target="_blank" title="Go and see the GitHub Repo">
             <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
           </a>
         </p>
         <div className={styles["job-experience__info"]}>
-          <h2 className={styles["job-info__role"]}>React Developer</h2>
+          <h2 className={styles["job-info__role"]}>My CV</h2>
           <span className={styles["job-info__company"]}>Personal</span>
         </div>
         <a href="https://my-cv-remi.vercel.app/" target="_blank">
