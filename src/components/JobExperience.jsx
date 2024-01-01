@@ -28,11 +28,45 @@ import syncroLg from "../assets/components/job-experience/job-experience-syncro-
 import syncroMd from "../assets/components/job-experience/job-experience-syncro-md.webp";
 import syncroSm from "../assets/components/job-experience/job-experience-syncro-sm.webp";
 import syncroXs from "../assets/components/job-experience/job-experience-syncro-xs.webp";
+import wordleGameLg from "../assets/components/job-experience/job-experience-wordle-game-lg.webp";
+import wordleGameMd from "../assets/components/job-experience/job-experience-wordle-game-md.webp";
+import wordleGameSm from "../assets/components/job-experience/job-experience-wordle-game-sm.webp";
+import wordleGameXs from "../assets/components/job-experience/job-experience-wordle-game-xs.webp";
 import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 
 function JobExperience() {
   return (
     <div className={styles["job-experience"]}>
+      <div className={styles["job-experience__job"]}>
+        <p className={styles["job-experience__year"]}>
+          Jan 2024
+          <a href="https://github.com/remi-k-work/wordle-game" target="_blank" title="Go and see the GitHub Repo">
+            <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+          </a>
+        </p>
+        <div className={styles["job-experience__info"]}>
+          <h2 className={styles["job-info__role"]}>Wordle Game</h2>
+          <span className={styles["job-info__company"]}>Personal</span>
+        </div>
+        <a href="https://wordle-game-beta-five.vercel.app/" target="_blank">
+          <picture className={styles["job-experience__pic"]}>
+            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={wordleGameLg} />
+            <source media="(min-width: 768px)" width={992} height={981} srcSet={wordleGameMd} />
+            <source media="(min-width: 576px)" width={768} height={759} srcSet={wordleGameSm} />
+            <source media="(min-width: 1px)" width={576} height={570} srcSet={wordleGameXs} />
+            <img src={wordleGameXs} width={576} height={570} alt="Wordle Game" />
+          </picture>
+        </a>
+        <p className={styles["job-experience__txt"]}>
+          Immerse yourselves in the captivating world of word puzzles with my Wordle Game clone, the ultimate vocabulary challenge. Each day, a new mystery word
+          awaits you for deciphering, offering a fresh challenge to flex your linguistic muscles. With each guess, you will receive clues to unravel the secret
+          word, gradually narrowing down the possibilities. Utilize the vibrant color-coded feedback system to guide your journey, savoring the satisfaction of
+          each correct letter placement. Whether you are a seasoned wordsmith or a budding linguist, this game offers an engaging and rewarding experience for
+          all. Unleash your creativity, hone your vocabulary, and relish the thrill of solving each puzzle. Let the word-solving adventure begin! This game can
+          be played with either English or Polish vocabulary sets. While working on this project, I employed the Redux technique.
+        </p>
+      </div>
+
       <div className={styles["job-experience__job"]}>
         <p className={styles["job-experience__year"]}>
           Dec 2023
