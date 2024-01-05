@@ -1,11 +1,19 @@
+// component css styles
 import styles from "./ContactForm.module.css";
+
+// react
 import { useState } from "react";
+
+// rrd imports
 import { Form, useSubmit } from "react-router-dom";
+
+// other libraries
 import cn from "classnames";
 
+// components
 import { handleInput, handleInvalid } from "../assets/components/contact-form/validation";
 
-function ContactForm() {
+export default function ContactForm() {
   const [contact, setContact] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("empty");
   const submit = useSubmit();
@@ -139,5 +147,3 @@ function ContactForm() {
     </Form>
   );
 }
-
-export default ContactForm;

@@ -1,13 +1,30 @@
+// component css styles
 import styles from "./Home.module.css";
 
-import JobExperience from "../components/JobExperience";
+// rrd imports
+import { useLoaderData } from "react-router-dom";
 
-function Home() {
+// components
+import JobExperienceList from "../components/JobExperienceList";
+
+export default function Home() {
+  const jobExperienceList = useLoaderData();
+
   return (
     <article className={styles["home"]}>
-      <JobExperience />
+      <JobExperienceList jobExperienceList={jobExperienceList} />
     </article>
   );
 }
 
-export default Home;
+// loader
+export async function homeLoader() {
+  // Obtain a list of all job experiences from an outside source
+  const response = await fetch("/data/job-experience-list.json");
+  if (!response.ok) {
+    throw new Error("Unable to load data.");
+  }
+
+  const data = await response.json();
+  return data;
+}

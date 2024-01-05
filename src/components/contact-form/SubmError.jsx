@@ -1,6 +1,7 @@
+// component css styles
 import styles from "./SubmError.module.css";
 
-function SubmError({ error }) {
+export default function SubmError({ error }) {
   return (
     <div className={styles["subm-error"]}>
       <h2>There was an Error</h2>
@@ -9,5 +10,3 @@ function SubmError({ error }) {
     </div>
   );
 }
-
-export default SubmError;

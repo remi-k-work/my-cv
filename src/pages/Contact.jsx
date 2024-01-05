@@ -1,13 +1,19 @@
+// component css styles
 import styles from "./Contact.module.css";
+
+// rrd imports
 import { useActionData } from "react-router-dom";
+
+// other libraries
 import emailjs from "@emailjs/browser";
 
+// components
 import ContactForm from "../components/ContactForm";
 import SubmError from "../components/contact-form/SubmError";
 import ThankYou from "../components/contact-form/ThankYou";
 import ContactMap from "../components/ContactMap";
 
-function Contact() {
+export default function Contact() {
   const actionData = useActionData();
 
   return (
@@ -24,7 +30,8 @@ function Contact() {
   );
 }
 
-async function contactAction({ request }) {
+// action
+export async function contactAction({ request }) {
   // Browsers will serialize all the data in the form into FormData and send it as the body of a new request to your server
   // React Router <Form> prevents the browser from sending that request and instead sends the request to your route action!
   // This enables highly dynamic web apps with the simple model of HTML and HTTP
@@ -44,6 +51,3 @@ async function contactAction({ request }) {
   // The contact form has been submitted successfully
   return { status: "success" };
 }
-
-export default Contact;
-export { contactAction };

@@ -1,6 +1,7 @@
+// component css styles
 import styles from "./PageTitle.module.css";
 
-function PageTitle({ eyebrow, heading, children }) {
+export default function PageTitle({ eyebrow, heading, children }) {
   return (
     <section className={styles["page-title"]}>
       <p className={styles["page-title__eyebrow"]}>{eyebrow}</p>
@@ -9,5 +10,3 @@ function PageTitle({ eyebrow, heading, children }) {
     </section>
   );
 }
-
-export default PageTitle;

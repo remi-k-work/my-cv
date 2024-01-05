@@ -1,6 +1,7 @@
+// component css styles
 import styles from "./MyEducation.module.css";
 
-function MyEducation() {
+export default function MyEducation() {
   return (
     <figure className={styles["my-education"]}>
       <figcaption>My Education</figcaption>
@@ -40,5 +41,3 @@ function MyEducation() {
     </figure>
   );
 }
-
-export default MyEducation;

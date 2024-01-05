@@ -49,25 +49,6 @@
   outline: none;
 }
 
-.contact-form button {
-  padding: var(--_button-padding);
-  border: 1px solid var(--clr-primary-300);
-  border-radius: var(--_button-border-radius);
-  box-shadow: inset 1px 1px 3px var(--clr-neutral-100);
-  background: var(--clr-primary-800);
-}
-
-.contact-form button:hover,
-.contact-form button:focus-visible {
-  box-shadow: inset 1px 1px 3px var(--clr-accent-400);
-}
-
-.contact-form button:disabled {
-  border: 1px solid var(--clr-primary-700);
-  box-shadow: inset 1px 1px 3px var(--clr-primary-200);
-  color: var(--clr-primary-400);
-}
-
 .contact-form li + li {
   margin-top: 1em;
 }

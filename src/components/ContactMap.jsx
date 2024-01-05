@@ -1,8 +1,11 @@
+// component css styles
 import styles from "./ContactMap.module.css";
+
+// other libraries
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-function ContactMap() {
+export default function ContactMap() {
   return (
     <div className={styles["contact-map"]}>
       <MapContainer center={[50.05142444038861, 21.98322537033913]} zoom={17}>
@@ -30,5 +33,3 @@ function ContactMap() {
     </div>
   );
 }
-
-export default ContactMap;
