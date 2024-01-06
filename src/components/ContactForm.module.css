@@ -1,30 +1,31 @@
 .contact-form {
-  --_border-radius: 0.25em;
-  --_button-padding: 0.5em;
-  --_button-border-radius: 0.5em;
-
-  width: clamp(10em, 100%, 36em);
-  min-width: 10em;
-  max-width: 36em;
-  margin: auto;
+  inline-size: 100%;
+  max-inline-size: 36em;
+  margin-inline: auto;
 }
 
 .contact-form > ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  margin-inline: 0;
+  margin-block: 0;
 }
 
 .contact-form input,
 .contact-form textarea {
   font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
-  width: 100%;
+  inline-size: 100%;
   border: 1px solid var(--clr-primary-200);
-  border-radius: var(--_border-radius);
+  border-start-start-radius: 0.25em;
+  border-end-start-radius: 0.25em;
+  border-start-end-radius: 0.25em;
+  border-end-end-radius: 0.25em;
   box-shadow: inset 1px 1px 3px var(--clr-primary-800);
   background: var(--clr-primary-200);
   outline: none;
-  padding: 0.25em;
+  padding-inline: 0.25em;
+  padding-block: 0.25em;
 }
 
 .contact-form textarea {
@@ -50,7 +51,7 @@
 }
 
 .contact-form li + li {
-  margin-top: 1em;
+  margin-block: 1em 0;
 }
 
 .contact-form__row {
@@ -59,7 +60,7 @@
 
 .contact-form__row label {
   display: block;
-  padding: 0.25em 0;
+  padding-block: 0 0.5em;
   color: var(--clr-primary-200);
   font-size: var(--fs-200);
   font-weight: var(--fw-semi-bold);

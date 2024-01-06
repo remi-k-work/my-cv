@@ -38,21 +38,20 @@ export default function JobExperienceList({ jobExperienceList }) {
 
   return (
     <section className={styles["job-experience-list"]}>
-      <button type="button" onClick={() => handleViewedJobSwitch(-1)}>
-        Prev
-        <br />
-        {viewedJobIndex + 1}/{totalJobsNumber}
+      <button className={styles["job-experience-list__pjob"]} type="button" onClick={() => handleViewedJobSwitch(-1)}>
+        &laquo; Prev
+      </button>
+      <span className={styles["job-experience-list__cjob"]}>
+        {viewedJobIndex + 1} of {totalJobsNumber}
+      </span>
+      <button className={styles["job-experience-list__njob"]} type="button" onClick={() => handleViewedJobSwitch(+1)}>
+        Next &raquo;
       </button>
       <div className={styles["job-experience-list__view"]}>
         {jobExperienceList.map((singleJobExperience, jobIndex) => {
           return <SingleJobExperience key={jobIndex} ref={(jobNode) => addThisJobNodeRef(jobIndex, jobNode)} {...singleJobExperience} />;
         })}
       </div>
-      <button type="button" onClick={() => handleViewedJobSwitch(+1)}>
-        Next
-        <br />
-        {viewedJobIndex + 1}/{totalJobsNumber}
-      </button>
     </section>
   );
 }

@@ -1,19 +1,21 @@
 .my-skills {
-  height: 100%;
-  margin-left: 1em;
-  border-left: 1px solid var(--clr-primary-300);
+  block-size: 100%;
+  margin-inline: 1em 0;
+  border-inline-start: 1px solid var(--clr-primary-300);
   position: relative;
 }
 
 .my-skills__list {
-  height: auto;
+  block-size: auto;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  margin-inline: 0;
+  margin-block: 0;
   display: grid;
   gap: 3em;
   position: sticky;
-  top: 5em;
+  inset-block-start: 5em;
 }
 
 .my-skills__list > li {
@@ -23,12 +25,12 @@
   position: relative;
   font-size: var(--fs-300);
   font-weight: var(--fw-semi-bold);
-  padding-left: 0.5em;
+  padding-inline: 0.5em 0;
 }
 
 .my-skills__list > li img {
-  width: 3em;
-  height: 3em;
+  inline-size: 3em;
+  block-size: 3em;
 }
 
 .my-skills__list > li::after {
@@ -36,12 +38,15 @@
 
   content: "";
   position: absolute;
-  left: calc(var(--_size) / -2);
-  top: calc(50% - var(--_size) / 2);
-  width: var(--_size);
+  inset-inline-start: calc(var(--_size) / -2);
+  inset-block-start: calc(50% - var(--_size) / 2);
+  inline-size: var(--_size);
   aspect-ratio: 1;
   outline: var(--_size) solid var(--clr-primary-400);
-  border-radius: 50%;
+  border-start-start-radius: 50%;
+  border-start-end-radius: 50%;
+  border-end-start-radius: 50%;
+  border-end-end-radius: 50%;
   background: var(--clr-neutral-100);
 }
 
@@ -50,22 +55,24 @@
 /* X-Small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {
   .my-skills {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     background: var(--clr-primary-700);
-    margin: 0;
-    border: none;
+    margin-inline: 0;
+    margin-block: 0;
+    border-inline: none;
+    border-block: none;
     position: fixed;
-    bottom: 0;
+    inset-block-end: 0;
     z-index: 1;
   }
 
   .my-skills::after {
     content: "";
     position: absolute;
-    top: 1em;
-    width: 100%;
-    border-bottom: 1px solid var(--clr-primary-300);
+    inset-block-start: 1em;
+    inline-size: 100%;
+    border-block-end: 1px solid var(--clr-primary-300);
     z-index: -1;
   }
 
@@ -78,7 +85,8 @@
 
   .my-skills__list > li {
     position: static;
-    padding: 0;
+    padding-inline: 0;
+    padding-block: 0;
   }
 
   .my-skills__list > li::before {
@@ -86,12 +94,16 @@
 
     content: "";
     position: static;
-    width: var(--_size);
+    inline-size: var(--_size);
     aspect-ratio: 1;
     outline: var(--_size) solid var(--clr-primary-400);
-    border-radius: 50%;
+    border-start-start-radius: 50%;
+    border-start-end-radius: 50%;
+    border-end-start-radius: 50%;
+    border-end-end-radius: 50%;
     background: var(--clr-neutral-100);
-    margin: 1em;
+    margin-inline: 1em;
+    margin-block: 1em;
   }
 
   .my-skills__list > li::after {

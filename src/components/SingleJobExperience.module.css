@@ -7,7 +7,7 @@
   border-end-end-radius: 1em;
   padding-inline: 1em;
   padding-block: 1em;
-  background: var(--clr-primary-800);
+  background: var(--clr-primary-700);
 
   scroll-snap-stop: always;
   scroll-snap-align: center;
@@ -79,7 +79,7 @@
 /* || MEDIA QUERIES */
 
 /* X-Small devices (portrait phones, less than 576px) */
-@container job-view (width <= 30em) {
+@container job-list (width <= 30em) {
   .single-job-experience {
     grid-template-columns: 1fr auto;
     grid-template-rows: minmax(2em, auto) auto auto auto 1fr;
@@ -105,7 +105,6 @@
   }
 
   .single-job-experience__txt {
-    font-size: var(--fs-300);
     line-height: 1.3;
   }
 }

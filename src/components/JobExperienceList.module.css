@@ -1,10 +1,32 @@
 .job-experience-list {
   display: grid;
+  gap: 0.25em;
+
   grid-template-columns: auto 1fr auto;
-  gap: 1em;
+  grid-template-rows: auto 1fr;
+
+  grid-template-areas:
+    "pjob  cjob  njob "
+    "jview jview jview";
+
+  container: job-list / inline-size;
+}
+
+.job-experience-list__pjob {
+  grid-area: pjob;
+}
+
+.job-experience-list__cjob {
+  grid-area: cjob;
+  place-self: center;
+}
+
+.job-experience-list__njob {
+  grid-area: njob;
 }
 
 .job-experience-list__view {
+  grid-area: jview;
   display: grid;
   grid-auto-flow: column;
   gap: 1em;
@@ -14,16 +36,16 @@
   scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
   scroll-snap-type: inline mandatory;
   scroll-behavior: smooth;
-
-  container: job-view / inline-size;
 }
 
 .job-experience-list__view::-webkit-scrollbar {
   block-size: 0.75em;
 }
+
 .job-experience-list__view::-webkit-scrollbar-track {
   background-color: var(--clr-primary-800);
 }
+
 .job-experience-list__view::-webkit-scrollbar-thumb {
   background-color: var(--clr-accent-400);
   border-start-start-radius: 100vw;

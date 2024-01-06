@@ -1,50 +1,51 @@
 /* || MAIN LAYOUT */
 
 .main-grid {
-  min-height: 100vh;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
   align-items: start;
 
   display: grid;
   grid-template-columns: auto 1fr 14fr 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "placehl header header header"
-    "sidebar . content . ";
+    "placehl header header  header"
+    "sidebar .      content .     ";
 }
 
 .main-grid__placehl {
   grid-area: placehl;
   place-self: stretch;
-  margin-left: 1em;
-  border-left: 1px solid var(--clr-primary-300);
+  margin-inline: 1em 0;
+  border-inline-start: 1px solid var(--clr-primary-300);
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
 }
 
 .main-grid__placehl::after {
   content: "";
   position: absolute;
-  top: 50%;
-  width: calc(100% + 1em);
-  margin-left: -1em;
-  border-bottom: 1px solid var(--clr-primary-300);
+  inset-block-start: 50%;
+  inline-size: calc(100% + 1em);
+  margin-inline: -1em 0;
+  border-block-end: 1px solid var(--clr-primary-300);
 }
 
 header {
   grid-area: header;
-  width: 100%;
+  inline-size: 100%;
   background: var(--clr-primary-700);
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   z-index: 1;
 }
 
 header::after {
   content: "";
   position: absolute;
-  top: 50%;
-  width: 100%;
-  border-bottom: 1px solid var(--clr-primary-300);
+  inset-block-start: 50%;
+  inline-size: 100%;
+  border-block-end: 1px solid var(--clr-primary-300);
   z-index: -1;
 }
 
@@ -56,17 +57,24 @@ header nav {
 header nav a {
   font-size: var(--fs-400);
   text-decoration: none;
-  margin: 0.5em;
-  padding: 0.5em;
-  border-radius: 1em;
+  margin-inline: 0.5em;
+  margin-block: 0.5em;
+  padding-inline: 0.5em;
+  padding-block: 0.5em;
+  border-start-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-start-radius: 1em;
+  border-end-end-radius: 1em;
   background: var(--clr-primary-700);
   color: var(--clr-primary-200);
-  border: 1px solid var(--clr-primary-300);
+  border-inline: 1px solid var(--clr-primary-300);
+  border-block: 1px solid var(--clr-primary-300);
 }
 
 header nav :global a.active {
   color: var(--clr-neutral-100);
-  border: 1px solid var(--clr-accent-400);
+  border-inline: 1px solid var(--clr-accent-400);
+  border-block: 1px solid var(--clr-accent-400);
 }
 
 aside {
@@ -87,9 +95,9 @@ main {
     grid-template-columns: 1em 1fr 1em;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
-      "header header header"
-      " . content . "
-      "footer footer footer";
+      "header header  header"
+      ".      content .     "
+      "footer footer  footer";
   }
 
   .main-grid__placehl {
@@ -104,6 +112,6 @@ main {
   main {
     grid-area: content;
     place-self: stretch;
-    margin-bottom: 8em;
+    margin-block: 0 8em;
   }
 }
