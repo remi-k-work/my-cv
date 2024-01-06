@@ -19,34 +19,32 @@ export default function Root() {
   const pageTitle = pageTitles[location.pathname];
 
   return (
-    <>
-      <ScrollRestoration />
-      <div className={styles["main-grid"]}>
-        <div className={styles["main-grid__placehl"]}></div>
-        <header>
-          <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="education">Education</NavLink>
-            <NavLink to="contact">Contact</NavLink>
-          </nav>
-        </header>
-        <aside>
-          <MySkills />
-        </aside>
-        <main>
-          {location.pathname === "/" ? (
-            // Show the avatar only on the homepage
-            <PageTitle {...pageTitle}>
-              <img src={avatar} width={288} height={288} alt="Avatar" />
-              {pageTitle?.intro}
-            </PageTitle>
-          ) : (
-            <PageTitle {...pageTitle}>{pageTitle?.intro}</PageTitle>
-          )}
-          <Outlet />
-        </main>
-      </div>
-    </>
+    <div className={styles["main-grid"]}>
+      <div className={styles["main-grid__placehl"]}></div>
+      <header>
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="education">Education</NavLink>
+          <NavLink to="contact">Contact</NavLink>
+        </nav>
+      </header>
+      <aside>
+        <MySkills />
+      </aside>
+      <main>
+        <ScrollRestoration />
+        {location.pathname === "/" ? (
+          // Show the avatar only on the homepage
+          <PageTitle {...pageTitle}>
+            <img src={avatar} width={288} height={288} alt="Avatar" />
+            {pageTitle?.intro}
+          </PageTitle>
+        ) : (
+          <PageTitle {...pageTitle}>{pageTitle?.intro}</PageTitle>
+        )}
+        <Outlet />
+      </main>
+    </div>
   );
 }
 

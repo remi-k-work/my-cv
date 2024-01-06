@@ -12,7 +12,7 @@
   overflow-x: scroll;
 
   scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
-  scroll-snap-type: x proximity;
+  scroll-snap-type: inline mandatory;
   scroll-behavior: smooth;
 
   container: job-view / inline-size;

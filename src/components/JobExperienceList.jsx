@@ -22,7 +22,7 @@ export default function JobExperienceList({ jobExperienceList }) {
       const allJobNodesList = allJobNodesListRef.current;
       const newViewedJobIndex = Math.min(Math.max(prevViewedJobIndex + direction, 0), allJobNodesList.size - 1);
       const viewedJobNode = allJobNodesList.get(newViewedJobIndex);
-      viewedJobNode.scrollIntoView({ behavior: "auto", block: "nearest", inline: "center" });
+      viewedJobNode.scrollIntoView();
       return newViewedJobIndex;
     });
   }
