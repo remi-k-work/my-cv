@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <article className={styles["home"]}>
-      <JobExperienceList jobExperienceList={jobExperienceList} />
+      <JobExperienceList jobExperienceList={jobExperienceList.toReversed()} />
     </article>
   );
 }
