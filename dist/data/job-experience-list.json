@@ -1,5 +1,18 @@
 [
   {
+    "year": "Feb 2024",
+    "role": "Word Wave",
+    "company": "Personal",
+    "txt": "What is on your mind today? Let your thoughts take flight and join our vibrant blogging community. Unleash your creativity and connect with like-minded individuals. Have a story to tell? An idea that's bubbling up inside? Our platform provides a space for you to express yourself freely and connect with others who share your passions. I was building a simple social network feed app inspired by Mark Erikson's 'Redux Essentials' tutorial from the official Redux documentation.",
+    "gitHubLink": "https://github.com/remi-k-work/word-wave",
+    "liveLink": "https://word-wave-two.vercel.app/",
+    "lgPic": "job-experience-word-wave-lg.webp",
+    "mdPic": "job-experience-word-wave-md.webp",
+    "smPic": "job-experience-word-wave-sm.webp",
+    "xsPic": "job-experience-word-wave-xs.webp"
+  },
+
+  {
     "year": "Jan 2024",
     "role": "Wordle Game",
     "company": "Personal",
@@ -30,7 +43,7 @@
     "role": "Home Budget",
     "company": "Personal",
     "txt": "After taking a long break from the industry, I am working hard to keep up with all of the latest web-development trends. I really enjoy React since it allows you to think more modularly when creating your app and also aids in encapsulation. I am practicing with React Router, which is another useful tool for making React's SPA behave more like a traditional website with discrete pages and routes. I went through one of the tutorials on Coding in Public. So, starting now, take charge of your spending, especially during the holiday season!",
-    "gitHubLink": "https://github.com/remi-k-work/react-router-budget",
+    "gitHubLink": "https://github.com/remi-k-work/home-budget",
     "liveLink": "https://react-router-budget.vercel.app/",
     "lgPic": "job-experience-home-budget-lg.webp",
     "mdPic": "job-experience-home-budget-md.webp",

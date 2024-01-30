@@ -36,6 +36,10 @@
   grid-area: github;
 }
 
+.single-job-experience__github > a {
+  display: block;
+}
+
 .single-job-experience__github > a:hover {
   border-start-start-radius: 1em;
   border-end-start-radius: 1em;

@@ -17,12 +17,12 @@ export default function JobExperienceList({ jobExperienceList }) {
     setTotalJobsNumber(allJobNodesList.size);
   }, []);
 
-  function handleViewedJobSwitch(direction) {
+  function handleViewedJobSwitch(direction, verticalAlignment) {
     setViewedJobIndex((prevViewedJobIndex) => {
       const allJobNodesList = allJobNodesListRef.current;
       const newViewedJobIndex = Math.min(Math.max(prevViewedJobIndex + direction, 0), allJobNodesList.size - 1);
       const viewedJobNode = allJobNodesList.get(newViewedJobIndex);
-      viewedJobNode.scrollIntoView();
+      viewedJobNode.scrollIntoView({ behavior: "auto", block: verticalAlignment, inline: "center" });
       return newViewedJobIndex;
     });
   }
@@ -38,13 +38,13 @@ export default function JobExperienceList({ jobExperienceList }) {
 
   return (
     <section className={styles["job-experience-list"]}>
-      <button className={styles["job-experience-list__pjob"]} type="button" onClick={() => handleViewedJobSwitch(-1)}>
+      <button className={styles["job-experience-list__pjobt"]} type="button" onClick={() => handleViewedJobSwitch(-1, "center")}>
         &laquo; Prev
       </button>
-      <span className={styles["job-experience-list__cjob"]}>
+      <span className={styles["job-experience-list__cjobt"]}>
         {viewedJobIndex + 1} of {totalJobsNumber}
       </span>
-      <button className={styles["job-experience-list__njob"]} type="button" onClick={() => handleViewedJobSwitch(+1)}>
+      <button className={styles["job-experience-list__njobt"]} type="button" onClick={() => handleViewedJobSwitch(+1, "center")}>
         Next &raquo;
       </button>
       <div className={styles["job-experience-list__view"]}>
@@ -52,6 +52,15 @@ export default function JobExperienceList({ jobExperienceList }) {
           return <SingleJobExperience key={jobIndex} ref={(jobNode) => addThisJobNodeRef(jobIndex, jobNode)} {...singleJobExperience} />;
         })}
       </div>
+      <button className={styles["job-experience-list__pjobb"]} type="button" onClick={() => handleViewedJobSwitch(-1, "nearest")}>
+        &laquo; Prev
+      </button>
+      <span className={styles["job-experience-list__cjobb"]}>
+        {viewedJobIndex + 1} of {totalJobsNumber}
+      </span>
+      <button className={styles["job-experience-list__njobb"]} type="button" onClick={() => handleViewedJobSwitch(+1, "nearest")}>
+        Next &raquo;
+      </button>
     </section>
   );
 }

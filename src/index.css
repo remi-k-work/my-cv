@@ -29,47 +29,6 @@
   --fs-700: clamp(1.7281rem, 1.4801rem + 1.2402vw, 2.4413rem);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin-inline: 0 0;
-  margin-block: 0 0;
-  padding-inline: 0 0;
-  padding-block: 0 0;
-}
-
-/* || GENERAL STYLES */
-
-img,
-svg,
-picture,
-video {
-  max-inline-size: 100%;
-  display: block;
-  block-size: auto;
-
-  /* This reset is important to stop SVGs inside buttons from capturing their events */
-  pointer-events: none;
-}
-
-button,
-label,
-input,
-select,
-progress,
-meter,
-textarea {
-  display: block;
-  font-family: inherit;
-  font-size: 100%;
-  margin-inline: 0 0;
-  margin-block: 0 0;
-  padding-inline: 0 0;
-  padding-block: 0 0;
-  box-sizing: border-box;
-}
-
 html {
   color-scheme: dark;
   scroll-padding-block: 9em 0;
@@ -79,10 +38,12 @@ body {
   font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
   color: var(--clr-neutral-100);
   background: var(--clr-primary-700);
-  margin-inline: 0 0;
-  margin-block: 0 0;
-  padding-inline: 0 0;
-  padding-block: 0 0;
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  margin-inline: 0;
+  margin-block: 0;
+  padding-inline: 0;
+  padding-block: 0;
 }
 
 button {

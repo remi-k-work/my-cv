@@ -6,23 +6,37 @@
   grid-template-rows: auto 1fr;
 
   grid-template-areas:
-    "pjob  cjob  njob "
-    "jview jview jview";
+    "pjobt cjobt njobt"
+    "jview jview jview"
+    "pjobb cjobb njobb";
 
   container: job-list / inline-size;
 }
 
-.job-experience-list__pjob {
-  grid-area: pjob;
+.job-experience-list__pjobt {
+  grid-area: pjobt;
 }
 
-.job-experience-list__cjob {
-  grid-area: cjob;
+.job-experience-list__cjobt {
+  grid-area: cjobt;
   place-self: center;
 }
 
-.job-experience-list__njob {
-  grid-area: njob;
+.job-experience-list__njobt {
+  grid-area: njobt;
+}
+
+.job-experience-list__pjobb {
+  grid-area: pjobb;
+}
+
+.job-experience-list__cjobb {
+  grid-area: cjobb;
+  place-self: center;
+}
+
+.job-experience-list__njobb {
+  grid-area: njobb;
 }
 
 .job-experience-list__view {
