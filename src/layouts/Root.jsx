@@ -26,6 +26,9 @@ export default function Root() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="education">Education</NavLink>
           <NavLink to="contact">Contact</NavLink>
+          <a href="/my-cv.pdf" target="_blank">
+            <b>Pdf</b>
+          </a>
         </nav>
       </header>
       <aside>
