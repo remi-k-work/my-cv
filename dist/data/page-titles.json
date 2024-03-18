@@ -1,0 +1,19 @@
+{
+  "/": {
+    "eyebrow": "Skills & Experience",
+    "heading": "My Resume",
+    "intro": "While I dabbled in ASP.NET and C# back in the day, my passion for web development has never wavered. These days, I am totally hooked on React, JavaScript, HTML, and CSS - the perfect tools for my front-end development obsession. With an insatiable hunger for knowledge and a commitment to learning, I am seeking internship opportunities to get my hands dirty and contribute to any project that comes my way. Even the simplest tasks would provide invaluable learning experiences as I strive to elevate my web development skills to the next level. I am eager to soak up knowledge from experienced pros and collaborate with a team of brilliant minds, ready to absorb skills and insights to become a true asset to any team."
+  },
+
+  "/education": {
+    "eyebrow": "Developer with Interactive Media Degree",
+    "heading": "My Education",
+    "intro": "My educational journey began at the Rzeszów University of Technology in Poland, where I got my feet wet in the world of computer science. I spent two years exploring the basics before taking the plunge and transferring to the Pratt Institute in the United States. At Pratt, I dove headfirst into the Interactive Media program, learning about all the latest crazes in web development, design, and user experience. While I might not have a fancy computer science degree, I have built a strong foundation in the core concepts. I am also proficient in a variety of programming languages and technologies, including JavaScript, HTML, CSS, and React. I am a dedicated and hardworking individual, always eager to learn and grow. Additionally, I am a team player at heart, always up for collaborating with talented folks and soaking up their knowledge. I am confident that my passion, skills, and willingness to learn make me a valuable asset to any organization that is willing to give me a chance to shine."
+  },
+
+  "/contact": {
+    "eyebrow": "Get in Touch",
+    "heading": "Contact Me",
+    "intro": "Wanna connect? Whether you have a question about my work, you are interested in collaborating on a project, or you have internship opportunities in mind, do not hesitate to reach out! Use the form below to send me a message, and I will be thrilled to respond promptly. I am eager to connect, learn, and grow alongside you! Cheers, and I hope to hear from you soon!"
+  }
+}
