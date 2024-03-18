@@ -31,7 +31,7 @@
   border-block-end: 1px solid var(--clr-primary-300);
 }
 
-header {
+.main-grid > header {
   grid-area: header;
   inline-size: 100%;
   background: var(--clr-primary-700);
@@ -40,7 +40,7 @@ header {
   z-index: 1;
 }
 
-header::after {
+.main-grid > header::after {
   content: "";
   position: absolute;
   inset-block-start: 50%;
@@ -49,12 +49,12 @@ header::after {
   z-index: -1;
 }
 
-header nav {
+.main-grid > header nav {
   display: flex;
   justify-content: end;
 }
 
-header nav a {
+.main-grid > header nav a {
   font-size: var(--fs-400);
   text-decoration: none;
   margin-inline: 0.5em;
@@ -71,7 +71,7 @@ header nav a {
   border-block: 1px solid var(--clr-primary-300);
 }
 
-header nav :global a.active {
+.main-grid > header nav :global a.active {
   color: var(--clr-neutral-100);
   border-inline: 1px solid var(--clr-accent-400);
   border-block: 1px solid var(--clr-accent-400);

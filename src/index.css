@@ -1,99 +1,109 @@
-:root {
-  /* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 
     The numbering system goes from 100 to 900
     The base is 400 (the default color, font size, or font weight)
   */
-  --clr-neutral-100: hsla(0, 0%, 100%, 1);
+    --clr-neutral-100: hsla(0, 0%, 100%, 1);
 
-  --clr-primary-200: hsla(229, 21%, 53%, 1);
-  --clr-primary-300: hsla(229, 36%, 39%, 1);
-  --clr-primary-400: hsla(230, 50%, 58%, 0.3);
-  --clr-primary-700: hsla(229, 43%, 20%, 1);
-  --clr-primary-800: hsla(229, 47%, 17%, 1);
+    --clr-primary-200: hsla(229, 21%, 53%, 1);
+    --clr-primary-300: hsla(229, 36%, 39%, 1);
+    --clr-primary-400: hsla(230, 50%, 58%, 0.3);
+    --clr-primary-700: hsla(229, 43%, 20%, 1);
+    --clr-primary-800: hsla(229, 47%, 17%, 1);
 
-  --clr-accent-400: hsla(147, 93%, 43%, 1);
+    --clr-accent-400: hsla(147, 93%, 43%, 1);
 
-  --clr-secondary-400: hsla(229, 78%, 60%, 1);
+    --clr-secondary-400: hsla(229, 78%, 60%, 1);
 
-  --ff-base: "Outfit", sans-serif;
+    --ff-base: "Outfit", sans-serif;
 
-  --fw-regular: 300;
-  --fw-semi-bold: 400;
-  --fw-bold: 700;
+    --fw-regular: 300;
+    --fw-semi-bold: 400;
+    --fw-bold: 700;
 
-  --fs-200: clamp(0.6944rem, 0.6576rem + 0.1837vw, 0.8rem);
-  --fs-300: clamp(0.8331rem, 0.7751rem + 0.2902vw, 1rem);
-  --fs-400: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
-  --fs-500: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
-  --fs-600: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
-  --fs-700: clamp(1.7281rem, 1.4801rem + 1.2402vw, 2.4413rem);
-}
-
-html {
-  color-scheme: dark;
-  scroll-padding-block: 9em 0;
-}
-
-body {
-  font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
-  color: var(--clr-neutral-100);
-  background: var(--clr-primary-700);
-  min-block-size: 100vh;
-  min-block-size: 100svh;
-  margin-inline: 0;
-  margin-block: 0;
-  padding-inline: 0;
-  padding-block: 0;
-}
-
-button {
-  border-inline: 0;
-  border-block: 0;
-  border-start-start-radius: 0.5em;
-  border-end-start-radius: 0.5em;
-  border-start-end-radius: 0.5em;
-  border-end-end-radius: 0.5em;
-  padding-inline: 0.5em;
-  padding-block: 0.5em;
-
-  text-align: center;
-  color: var(--clr-neutral-100);
-  text-shadow: 1px 1px 1px var(--clr-primary-700);
-  background: var(--clr-primary-800);
-  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
-  box-shadow: inset 1px 1px 2px var(--clr-primary-200), inset -1px -1px 2px var(--clr-primary-800);
-}
-
-/*
-On touch devices, like iPads, the hover state is sticky, so the button stays blue after tapping it. I do not want that:
-https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
-*/
-@media (hover: hover) and (pointer: fine) {
-  button:hover {
-    color: var(--clr-accent-400);
+    --fs-200: clamp(0.6944rem, 0.6576rem + 0.1837vw, 0.8rem);
+    --fs-300: clamp(0.8331rem, 0.7751rem + 0.2902vw, 1rem);
+    --fs-400: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+    --fs-500: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+    --fs-600: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+    --fs-700: clamp(1.7281rem, 1.4801rem + 1.2402vw, 2.4413rem);
   }
-}
 
-button:active {
-  box-shadow: inset -1px -1px 2px var(--clr-primary-200), inset 1px 1px 2px var(--clr-primary-800);
-}
+  html {
+    color-scheme: dark;
+    scroll-padding-block: 9em 0;
+  }
 
-button:disabled {
-  color: var(--clr-primary-400);
-}
+  body {
+    font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
+    color: var(--clr-neutral-100);
+    background: var(--clr-primary-700);
+    min-block-size: 100vh;
+    min-block-size: 100svh;
+    margin-inline: 0;
+    margin-block: 0;
+    padding-inline: 0;
+    padding-block: 0;
+  }
 
-button:focus-visible {
-  outline: 1px solid var(--clr-neutral-100);
-}
+  button {
+    border-inline: 0;
+    border-block: 0;
+    border-start-start-radius: 0.5em;
+    border-end-start-radius: 0.5em;
+    border-start-end-radius: 0.5em;
+    border-end-end-radius: 0.5em;
+    padding-inline: 0.5em;
+    padding-block: 0.5em;
 
-/* || UTILITIES */
+    text-align: center;
+    color: var(--clr-neutral-100);
+    text-shadow: 1px 1px 1px var(--clr-primary-700);
+    background: var(--clr-primary-800);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+      inset 1px 1px 2px var(--clr-primary-200),
+      inset -1px -1px 2px var(--clr-primary-800);
+  }
 
-.visually-hidden {
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  inline-size: 1px;
-  block-size: 1px;
+  /* 
+  On touch devices, like iPads, the hover state is sticky, so the button stays blue after tapping it. I do not want that:
+  https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
+  */
+  @media (hover: hover) and (pointer: fine) {
+    button:hover {
+      color: var(--clr-accent-400);
+    }
+  }
+
+  button:active {
+    box-shadow:
+      inset -1px -1px 2px var(--clr-primary-200),
+      inset 1px 1px 2px var(--clr-primary-800);
+  }
+
+  button:disabled {
+    color: var(--clr-primary-400);
+  }
+
+  button:focus-visible {
+    outline: 1px solid var(--clr-neutral-100);
+  }
+
+  /* || UTILITIES */
+
+  .visually-hidden {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    inline-size: 1px;
+    block-size: 1px;
+  }
 }

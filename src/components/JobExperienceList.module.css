@@ -1,4 +1,8 @@
 .job-experience-list {
+  inline-size: 100%;
+  max-inline-size: 36em;
+  margin-inline: auto;
+
   display: grid;
   gap: 0.25em;
 
