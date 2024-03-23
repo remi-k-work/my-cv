@@ -7,6 +7,11 @@ import { useEffect, useRef, useState } from "react";
 // components
 import SingleJobExperience from "./SingleJobExperience";
 
+// types
+interface JobExperienceListProps {
+  jobExperienceList: JobExperience[];
+}
+
 export default function JobExperienceList({ jobExperienceList }: JobExperienceListProps) {
   const allJobNodesListRef = useRef(new Map<number, HTMLElement>());
   const [viewedJobIndex, setViewedJobIndex] = useState(0);

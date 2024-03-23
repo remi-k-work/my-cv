@@ -13,8 +13,10 @@ interface JobExperience {
   xsPic: string;
 }
 
-interface SingleJobExperienceProps extends JobExperience {}
-
-interface JobExperienceListProps {
-  jobExperienceList: JobExperience[];
+interface PageTitles {
+  [key: string]: {
+    eyebrow: string;
+    heading: string;
+    intro: string;
+  };
 }

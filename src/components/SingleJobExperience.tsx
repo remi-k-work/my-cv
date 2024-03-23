@@ -11,6 +11,9 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 // assets
 import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 
+// types
+interface SingleJobExperienceProps extends JobExperience {}
+
 const SingleJobExperience = forwardRef<HTMLElement, SingleJobExperienceProps>(
   ({ year, role, company, txt, gitHubLink, liveLink, lgPic, mdPic, smPic, xsPic }: SingleJobExperienceProps, ref) => {
     return (

@@ -14,12 +14,12 @@ import { default as RootLayout, rootLoader } from "./layouts/Root";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<RootLayout />} loader={rootLoader}>
+    <Route element={<RootLayout />} loader={rootLoader} id="root">
       <Route index element={<Home />} loader={homeLoader} />
       <Route path="education" element={<Education />} />
       <Route path="contact" element={<Contact />} action={contactAction} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 export default function App() {
