@@ -18,12 +18,12 @@ const SingleJobExperience = forwardRef<HTMLElement, SingleJobExperienceProps>(
   ({ year, role, company, txt, gitHubLink, liveLink, lgPic, mdPic, smPic, xsPic }: SingleJobExperienceProps, ref) => {
     return (
       <article ref={ref} className={styles["single-job-experience"]}>
-        <header className="place-items-center lg:flex">
-          <div className="lg:flex-1">
+        <header className="place-items-center xl:flex">
+          <div className="xl:flex-1">
             <p className={styles["single-job-experience__year"]}>{year}</p>
             <h2 className={styles["single-job-experience__role"]}>{role}</h2>
           </div>
-          <div className={clsx(styles["single-job-experience__company"], "text-end lg:flex-none")}>{company}</div>
+          <div className={clsx(styles["single-job-experience__company"], "text-end xl:flex-none")}>{company}</div>
         </header>
 
         <footer className={styles["single-job-experience__live-link"]}>

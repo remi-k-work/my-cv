@@ -1,3 +1,5 @@
 .type-writer-output {
   display: block;
+  min-height: 8em;
+  border-block-end: 1px dotted var(--clr-primary-300);
 }

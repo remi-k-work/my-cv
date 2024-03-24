@@ -2,10 +2,9 @@
 import styles from "./TypeWriterOutput.module.css";
 
 // react
-import { useEffect, useState } from "react";
+import { memo, useEffect, useRef } from "react";
 
 // other libraries
-import animationInterval from "../lib/animationInterval";
 import TypeWriter from "../lib/TypeWriter";
 
 // types
@@ -15,26 +14,28 @@ interface TypeWriterOutputProps {
   onFinished: () => void;
 }
 
-export default function TypeWriterOutput({ fullText, isFinished = false, onFinished }: TypeWriterOutputProps) {
-  const [typedContent, setTypedContent] = useState("");
+const TypeWriterOutput = memo(function ({ fullText, isFinished = false, onFinished }: TypeWriterOutputProps) {
+  const outputRef = useRef<HTMLSpanElement>(null);
+  const isStarted = useRef(false);
 
   useEffect(() => {
-    const typewriter = new TypeWriter(false, 35, 35, onFinished);
-    const controller = new AbortController();
-
     if (isFinished) {
       return;
     }
 
-    animationInterval(10, controller.signal, () => {
-      setTypedContent(() => typewriter.typedContent);
-    });
+    if (isStarted.current) {
+      return;
+    }
 
+    isStarted.current = true;
+    const output = outputRef.current!;
+
+    const typewriter = new TypeWriter(false, 50, 50, onFinished, output);
     typewriter.typeFullText(fullText);
     typewriter.start();
-
-    return () => controller.abort();
   }, [fullText, isFinished, onFinished]);
 
-  return <span className={styles["type-writer-output"]}>{isFinished ? fullText : typedContent + "|"}</span>;
-}
+  return isFinished ? <span className={styles["type-writer-output"]}>{fullText}</span> : <span ref={outputRef} className={styles["type-writer-output"]}></span>;
+});
+
+export default TypeWriterOutput;

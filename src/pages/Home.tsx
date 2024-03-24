@@ -1,6 +1,9 @@
 // component css styles
 import styles from "./Home.module.css";
 
+// react
+import { useCallback } from "react";
+
 // rrd imports
 import { useLoaderData, useRouteLoaderData, useLocation } from "react-router-dom";
 
@@ -24,9 +27,11 @@ export default function Home() {
   // Get the current page title data depending on the pathname of the location
   const pageTitle = pageTitles[location.pathname];
 
+  const handleTypedHome = useCallback(() => setIsTypedHome(true), []);
+
   return (
     <>
-      <PageTitle {...pageTitle} isFinished={isTypedHome} onFinished={() => setIsTypedHome(true)}>
+      <PageTitle {...pageTitle} isFinished={isTypedHome} onFinished={handleTypedHome}>
         {/* Show the avatar only on the homepage */}
         <img src={avatar} width={288} height={288} alt="Avatar" />
       </PageTitle>

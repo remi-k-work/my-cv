@@ -1,6 +1,9 @@
 // component css styles
 import styles from "./Education.module.css";
 
+// react
+import { useCallback } from "react";
+
 // rrd imports
 import { useRouteLoaderData, useLocation } from "react-router-dom";
 
@@ -21,9 +24,11 @@ export default function Education() {
   // Get the current page title data depending on the pathname of the location
   const pageTitle = pageTitles[location.pathname];
 
+  const handleTypedEduc = useCallback(() => setIsTypedEduc(true), []);
+
   return (
     <>
-      <PageTitle {...pageTitle} isFinished={isTypedEduc} onFinished={() => setIsTypedEduc(true)} />
+      <PageTitle {...pageTitle} isFinished={isTypedEduc} onFinished={handleTypedEduc} />
 
       <article className={styles["education"]}>
         <section>

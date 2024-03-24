@@ -1,10 +1,13 @@
+// other libraries
+import animationInterval from "./animationInterval";
+
 // types
 type TypeWriterAction = () => Promise<void>;
 type ActionCallback = (resolve: () => void, reject: () => void) => void;
 type OnFinished = () => void;
 
 export default class TypeWriter {
-  private currentContent: string = "";
+  private readonly wrapperEl: HTMLSpanElement = document.createElement("span");
   private readonly actionsQueue: TypeWriterAction[] = [];
 
   constructor(
@@ -12,11 +15,16 @@ export default class TypeWriter {
     private readonly typingSpeed: number = 50,
     private readonly deletingSpeed: number = 50,
     private readonly onFinished: OnFinished,
+    private readonly parentEl: HTMLElement,
   ) {
     this.shouldLoop = shouldLoop;
     this.typingSpeed = typingSpeed;
     this.deletingSpeed = deletingSpeed;
     this.onFinished = onFinished;
+
+    this.parentEl.innerHTML = this.wrapperEl.innerHTML = "";
+    this.parentEl.append(this.wrapperEl);
+    this.parentEl.append("|");
   }
 
   typeFullText(fullText: string) {
@@ -26,48 +34,46 @@ export default class TypeWriter {
       // Simulate making a typo
       const typo = this.makeTypo(word, 0.03);
       if (word === typo) {
-        this.typeWord(word + " ").pauseFor(Math.random() * 100);
+        this.typeWord(word + " ").pauseFor(this.getRandomInt(10, 100));
       } else {
-        this.typeWord(typo + " ").pauseFor(Math.random() * 250);
+        this.typeWord(typo + " ").pauseFor(this.getRandomInt(10, 250));
         this.deleteChars(typo.length + 1);
-        this.typeWord(word + " ").pauseFor(Math.random() * 100);
+        this.typeWord(word + " ").pauseFor(this.getRandomInt(10, 100));
       }
     }
 
     return this;
   }
 
-  typeWord(text: string) {
-    this.addNewAction(async (resolve) => {
-      for (let i = 0; i < text.length; i++) {
-        this.currentContent += text[i];
-        await this.delay(this.getRandomInt(this.typingSpeed));
-      }
-      resolve();
+  typeWord(word: string) {
+    this.addNewAction((resolve) => {
+      let i = 0;
+      const controller = new AbortController();
+      animationInterval(this.getRandomInt(10, this.typingSpeed), controller.signal, () => {
+        this.wrapperEl.textContent += word[i];
+        i++;
+        if (i >= word.length) {
+          controller.abort();
+          resolve();
+        }
+      });
     });
 
     return this;
   }
 
   deleteChars(howMany: number) {
-    this.addNewAction(async (resolve) => {
-      for (let i = 0; i < howMany; i++) {
-        this.currentContent = this.currentContent.substring(0, this.currentContent.length - 1);
-        await this.delay(this.getRandomInt(this.deletingSpeed));
-      }
-      resolve();
-    });
-
-    return this;
-  }
-
-  deleteAll(deleteSpeed: number = this.deletingSpeed) {
-    this.addNewAction(async (resolve) => {
-      while (this.currentContent.length > 0) {
-        this.currentContent = this.currentContent.substring(0, this.currentContent.length - 1);
-        await this.delay(this.getRandomInt(deleteSpeed));
-      }
-      resolve();
+    this.addNewAction((resolve) => {
+      let i = 0;
+      const controller = new AbortController();
+      animationInterval(this.getRandomInt(10, this.deletingSpeed), controller.signal, () => {
+        this.wrapperEl.textContent = this.wrapperEl.textContent?.substring(0, this.wrapperEl.textContent.length - 1) as string;
+        i++;
+        if (i >= howMany) {
+          controller.abort();
+          resolve();
+        }
+      });
     });
 
     return this;
@@ -92,10 +98,6 @@ export default class TypeWriter {
     this.onFinished();
 
     return this;
-  }
-
-  public get typedContent(): string {
-    return this.currentContent;
   }
 
   private makeTypo(text: string, typoProbability: number) {
@@ -128,17 +130,14 @@ export default class TypeWriter {
     this.actionsQueue.push(() => new Promise<void>(actionCallback));
   }
 
-  // Add a delay for a certain time in milliseconds
-  private async delay(ms: number) {
-    return new Promise<void>((resolve) => setTimeout(resolve, ms));
-  }
+  private getRandomInt(min: number, max: number) {
+    // Use Math.random to get a decimal between 0 (inclusive) and 1 (exclusive)
+    const randomDecimal = Math.random();
 
-  private getRandomInt(max: number) {
-    // Create a range that strictly excludes 0, even if it means slightly slower performance due to the loop
-    let randomInt: number;
-    do {
-      randomInt = Math.floor(Math.random() * max);
-    } while (randomInt === 0);
-    return randomInt;
+    // Calculate the range (max - min + 1) to include both min and max
+    const range = max - min + 1;
+
+    // Floor the random number and scale it to the range, then add min for the desired range
+    return Math.floor(randomDecimal * range) + min;
   }
 }

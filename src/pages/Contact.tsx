@@ -1,6 +1,9 @@
 // component css styles
 import styles from "./Contact.module.css";
 
+// react
+import { useCallback } from "react";
+
 // rrd imports
 import { useRouteLoaderData, useLocation, useActionData, ActionFunctionArgs } from "react-router-dom";
 
@@ -31,9 +34,11 @@ export default function Contact() {
   // Get the current page title data depending on the pathname of the location
   const pageTitle = pageTitles[location.pathname];
 
+  const handleTypedCont = useCallback(() => setIsTypedCont(true), []);
+
   return (
     <>
-      <PageTitle {...pageTitle} isFinished={isTypedCont} onFinished={() => setIsTypedCont(true)} />
+      <PageTitle {...pageTitle} isFinished={isTypedCont} onFinished={handleTypedCont} />
 
       <article className={styles["contact"]}>
         <section>
