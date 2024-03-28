@@ -2,40 +2,63 @@
 import styles from "./TypeWriterOutput.module.css";
 
 // react
-import { memo, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+
+// rrd imports
+import { useRouteLoaderData, useLocation } from "react-router-dom";
 
 // other libraries
+import { useGlobalContext } from "../lib/GlobalContext";
 import TypeWriter from "../lib/TypeWriter";
 
-// types
-interface TypeWriterOutputProps {
-  fullText: string;
-  isFinished?: boolean;
-  onFinished: () => void;
-}
+export default function TypeWriterOutput() {
+  const pageTitles = useRouteLoaderData("root") as PageTitles;
+  const { pathname } = useLocation();
 
-const TypeWriterOutput = memo(function ({ fullText, isFinished = false, onFinished }: TypeWriterOutputProps) {
+  // Get the current page title data depending on the pathname of the location
+  const fullText = pageTitles[pathname].intro;
+
+  const { isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont } = useGlobalContext();
   const outputRef = useRef<HTMLSpanElement>(null);
-  const isStarted = useRef(false);
+
+  let isFinished = false;
+  if (pathname === "/") {
+    isFinished = isTypedHome;
+  } else if (pathname === "/education") {
+    isFinished = isTypedEduc;
+  } else {
+    isFinished = isTypedCont;
+  }
 
   useEffect(() => {
+    // Has the whole text already been typed?
     if (isFinished) {
+      // Yes, leave immediately
       return;
     }
 
-    if (isStarted.current) {
-      return;
+    function onFinished() {
+      if (pathname === "/") {
+        setIsTypedHome(true);
+      } else if (pathname === "/education") {
+        setIsTypedEduc(true);
+      } else {
+        setIsTypedCont(true);
+      }
     }
 
-    isStarted.current = true;
-    const output = outputRef.current!;
+    const controller = new AbortController();
+    const typewriter = new TypeWriter(false, 50, 50, onFinished, outputRef.current!, controller.signal);
 
-    const typewriter = new TypeWriter(false, 50, 50, onFinished, output);
     typewriter.typeFullText(fullText);
     typewriter.start();
-  }, [fullText, isFinished, onFinished]);
 
-  return isFinished ? <span className={styles["type-writer-output"]}>{fullText}</span> : <span ref={outputRef} className={styles["type-writer-output"]}></span>;
-});
+    return () => controller.abort();
+  }, [isFinished, pathname, fullText]);
 
-export default TypeWriterOutput;
+  return isFinished ? (
+    <span className={styles["type-writer-output"]}>{fullText}</span>
+  ) : (
+    <span key={pathname} ref={outputRef} className={styles["type-writer-output"]}></span>
+  );
+}

@@ -1,18 +1,13 @@
 // component css styles
 import styles from "./Contact.module.css";
 
-// react
-import { useCallback } from "react";
-
 // rrd imports
-import { useRouteLoaderData, useLocation, useActionData, ActionFunctionArgs } from "react-router-dom";
+import { useActionData, ActionFunctionArgs } from "react-router-dom";
 
 // other libraries
-import { useRootContext } from "../layouts/Root";
 import emailjs from "@emailjs/browser";
 
 // components
-import PageTitle from "../components/PageTitle";
 import ContactForm from "../components/ContactForm";
 import SubmError from "../components/contact-form/SubmError";
 import ThankYou from "../components/contact-form/ThankYou";
@@ -25,32 +20,19 @@ interface ActionResponse {
 }
 
 export default function Contact() {
-  const pageTitles = useRouteLoaderData("root") as PageTitles;
-  const location = useLocation();
   const actionData = useActionData() as ActionResponse;
 
-  const { isTypedCont, setIsTypedCont } = useRootContext();
-
-  // Get the current page title data depending on the pathname of the location
-  const pageTitle = pageTitles[location.pathname];
-
-  const handleTypedCont = useCallback(() => setIsTypedCont(true), []);
-
   return (
-    <>
-      <PageTitle {...pageTitle} isFinished={isTypedCont} onFinished={handleTypedCont} />
-
-      <article className={styles["contact"]}>
-        <section>
-          {actionData?.status === "error" && <SubmError error={actionData?.error} />}
-          {actionData?.status === "success" && <ThankYou />}
-          {!actionData && <ContactForm />}
-        </section>
-        <section>
-          <ContactMap />
-        </section>
-      </article>
-    </>
+    <article className={styles["contact"]}>
+      <section>
+        {actionData?.status === "error" && <SubmError error={actionData?.error} />}
+        {actionData?.status === "success" && <ThankYou />}
+        {!actionData && <ContactForm />}
+      </section>
+      <section>
+        <ContactMap />
+      </section>
+    </article>
   );
 }
 

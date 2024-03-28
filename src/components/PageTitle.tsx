@@ -1,29 +1,30 @@
 // component css styles
 import styles from "./PageTitle.module.css";
 
-// react
-import { PropsWithChildren } from "react";
+// rrd imports
+import { useRouteLoaderData, useLocation } from "react-router-dom";
 
 // components
 import TypeWriterOutput from "./TypeWriterOutput";
 
-// types
-interface PageTitleProps extends PropsWithChildren {
-  eyebrow: string;
-  heading: string;
-  intro: string;
-  isFinished?: boolean;
-  onFinished: () => void;
-}
+// assets
+import avatar from "../assets/components/page-title/avatar.jpg";
 
-export default function PageTitle({ eyebrow, heading, intro, children, isFinished, onFinished }: PageTitleProps) {
+export default function PageTitle() {
+  const pageTitles = useRouteLoaderData("root") as PageTitles;
+  const { pathname } = useLocation();
+
+  // Get the current page title data depending on the pathname of the location
+  const { eyebrow, heading } = pageTitles[pathname];
+
   return (
     <section className={styles["page-title"]}>
       <p className={styles["page-title__eyebrow"]}>{eyebrow}</p>
       <h1 className={styles["page-title__heading"]}>{heading}</h1>
       <p className={styles["page-title__intro"]}>
-        {children}
-        <TypeWriterOutput fullText={intro} isFinished={isFinished} onFinished={onFinished} />
+        {/* Show the avatar only on the homepage */}
+        {pathname === "/" && <img src={avatar} width={288} height={288} alt="Avatar" />}
+        <TypeWriterOutput />
       </p>
     </section>
   );

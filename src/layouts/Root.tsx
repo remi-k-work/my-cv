@@ -1,30 +1,14 @@
 // component css styles
 import styles from "./Root.module.css";
 
-// react
-import { useState } from "react";
-
 // rrd imports
-import { Outlet, NavLink, ScrollRestoration, useOutletContext } from "react-router-dom";
+import { Outlet, NavLink, ScrollRestoration } from "react-router-dom";
 
 // components
 import MySkills from "../components/MySkills";
-
-// types
-interface ContextType {
-  isTypedHome: boolean;
-  setIsTypedHome: React.Dispatch<React.SetStateAction<boolean>>;
-  isTypedEduc: boolean;
-  setIsTypedEduc: React.Dispatch<React.SetStateAction<boolean>>;
-  isTypedCont: boolean;
-  setIsTypedCont: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import PageTitle from "../components/PageTitle";
 
 export default function Root() {
-  const [isTypedHome, setIsTypedHome] = useState(false);
-  const [isTypedEduc, setIsTypedEduc] = useState(false);
-  const [isTypedCont, setIsTypedCont] = useState(false);
-
   return (
     <div className={styles["main-grid"]}>
       <div className={styles["main-grid__placehl"]}></div>
@@ -43,14 +27,11 @@ export default function Root() {
       </aside>
       <main>
         <ScrollRestoration />
-        <Outlet context={{ isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont } satisfies ContextType} />
+        <PageTitle />
+        <Outlet />
       </main>
     </div>
   );
-}
-
-export function useRootContext() {
-  return useOutletContext<ContextType>();
 }
 
 // loader

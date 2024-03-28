@@ -7,7 +7,11 @@ type ActionCallback = (resolve: () => void, reject: () => void) => void;
 type OnFinished = () => void;
 
 export default class TypeWriter {
+  private static instanceCounter: number = 0;
+  private instanceId: number = 0;
   private hasStarted: boolean = false;
+
+  private readonly wrapperEl: HTMLSpanElement = document.createElement("span");
   private readonly actionsQueue: TypeWriterAction[] = [];
 
   constructor(
@@ -17,7 +21,20 @@ export default class TypeWriter {
     private readonly onFinished: OnFinished,
     private readonly parentEl: HTMLElement,
     private readonly abortSignal: AbortSignal,
-  ) {}
+  ) {
+    this.instanceId = TypeWriter.instanceCounter++;
+
+    this.shouldLoop = shouldLoop;
+    this.typingSpeed = typingSpeed;
+    this.deletingSpeed = deletingSpeed;
+    this.onFinished = onFinished;
+
+    this.parentEl.innerHTML = this.wrapperEl.innerHTML = "";
+    this.parentEl.append(this.wrapperEl);
+    this.parentEl.append("|");
+
+    this.abortSignal = abortSignal;
+  }
 
   typeFullText(fullText: string) {
     const words = fullText.split(" ");
@@ -42,7 +59,8 @@ export default class TypeWriter {
       let i = 0;
       const controller = new AbortController();
       animationInterval(this.getRandomInt(10, this.typingSpeed), controller.signal, () => {
-        this.parentEl.textContent += word[i];
+        this.wrapperEl.textContent += word[i];
+        console.log("typeWord " + this.instanceId);
         i++;
         if (i >= word.length) {
           controller.abort();
@@ -59,7 +77,8 @@ export default class TypeWriter {
       let i = 0;
       const controller = new AbortController();
       animationInterval(this.getRandomInt(10, this.deletingSpeed), controller.signal, () => {
-        this.parentEl.textContent = this.parentEl.textContent?.substring(0, this.parentEl.textContent.length - 1) as string;
+        this.wrapperEl.textContent = this.wrapperEl.textContent?.substring(0, this.wrapperEl.textContent.length - 1) as string;
+        console.log("deleteChars " + this.instanceId);
         i++;
         if (i >= howMany) {
           controller.abort();
@@ -82,20 +101,27 @@ export default class TypeWriter {
   async start() {
     // If the action queue for this instance has already begun, do not start another one
     if (this.hasStarted) {
+      console.log("the action queue has already started...");
       return;
     }
     this.hasStarted = true;
 
+    console.log("starting the typewriter " + this.instanceId);
+
     let actionCallback = this.actionsQueue.shift();
     while (actionCallback) {
       if (this.abortSignal.aborted) {
+        console.log("aborting the typewriter " + this.instanceId);
         return this;
       }
 
       await actionCallback();
+      console.log("running the queue for typewriter " + this.instanceId);
       if (this.shouldLoop) this.actionsQueue.push(actionCallback);
       actionCallback = this.actionsQueue.shift();
     }
+
+    console.log("finished the typewriter queue " + this.instanceId);
 
     this.onFinished();
 

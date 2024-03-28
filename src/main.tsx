@@ -10,8 +10,13 @@ import "open-props/normalize";
 
 import "./index.css";
 
+// components
+import { GlobalContextProvider } from "./lib/GlobalContext.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <GlobalContextProvider>
+      <App />
+    </GlobalContextProvider>
   </React.StrictMode>,
 );
