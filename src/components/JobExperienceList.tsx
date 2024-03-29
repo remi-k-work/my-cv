@@ -2,7 +2,7 @@
 import styles from "./JobExperienceList.module.css";
 
 // react
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 // components
 import SingleJobExperience from "./SingleJobExperience";
@@ -15,12 +15,6 @@ interface JobExperienceListProps {
 export default function JobExperienceList({ jobExperienceList }: JobExperienceListProps) {
   const allJobNodesListRef = useRef(new Map<number, HTMLElement>());
   const [viewedJobIndex, setViewedJobIndex] = useState(0);
-  const [totalJobsNumber, setTotalJobsNumber] = useState(0);
-
-  useEffect(() => {
-    const allJobNodesList = allJobNodesListRef.current;
-    setTotalJobsNumber(allJobNodesList.size);
-  }, []);
 
   function handleViewedJobSwitch(direction: number, verticalAlignment: ScrollLogicalPosition) {
     setViewedJobIndex((prevViewedJobIndex) => {
@@ -49,7 +43,7 @@ export default function JobExperienceList({ jobExperienceList }: JobExperienceLi
         &laquo; Prev
       </button>
       <span className={styles["job-experience-list__cjobt"]}>
-        {viewedJobIndex + 1} of {totalJobsNumber}
+        {viewedJobIndex + 1} of {jobExperienceList.length}
       </span>
       <button className={styles["job-experience-list__njobt"]} type="button" onClick={() => handleViewedJobSwitch(+1, "nearest")}>
         Next &raquo;
@@ -63,7 +57,7 @@ export default function JobExperienceList({ jobExperienceList }: JobExperienceLi
         &laquo; Prev
       </button>
       <span className={styles["job-experience-list__cjobb"]}>
-        {viewedJobIndex + 1} of {totalJobsNumber}
+        {viewedJobIndex + 1} of {jobExperienceList.length}
       </span>
       <button className={styles["job-experience-list__njobb"]} type="button" onClick={() => handleViewedJobSwitch(+1, "nearest")}>
         Next &raquo;

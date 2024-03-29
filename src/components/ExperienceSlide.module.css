@@ -1,0 +1,100 @@
+.experience-slide {
+  inline-size: 100cqi;
+
+  flex: 1 0 100cqi;
+
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-end-radius: 1em;
+  padding-inline: 1em;
+  padding-block: 1em;
+  background: var(--clr-primary-700);
+
+  transition: translate 1000ms ease-in-out;
+}
+
+.experience-slide__year {
+  color: var(--clr-accent-400);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+}
+
+.experience-slide__role {
+  font-size: var(--fs-600);
+  line-height: 1.2;
+  margin-block: 0 0.5em;
+}
+
+.experience-slide__company {
+  color: var(--clr-primary-200);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  margin-block: 0 0.5em;
+}
+
+.experience-slide__txt {
+  inline-size: 85cqi;
+
+  background: var(--clr-primary-200);
+  color: var(--clr-primary-800);
+
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2);
+
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-6);
+}
+
+.experience-slide__txt > p {
+  font-size: var(--fs-300);
+}
+
+.experience-slide__github {
+  display: block;
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-end-radius: 1em;
+}
+
+.experience-slide__github:hover {
+  outline: 1px solid var(--clr-accent-400);
+}
+
+.experience-slide__live-link {
+  display: grid;
+
+  grid-template-columns: [inf-start] var(--size-3) [img-start] auto [inf-end img-end];
+  grid-template-rows: [inf-start] var(--size-3) [img-start] auto [inf-end img-end];
+}
+
+.live-link__img {
+  grid-area: img;
+}
+
+.live-link__inf {
+  grid-area: inf;
+
+  background: var(--clr-primary-400);
+  padding-inline: var(--size-1);
+  padding-block: var(--size-1);
+
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-6);
+
+  place-self: start;
+  display: flex;
+  place-items: end;
+
+  gap: var(--size-6);
+}
+
+.live-link__inf > details {
+  background: none;
+  padding-inline: 0;
+  padding-block: 0;
+  border-radius: 0;
+}

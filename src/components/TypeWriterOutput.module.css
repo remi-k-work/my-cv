@@ -1,5 +1,23 @@
 .type-writer-output {
   display: block;
-  min-height: 8em;
+  min-block-size: 10em;
+
+  padding-inline: 1em 1em;
+
+  border-block-start: 1px dotted var(--clr-primary-300);
   border-block-end: 1px dotted var(--clr-primary-300);
+
+  border-start-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-start-radius: 1em;
+  border-end-end-radius: 1em;
+}
+
+.type-writer-output::after {
+  content: "";
+  display: inline-block;
+  inline-size: 0.5em;
+  block-size: 1em;
+  background: var(--clr-accent-400);
+  scale: 1.2;
 }

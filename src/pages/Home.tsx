@@ -5,7 +5,7 @@ import styles from "./Home.module.css";
 import { useLoaderData } from "react-router-dom";
 
 // components
-import JobExperienceList from "../components/JobExperienceList";
+import ExperienceSlider from "../components/ExperienceSlider";
 
 export default function Home() {
   const jobExperienceList = useLoaderData() as [JobExperience[], JobExperience[]];
@@ -14,11 +14,11 @@ export default function Home() {
     <article className={styles["home"]}>
       <section>
         <header>Experience</header>
-        <JobExperienceList jobExperienceList={[...jobExperienceList[0]].reverse()} />
+        <ExperienceSlider jobExperienceList={[...jobExperienceList[0]].reverse()} />
       </section>
       <section>
         <header>Portfolio Projects</header>
-        <JobExperienceList jobExperienceList={jobExperienceList[1]} />
+        <ExperienceSlider jobExperienceList={jobExperienceList[1]} />
       </section>
     </article>
   );
