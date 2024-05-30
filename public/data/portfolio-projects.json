@@ -1,5 +1,18 @@
 [
   {
+    "year": "Jun 2024",
+    "role": "NoLine-Deli Manager",
+    "company": "login: test / passw: test",
+    "txt": "NoLine-Deli Manager is a bespoke content management system (CMS) that I built to run NoLine-Deli, a fictitious organic European food store I made as a personal e-commerce venture. This user-friendly platform enables anyone to experiment with managing the backend of an online store. Users can create, update, and delete brands, categories, subcategories, and goods, gaining firsthand experience with e-commerce content management. Seamless image management assures a visually beautiful storefront, and the system's connection with the NoLine-Deli front-end (which I also designed) ensures smooth data flow and real-time updates.",
+    "gitHubLink": "https://github.com/remi-k-work/noline-deli",
+    "liveLink": "https://noline-deli.vercel.app/manager",
+    "lgPic": "job-experience-noline-deli-manager-lg.webp",
+    "mdPic": "job-experience-noline-deli-manager-md.webp",
+    "smPic": "job-experience-noline-deli-manager-sm.webp",
+    "xsPic": "job-experience-noline-deli-manager-xs.webp"
+  },
+
+  {
     "year": "Mar 2024",
     "role": "NoLine-Deli",
     "company": "Personal",
@@ -75,18 +88,5 @@
     "mdPic": "job-experience-my-cv-md.webp",
     "smPic": "job-experience-my-cv-sm.webp",
     "xsPic": "job-experience-my-cv-xs.webp"
-  },
-
-  {
-    "year": "Nov 2023",
-    "role": "Router Contacts",
-    "company": "Personal",
-    "txt": "Another day, another lesson 😄 This time, I took the original instructions from React Router's website and tweaked them somewhat. This is a basic yet functional program for keeping track of your contacts. Do not be concerned; it stores all data locally in the browser using IndexedDB (local storage), so there should be no privacy problems. I added the option to generate some random contacts, and instead of pointing to a web URL, you may upload an avatar for each contact.",
-    "gitHubLink": "https://github.com/remi-k-work/react-router-tut",
-    "liveLink": "https://react-router-tut-rho.vercel.app/",
-    "lgPic": "job-experience-router-contacts-lg.webp",
-    "mdPic": "job-experience-router-contacts-md.webp",
-    "smPic": "job-experience-router-contacts-sm.webp",
-    "xsPic": "job-experience-router-contacts-xs.webp"
   }
 ]

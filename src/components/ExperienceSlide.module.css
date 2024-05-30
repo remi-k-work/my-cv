@@ -22,7 +22,7 @@
 }
 
 .experience-slide__role {
-  font-size: var(--fs-600);
+  font-size: var(--fs-400);
   line-height: 1.2;
   margin-block: 0 0.5em;
 }
@@ -31,7 +31,6 @@
   color: var(--clr-primary-200);
   font-size: var(--fs-300);
   font-weight: var(--fw-bold);
-  text-transform: uppercase;
   margin-block: 0 0.5em;
 }
 
