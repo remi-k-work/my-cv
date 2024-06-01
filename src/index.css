@@ -5,9 +5,9 @@
 @layer base {
   :root {
     /* 
-    The numbering system goes from 100 to 900
-    The base is 400 (the default color, font size, or font weight)
-  */
+      The numbering system goes from 100 to 900
+      The base is 400 (the default color, font size, or font weight)
+    */
     --clr-neutral-100: hsla(0, 0%, 100%, 1);
 
     --clr-primary-200: hsla(229, 21%, 53%, 1);
@@ -45,6 +45,7 @@
     background: var(--clr-primary-700);
     min-block-size: 100vh;
     min-block-size: 100svh;
+    min-block-size: 100dvh;
     margin-inline: 0;
     margin-block: 0;
     padding-inline: 0;
@@ -72,8 +73,8 @@
   }
 
   /* 
-  On touch devices, like iPads, the hover state is sticky, so the button stays blue after tapping it. I do not want that:
-  https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
+    On touch devices, like iPads, the hover state is sticky, so the button stays blue after tapping it. I do not want that:
+    https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
   */
   @media (hover: hover) and (pointer: fine) {
     button:hover {
@@ -93,17 +94,5 @@
 
   button:focus-visible {
     outline: 1px solid var(--clr-neutral-100);
-  }
-
-  /* || UTILITIES */
-
-  .visually-hidden {
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    inline-size: 1px;
-    block-size: 1px;
   }
 }

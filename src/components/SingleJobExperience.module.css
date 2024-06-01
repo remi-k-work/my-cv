@@ -69,7 +69,7 @@
   grid-area: img;
 }
 
-.live-link__inf {  
+.live-link__inf {
   grid-area: inf;
 
   background: var(--clr-primary-400);

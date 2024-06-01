@@ -2,11 +2,11 @@
 
 .main-grid {
   min-block-size: 100vh;
+  min-block-size: 100svh;
   min-block-size: 100dvh;
-  align-items: start;
 
   display: grid;
-  grid-template-columns: auto 1fr 14fr 1fr;
+  grid-template-columns: 5em 1em 1fr 1em;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "placehl header header  header"
@@ -15,8 +15,7 @@
 
 .main-grid__placehl {
   grid-area: placehl;
-  place-self: stretch;
-  margin-inline: 1em 0;
+  margin-inline: 50% 0;
   border-inline-start: 1px solid var(--clr-primary-300);
   position: sticky;
   inset-block-start: 0;
@@ -26,8 +25,8 @@
   content: "";
   position: absolute;
   inset-block-start: 50%;
-  inline-size: calc(100% + 1em);
-  margin-inline: -1em 0;
+  inline-size: calc(100% + 5em);
+  margin-inline: -5em 0;
   border-block-end: 1px solid var(--clr-primary-300);
 }
 
@@ -79,12 +78,10 @@
 
 aside {
   grid-area: sidebar;
-  place-self: stretch;
 }
 
 main {
   grid-area: content;
-  overflow: auto;
 }
 
 /* || MEDIA QUERIES */
@@ -106,12 +103,9 @@ main {
 
   aside {
     grid-area: footer;
-    place-self: stretch;
   }
 
   main {
-    grid-area: content;
-    place-self: stretch;
     margin-block: 0 8em;
   }
 }
