@@ -1,0 +1,71 @@
+[
+  {
+    "year": "Jun 2024",
+    "role": "NoLine-Deli Manager",
+    "company": "login: test / passw: test",
+    "txt": "NoLine-Deli Manager is a bespoke content management system (CMS) that I built to run NoLine-Deli, a fictitious organic European food store I made as a personal e-commerce venture. This user-friendly platform enables anyone to experiment with managing the backend of an online store. Users can create, update, and delete brands, categories, subcategories, and goods, gaining firsthand experience with e-commerce content management. Seamless image management assures a visually beautiful storefront, and the system's connection with the NoLine-Deli front-end (which I also designed) ensures smooth data flow and real-time updates.",
+    "gitHubLink": "https://github.com/remi-k-work/noline-deli",
+    "liveLink": "https://noline-deli.vercel.app/manager",
+    "lgPic": "job-experience-noline-deli-manager-lg.webp"
+  },
+
+  {
+    "year": "Mar 2024",
+    "role": "NoLine-Deli",
+    "company": "Personal",
+    "txt": "Welcome to NoLine-Deli, an organic, healthy European food store that respects your time and is a place where you will never experience standing in long lines. We will deliver goods directly to your home. We also have another goal besides making it convenient for you. We want to introduce fresh, healthy, organic, and high-quality European products to you, no matter which part of the United States you are located in. If you have Central European roots or happen to visit here, we want to bring you some of your favorite foods and memories and make you feel like you are in your hometown. We treat each client individually. In our offer, you will find products that are specific to Poland, famous for sausage, pierogis, kielbasa, and kiszka. However, we constantly expand our merchandise and are open to your suggestions. Our organic healthy food store has a goal to deliver any item you ask for from the variety we have to offer: breads, coffees, desserts, baking, dry goods, sauces, snacks, soups, spices, sweets, teas, and more. In case you have individual needs that go beyond the list of our items, please let us know, and we will try to find them for you. If you are creating a party and need some advice about the menu, we might help as well.",
+    "gitHubLink": "https://github.com/remi-k-work/noline-deli",
+    "liveLink": "https://noline-deli.vercel.app/",
+    "lgPic": "job-experience-noline-deli-lg.webp"
+  },
+
+  {
+    "year": "Feb 2024",
+    "role": "Word Wave",
+    "company": "Personal",
+    "txt": "What is on your mind today? Let your thoughts take flight and join our vibrant blogging community. Unleash your creativity and connect with like-minded individuals. Have a story to tell? An idea that's bubbling up inside? Our platform provides a space for you to express yourself freely and connect with others who share your passions. I was building a simple social network feed app inspired by Mark Erikson's 'Redux Essentials' tutorial from the official Redux documentation.",
+    "gitHubLink": "https://github.com/remi-k-work/word-wave",
+    "liveLink": "https://word-wave-two.vercel.app/",
+    "lgPic": "job-experience-word-wave-lg.webp"
+  },
+
+  {
+    "year": "Dec 2023",
+    "role": "Home Budget",
+    "company": "Personal",
+    "txt": "After taking a long break from the industry, I am working hard to keep up with all of the latest web-development trends. I really enjoy React since it allows you to think more modularly when creating your app and also aids in encapsulation. I am practicing with React Router, which is another useful tool for making React's SPA behave more like a traditional website with discrete pages and routes. I went through one of the tutorials on Coding in Public. So, starting now, take charge of your spending, especially during the holiday season!",
+    "gitHubLink": "https://github.com/remi-k-work/home-budget",
+    "liveLink": "https://react-router-budget.vercel.app/",
+    "lgPic": "job-experience-home-budget-lg.webp"
+  },
+
+  {
+    "year": "Jan 2024",
+    "role": "Wordle Game",
+    "company": "Personal",
+    "txt": "Immerse yourselves in the captivating world of word puzzles with my Wordle Game clone, the ultimate vocabulary challenge. Each day, a new mystery word awaits you for deciphering, offering a fresh challenge to flex your linguistic muscles. With each guess, you will receive clues to unravel the secret word, gradually narrowing down the possibilities. Utilize the vibrant color-coded feedback system to guide your journey, savoring the satisfaction of each correct letter placement. Whether you are a seasoned wordsmith or a budding linguist, this game offers an engaging and rewarding experience for all. Unleash your creativity, hone your vocabulary, and relish the thrill of solving each puzzle. Let the word-solving adventure begin! This game can be played with either English or Polish vocabulary sets. While working on this project, I employed the Redux technique.",
+    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
+    "liveLink": "https://wordle-game-beta-five.vercel.app/",
+    "lgPic": "job-experience-wordle-game-lg.webp"
+  },
+
+  {
+    "year": "Dec 2023",
+    "role": "Memory Game",
+    "company": "Personal",
+    "txt": "Would you like to enhance your visual memory by putting it to the test? Let us see how many turns it takes you to reveal the entire board. You will be able to select from a wide range of image collections that will always surprise you because they are acquired at random from PixaBay servers. This should increase the game's interest and make it quite unpredictable. When you believe you are improving, try a more difficult level. Keep track of your scores and compare them with your previous ones. Push yourself to the limit and try to beat your best score. Enjoy the challenge and have fun!",
+    "gitHubLink": "https://github.com/remi-k-work/memory-game",
+    "liveLink": "https://memory-game-nine-rho-39.vercel.app/",
+    "lgPic": "job-experience-memory-game-lg.webp"
+  },
+
+  {
+    "year": "Oct 2023",
+    "role": "My CV",
+    "company": "Personal",
+    "txt": "Do you think you have seen this page before? You are already on it 😄 It is my Resume/CV. You may argue that I must be somewhat desperate to include it in my portfolio. And you would be correct, but since it is React's project, you can at least check out its source code on GitHub. It is a project that I am proud of, and I believe it will be of interest to you. Maybe you can find something you can add to your own portfolio or learn from it. Give it a look and let me know what you think of it.",
+    "gitHubLink": "https://github.com/remi-k-work/my-cv",
+    "liveLink": "https://my-cv-remi.vercel.app/",
+    "lgPic": "job-experience-my-cv-lg.webp"
+  }
+]

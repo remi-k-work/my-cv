@@ -1,0 +1,30 @@
+.page {
+  clear: both;
+  display: grid;
+  gap: 1em;
+
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15em), 1fr));
+}
+
+.page > section {
+  background: var(--clr-primary-800);
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-end-radius: 1em;
+  padding-inline: 1em;
+  padding-block: 1em;
+}
+
+.page > section > header {
+  background: var(--clr-primary-300);
+  font-style: italic;
+  padding-inline: 0.35em;
+  padding-block: 0.35em;
+  float: inline-end;
+  margin-block: 0 1em;
+  border-start-start-radius: 1em;
+  border-start-end-radius: 0;
+  border-end-start-radius: 0;
+  border-end-end-radius: 1em;
+}

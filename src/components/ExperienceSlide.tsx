@@ -4,6 +4,10 @@ import styles from "./ExperienceSlide.module.css";
 // react
 import { ComponentProps } from "react";
 
+// next
+import Image from "next/image";
+import Link from "next/link";
+
 // other libraries
 import clsx from "clsx";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
@@ -14,7 +18,7 @@ import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 // types
 type ExperienceSlideProps = ComponentProps<"article"> & JobExperience;
 
-export default function ExperienceSlide({ year, role, company, txt, gitHubLink, liveLink, lgPic, mdPic, smPic, xsPic, ...props }: ExperienceSlideProps) {
+export default function ExperienceSlide({ year, role, company, txt, gitHubLink, liveLink, lgPic, ...props }: ExperienceSlideProps) {
   return (
     <article className={styles["experience-slide"]} {...props}>
       <header className="place-items-center xl:flex">
@@ -26,15 +30,9 @@ export default function ExperienceSlide({ year, role, company, txt, gitHubLink, 
       </header>
 
       <footer className={styles["experience-slide__live-link"]}>
-        <a href={liveLink} target="_blank" className={clsx(styles["live-link__img"], "transition-shadow hover:shadow-xl")}>
-          <picture>
-            <source media="(min-width: 992px)" width={1200} height={1187} srcSet={`/images/${lgPic}`} />
-            <source media="(min-width: 768px)" width={992} height={981} srcSet={`/images/${mdPic}`} />
-            <source media="(min-width: 576px)" width={768} height={759} srcSet={`/images/${smPic}`} />
-            <source media="(min-width: 1px)" width={576} height={570} srcSet={`/images/${xsPic}`} />
-            <img src={`/images/${xsPic}`} width={576} height={570} alt={role} className="w-full object-contain" />
-          </picture>
-        </a>
+        <Link href={liveLink} target="_blank" className={clsx(styles["live-link__img"], "transition-shadow hover:shadow-xl")}>
+          <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} className="w-full object-contain" />
+        </Link>
         <div className={styles["live-link__inf"]}>
           <details className="dropdown">
             <summary className="btn btn-circle btn-info">
@@ -45,9 +43,9 @@ export default function ExperienceSlide({ year, role, company, txt, gitHubLink, 
             </div>
           </details>
           {gitHubLink && (
-            <a href={gitHubLink} target="_blank" title="Go and see the GitHub Repo" className={styles["experience-slide__github"]}>
-              <img src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
-            </a>
+            <Link href={gitHubLink} target="_blank" title="Go and see the GitHub Repo" className={styles["experience-slide__github"]}>
+              <Image src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+            </Link>
           )}
         </div>
       </footer>

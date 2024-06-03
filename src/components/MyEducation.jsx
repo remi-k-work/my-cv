@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 // component css styles
 import styles from "./MyEducation.module.css";
 

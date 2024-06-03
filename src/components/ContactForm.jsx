@@ -1,22 +1,25 @@
+"use client";
+
 // component css styles
 import styles from "./ContactForm.module.css";
 
 // react
 import { useState } from "react";
 
-// rrd imports
-import { Form, useSubmit } from "react-router-dom";
-
 // other libraries
 import cn from "classnames";
+import { handleInput, handleInvalid } from "../assets/components/contact-form/validation";
+import emailjs from "@emailjs/browser";
 
 // components
-import { handleInput, handleInvalid } from "../assets/components/contact-form/validation";
+import SubmError from "@/components/contact-form/SubmError";
+import ThankYou from "@/components/contact-form/ThankYou";
 
 export default function ContactForm() {
   const [contact, setContact] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("empty");
-  const submit = useSubmit();
+  const [actionStatus, setActionStatus] = useState("idle");
+  const [actionError, setActionError] = useState("");
 
   function handleChange(ev) {
     const newContact = { ...contact, [ev.target.name]: ev.target.value };
@@ -36,7 +39,7 @@ export default function ContactForm() {
     }
   }
 
-  function handleSubmit(ev) {
+  async function handleSubmit(ev) {
     ev.preventDefault();
 
     // Do not allow submitting an invalid form
@@ -49,7 +52,25 @@ export default function ContactForm() {
     setStatus("submitting");
 
     // Finally, submit the form
-    submit(theForm);
+    try {
+      // Utilize EmailJS to assist with sending emails solely using client-side technology
+      await emailjs.send("default_service", "template_mmqusic", contact, process.env.NEXT_PUBLIC_VITE_EMAILJS_KEY);
+    } catch (error) {
+      // There was an error; return the status along with the error message, and the UI will respond to it
+      setActionStatus("error");
+      if (typeof error === "string") {
+        setActionError(error);
+      } else if (error instanceof Error) {
+        setActionError(error.message);
+      } else {
+        setActionError("Unknown.");
+      }
+      return;
+    }
+
+    // The contact form has been submitted successfully
+    setActionStatus("success");
+    setActionError("");
   }
 
   function handleReset(ev) {
@@ -58,92 +79,98 @@ export default function ContactForm() {
   }
 
   return (
-    <Form
-      className={styles["contact-form"]}
-      method="post"
-      action="/contact"
-      onSubmit={handleSubmit}
-      onReset={handleReset}
-      onInput={handleInput}
-      onInvalid={handleInvalid}
-    >
-      <ul>
-        <li className={cn(styles["contact-form__row"], styles["contact-form__row--split"])}>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              title=""
-              size={20}
-              maxLength={50}
-              spellCheck="false"
-              autoComplete="name"
-              required={true}
-              disabled={status === "submitting"}
-              value={contact.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              title=""
-              size={20}
-              maxLength={50}
-              spellCheck="false"
-              autoComplete="email"
-              required={true}
-              disabled={status === "submitting"}
-              value={contact.email}
-              onChange={handleChange}
-            />
-          </div>
-        </li>
-        <li className={styles["contact-form__row"]}>
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            title=""
-            size={40}
-            maxLength={50}
-            spellCheck="true"
-            required={true}
-            disabled={status === "submitting"}
-            value={contact.subject}
-            onChange={handleChange}
-          />
-        </li>
-        <li className={styles["contact-form__row"]}>
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            title=""
-            cols={50}
-            rows={6}
-            spellCheck="true"
-            required={true}
-            disabled={status === "submitting"}
-            value={contact.message}
-            onChange={handleChange}
-          ></textarea>
-        </li>
-        <li className={cn(styles["contact-form__row"], styles["contact-form__row--split"])}>
-          <button type="submit" disabled={status !== "ready"}>
-            Send
-          </button>
-          <button type="reset" disabled={status === "submitting" || status === "empty"}>
-            Reset
-          </button>
-        </li>
-      </ul>
-    </Form>
+    <>
+      {actionStatus === "error" && <SubmError error={actionError} />}
+      {actionStatus === "success" && <ThankYou />}
+      {actionStatus === "idle" && (
+        <form
+          className={styles["contact-form"]}
+          method="post"
+          action="/contact"
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+          onInput={handleInput}
+          onInvalid={handleInvalid}
+        >
+          <ul>
+            <li className={cn(styles["contact-form__row"], styles["contact-form__row--split"])}>
+              <div>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  title=""
+                  size={20}
+                  maxLength={50}
+                  spellCheck="false"
+                  autoComplete="name"
+                  required={true}
+                  disabled={status === "submitting"}
+                  value={contact.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  title=""
+                  size={20}
+                  maxLength={50}
+                  spellCheck="false"
+                  autoComplete="email"
+                  required={true}
+                  disabled={status === "submitting"}
+                  value={contact.email}
+                  onChange={handleChange}
+                />
+              </div>
+            </li>
+            <li className={styles["contact-form__row"]}>
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                title=""
+                size={40}
+                maxLength={50}
+                spellCheck="true"
+                required={true}
+                disabled={status === "submitting"}
+                value={contact.subject}
+                onChange={handleChange}
+              />
+            </li>
+            <li className={styles["contact-form__row"]}>
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                title=""
+                cols={50}
+                rows={6}
+                spellCheck="true"
+                required={true}
+                disabled={status === "submitting"}
+                value={contact.message}
+                onChange={handleChange}
+              ></textarea>
+            </li>
+            <li className={cn(styles["contact-form__row"], styles["contact-form__row--split"])}>
+              <button type="submit" disabled={status !== "ready"}>
+                Send
+              </button>
+              <button type="reset" disabled={status === "submitting" || status === "empty"}>
+                Reset
+              </button>
+            </li>
+          </ul>
+        </form>
+      )}
+    </>
   );
 }

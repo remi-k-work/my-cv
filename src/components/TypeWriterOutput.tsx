@@ -1,19 +1,25 @@
+"use client";
+
 // component css styles
 import styles from "./TypeWriterOutput.module.css";
 
 // react
 import { useEffect, useRef } from "react";
 
-// rrd imports
-import { useRouteLoaderData, useLocation } from "react-router-dom";
+// next
+import { usePathname } from "next/navigation";
 
 // other libraries
 import { useGlobalContext } from "../lib/GlobalContext";
 import TypeWriter from "../lib/TypeWriter";
 
-export default function TypeWriterOutput() {
-  const pageTitles = useRouteLoaderData("root") as PageTitles;
-  const { pathname } = useLocation();
+// types
+interface TypeWriterOutputProps {
+  pageTitles: PageTitles;
+}
+
+export default function TypeWriterOutput({ pageTitles }: TypeWriterOutputProps) {
+  const pathname = usePathname();
 
   // Get the current page title data depending on the pathname of the location
   const fullText = pageTitles[pathname].intro;

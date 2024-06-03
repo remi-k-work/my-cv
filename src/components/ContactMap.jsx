@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./ContactMap.module.css";
 
