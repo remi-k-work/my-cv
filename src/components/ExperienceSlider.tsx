@@ -15,10 +15,11 @@ import ExperienceSlide from "./ExperienceSlide";
 
 // types
 interface ExperienceSliderProps {
+  type: "e" | "p";
   jobExperienceList: JobExperience[];
 }
 
-export default function ExperienceSlider({ jobExperienceList }: ExperienceSliderProps) {
+export default function ExperienceSlider({ type, jobExperienceList }: ExperienceSliderProps) {
   const [viewedJobIndex, setViewedJobIndex] = useState(0);
 
   function handleNextExpClicked() {
@@ -59,7 +60,7 @@ export default function ExperienceSlider({ jobExperienceList }: ExperienceSlider
       </footer>
       <div className={styles["experience-slider__view"]}>
         {jobExperienceList.map((singleJobExperience, jobIndex) => (
-          <ExperienceSlide key={jobIndex} {...singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
+          <ExperienceSlide key={jobIndex} type={type} index={jobIndex} {...singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
         ))}
       </div>
     </section>

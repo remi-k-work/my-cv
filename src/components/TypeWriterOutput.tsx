@@ -3,29 +3,38 @@
 // component css styles
 import styles from "./TypeWriterOutput.module.css";
 
-// react
-import { useEffect, useRef } from "react";
-
 // next
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 // other libraries
 import { useGlobalContext } from "../lib/GlobalContext";
-import TypeWriter from "../lib/TypeWriter";
+import useTypeWriter from "@/lib/useTypeWriter";
+
+// assets
+import avatar from "../assets/components/page-title/avatar.jpg";
 
 // types
 interface TypeWriterOutputProps {
-  pageTitles: PageTitles;
+  fullText: string;
 }
 
-export default function TypeWriterOutput({ pageTitles }: TypeWriterOutputProps) {
+export default function TypeWriterOutput({ fullText }: TypeWriterOutputProps) {
   const pathname = usePathname();
 
-  // Get the current page title data depending on the pathname of the location
-  const fullText = pageTitles[pathname].intro;
-
   const { isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont } = useGlobalContext();
-  const outputRef = useRef<HTMLSpanElement>(null);
+  const { typedText } = useTypeWriter({
+    fullText,
+    onFinished: () => {
+      if (pathname === "/") {
+        setIsTypedHome(true);
+      } else if (pathname === "/education") {
+        setIsTypedEduc(true);
+      } else {
+        setIsTypedCont(true);
+      }
+    },
+  });
 
   let isFinished = false;
   if (pathname === "/") {
@@ -36,35 +45,23 @@ export default function TypeWriterOutput({ pageTitles }: TypeWriterOutputProps) 
     isFinished = isTypedCont;
   }
 
-  useEffect(() => {
-    // Has the whole text already been typed?
-    if (isFinished) {
-      // Yes, leave immediately
-      return;
-    }
-
-    function onFinished() {
-      if (pathname === "/") {
-        setIsTypedHome(true);
-      } else if (pathname === "/education") {
-        setIsTypedEduc(true);
-      } else {
-        setIsTypedCont(true);
-      }
-    }
-
-    const controller = new AbortController();
-    const typewriter = new TypeWriter(false, 50, 50, onFinished, outputRef.current!, controller.signal);
-
-    typewriter.typeFullText(fullText);
-    typewriter.start();
-
-    return () => controller.abort();
-  }, [isFinished, pathname, fullText]);
-
   return isFinished ? (
-    <span className={styles["type-writer-output"]}>{fullText}</span>
+    <>
+      <span className="sr-only">{fullText}</span>
+      <span className={styles["type-writer-output"]}>
+        {/* Show the avatar only on the homepage */}
+        {pathname === "/" && <Image src={avatar} width={288} height={288} alt="Avatar" />}
+        {fullText}
+      </span>
+    </>
   ) : (
-    <span key={pathname} ref={outputRef} className={styles["type-writer-output"]}></span>
+    <>
+      <span className="sr-only">{fullText}</span>
+      <span className={styles["type-writer-output"]}>
+        {/* Show the avatar only on the homepage */}
+        {pathname === "/" && <Image src={avatar} width={288} height={288} alt="Avatar" />}
+        {typedText}
+      </span>
+    </>
   );
 }

@@ -9,9 +9,6 @@ import "open-props/normalize";
 // component css styles
 import styles from "./layout.module.css";
 
-// node.js
-import { promises as fs } from "fs";
-
 // next
 import type { Metadata } from "next";
 
@@ -22,10 +19,16 @@ import { Analytics } from "@vercel/analytics/react";
 import { GlobalContextProvider } from "@/lib/GlobalContext";
 import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
-import PageTitle from "@/components/PageTitle";
 
 // assets
 import { outfit } from "@/assets/fonts";
+
+// types
+interface LayoutProps {
+  pagetitle: React.ReactNode;
+  exp: React.ReactNode;
+  children: React.ReactNode;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.WEBSITE_URL as string),
@@ -36,11 +39,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default async function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
-  // Get all the page titles from an outside source
-  const fileTit = await fs.readFile(process.cwd() + "/data/page-titles.json", "utf8");
-  const pageTitles = JSON.parse(fileTit) as PageTitles;
-
+export default async function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
   return (
     <html lang="en">
       <body className={outfit.className}>
@@ -52,7 +51,8 @@ export default async function Layout({ children }: Readonly<{ children: React.Re
           </aside>
           <main className={styles["main"]}>
             <GlobalContextProvider>
-              <PageTitle pageTitles={pageTitles} />
+              {exp}
+              {pagetitle}
               {children}
               <Analytics debug={false} />
             </GlobalContextProvider>

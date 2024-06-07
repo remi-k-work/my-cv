@@ -37,6 +37,7 @@
   html {
     color-scheme: dark;
     scroll-padding-block: 9em 0;
+    scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
   }
 
   body {

@@ -1,5 +1,18 @@
 .page-title {
-  margin-block: 0 3em;
+  margin-block: 0 1em;
+
+  block-size: 16em;
+  overflow-y: auto;
+
+  padding-inline: 1em 1em;
+
+  border-block-start: 1px dotted var(--clr-primary-300);
+  border-block-end: 1px dotted var(--clr-primary-300);
+
+  border-start-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-start-radius: 1em;
+  border-end-end-radius: 1em;
 }
 
 .page-title__eyebrow {
@@ -22,17 +35,4 @@
 .page-title__intro {
   font-size: var(--fs-500);
   max-inline-size: 65ch;
-}
-
-.page-title__intro > img {
-  float: inline-start;
-  shape-outside: circle(50%);
-  border-start-start-radius: 50%;
-  border-start-end-radius: 50%;
-  border-end-start-radius: 50%;
-  border-end-end-radius: 50%;
-  margin-inline: 0 1em;
-  margin-block: 1em 0;
-  inline-size: 8em;
-  block-size: 8em;
 }

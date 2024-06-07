@@ -20,11 +20,11 @@ export default async function Page() {
     <article className={styles["page"]}>
       <section>
         <header>Experience</header>
-        <ExperienceSlider jobExperienceList={[...listExp].reverse()} />
+        <ExperienceSlider type={"e"} jobExperienceList={[...listExp].reverse()} />
       </section>
       <section>
         <header>Portfolio Projects</header>
-        <ExperienceSlider jobExperienceList={listPor} />
+        <ExperienceSlider type={"p"} jobExperienceList={listPor} />
       </section>
     </article>
   );

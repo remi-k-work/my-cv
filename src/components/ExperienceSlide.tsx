@@ -16,17 +16,20 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 
 // types
-type ExperienceSlideProps = ComponentProps<"article"> & JobExperience;
+interface ExperienceSlideProps extends JobExperience, Omit<ComponentProps<"article">, "role"> {
+  type: "e" | "p";
+  index: number;
+}
 
-export default function ExperienceSlide({ year, role, company, txt, gitHubLink, liveLink, lgPic, ...props }: ExperienceSlideProps) {
+export default function ExperienceSlide({ type, index, year, role, company, txt, gitHubLink, liveLink, lgPic, ...props }: ExperienceSlideProps) {
   return (
     <article className={styles["experience-slide"]} {...props}>
-      <header className="place-items-center xl:flex">
-        <div className="xl:flex-1">
+      <header className="mb-4 flex flex-col xl:flex-row xl:place-items-center xl:gap-4">
+        <div className="flex-1">
           <p className={styles["experience-slide__year"]}>{year}</p>
           <h2 className={styles["experience-slide__role"]}>{role}</h2>
         </div>
-        <div className={clsx(styles["experience-slide__company"], "text-end xl:flex-none")}>{company}</div>
+        <div className={clsx(styles["experience-slide__company"], "flex-none xl:text-end")}>{company}</div>
       </header>
 
       <footer className={styles["experience-slide__live-link"]}>
@@ -34,16 +37,11 @@ export default function ExperienceSlide({ year, role, company, txt, gitHubLink, 
           <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} className="w-full object-contain" />
         </Link>
         <div className={styles["live-link__inf"]}>
-          <details className="dropdown">
-            <summary className="btn btn-circle btn-info">
-              <InformationCircleIcon width={32} height={32} />
-            </summary>
-            <div className={clsx(styles["experience-slide__txt"], "dropdown-content z-10")}>
-              <p className="m-auto">{txt}</p>
-            </div>
-          </details>
+          <Link href={`/exp/${type}/${index}`}>
+            <InformationCircleIcon width={48} height={48} title="More Info" />
+          </Link>
           {gitHubLink && (
-            <Link href={gitHubLink} target="_blank" title="Go and see the GitHub Repo" className={styles["experience-slide__github"]}>
+            <Link href={gitHubLink} target="_blank" title="Go and see the GitHub Repo">
               <Image src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
             </Link>
           )}

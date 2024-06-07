@@ -1,16 +1,7 @@
 .type-writer-output {
-  display: block;
-  min-block-size: 10em;
-
-  padding-inline: 1em 1em;
-
-  border-block-start: 1px dotted var(--clr-primary-300);
-  border-block-end: 1px dotted var(--clr-primary-300);
-
-  border-start-start-radius: 1em;
-  border-start-end-radius: 1em;
-  border-end-start-radius: 1em;
-  border-end-end-radius: 1em;
+  white-space: pre-wrap;
+  white-space: break-spaces;
+  text-wrap: wrap;
 }
 
 .type-writer-output::after {
@@ -20,4 +11,17 @@
   block-size: 1em;
   background: var(--clr-accent-400);
   scale: 1.2;
+}
+
+.type-writer-output > img {
+  float: inline-start;
+  shape-outside: circle(50%);
+  border-start-start-radius: 50%;
+  border-start-end-radius: 50%;
+  border-end-start-radius: 50%;
+  border-end-end-radius: 50%;
+  margin-inline: 0 1em;
+  margin-block: 1em 0;
+  inline-size: 8em;
+  block-size: 8em;
 }

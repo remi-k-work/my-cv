@@ -1,0 +1,12 @@
+.page {
+  max-inline-size: min(90vw, var(--size-content-3));
+  margin: auto;
+
+  background: var(--clr-primary-800);
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+  border-start-end-radius: 1em;
+  border-end-end-radius: 1em;
+  padding-inline: 1em;
+  padding-block: 1em;
+}

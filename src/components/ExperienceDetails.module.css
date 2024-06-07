@@ -1,38 +1,26 @@
-.experience-slide {
-  inline-size: 100cqi;
-
-  flex: 1 0 100cqi;
-
-  border-start-start-radius: 1em;
-  border-end-start-radius: 1em;
-  border-start-end-radius: 1em;
-  border-end-end-radius: 1em;
-  padding-inline: 1em;
-  padding-block: 1em;
-  background: var(--clr-primary-700);
-
-  transition: translate 1000ms ease-in-out;
+.experience-details {
+  inline-size: 100%;
 }
 
-.experience-slide__year {
+.experience-details__year {
   color: var(--clr-accent-400);
   font-size: var(--fs-300);
   font-weight: var(--fw-bold);
   letter-spacing: 0.2em;
 }
 
-.experience-slide__role {
+.experience-details__role {
   font-size: var(--fs-500);
   line-height: 1.2;
 }
 
-.experience-slide__company {
+.experience-details__company {
   color: var(--clr-primary-200);
   font-size: var(--fs-400);
   font-weight: var(--fw-bold);
 }
 
-.experience-slide__live-link {
+.experience-details__live-link {
   display: grid;
 
   grid-template-columns: [img-start] var(--size-3) [inf-start] auto [inf-end img-end];

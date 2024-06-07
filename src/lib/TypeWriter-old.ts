@@ -4,20 +4,18 @@ import animationInterval from "./animationInterval";
 // types
 type TypeWriterAction = () => Promise<void>;
 type ActionCallback = (resolve: () => void, reject: () => void) => void;
-type OnChanged = (typedText: string) => void;
 type OnFinished = () => void;
 
 export default class TypeWriter {
   private hasStarted: boolean = false;
   private readonly actionsQueue: TypeWriterAction[] = [];
-  private typedText: string = "";
 
   constructor(
     private readonly shouldLoop: boolean = false,
     private readonly typingSpeed: number = 50,
     private readonly deletingSpeed: number = 50,
-    private readonly onChanged: OnChanged,
     private readonly onFinished: OnFinished,
+    private readonly parentEl: HTMLElement,
     private readonly abortSignal: AbortSignal,
   ) {}
 
@@ -44,8 +42,7 @@ export default class TypeWriter {
       let i = 0;
       const controller = new AbortController();
       animationInterval(this.getRandomInt(10, this.typingSpeed), controller.signal, () => {
-        this.typedText += word[i];
-        this.onChanged(this.typedText);
+        this.parentEl.textContent += word[i];
         i++;
         if (i >= word.length) {
           controller.abort();
@@ -62,8 +59,7 @@ export default class TypeWriter {
       let i = 0;
       const controller = new AbortController();
       animationInterval(this.getRandomInt(10, this.deletingSpeed), controller.signal, () => {
-        this.typedText = this.typedText.substring(0, this.typedText.length - 1);
-        this.onChanged(this.typedText);
+        this.parentEl.textContent = this.parentEl.textContent?.substring(0, this.parentEl.textContent.length - 1) as string;
         i++;
         if (i >= howMany) {
           controller.abort();
