@@ -7,7 +7,8 @@ import PageTitle from "@/components/PageTitle";
 
 export default async function Page() {
   // Get all the page titles from an outside source
-  const fileTit = await fs.readFile(path.join("./src/app/data/", "page-titles.json"), "utf8");
+  const dataDir = path.resolve(process.cwd(), "public/data");
+  const fileTit = await fs.readFile(path.join(dataDir, "page-titles.json"), "utf8");
   const pageTitles = JSON.parse(fileTit) as PageTitles;
 
   return <PageTitle pageTitles={pageTitles} />;

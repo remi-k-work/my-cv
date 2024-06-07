@@ -23,9 +23,10 @@ interface ExperienceDetailsProps {
 
 export default async function ExperienceDetails({ type, index }: ExperienceDetailsProps) {
   // Obtain a list of all job experiences from an outside source
+  const dataDir = path.resolve(process.cwd(), "public/data");
   const [fileExp, filePor] = await Promise.all([
-    fs.readFile(path.join("./src/app/data/", "experience.json"), "utf8"),
-    fs.readFile(path.join("./src/app/data/", "portfolio-projects.json"), "utf8"),
+    fs.readFile(path.join(dataDir, "experience.json"), "utf8"),
+    fs.readFile(path.join(dataDir, "portfolio-projects.json"), "utf8"),
   ]);
   const listExp = JSON.parse(fileExp) as JobExperience[];
   const listPor = JSON.parse(filePor) as JobExperience[];
