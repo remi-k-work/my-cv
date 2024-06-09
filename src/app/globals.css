@@ -54,6 +54,10 @@
   }
 
   button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+
     border-inline: 0;
     border-block: 0;
     border-start-start-radius: 0.5em;
@@ -95,5 +99,34 @@
 
   button:focus-visible {
     outline: 1px solid var(--clr-neutral-100);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  h1 {
+    max-inline-size: var(--size-header-3);
+  }
+
+  h2 {
+    max-inline-size: var(--size-header-3);
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    max-inline-size: var(--size-header-3);
+  }
+
+  p {
+    max-inline-size: var(--size-content-3);
+    text-wrap: pretty;
   }
 }

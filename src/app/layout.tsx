@@ -4,7 +4,7 @@ import "./globals.css";
 import "open-props/style";
 
 /* optional imports that use the props */
-import "open-props/normalize";
+// import "open-props/normalize";
 
 // component css styles
 import styles from "./layout.module.css";
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 export default async function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="synthwave">
       <body className={outfit.className}>
         <div className={styles["main-grid"]}>
           <div className={styles["main-grid__placehl"]}></div>

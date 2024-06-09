@@ -1,0 +1,83 @@
+.form-field {
+  inline-size: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field > label {
+  padding-block: 0 0.5em;
+  color: var(--clr-primary-200);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-semi-bold);
+  text-transform: uppercase;
+  flex: none;
+}
+
+.form-field > input,
+.form-field > textarea,
+.form-field > select,
+.form-field > output {
+  font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
+  inline-size: 100%;
+  border: 1px solid var(--clr-primary-200);
+  border-start-start-radius: 0.25em;
+  border-end-start-radius: 0.25em;
+  border-start-end-radius: 0.25em;
+  border-end-end-radius: 0.25em;
+  box-shadow: inset 1px 1px 3px var(--clr-primary-800);
+  background: var(--clr-primary-200);
+  outline: none;
+  padding-inline: 0.25em;
+  padding-block: 0.25em;
+
+  flex: 1 1 auto;
+}
+
+.form-field > textarea {
+  vertical-align: top;
+  overflow: auto;
+}
+
+.form-field > input:focus-visible,
+.form-field > textarea:focus-visible,
+.form-field > select:focus-visible,
+.form-field > output:focus-visible {
+  outline: 1px solid var(--clr-primary-200);
+  outline-offset: 2px;
+}
+
+.form-field > input:invalid,
+.form-field > textarea:invalid,
+.form-field > select:invalid,
+.form-field > output:invalid {
+  outline: 1px solid var(--clr-accent-400);
+  outline-offset: 2px;
+}
+
+.form-field > input:valid,
+.form-field > textarea:valid,
+.form-field > select:valid,
+.form-field > output:valid {
+  outline: none;
+}
+
+.error-message {
+  background: var(--clr-accent-400);
+  color: var(--clr-primary-800);
+
+  font-size: var(--font-size-2);
+
+  padding-inline: var(--size-2);
+  padding-block: var(--size-1);
+  border-radius: var(--radius-3);
+
+  opacity: 0;
+  animation:
+    var(--animation-shake-y),
+    var(--animation-fade-in) forwards;
+
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
