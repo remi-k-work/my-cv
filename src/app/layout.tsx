@@ -37,11 +37,15 @@ export const metadata: Metadata = {
     "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
   authors: [{ name: "Remi" }],
   robots: { index: true, follow: true },
+  category: "technology",
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default async function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
   return (
-    <html lang="en" data-theme="synthwave">
+    <html translate="no" lang="en" data-theme="synthwave">
       <body className={outfit.className}>
         <div className={styles["main-grid"]}>
           <div className={styles["main-grid__placehl"]}></div>

@@ -33,7 +33,7 @@ export default function FormSubmit({ isPending, onSubmitCompleted, onResetClicke
 
   return (
     <section className={styles["form-submit"]}>
-      <button type="submit" disabled={isPending} autoFocus>
+      <button type="submit" disabled={isPending}>
         {isPending ? (
           <>
             <span className="loading loading-spinner"></span>

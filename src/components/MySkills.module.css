@@ -16,7 +16,7 @@
 
 .my-skills__list {
   display: grid;
-  gap: 2em;
+  gap: 1em;
 
   position: sticky;
   inset-block-start: 4em;
@@ -172,8 +172,6 @@
   .my-skills {
     inline-size: 100%;
     block-size: auto;
-
-    padding-inline-end: 0.5em;
 
     background: var(--clr-primary-700);
     position: fixed;
