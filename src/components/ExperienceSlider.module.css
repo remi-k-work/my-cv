@@ -3,6 +3,8 @@
   max-inline-size: 36em;
   margin-inline: auto;
 
+  clear: inline-end;
+
   display: grid;
   gap: 0.25em;
 
