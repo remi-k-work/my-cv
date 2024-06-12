@@ -1,0 +1,74 @@
+{
+  "pageHome": {
+    "experience": "Doświadczenie",
+    "portfolioProjects": "Projekty do Portfolio"
+  },
+
+  "contactForm": {
+    "labelName": "Imię",
+    "labelEmail": "Email",
+    "labelSubject": "Temat",
+    "labelMessage": "Wiadomość",
+    "placeholderName": "Daj mi znać kim jesteś!",
+    "placeholderEmail": "Odpowiem Ci tutaj",
+    "placeholderSubject": "Zapytanie o projekt? Informacja zwrotna? Daj mi znać!",
+    "placeholderMessage": "Jak mogę Ci dzisiaj pomóc?"
+  },
+
+  "contactFormFeedback": {
+    "success": "Powodzenie!",
+    "messageSent": "Twoja wiadomość została wysłana.",
+    "name": "Imię",
+    "email": "Email",
+    "subject": "Temat",
+    "missingFields": "Brakujące pola!",
+    "pleaseCorrect": "Popraw pola formularza kontaktowego i spróbuj ponownie.",
+    "serverError": "Błąd serwera!",
+    "messageNotSent": "Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później."
+  },
+
+  "contactMap": {
+    "letUsTalk": "Porozmawiajmy o niektórych projektach",
+    "overCup": "przy filiżance kawy 😄",
+    "poland": "Polska"
+  },
+
+  "experienceDetails": {
+    "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
+    "gitHubRepo": "Repozytorium GitHuba"
+  },
+
+  "experienceModal": {
+    "projectInfo": "Informacje i Opis Projektu",
+    "close": "Zamknij"
+  },
+
+  "experienceSlide": {
+    "moreInfo": "Więcej Informacji",
+    "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
+    "gitHubRepo": "Repozytorium GitHuba"
+  },
+
+  "formSubmit": {
+    "sending": "Wysyłam...",
+    "send": "Wyślij",
+    "reset": "Wyczyść",
+    "cancel": "Anuluj"
+  },
+
+  "header": {
+    "home": "Dom",
+    "education": "Edukacja",
+    "contact": "Kontakt",
+    "pdf": "Wersja PDF",
+    "hrefPdf": "/my-cv-pl.pdf"
+  },
+
+  "myCertificates": {
+    "myCertificates": "Moje Certyfikaty"
+  },
+
+  "myEducation": {
+    "myEducation": "Moja Edukacja"
+  }
+}

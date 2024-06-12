@@ -17,11 +17,24 @@ import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
 
 // types
 interface ExperienceSlideProps extends JobExperience, Omit<ComponentProps<"article">, "role"> {
+  localizedContent: LocalizedContent;
   type: "e" | "p";
   index: number;
 }
 
-export default function ExperienceSlide({ type, index, year, role, company, txt, gitHubLink, liveLink, lgPic, ...props }: ExperienceSlideProps) {
+export default function ExperienceSlide({
+  localizedContent,
+  type,
+  index,
+  year,
+  role,
+  company,
+  txt,
+  gitHubLink,
+  liveLink,
+  lgPic,
+  ...props
+}: ExperienceSlideProps) {
   return (
     <article className={styles["experience-slide"]} {...props}>
       <header className="mb-4 flex flex-col xl:flex-row xl:place-items-center xl:gap-4">
@@ -38,11 +51,11 @@ export default function ExperienceSlide({ type, index, year, role, company, txt,
         </Link>
         <div className={styles["live-link__inf"]}>
           <Link href={`/exp/${type}/${index}`}>
-            <InformationCircleIcon width={48} height={48} title="More Info" />
+            <InformationCircleIcon width={48} height={48} title={localizedContent["experienceSlide"]["moreInfo"]} />
           </Link>
           {gitHubLink && (
-            <Link href={gitHubLink} target="_blank" title="Go and see the GitHub Repo">
-              <Image src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+            <Link href={gitHubLink} target="_blank" title={localizedContent["experienceSlide"]["goAndSee"]}>
+              <Image src={gitHubLogo} width="48" height="48" alt={localizedContent["experienceSlide"]["gitHubRepo"]} />
             </Link>
           )}
         </div>

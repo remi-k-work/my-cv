@@ -9,25 +9,35 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
+import { DocumentTextIcon } from "@heroicons/react/24/solid";
 
-export default function Header() {
+// components
+import LangChanger from "./LangChanger";
+
+// types
+interface HeaderProps {
+  localizedContent: LocalizedContent;
+}
+
+export default function Header({ localizedContent }: HeaderProps) {
   const pathname = usePathname();
 
   return (
     <header className={styles["header"]}>
       <nav>
         <Link href="/" className={clsx(pathname === "/" && styles["active"])}>
-          Home
+          {localizedContent["header"]["home"]}
         </Link>
         <Link href="/education" className={clsx(pathname === "/education" && styles["active"])}>
-          Education
+          {localizedContent["header"]["education"]}
         </Link>
         <Link href="/contact" className={clsx(pathname === "/contact" && styles["active"])}>
-          Contact
+          {localizedContent["header"]["contact"]}
         </Link>
-        <Link href="/my-cv.pdf" target="_blank">
-          <b>Pdf</b>
+        <Link href={localizedContent["header"]["hrefPdf"]} target="_blank" title={localizedContent["header"]["pdf"]} prefetch={false}>
+          <DocumentTextIcon width={24} height={24} />
         </Link>
+        <LangChanger />
       </nav>
     </header>
   );

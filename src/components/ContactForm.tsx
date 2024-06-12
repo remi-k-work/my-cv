@@ -14,6 +14,7 @@ import ContactFormSchema, { ContactFormSchemaType, ContactFormState } from "../l
 import { zodResolver } from "@hookform/resolvers/zod";
 import useFormActionWithVal from "../lib/useFormActionWithVal";
 import { FormProvider } from "react-hook-form";
+import { useGlobalContext } from "../lib/GlobalContext";
 
 // components
 import { FormInputField, FormTextArea } from "./FormControls";
@@ -21,18 +22,25 @@ import FormSubmit from "./FormSubmit";
 import ContactFormFeedback from "./ContactFormFeedback";
 
 // types
+interface ContactFormProps {
+  localizedContent: LocalizedContent;
+}
+
 interface TheFormWrappedProps {
+  localizedContent: LocalizedContent;
   onResetClicked: () => void;
 }
 
-export default function ContactForm() {
+export default function ContactForm({ localizedContent }: ContactFormProps) {
   // Resetting a form with a key: you can force a subtree to reset its state by giving it a different key
   const [formResetKey, setFormResetKey] = useState("ContactForm");
 
-  return <TheFormWrapped key={formResetKey} onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />;
+  return <TheFormWrapped key={formResetKey} localizedContent={localizedContent} onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />;
 }
 
-function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
+function TheFormWrapped({ localizedContent, onResetClicked }: TheFormWrappedProps) {
+  const { lang } = useGlobalContext();
+
   const {
     isPending,
     formState: contactFormState,
@@ -44,8 +52,8 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
     useFormMethods,
   } = useFormActionWithVal<ContactFormState, ContactFormSchemaType>({
     formActionFunc: newContact,
-    resolver: zodResolver(ContactFormSchema.schema),
-    formSchema: new ContactFormSchema(),
+    resolver: zodResolver(lang === "pl" ? ContactFormSchema.schemaPl : ContactFormSchema.schemaEn),
+    formSchema: new ContactFormSchema(lang === "pl" ? "pl" : "en"),
   });
 
   return (
@@ -55,47 +63,47 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
           {/* <form className={styles["contact-form"]} action={formAction} noValidate={true} onSubmit={(ev) => onSubmit({} as ContactFormSchemaType, ev)}> */}
           <FormInputField
             fieldName={"name"}
-            fieldLabel={"name"}
+            fieldLabel={localizedContent["contactForm"]["labelName"]}
             allFieldErrors={allFieldErrors}
             size={40}
             maxLength={26}
             spellCheck={"false"}
             autoComplete={"name"}
             required={true}
-            placeholder={"Let me know who you are!"}
+            placeholder={localizedContent["contactForm"]["placeholderName"]}
             defaultValue={""}
           />
           <br />
           <FormInputField
             fieldType={"email"}
             fieldName={"email"}
-            fieldLabel={"email"}
+            fieldLabel={localizedContent["contactForm"]["labelEmail"]}
             allFieldErrors={allFieldErrors}
             size={40}
             maxLength={50}
             spellCheck={"false"}
             autoComplete={"email"}
             required={true}
-            placeholder={"I will reply to you here"}
+            placeholder={localizedContent["contactForm"]["placeholderEmail"]}
             defaultValue={""}
           />
           <br />
           <FormInputField
             fieldName={"subject"}
-            fieldLabel={"subject"}
+            fieldLabel={localizedContent["contactForm"]["labelSubject"]}
             allFieldErrors={allFieldErrors}
             size={40}
             maxLength={41}
             spellCheck={"true"}
             autoComplete={"off"}
             required={true}
-            placeholder={"Project Inquiry? Feedback? Let me know!"}
+            placeholder={localizedContent["contactForm"]["placeholderSubject"]}
             defaultValue={""}
           />
           <br />
           <FormTextArea
             fieldName={"message"}
-            fieldLabel={"message"}
+            fieldLabel={localizedContent["contactForm"]["labelMessage"]}
             allFieldErrors={allFieldErrors}
             cols={50}
             rows={6}
@@ -103,13 +111,25 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
             spellCheck={"true"}
             autoComplete={"off"}
             required={true}
-            placeholder={"How can I help you today?"}
+            placeholder={localizedContent["contactForm"]["placeholderMessage"]}
             defaultValue={""}
           />
-          <FormSubmit isPending={isPending} onSubmitCompleted={() => setShowFeedback(true)} onResetClicked={onResetClicked} />
+          <FormSubmit
+            localizedContent={localizedContent}
+            isPending={isPending}
+            onSubmitCompleted={() => setShowFeedback(true)}
+            onResetClicked={onResetClicked}
+          />
         </form>
       </FormProvider>
-      {showFeedback && <ContactFormFeedback contactFormState={contactFormState} setShowFeedback={setShowFeedback} onResetClicked={onResetClicked} />}
+      {showFeedback && (
+        <ContactFormFeedback
+          localizedContent={localizedContent}
+          contactFormState={contactFormState}
+          setShowFeedback={setShowFeedback}
+          onResetClicked={onResetClicked}
+        />
+      )}
     </>
   );
 }

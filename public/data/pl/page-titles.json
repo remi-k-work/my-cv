@@ -1,0 +1,19 @@
+{
+  "/": {
+    "eyebrow": "Umiejętności i Doświadczenie",
+    "heading": "Moje CV",
+    "intro": "Kiedyś zajmowałem się ASP.NET i C#, ale moja pasja do tworzenia stron internetowych nigdy nie osłabła. Obecnie jestem całkowicie uzależniony od React, JavaScript, HTML i CSS – idealnych narzędzi do realizacji mojej obsesji na punkcie programowania front-end. Z nienasyconym głodem wiedzy i zaangażowaniem w naukę, poszukuję możliwości odbycia stażu, aby ubrudzić sobie ręce i przyczynić się do każdego projektu, który stanie mi na drodze. Nawet najprostsze zadania dostarczyłyby bezcennych doświadczeń edukacyjnych, ponieważ staram się podnieść swoje umiejętności tworzenia stron internetowych na wyższy poziom. Chętnie chłonę wiedzę od doświadczonych profesjonalistów i współpracuję z zespołem błyskotliwych umysłów. Jestem gotów przyswajać umiejętności i spostrzeżenia, tak aby stać się prawdziwym atutem każdego zespołu."
+  },
+
+  "/education": {
+    "eyebrow": "Programista z Dyplomem „Media Interaktywne”",
+    "heading": "Moja Edukacja",
+    "intro": "Moja podróż edukacyjna rozpoczęła się na Politechnice Rzeszowskiej, gdzie zetknąłem się ze światem informatyki. Zanim zdecydowałem się przenieść do Instytutu Pratta w Stanach Zjednoczonych, spędziłem dwa lata na zgłębianiu podstaw i tajników informatyki. W Pratt od razu zaangażowałem się w program „Media Interaktywne”, poznając wszystkie najnowsze trendy w tworzeniu, projektowaniu i obsłudze stron internetowych. Mimo, że nie mam prestiżowego tytułu magistra, to zbudowałem mocne i solidne podstawy wiedzy. Biegle posługuję się także różnymi językami programowania i technologiami, w tym JavaScript, HTML, CSS i React. Jestem osobą pracowitą, zawsze chętną do nauki i rozwoju. Dodatkowo jestem duszą towarzystwa, zawsze chętną do współpracy z utalentowanymi ludźmi i chłonięcia kreatywnej wiedzy. Jestem pewien, że moja pasja, umiejętności i chęć uczenia się czynią mnie cennym nabytkiem dla każdej organizacji, która chce dać mi szansę zabłysnąć."
+  },
+
+  "/contact": {
+    "eyebrow": "Nawiążmy Kontakt",
+    "heading": "Skontaktuj się ze mną",
+    "intro": "Odezwij się! Niezależnie od tego, czy masz pytanie dotyczące mojej pracy, jesteś zainteresowany współpracą przy projekcie, czy też zastanawiasz się nad stażem dla mnie, nie wahaj się i skontaktuj się! Skorzystaj z poniższego formularza, aby wysłać mi wiadomość, a ja z przyjemnością odpowiem niezwłocznie. Chętnie nawiązuję nowe kontakty, tak aby uczyć się i rozwijać wspólnie z Tobą! Pozdrawiam i mam nadzieję do usłyszenia wkrótce!"
+  }
+}

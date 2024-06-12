@@ -9,10 +9,23 @@ interface JobExperience {
   lgPic: string;
 }
 
+interface EducationSchool {
+  name: string;
+  year: string;
+  location: string;
+  info: string;
+}
+
 interface PageTitles {
   [key: string]: {
     eyebrow: string;
     heading: string;
     intro: string;
+  };
+}
+
+interface LocalizedContent {
+  [key: string]: {
+    [key: string]: string;
   };
 }

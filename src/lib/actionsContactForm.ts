@@ -5,9 +5,13 @@ import { revalidatePath } from "next/cache";
 
 // other libraries
 import ContactFormSchema, { ContactFormState } from "./ContactFormSchema";
+import DataLoader from "@/lib/DataLoader";
 
 export async function newContact(formState: ContactFormState, formData: FormData): Promise<ContactFormState> {
-  const contactFormSchema = new ContactFormSchema(formData);
+  // Create an instance of the data loader needed for localization
+  const dataLoader = await DataLoader.init();
+
+  const contactFormSchema = new ContactFormSchema(dataLoader.lang, formData);
   const { isSuccess, allFieldErrorsServer, validatedData } = contactFormSchema;
 
   // If form validation fails, return errors promptly; otherwise, continue

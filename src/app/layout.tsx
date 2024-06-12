@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 
 // other libraries
 import { Analytics } from "@vercel/analytics/react";
+import DataLoader from "@/lib/DataLoader";
 
 // components
 import { GlobalContextProvider } from "@/lib/GlobalContext";
@@ -44,24 +45,27 @@ export const metadata: Metadata = {
 };
 
 export default async function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
+  // Create an instance of the data loader needed for localization
+  const dataLoader = await DataLoader.init();
+
   return (
-    <html translate="no" lang="en" data-theme="synthwave">
+    <html lang={dataLoader.lang} translate="no" data-theme="synthwave">
       <body className={outfit.className}>
-        <div className={styles["main-grid"]}>
-          <div className={styles["main-grid__placehl"]}></div>
-          <Header />
-          <aside className={styles["aside"]}>
-            <MySkills />
-          </aside>
-          <main className={styles["main"]}>
-            <GlobalContextProvider>
+        <GlobalContextProvider>
+          <div className={styles["main-grid"]}>
+            <div className={styles["main-grid__placehl"]}></div>
+            <Header localizedContent={dataLoader.localizedContent} />
+            <aside className={styles["aside"]}>
+              <MySkills />
+            </aside>
+            <main className={styles["main"]}>
               {exp}
               {pagetitle}
               {children}
               <Analytics debug={false} />
-            </GlobalContextProvider>
-          </main>
-        </div>
+            </main>
+          </div>
+        </GlobalContextProvider>
       </body>
     </html>
   );

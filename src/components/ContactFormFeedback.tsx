@@ -12,12 +12,18 @@ import Toastify from "@/components/Toastify";
 
 // types
 interface ContactFormFeedbackProps {
+  localizedContent: LocalizedContent;
   contactFormState?: ContactFormState;
   setShowFeedback: Dispatch<SetStateAction<boolean>>;
   onResetClicked: () => void;
 }
 
-export default function ContactFormFeedback({ contactFormState = { actionStatus: "idle" }, setShowFeedback, onResetClicked }: ContactFormFeedbackProps) {
+export default function ContactFormFeedback({
+  localizedContent,
+  contactFormState = { actionStatus: "idle" },
+  setShowFeedback,
+  onResetClicked,
+}: ContactFormFeedbackProps) {
   const { actionStatus, contactExcerpt } = contactFormState;
 
   return (
@@ -31,21 +37,21 @@ export default function ContactFormFeedback({ contactFormState = { actionStatus:
           }}
         >
           <CheckBadgeIcon width={64} height={64} className="m-auto" />
-          <p className="mb-8 text-center font-bold">Success!</p>
-          <p className="mb-4">Your message has been sent.</p>
+          <p className="mb-8 text-center font-bold">{localizedContent["contactFormFeedback"]["success"]}</p>
+          <p className="mb-4">{localizedContent["contactFormFeedback"]["messageSent"]}</p>
           <div className="max-w-72 overflow-x-auto">
             <table className="table bg-success text-success-content">
               <tbody>
                 <tr>
-                  <th>Name</th>
+                  <th>{localizedContent["contactFormFeedback"]["name"]}</th>
                   <td>{contactExcerpt.name}</td>
                 </tr>
                 <tr>
-                  <th>Email</th>
+                  <th>{localizedContent["contactFormFeedback"]["email"]}</th>
                   <td>{contactExcerpt.email}</td>
                 </tr>
                 <tr>
-                  <th>Subject</th>
+                  <th>{localizedContent["contactFormFeedback"]["subject"]}</th>
                   <td>{contactExcerpt.subject}</td>
                 </tr>
               </tbody>
@@ -56,15 +62,15 @@ export default function ContactFormFeedback({ contactFormState = { actionStatus:
       {actionStatus === "invalid" && (
         <Toastify type={"alert-warning"} onTimedOut={() => setShowFeedback(false)}>
           <ClipboardDocumentCheckIcon width={64} height={64} className="m-auto" />
-          <p className="mb-8 text-center font-bold">Missing fields!</p>
-          <p className="mt-4">Please correct the contact form fields and try again.</p>
+          <p className="mb-8 text-center font-bold">{localizedContent["contactFormFeedback"]["missingFields"]}</p>
+          <p className="mt-4">{localizedContent["contactFormFeedback"]["pleaseCorrect"]}</p>
         </Toastify>
       )}
       {actionStatus === "failed" && (
         <Toastify type={"alert-warning"} onTimedOut={() => setShowFeedback(false)}>
           <CircleStackIcon width={64} height={64} className="m-auto" />
-          <p className="mb-8 text-center font-bold">Server error!</p>
-          <p className="mt-4">The message was not sent successfully; please try again later.</p>
+          <p className="mb-8 text-center font-bold">{localizedContent["contactFormFeedback"]["serverError"]}</p>
+          <p className="mt-4">{localizedContent["contactFormFeedback"]["messageNotSent"]}</p>
         </Toastify>
       )}
     </>

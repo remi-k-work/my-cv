@@ -2,6 +2,7 @@
 import { z } from "zod";
 import { FieldErrors } from "react-hook-form";
 import FormSchemaBase, { AllFieldErrors, FormStateBase } from "./FormSchemaBase";
+import { Lang } from "./DataLoader";
 
 // types
 interface ContactExcerpt {
@@ -14,11 +15,11 @@ export interface ContactFormState extends FormStateBase {
   contactExcerpt?: ContactExcerpt;
 }
 
-export type ContactFormSchemaType = z.infer<typeof ContactFormSchema.schema>;
+export type ContactFormSchemaType = z.infer<typeof ContactFormSchema.schemaEn>;
 
 export default class ContactFormSchema extends FormSchemaBase<ContactFormSchemaType> {
   // Schema-based form validation with zod
-  public static readonly schema = z.object({
+  public static readonly schemaEn = z.object({
     name: z
       .string()
       .trim()
@@ -41,8 +42,31 @@ export default class ContactFormSchema extends FormSchemaBase<ContactFormSchemaT
       .max(2048, { message: "Please keep the message to a maximum of 2048 characters" }),
   });
 
-  constructor(formData?: FormData) {
-    super(formData);
+  public static readonly schemaPl = z.object({
+    name: z
+      .string()
+      .trim()
+      .min(1, { message: "Proszę podać swoje imię; jest to pole niezbędne" })
+      .max(25, { message: "Imię powinno mieć maksymalnie 25 znaków" }),
+    email: z
+      .string()
+      .trim()
+      .min(1, { message: "Podaj swój adres e-mail, abym mógł się z Tobą skontaktować; e-mail jest polem obowiązkowym" })
+      .email({ message: "Podany adres e-mail wydaje się być nieprawidłowy; zaktualizuj to" }),
+    subject: z
+      .string()
+      .trim()
+      .min(1, { message: "Temat Twojej wiadomości jest polem wymaganym" })
+      .max(40, { message: "Temat wiadomości powinien mieć maksymalnie 40 znaków" }),
+    message: z
+      .string()
+      .trim()
+      .min(1, { message: "Jaką wiadomość chcesz wysłać? Jest to pole obowiązkowe" })
+      .max(2048, { message: "Wiadomość nie może mieć więcej niż 2048 znaków" }),
+  });
+
+  constructor(lang: Lang, formData?: FormData) {
+    super(lang, formData);
   }
 
   getAllFieldErrorsClient(rhfErrors: FieldErrors<ContactFormSchemaType>) {
@@ -57,8 +81,14 @@ export default class ContactFormSchema extends FormSchemaBase<ContactFormSchemaT
     return Object.keys(allFieldErrors).length > 0 ? allFieldErrors : undefined;
   }
 
-  protected getAllFieldErrorsServer(formDataObj: { [k: string]: FormDataEntryValue }) {
-    const validatedFields = ContactFormSchema.schema.safeParse(formDataObj);
+  getAllFieldErrorsServer(formDataObj: { [k: string]: FormDataEntryValue }) {
+    let validatedFields;
+    if (this.lang === "pl") {
+      validatedFields = ContactFormSchema.schemaPl.safeParse(formDataObj);
+    } else {
+      validatedFields = ContactFormSchema.schemaEn.safeParse(formDataObj);
+    }
+
     if (validatedFields.success === false) {
       this.isSuccess = false;
 

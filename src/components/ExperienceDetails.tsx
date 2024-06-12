@@ -1,16 +1,13 @@
 // component css styles
 import styles from "./ExperienceDetails.module.css";
 
-// node.js
-import { promises as fs } from "fs";
-import path from "path";
-
 // next
 import Image from "next/image";
 import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
+import DataLoader from "@/lib/DataLoader";
 
 // assets
 import gitHubLogo from "../assets/components/job-experience/github-logo.svg";
@@ -23,17 +20,14 @@ interface ExperienceDetailsProps {
 
 export default async function ExperienceDetails({ type, index }: ExperienceDetailsProps) {
   // Obtain a list of all job experiences from an outside source
-  const dataDir = path.resolve(process.cwd(), "public/data");
-  const [fileExp, filePor] = await Promise.all([
-    fs.readFile(path.join(dataDir, "experience.json"), "utf8"),
-    fs.readFile(path.join(dataDir, "portfolio-projects.json"), "utf8"),
-  ]);
-  const listExp = JSON.parse(fileExp) as JobExperience[];
-  const listPor = JSON.parse(filePor) as JobExperience[];
+  const dataLoader = await DataLoader.init();
+  const [listExp, listPor] = await dataLoader.allExperiences();
+
+  const { localizedContent } = dataLoader;
 
   let experience: JobExperience | undefined = undefined;
   if (type === "e") {
-    experience = [...listExp].reverse()[index];
+    experience = listExp[index];
   } else if (type === "p") {
     experience = listPor[index];
   }
@@ -59,8 +53,8 @@ export default async function ExperienceDetails({ type, index }: ExperienceDetai
         </Link>
         {gitHubLink && (
           <div className={styles["live-link__inf"]}>
-            <Link href={gitHubLink} target="_blank" title="Go and see the GitHub Repo">
-              <Image src={gitHubLogo} width="48" height="48" alt="GitHub Repo" />
+            <Link href={gitHubLink} target="_blank" title={localizedContent["experienceDetails"]["goAndSee"]}>
+              <Image src={gitHubLogo} width="48" height="48" alt={localizedContent["experienceDetails"]["gitHubRepo"]} />
             </Link>
           </div>
         )}

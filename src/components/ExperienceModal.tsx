@@ -14,10 +14,11 @@ import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ExperienceModalProps {
+  localizedContent: LocalizedContent;
   children: React.ReactNode;
 }
 
-export default function ExperienceModal({ children }: ExperienceModalProps) {
+export default function ExperienceModal({ localizedContent, children }: ExperienceModalProps) {
   // To be able to call showModal() method on the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -34,7 +35,7 @@ export default function ExperienceModal({ children }: ExperienceModalProps) {
       <form method="dialog">
         <header>
           <InformationCircleIcon width={48} height={48} />
-          <h3 className="text-center">Project Info & Description</h3>
+          <h3 className="text-center">{localizedContent["experienceModal"]["projectInfo"]}</h3>
           <button type="submit">
             <XCircleIcon width={32} height={32} />
           </button>
@@ -42,7 +43,8 @@ export default function ExperienceModal({ children }: ExperienceModalProps) {
         <article>{children}</article>
         <footer>
           <button type="submit" autoFocus>
-            Close
+            <XCircleIcon width={24} height={24} />
+            {localizedContent["experienceModal"]["close"]}
           </button>
         </footer>
       </form>

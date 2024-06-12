@@ -2,6 +2,7 @@
 import { z } from "zod";
 import { errorMap } from "zod-validation-error";
 import { FieldErrors, FieldValues } from "react-hook-form";
+import { Lang } from "./DataLoader";
 
 // types
 export interface AllFieldErrors {
@@ -22,7 +23,10 @@ export default abstract class FormSchemaBase<FormSchemaT extends FieldValues> {
   public readonly allFieldErrorsClient?: AllFieldErrors;
   public readonly allFieldErrorsServer?: AllFieldErrors;
 
-  constructor(formData?: FormData) {
+  constructor(
+    protected readonly lang: Lang,
+    formData?: FormData,
+  ) {
     // A custom error map to use with zod and get user-friendly messages automatically
     z.setErrorMap(errorMap);
 
