@@ -39,8 +39,10 @@
   border-block: 1px solid var(--clr-primary-300);
 }
 
+.header nav a:hover {
+  color: var(--clr-accent-400);
+}
+
 .header nav a.active {
   color: var(--clr-neutral-100);
-  border-inline: 1px solid var(--clr-accent-400);
-  border-block: 1px solid var(--clr-accent-400);
 }

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
-import { DocumentTextIcon } from "@heroicons/react/24/solid";
+import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 // components
 import LangChanger from "./LangChanger";
@@ -25,17 +25,17 @@ export default function Header({ localizedContent }: HeaderProps) {
   return (
     <header className={styles["header"]}>
       <nav>
-        <Link href="/" className={clsx(pathname === "/" && styles["active"])}>
-          {localizedContent["header"]["home"]}
+        <Link href="/" className={clsx(pathname === "/" && styles["active"])} title={localizedContent["header"]["home"]}>
+          <HomeIcon width={32} height={32} />
         </Link>
-        <Link href="/education" className={clsx(pathname === "/education" && styles["active"])}>
-          {localizedContent["header"]["education"]}
+        <Link href="/education" className={clsx(pathname === "/education" && styles["active"])} title={localizedContent["header"]["education"]}>
+          <AcademicCapIcon width={32} height={32} />
         </Link>
-        <Link href="/contact" className={clsx(pathname === "/contact" && styles["active"])}>
-          {localizedContent["header"]["contact"]}
+        <Link href="/contact" className={clsx(pathname === "/contact" && styles["active"])} title={localizedContent["header"]["contact"]}>
+          <PhoneIcon width={32} height={32} />
         </Link>
         <Link href={localizedContent["header"]["hrefPdf"]} target="_blank" title={localizedContent["header"]["pdf"]} prefetch={false}>
-          <DocumentTextIcon width={24} height={24} />
+          <DocumentTextIcon width={32} height={32} />
         </Link>
         <LangChanger />
       </nav>

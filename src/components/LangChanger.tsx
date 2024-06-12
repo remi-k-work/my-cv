@@ -28,7 +28,7 @@ export default function LangChanger() {
 
   return (
     <button type="button" className="btn btn-circle btn-ghost" onClick={handleLangToggled}>
-      {lang !== undefined && (lang === "en" ? <Image src={us} width="24" height="24" alt="English" /> : <Image src={pl} width="24" height="24" alt="Polish" />)}
+      {lang !== undefined && (lang === "en" ? <Image src={us} width="32" height="32" alt="English" /> : <Image src={pl} width="32" height="32" alt="Polish" />)}
     </button>
   );
 }
