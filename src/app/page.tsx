@@ -15,11 +15,15 @@ export default async function Page() {
   return (
     <article className={styles["page"]}>
       <section>
-        <header>{dataLoader.localizedContent["pageHome"]["experience"]}</header>
+        <header>
+          <span>{dataLoader.localizedContent["pageHome"]["experience"]}</span>
+        </header>
         <ExperienceSlider localizedContent={dataLoader.localizedContent} type={"e"} jobExperienceList={listExp} />
       </section>
       <section>
-        <header>{dataLoader.localizedContent["pageHome"]["portfolioProjects"]}</header>
+        <header>
+          <span>{dataLoader.localizedContent["pageHome"]["portfolioProjects"]}</span>
+        </header>
         <ExperienceSlider localizedContent={dataLoader.localizedContent} type={"p"} jobExperienceList={listPor} />
       </section>
     </article>

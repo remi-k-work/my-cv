@@ -17,6 +17,12 @@
 }
 
 .page > section > header {
+  inline-size: 100%;
+  max-inline-size: 36em;
+  margin-inline: auto;
+}
+
+.page > section > header > span {
   background: var(--clr-primary-300);
   font-style: italic;
   padding-inline: 0.35em;
