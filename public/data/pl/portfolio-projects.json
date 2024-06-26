@@ -2,7 +2,7 @@
   {
     "year": "Czerwiec 2024",
     "role": "NoLine-Deli Manager",
-    "company": "login: test / hasło: test",
+    "company": "Projekt Osobisty",
     "txt": "NoLine-Deli Manager to szyty na miarę system zarządzania treścią (CMS), który zbudowałem do prowadzenia NoLine-Deli, fikcyjnego europejskiego sklepu z ekologiczną żywnością, który stworzyłem jako osobiste przedsięwzięcie e-commerce. Dzięki tej przyjaznej dla użytkownika platformie każdy może poeksperymentować z zarządzaniem backendem sklepu internetowego. Użytkownicy mogą tworzyć, aktualizować i usuwać marki, kategorie, podkategorie i towary, zdobywając doświadczenie z pierwszej ręki w zakresie zarządzania treścią e-commerce. Płynne zarządzanie obrazami zapewnia piękną wizualnie witrynę sklepową, a połączenie systemu z front-endem NoLine-Deli (który również zaprojektowałem) zapewnia płynny przepływ danych i aktualizację w czasie rzeczywistym.",
     "gitHubLink": "https://github.com/remi-k-work/noline-deli",
     "liveLink": "https://noline-deli.vercel.app/manager",
