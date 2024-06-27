@@ -6,20 +6,26 @@ import styles from "./PageTitle.module.css";
 // next
 import { usePathname } from "next/navigation";
 
+// other libraries
+import { useGlobalContext } from "../lib/GlobalContext";
+
 // components
 import TypeWriterOutput from "./TypeWriterOutput";
 
 // types
 interface PageTitleProps {
-  pageTitles: PageTitles;
+  pageTitles: PageTitles[];
 }
 
 export default function PageTitle({ pageTitles }: PageTitleProps) {
   const pathname = usePathname();
 
+  // Choose a random theme for the current page title to make it more engaging
+  const { titleTheme } = useGlobalContext();
+
   // Get the current page title data depending on the pathname of the location
-  if (!pageTitles[pathname]) return null;
-  const { eyebrow, heading, intro } = pageTitles[pathname];
+  if (!pageTitles[titleTheme][pathname]) return null;
+  const { eyebrow, heading, intro } = pageTitles[titleTheme][pathname];
 
   return (
     <section className={styles["page-title"]}>

@@ -3,7 +3,10 @@ import { promises as fs } from "fs";
 import path from "path";
 
 // next
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+
+// other libraries
+import { resolveAcceptLanguage } from "resolve-accept-language";
 
 // types
 export type Lang = "en" | "pl";
@@ -56,7 +59,7 @@ export default class DataLoader {
   // Get all the page titles from an outside source
   async allPageTitles() {
     const fileTit = await fs.readFile(path.join(this.dataDir, "page-titles.json"), "utf8");
-    const pageTitles = JSON.parse(fileTit) as PageTitles;
+    const pageTitles = JSON.parse(fileTit) as PageTitles[];
 
     return pageTitles;
   }
@@ -71,8 +74,11 @@ export default class DataLoader {
 
   private static get preferredLang(): Lang {
     // Try obtaining the lang value from a local cookie
-    const lang = cookies().get(LANG_COOKIE)?.value as Lang;
+    const lang: Lang | undefined = cookies().get(LANG_COOKIE)?.value as Lang;
+    if (lang) return lang;
 
-    return lang ?? "en";
+    // Otherwise, use the client's preferred language
+    const acceptLang = resolveAcceptLanguage(headers().get("Accept-Language") as string, ["en-US", "en-GB", "pl-PL"], "en-US");
+    return acceptLang.includes("en") ? "en" : "pl";
   }
 }
