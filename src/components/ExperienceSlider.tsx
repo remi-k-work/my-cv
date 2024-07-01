@@ -66,7 +66,7 @@ export default function ExperienceSlider({ localizedContent, type, jobExperience
             localizedContent={localizedContent}
             type={type}
             index={jobIndex}
-            {...singleJobExperience}
+            experience={singleJobExperience}
             style={{ translate: `${-100 * viewedJobIndex}%` }}
           />
         ))}

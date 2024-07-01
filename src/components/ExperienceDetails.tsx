@@ -32,7 +32,7 @@ export default async function ExperienceDetails({ type, index }: ExperienceDetai
   // Ensure the experience exists
   // To prevent receiving the "cannot destructure property of undefined" exception, do not attempt to render anything
   if (!experience) return null;
-  const { year, role, company, txt, gitHubLink, liveLink, lgPic } = experience;
+  const { year, role, company, txt, gitHubLink, liveLink, lgPic, skillsUsed } = experience;
 
   return (
     <article className={styles["experience-details"]}>
@@ -60,6 +60,14 @@ export default async function ExperienceDetails({ type, index }: ExperienceDetai
             </Link>
           </div>
         )}
+        <aside className={styles["live-link__skl"]}>
+          <h4>{localizedContent["experienceDetails"]["skillsUsed"]}</h4>
+          <ul className="flex list-inside list-disc flex-wrap gap-x-4">
+            {skillsUsed.map((skillUsed, skillIndex) => (
+              <li key={skillIndex}>{skillUsed}</li>
+            ))}
+          </ul>
+        </aside>
       </footer>
 
       <br />

@@ -35,7 +35,8 @@
 
   "experienceDetails": {
     "goAndSee": "Go and see the GitHub Repo",
-    "gitHubRepo": "GitHub Repo"
+    "gitHubRepo": "GitHub Repo",
+    "skillsUsed": "Skills Used:"
   },
 
   "experienceModal": {

@@ -35,7 +35,8 @@
 
   "experienceDetails": {
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
-    "gitHubRepo": "Repozytorium GitHuba"
+    "gitHubRepo": "Repozytorium GitHuba",
+    "skillsUsed": "Wykorzystane Umiejętności:"
   },
 
   "experienceModal": {

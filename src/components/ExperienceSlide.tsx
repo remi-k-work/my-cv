@@ -2,7 +2,7 @@
 import styles from "./ExperienceSlide.module.css";
 
 // react
-import { ComponentProps } from "react";
+import { CSSProperties } from "react";
 
 // next
 import Image from "next/image";
@@ -13,27 +13,23 @@ import clsx from "clsx";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types
-interface ExperienceSlideProps extends JobExperience, Omit<ComponentProps<"article">, "role"> {
+interface ExperienceSlideProps {
   localizedContent: LocalizedContent;
   type: "e" | "p";
   index: number;
+  experience: JobExperience;
+  style: CSSProperties;
 }
 
 export default function ExperienceSlide({
   localizedContent,
   type,
   index,
-  year,
-  role,
-  company,
-  txt,
-  gitHubLink,
-  liveLink,
-  lgPic,
-  ...props
+  experience: { year, role, company, gitHubLink, liveLink, lgPic },
+  style,
 }: ExperienceSlideProps) {
   return (
-    <article className={styles["experience-slide"]} {...props}>
+    <article className={styles["experience-slide"]} style={style}>
       <header className="mb-4 flex flex-col xl:flex-row xl:place-items-center xl:gap-4">
         <div className="flex-1">
           <p className={styles["experience-slide__year"]}>{year}</p>

@@ -7,6 +7,7 @@ interface JobExperience {
   gitHubLink?: string;
   liveLink: string;
   lgPic: string;
+  skillsUsed: string[];
 }
 
 interface EducationSchool {

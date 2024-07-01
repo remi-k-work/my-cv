@@ -23,8 +23,25 @@
 .experience-details__live-link {
   display: grid;
 
-  grid-template-columns: [img-start] var(--size-3) [inf-start] auto [inf-end img-end];
-  grid-template-rows: [img-start] var(--size-3) [inf-start] auto [inf-end img-end];
+  grid-template-columns: [img-start] var(--size-3) [inf-start skl-start] auto [inf-end] 1fr [skl-end] var(--size-2) [img-end];
+  grid-template-rows: [img-start] var(--size-3) [inf-start] auto [inf-end skl-start] 1fr [skl-end] var(--size-2) [img-end];
+}
+
+.live-link__skl {
+  grid-area: skl;
+  place-self: end;
+
+  max-inline-size: var(--size-content-2);
+
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+
+  background: var(--clr-primary-400);
+  padding-inline: var(--size-3);
+  padding-block: var(--size-1);
+
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-6);
 }
 
 .live-link__img {
@@ -33,6 +50,7 @@
 
 .live-link__inf {
   grid-area: inf;
+  place-self: start;
 
   background: var(--clr-primary-400);
   padding-inline: var(--size-1);
@@ -41,7 +59,6 @@
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-6);
 
-  place-self: start;
   display: flex;
   align-items: center;
 
