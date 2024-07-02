@@ -20,6 +20,7 @@ import { useGlobalContext } from "../lib/GlobalContext";
 import { FormInputField, FormTextArea } from "./FormControls";
 import FormSubmit from "./FormSubmit";
 import ContactFormFeedback from "./ContactFormFeedback";
+import Captcha from "@/features/auth/components/Captcha";
 
 // types
 interface ContactFormProps {
@@ -112,6 +113,21 @@ function TheFormWrapped({ localizedContent, onResetClicked }: TheFormWrappedProp
             autoComplete={"off"}
             required={true}
             placeholder={localizedContent["contactForm"]["placeholderMessage"]}
+            defaultValue={""}
+          />
+          <br />
+          <Captcha captchaName="captcha" />
+          <br />
+          <FormInputField
+            fieldName={"captcha"}
+            fieldLabel={localizedContent["contactForm"]["labelCaptcha"]}
+            allFieldErrors={allFieldErrors}
+            size={40}
+            maxLength={7}
+            spellCheck={"false"}
+            autoComplete={"off"}
+            required={true}
+            placeholder={localizedContent["contactForm"]["placeholderCaptcha"]}
             defaultValue={""}
           />
           <FormSubmit

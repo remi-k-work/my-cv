@@ -62,7 +62,7 @@ export default async function ExperienceDetails({ type, index }: ExperienceDetai
         )}
         <aside className={styles["live-link__skl"]}>
           <h4>{localizedContent["experienceDetails"]["skillsUsed"]}</h4>
-          <ul className="flex list-inside list-disc flex-wrap gap-x-4">
+          <ul>
             {skillsUsed.map((skillUsed, skillIndex) => (
               <li key={skillIndex}>{skillUsed}</li>
             ))}

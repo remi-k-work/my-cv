@@ -2,10 +2,13 @@
 
 // next
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 
 // other libraries
 import ContactFormSchema, { ContactFormState } from "./ContactFormSchema";
 import DataLoader from "@/lib/DataLoader";
+import { getIronSession } from "iron-session";
+import { CaptchaSession } from "@/app/auth/captcha/[name]/route";
 
 export async function newContact(formState: ContactFormState, formData: FormData): Promise<ContactFormState> {
   // Create an instance of the data loader needed for localization
@@ -17,13 +20,27 @@ export async function newContact(formState: ContactFormState, formData: FormData
   // If form validation fails, return errors promptly; otherwise, continue
   if (!isSuccess) {
     // Return the new action state so that we can provide feedback to the user
-    return {
-      actionStatus: "invalid",
-      allFieldErrors: allFieldErrorsServer,
-    };
+    return { ...formState, actionStatus: "invalid", allFieldErrors: allFieldErrorsServer };
   }
 
   try {
+    // Check the captcha to ensure it matches
+    const { captchaString } = await getIronSession<CaptchaSession>(cookies(), {
+      password: process.env.SESSION_SECRET as string,
+      cookieName: "captcha",
+    });
+
+    if (validatedData?.captcha !== captchaString) {
+      // The captcha is invalid; please try again
+      return {
+        ...formState,
+        actionStatus: "invalid",
+        allFieldErrors: {
+          captcha: [dataLoader.localizedContent["contactFormFeedback"]["invalidCaptcha"]],
+        },
+      };
+    }
+
     // Submit the contact form with validated data
     const data = {
       service_id: "default_service",
@@ -40,7 +57,7 @@ export async function newContact(formState: ContactFormState, formData: FormData
     });
     if (!res.ok) throw new Error(res.statusText);
   } catch (error) {
-    return { actionStatus: "failed" };
+    return { ...formState, actionStatus: "failed" };
   }
 
   // Revalidate, so the fresh data will be fetched from the server next time this path is visited
@@ -50,5 +67,5 @@ export async function newContact(formState: ContactFormState, formData: FormData
   // Return the new action state so that we can provide feedback to the user
   const { name, email, subject } = validatedData!;
 
-  return { actionStatus: "succeeded", contactExcerpt: { name, email, subject } };
+  return { ...formState, actionStatus: "succeeded", contactExcerpt: { name, email, subject } };
 }

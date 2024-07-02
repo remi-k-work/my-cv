@@ -9,10 +9,12 @@
     "labelEmail": "Email",
     "labelSubject": "Subject",
     "labelMessage": "Message",
+    "labelCaptcha": "Captcha",
     "placeholderName": "Let me know who you are!",
     "placeholderEmail": "I will reply to you here",
     "placeholderSubject": "Project Inquiry? Feedback? Let me know!",
-    "placeholderMessage": "How can I help you today?"
+    "placeholderMessage": "How can I help you today?",
+    "placeholderCaptcha": "Enter the generated captcha"
   },
 
   "contactFormFeedback": {
@@ -24,7 +26,8 @@
     "missingFields": "Missing fields!",
     "pleaseCorrect": "Please correct the contact form fields and try again.",
     "serverError": "Server error!",
-    "messageNotSent": "The message was not sent successfully; please try again later."
+    "messageNotSent": "The message was not sent successfully; please try again later.",
+    "invalidCaptcha": "The captcha is invalid; please try again"
   },
 
   "contactMap": {

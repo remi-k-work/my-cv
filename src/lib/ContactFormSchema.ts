@@ -40,6 +40,7 @@ export default class ContactFormSchema extends FormSchemaBase<ContactFormSchemaT
       .trim()
       .min(1, { message: "What is the message you want to send? This is a mandatory field" })
       .max(2048, { message: "Please keep the message to a maximum of 2048 characters" }),
+    captcha: z.string().trim().min(1, { message: "A captcha is required to proceed" }).max(6, { message: "The captcha is no more than six characters long" }),
   });
 
   public static readonly schemaPl = z.object({
@@ -63,6 +64,7 @@ export default class ContactFormSchema extends FormSchemaBase<ContactFormSchemaT
       .trim()
       .min(1, { message: "Jaką wiadomość chcesz wysłać? Jest to pole obowiązkowe" })
       .max(2048, { message: "Wiadomość nie może mieć więcej niż 2048 znaków" }),
+    captcha: z.string().trim().min(1, { message: "Captcha jest wymagane aby kontynuować" }).max(6, { message: "Captcha musi być nie dłuższe niż 6 znaków" }),
   });
 
   constructor(lang: Lang, formData?: FormData) {

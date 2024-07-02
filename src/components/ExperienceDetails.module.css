@@ -42,6 +42,35 @@
 
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-6);
+
+  pointer-events: none;
+}
+
+.live-link__skl > h4 {
+  color: var(--clr-primary-800);
+  font-weight: var(--fw-semi-bold);
+}
+
+.live-link__skl > ul {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.live-link__skl > ul li::before {
+  content: "●";
+  color: var(--clr-secondary-400);
+  padding-inline: 1ch;
+}
+
+.live-link__skl > ul li:nth-child(even) {
+  color: var(--clr-primary-700);
+}
+
+.live-link__skl > ul li:nth-child(odd) {
+  color: var(--clr-neutral-100);
 }
 
 .live-link__img {

@@ -9,10 +9,12 @@
     "labelEmail": "Email",
     "labelSubject": "Temat",
     "labelMessage": "Wiadomość",
+    "labelCaptcha": "Captcha",
     "placeholderName": "Daj mi znać kim jesteś!",
     "placeholderEmail": "Odpowiem Ci tutaj",
     "placeholderSubject": "Zapytanie o projekt? Informacja zwrotna? Daj mi znać!",
-    "placeholderMessage": "Jak mogę Ci dzisiaj pomóc?"
+    "placeholderMessage": "Jak mogę Ci dzisiaj pomóc?",
+    "placeholderCaptcha": "Wprowadź wygenerowaną captcha"
   },
 
   "contactFormFeedback": {
@@ -24,7 +26,8 @@
     "missingFields": "Brakujące pola!",
     "pleaseCorrect": "Popraw pola formularza kontaktowego i spróbuj ponownie.",
     "serverError": "Błąd serwera!",
-    "messageNotSent": "Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później."
+    "messageNotSent": "Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później.",
+    "invalidCaptcha": "Captcha jest nieprawidłowa; proszę spróbuj ponownie"
   },
 
   "contactMap": {
