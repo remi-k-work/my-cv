@@ -4,11 +4,13 @@
 import { Dispatch, SetStateAction } from "react";
 
 // other libraries
-import { CheckBadgeIcon, CircleStackIcon, ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid";
 import { ContactFormState } from "../lib/ContactFormSchema";
 
 // components
 import Toastify from "@/components/Toastify";
+
+// assets
+import { CheckBadgeIcon, CircleStackIcon, ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ContactFormFeedbackProps {

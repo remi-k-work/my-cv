@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 // next
 import { useRouter } from "next/navigation";
 
-// other libraries
+// assets
 import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types

@@ -9,10 +9,12 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
-import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 // components
 import LangChanger from "./LangChanger";
+
+// assets
+import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 // types
 interface HeaderProps {

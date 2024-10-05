@@ -10,6 +10,8 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
+
+// assets
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types

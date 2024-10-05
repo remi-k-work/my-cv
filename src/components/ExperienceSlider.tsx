@@ -8,10 +8,12 @@ import { useState } from "react";
 
 // other libraries
 import clsx from "clsx";
-import { ArrowLeftCircleIcon, ArrowRightCircleIcon, CubeIcon, CubeTransparentIcon } from "@heroicons/react/24/solid";
 
 // components
 import ExperienceSlide from "./ExperienceSlide";
+
+// assets
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon, CubeIcon, CubeTransparentIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ExperienceSliderProps {

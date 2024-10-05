@@ -1,5 +1,24 @@
 [
   {
+    "year": "Oct 2024",
+    "role": "Internship",
+    "company": "ARTCOM",
+    "txt": "After a break from the tech industry, I am absolutely buzzing to announce that I have landed an internship at ARTCOM, a fantastic company dedicated to personal and professional development! As some of you may know, life took me on a detour for a while. While I dabbled in ASP.NET and C# back in the day, my passion for web development never faded. However, unforeseen circumstances pulled me away from coding. Now, I am back with a renewed fire in my belly! So, what am I doing at ARTCOM? At ARTCOM, I am getting my hands dirty on a variety of projects, putting my diverse skillset to good use. This includes: Front-end development → I am using my newfound love for React, JavaScript, HTML, and CSS to breathe life into ARTCOM's website. Keeping things running → I am helping maintain the office tech infrastructure by upgrading and updating operating systems. Creative spark → I am flexing my creative muscles by crafting 2D and 3D digital assets for presentations and training programs. While this internship is a fantastic opportunity to learn and grow, my ultimate goal is still to land a full-time tech position. However, ARTCOM's environment is proving to be the perfect springboard. Surrounded by a team of passionate experts and working on such a diverse range of projects is fueling my learning and propelling me towards that goal. I am incredibly excited to be back in the tech world, and I can't wait to share more about my experiences at ARTCOM. Stay tuned for updates on my journey.",
+    "liveLink": "https://artcom.edu.pl/",
+    "lgPic": "job-experience-artcom-lg.webp",
+    "skillsUsed": [
+      "Web Development",
+      "Operating Systems",
+      "Digital Asset Creation",
+      "3D Modeling",
+      "Problem-Solving",
+      "Teamwork",
+      "Communication",
+      "Time Management"
+    ]
+  },
+
+  {
     "year": "Too Long",
     "role": "Odd Jobs",
     "company": "Break Time",

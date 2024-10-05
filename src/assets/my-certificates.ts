@@ -1,5 +1,6 @@
-import alccLg from "../assets/components/my-certificates/my-certificates-alcc-lg.webp";
-import prattOrigLg from "../assets/components/my-certificates/my-certificates-pratt-orig-lg.webp";
-import prattTransLg from "../assets/components/my-certificates/my-certificates-pratt-trans-lg.webp";
+import artcom from "../assets/components/my-certificates/my-certificates-artcom.webp";
+import alcc from "../assets/components/my-certificates/my-certificates-alcc.webp";
+import prattOrig from "../assets/components/my-certificates/my-certificates-pratt-orig.webp";
+import prattTrans from "../assets/components/my-certificates/my-certificates-pratt-trans.webp";
 
-export { alccLg, prattOrigLg, prattTransLg };
+export { artcom, alcc, prattOrig, prattTrans };

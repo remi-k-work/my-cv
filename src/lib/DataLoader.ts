@@ -53,7 +53,7 @@ export default class DataLoader {
     const listExp = JSON.parse(fileExp) as JobExperience[];
     const listPor = JSON.parse(filePor) as JobExperience[];
 
-    return [[...listExp].reverse(), listPor];
+    return [listExp, listPor];
   }
 
   // Get all the page titles from an outside source

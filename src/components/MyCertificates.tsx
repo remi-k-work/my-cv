@@ -18,9 +18,10 @@ export default function MyCertificates({ localizedContent }: MyCertificatesProps
     <figure className={styles["my-certificates"]}>
       <figcaption>{localizedContent["myCertificates"]["myCertificates"]}</figcaption>
       <Link href="/my-certificates.pdf" target="_blank" prefetch={false}>
-        <Image src={assets.alccLg} width={1200} height={854} alt="ALCC" />
-        <Image src={assets.prattOrigLg} width={1200} height={854} alt="Pratt" />
-        <Image src={assets.prattTransLg} width={1200} height={854} alt="Pratt" />
+        <Image src={assets.artcom} alt="ARTCOM" />
+        <Image src={assets.alcc} alt="ALCC" />
+        <Image src={assets.prattOrig} alt="Pratt" />
+        <Image src={assets.prattTrans} alt="Pratt" />
       </Link>
     </figure>
   );

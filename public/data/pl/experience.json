@@ -1,5 +1,24 @@
 [
   {
+    "year": "Październik 2024",
+    "role": "Staż",
+    "company": "ARTCOM",
+    "txt": "Po przerwie w branży IT, z wielką przyjemnością ogłaszam, że dostałem staż w ARTCOM, fantastycznej firmie poświęconej rozwojowi osobistemu i zawodowemu! Jak niektórzy z Was mogą wiedzieć, życie na jakiś czas zabrało mnie na 'objazd'. W przeszłości zajmowałem się ASP.NET i C# i moja pasja do tworzenia stron internetowych nigdy nie zgasła. Jednak nieprzewidziane okoliczności odciągnęły mnie od kodowania. Teraz wróciłem z odnowionym zacięciem i determinacją! Więc co robię w ARTCOM? W ARTCOM 'brudzę sobie ręce' nad różnymi projektami, wykorzystując moje różnorodne umiejętności. Obejmuje to: Rozwój front-endu → Wykorzystuję moją nowo odkrytą miłość do React, JavaScript, HTML i CSS, aby tchnąć życie w witrynę ARTCOM'u. Utrzymywanie wszystkiego w ruchu → Pomagam w utrzymaniu infrastruktury technicznej biura poprzez uaktualnianie i aktualizowanie systemów operacyjnych. Kreatywna iskra → Rozwijam swoje kreatywne mięśnie, tworząc zasoby cyfrowe 2D i 3D do prezentacji i programów szkoleniowych. Chociaż ten staż to fantastyczna okazja do nauki i rozwoju, moim ostatecznym celem jest nadal zdobycie pełnoetatowego stanowiska technicznego. Jednak środowisko ARTCOM'u okazuje się idealną trampoliną. Otoczenie przez zespół pełnych pasji ekspertów i praca nad tak różnorodnymi projektami napędzają moją naukę i pchają mnie w kierunku tego celu. Jestem niesamowicie podekscytowany powrotem do świata technologii i nie mogę się doczekać, aby podzielić się z Wami moimi nowymi doświadczeniami nabytymi w ARTCOM'ie!",
+    "liveLink": "https://artcom.edu.pl/",
+    "lgPic": "job-experience-artcom-lg.webp",
+    "skillsUsed": [
+      "Projektowanie Stron Internetowych",
+      "Systemy Operacyjne",
+      "Tworzenie Zasobów Cyfrowych",
+      "Modelowanie 3D",
+      "Rozwiązywanie Problemów",
+      "Praca Zespołowa",
+      "Komunikacja",
+      "Zarządzanie Czasem"
+    ]
+  },
+
+  {
     "year": "Zbyt Długo",
     "role": "Prace Dorywcze",
     "company": "Przerwa w Branży",
