@@ -2,7 +2,9 @@
   margin-block: 0 1em;
 
   block-size: 16em;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   padding-inline: 1em 1em;
 

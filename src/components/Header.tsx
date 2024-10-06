@@ -14,7 +14,7 @@ import clsx from "clsx";
 import LangChanger from "./LangChanger";
 
 // assets
-import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 
 // types
 interface HeaderProps {
@@ -38,6 +38,14 @@ export default function Header({ localizedContent }: HeaderProps) {
         </Link>
         <Link href={localizedContent["header"]["hrefPdf"]} target="_blank" title={localizedContent["header"]["pdf"]} prefetch={false}>
           <DocumentTextIcon width={32} height={32} />
+        </Link>
+        <Link
+          href={"https://ibmyszutfuecg1zb.public.blob.vercel-storage.com/my-cv-video-6jtu2EQop6urquIb0Hcqyj8lKCruxd.mp4"}
+          target="_blank"
+          title={localizedContent["header"]["video"]}
+          prefetch={false}
+        >
+          <VideoCameraIcon width={32} height={32} />
         </Link>
         <Link href={"https://linkedin.com/in/remi-k-work"} target="_blank" title={"LinkedIn"} prefetch={false}>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">

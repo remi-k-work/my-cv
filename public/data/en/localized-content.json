@@ -65,7 +65,8 @@
     "education": "Education",
     "contact": "Contact",
     "pdf": "PDF Version",
-    "hrefPdf": "/my-cv.pdf"
+    "hrefPdf": "/my-cv.pdf",
+    "video": "Video Version"
   },
 
   "myCertificates": {
