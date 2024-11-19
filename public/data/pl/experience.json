@@ -1,5 +1,16 @@
 [
   {
+    "year": "Listopad 2024",
+    "role": "Programista React",
+    "company": "ARTCOM",
+    "txt": "Modernizacja cyfrowej obecności ARTCOM. Odegrałem kluczową rolę w przeprojektowaniu witryny ARTCOM, gdzie wykorzystałem moc Next.js i React, aby stworzyć dynamiczne i angażujące doświadczenie użytkownika. Wykorzystując nowoczesne techniki tworzenia stron internetowych, stworzyłem wizualnie atrakcyjny interfejs, który płynnie integruje się z tożsamością marki firmy. Aby podnieść estetykę witryny, włączyłem urzekające animacje zasilane przez „Motion”, wzmacniając interakcję użytkownika i pozostawiając trwałe wrażenie. Ten projekt pozwolił mi ugruntować moje umiejętności w zakresie rozwoju front-end, demonstrując moją zdolność do tworzenia responsywnych i wydajnych aplikacji internetowych.",
+    "gitHubLink": "https://github.com/remi-k-work/artcom",
+    "liveLink": "https://artcom-pink.vercel.app/",
+    "lgPic": "job-experience-artcom-w-lg.webp",
+    "skillsUsed": ["Rozwój Front-Endu", "Nowoczesny Projekt UI/UX", "Integracja Animacji", "React", "Next.js", "Responsywny Projekt Stron Internetowych"]
+  },
+
+  {
     "year": "Październik 2024",
     "role": "Staż",
     "company": "ARTCOM",
