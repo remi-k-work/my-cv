@@ -31,7 +31,7 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  // metadataBase: new URL(process.env.WEBSITE_URL as string),
+  metadataBase: new URL(process.env.WEBSITE_URL as string),
   title: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
   description:
     "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
