@@ -19,15 +19,15 @@ import pl from "../assets/pl.svg";
 import us from "../assets/us.svg";
 
 export default function LangChanger() {
+  const { preferredLang } = useGlobalContext();
+
   // To display a pending status while the server action is running
   const [isPending, startTransition] = useTransition();
 
-  const { lang, setLang } = useGlobalContext();
   const { refresh } = useRouter();
 
   function handleLangToggled() {
-    const newLang: Lang = lang === "en" ? "pl" : "en";
-    setLang(newLang);
+    const newLang: Lang = preferredLang === "en" ? "pl" : "en";
 
     startTransition(async () => {
       await setLangCookie(newLang);
@@ -37,7 +37,8 @@ export default function LangChanger() {
 
   return (
     <button type="button" className="btn btn-circle btn-ghost" disabled={isPending} onClick={handleLangToggled}>
-      {lang !== undefined && (lang === "en" ? <Image src={us} width="32" height="32" alt="English" /> : <Image src={pl} width="32" height="32" alt="Polish" />)}
+      {preferredLang &&
+        (preferredLang === "en" ? <Image src={us} width="32" height="32" alt="English" /> : <Image src={pl} width="32" height="32" alt="Polish" />)}
     </button>
   );
 }

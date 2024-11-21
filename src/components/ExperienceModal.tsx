@@ -9,16 +9,20 @@ import { useEffect, useRef } from "react";
 // next
 import { useRouter } from "next/navigation";
 
+// other libraries
+import { useGlobalContext } from "@/lib/GlobalContext";
+
 // assets
 import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ExperienceModalProps {
-  localizedContent: LocalizedContent;
   children: React.ReactNode;
 }
 
-export default function ExperienceModal({ localizedContent, children }: ExperienceModalProps) {
+export default function ExperienceModal({ children }: ExperienceModalProps) {
+  const { localizedContent } = useGlobalContext();
+
   // To be able to call showModal() method on the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
 

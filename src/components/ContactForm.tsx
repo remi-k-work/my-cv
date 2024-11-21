@@ -14,7 +14,7 @@ import ContactFormSchema, { ContactFormSchemaType, ContactFormState } from "../l
 import { zodResolver } from "@hookform/resolvers/zod";
 import useFormActionWithVal from "../lib/useFormActionWithVal";
 import { FormProvider } from "react-hook-form";
-import { useGlobalContext } from "../lib/GlobalContext";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import { FormInputField, FormTextArea } from "./FormControls";
@@ -23,24 +23,19 @@ import ContactFormFeedback from "./ContactFormFeedback";
 import Captcha from "@/features/auth/components/Captcha";
 
 // types
-interface ContactFormProps {
-  localizedContent: LocalizedContent;
-}
-
 interface TheFormWrappedProps {
-  localizedContent: LocalizedContent;
   onResetClicked: () => void;
 }
 
-export default function ContactForm({ localizedContent }: ContactFormProps) {
+export default function ContactForm() {
   // Resetting a form with a key: you can force a subtree to reset its state by giving it a different key
   const [formResetKey, setFormResetKey] = useState("ContactForm");
 
-  return <TheFormWrapped key={formResetKey} localizedContent={localizedContent} onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />;
+  return <TheFormWrapped key={formResetKey} onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />;
 }
 
-function TheFormWrapped({ localizedContent, onResetClicked }: TheFormWrappedProps) {
-  const { lang } = useGlobalContext();
+function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
+  const { preferredLang, localizedContent } = useGlobalContext();
 
   const {
     isPending,
@@ -53,8 +48,8 @@ function TheFormWrapped({ localizedContent, onResetClicked }: TheFormWrappedProp
     useFormMethods,
   } = useFormActionWithVal<ContactFormState, ContactFormSchemaType>({
     formActionFunc: newContact,
-    resolver: zodResolver(lang === "pl" ? ContactFormSchema.schemaPl : ContactFormSchema.schemaEn),
-    formSchema: new ContactFormSchema(lang === "pl" ? "pl" : "en"),
+    resolver: zodResolver(preferredLang === "pl" ? ContactFormSchema.schemaPl : ContactFormSchema.schemaEn),
+    formSchema: new ContactFormSchema(preferredLang === "pl" ? "pl" : "en"),
   });
 
   return (
@@ -130,22 +125,10 @@ function TheFormWrapped({ localizedContent, onResetClicked }: TheFormWrappedProp
             placeholder={localizedContent["contactForm"]["placeholderCaptcha"]}
             defaultValue={""}
           />
-          <FormSubmit
-            localizedContent={localizedContent}
-            isPending={isPending}
-            onSubmitCompleted={() => setShowFeedback(true)}
-            onResetClicked={onResetClicked}
-          />
+          <FormSubmit isPending={isPending} onSubmitCompleted={() => setShowFeedback(true)} onResetClicked={onResetClicked} />
         </form>
       </FormProvider>
-      {showFeedback && (
-        <ContactFormFeedback
-          localizedContent={localizedContent}
-          contactFormState={contactFormState}
-          setShowFeedback={setShowFeedback}
-          onResetClicked={onResetClicked}
-        />
-      )}
+      {showFeedback && <ContactFormFeedback contactFormState={contactFormState} setShowFeedback={setShowFeedback} onResetClicked={onResetClicked} />}
     </>
   );
 }

@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 
 // other libraries
 import { ContactFormState } from "../lib/ContactFormSchema";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import Toastify from "@/components/Toastify";
@@ -14,18 +15,13 @@ import { CheckBadgeIcon, CircleStackIcon, ClipboardDocumentCheckIcon } from "@he
 
 // types
 interface ContactFormFeedbackProps {
-  localizedContent: LocalizedContent;
   contactFormState?: ContactFormState;
   setShowFeedback: Dispatch<SetStateAction<boolean>>;
   onResetClicked: () => void;
 }
 
-export default function ContactFormFeedback({
-  localizedContent,
-  contactFormState = { actionStatus: "idle" },
-  setShowFeedback,
-  onResetClicked,
-}: ContactFormFeedbackProps) {
+export default function ContactFormFeedback({ contactFormState = { actionStatus: "idle" }, setShowFeedback, onResetClicked }: ContactFormFeedbackProps) {
+  const { localizedContent } = useGlobalContext();
   const { actionStatus, contactExcerpt } = contactFormState;
 
   return (

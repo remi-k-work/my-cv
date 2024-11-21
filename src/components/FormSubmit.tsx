@@ -9,18 +9,22 @@ import { useEffect, useRef } from "react";
 // next
 import { useRouter } from "next/navigation";
 
+// other libraries
+import { useGlobalContext } from "@/lib/GlobalContext";
+
 // assets
 import { HandThumbDownIcon, HandThumbUpIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 interface FormSubmitProps {
-  localizedContent: LocalizedContent;
   isPending: boolean;
   onSubmitCompleted: () => void;
   onResetClicked: () => void;
 }
 
-export default function FormSubmit({ localizedContent, isPending, onSubmitCompleted, onResetClicked }: FormSubmitProps) {
+export default function FormSubmit({ isPending, onSubmitCompleted, onResetClicked }: FormSubmitProps) {
+  const { localizedContent } = useGlobalContext();
+
   // To be able to send the user back after canceling
   const { back } = useRouter();
 

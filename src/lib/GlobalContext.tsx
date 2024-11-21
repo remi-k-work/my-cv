@@ -9,9 +9,11 @@ import { getRandomInt } from "@/lib/helpers";
 
 // types
 interface GlobalContextType {
-  lang?: Lang;
-  setLang: React.Dispatch<React.SetStateAction<Lang | undefined>>;
+  preferredLang: Lang;
+  localizedContent: LocalizedContent;
+
   titleTheme: number;
+
   isTypedHome: boolean;
   setIsTypedHome: React.Dispatch<React.SetStateAction<boolean>>;
   isTypedEduc: boolean;
@@ -21,13 +23,14 @@ interface GlobalContextType {
 }
 
 interface GlobalContextProviderProps {
+  preferredLang: Lang;
+  localizedContent: LocalizedContent;
   children: React.ReactNode;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
-export function GlobalContextProvider({ children }: GlobalContextProviderProps) {
-  const [lang, setLang] = useState<Lang>();
+export function GlobalContextProvider({ preferredLang, localizedContent, children }: GlobalContextProviderProps) {
   const [titleTheme, setTitleTheme] = useState(0);
   const [isTypedHome, setIsTypedHome] = useState(false);
   const [isTypedEduc, setIsTypedEduc] = useState(false);
@@ -35,14 +38,14 @@ export function GlobalContextProvider({ children }: GlobalContextProviderProps) 
 
   // Use an effect hook in order to prevent ssr inconsistencies and errors
   useEffect(() => {
-    setLang(document.documentElement.lang as Lang);
-
     // Choose a random theme for the current page title to make it more engaging
     setTitleTheme(getRandomInt(0, 2));
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ lang, setLang, titleTheme, isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont }}>
+    <GlobalContext.Provider
+      value={{ preferredLang, localizedContent, titleTheme, isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont }}
+    >
       {children}
     </GlobalContext.Provider>
   );

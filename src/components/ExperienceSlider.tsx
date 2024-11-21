@@ -17,12 +17,11 @@ import { ArrowLeftCircleIcon, ArrowRightCircleIcon, CubeIcon, CubeTransparentIco
 
 // types
 interface ExperienceSliderProps {
-  localizedContent: LocalizedContent;
   type: "e" | "p";
   jobExperienceList: JobExperience[];
 }
 
-export default function ExperienceSlider({ localizedContent, type, jobExperienceList }: ExperienceSliderProps) {
+export default function ExperienceSlider({ type, jobExperienceList }: ExperienceSliderProps) {
   const [viewedJobIndex, setViewedJobIndex] = useState(0);
 
   function handleNextExpClicked() {
@@ -63,14 +62,7 @@ export default function ExperienceSlider({ localizedContent, type, jobExperience
       </footer>
       <div className={styles["experience-slider__view"]}>
         {jobExperienceList.map((singleJobExperience, jobIndex) => (
-          <ExperienceSlide
-            key={jobIndex}
-            localizedContent={localizedContent}
-            type={type}
-            index={jobIndex}
-            experience={singleJobExperience}
-            style={{ translate: `${-100 * viewedJobIndex}%` }}
-          />
+          <ExperienceSlide key={jobIndex} type={type} index={jobIndex} experience={singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
         ))}
       </div>
     </section>

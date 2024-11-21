@@ -14,10 +14,9 @@ import type { Metadata } from "next";
 
 // other libraries
 import { Analytics } from "@vercel/analytics/react";
-import DataLoader from "@/lib/DataLoader";
 
 // components
-import { GlobalContextProvider } from "@/lib/GlobalContext";
+import GlobalContextFetcher from "@/lib/GlobalContextFetcher";
 import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
 
@@ -32,7 +31,7 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.WEBSITE_URL as string),
+  // metadataBase: new URL(process.env.WEBSITE_URL as string),
   title: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
   description:
     "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
@@ -44,17 +43,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
-  // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.init();
-
+export default function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
   return (
-    <html lang={dataLoader.lang} translate="no" data-theme="synthwave">
+    <html lang="en" translate="no" data-theme="synthwave">
       <body className={outfit.className}>
-        <GlobalContextProvider>
+        <GlobalContextFetcher>
           <div className={styles["main-grid"]}>
             <div className={styles["main-grid__placehl"]}></div>
-            <Header localizedContent={dataLoader.localizedContent} />
+            <Header />
             <aside className={styles["aside"]}>
               <MySkills />
             </aside>
@@ -65,7 +61,7 @@ export default async function Layout({ pagetitle, exp, children }: Readonly<Layo
               <Analytics debug={false} />
             </main>
           </div>
-        </GlobalContextProvider>
+        </GlobalContextFetcher>
       </body>
     </html>
   );

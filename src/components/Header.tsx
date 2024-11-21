@@ -9,6 +9,7 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import LangChanger from "./LangChanger";
@@ -16,12 +17,9 @@ import LangChanger from "./LangChanger";
 // assets
 import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 
-// types
-interface HeaderProps {
-  localizedContent: LocalizedContent;
-}
+export default function Header() {
+  const { localizedContent } = useGlobalContext();
 
-export default function Header({ localizedContent }: HeaderProps) {
   const pathname = usePathname();
 
   return (

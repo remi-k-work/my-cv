@@ -18,13 +18,13 @@ export default async function Page() {
         <header>
           <span>{dataLoader.localizedContent["pageHome"]["experience"]}</span>
         </header>
-        <ExperienceSlider localizedContent={dataLoader.localizedContent} type={"e"} jobExperienceList={listExp} />
+        <ExperienceSlider type={"e"} jobExperienceList={listExp} />
       </section>
       <section>
         <header>
           <span>{dataLoader.localizedContent["pageHome"]["portfolioProjects"]}</span>
         </header>
-        <ExperienceSlider localizedContent={dataLoader.localizedContent} type={"p"} jobExperienceList={listPor} />
+        <ExperienceSlider type={"p"} jobExperienceList={listPor} />
       </section>
     </article>
   );

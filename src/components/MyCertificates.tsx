@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./MyCertificates.module.css";
 
@@ -5,15 +7,15 @@ import styles from "./MyCertificates.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
+// other libraries
+import { useGlobalContext } from "@/lib/GlobalContext";
+
 // assets
 import * as assets from "../assets/my-certificates";
 
-// types
-interface MyCertificatesProps {
-  localizedContent: LocalizedContent;
-}
+export default function MyCertificates() {
+  const { localizedContent } = useGlobalContext();
 
-export default function MyCertificates({ localizedContent }: MyCertificatesProps) {
   return (
     <figure className={styles["my-certificates"]}>
       <figcaption>{localizedContent["myCertificates"]["myCertificates"]}</figcaption>

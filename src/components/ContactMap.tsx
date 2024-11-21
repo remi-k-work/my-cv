@@ -6,13 +6,11 @@ import styles from "./ContactMap.module.css";
 // other libraries
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
-// types
-interface ContactMapProps {
-  localizedContent: LocalizedContent;
-}
+export default function ContactMap() {
+  const { localizedContent } = useGlobalContext();
 
-export default function ContactMap({ localizedContent }: ContactMapProps) {
   return (
     <div className={styles["contact-map"]}>
       <MapContainer center={[50.05142444038861, 21.98322537033913]} zoom={17}>

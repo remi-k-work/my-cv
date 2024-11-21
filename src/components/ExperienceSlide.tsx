@@ -10,26 +10,22 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ExperienceSlideProps {
-  localizedContent: LocalizedContent;
   type: "e" | "p";
   index: number;
   experience: JobExperience;
   style: CSSProperties;
 }
 
-export default function ExperienceSlide({
-  localizedContent,
-  type,
-  index,
-  experience: { year, role, company, gitHubLink, liveLink, lgPic },
-  style,
-}: ExperienceSlideProps) {
+export default function ExperienceSlide({ type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic }, style }: ExperienceSlideProps) {
+  const { localizedContent } = useGlobalContext();
+
   return (
     <article className={styles["experience-slide"]} style={style}>
       <header className="mb-4 flex flex-col xl:flex-row xl:place-items-center xl:gap-4">
