@@ -21,7 +21,6 @@ import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
 
 // assets
-import ogImage from "./opengraph-image.jpg";
 import { outfit } from "@/assets/fonts";
 
 // types
@@ -49,22 +48,10 @@ export const metadata: Metadata = {
     url: process.env.WEBSITE_URL,
     siteName: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
     authors: ["Remi"],
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-      },
-    ],
+    images: "/og-image.jpg",
   },
   twitter: {
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-      },
-    ],
+    images: "/og-image.jpg",
   },
 };
 
