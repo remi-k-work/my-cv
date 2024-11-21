@@ -21,6 +21,7 @@ import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
 
 // assets
+import ogImage from "./opengraph-image.jpg";
 import { outfit } from "@/assets/fonts";
 
 // types
@@ -40,6 +41,30 @@ export const metadata: Metadata = {
   category: "technology",
   other: {
     google: "notranslate",
+  },
+  openGraph: {
+    title: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
+    description:
+      "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
+    url: process.env.WEBSITE_URL,
+    siteName: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
+    authors: ["Remi"],
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height,
+      },
+    ],
+  },
+  twitter: {
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height,
+      },
+    ],
   },
 };
 
