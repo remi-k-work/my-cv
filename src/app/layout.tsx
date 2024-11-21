@@ -13,7 +13,7 @@ import styles from "./layout.module.css";
 import type { Metadata } from "next";
 
 // other libraries
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 // components
 import GlobalContextFetcher from "@/lib/GlobalContextFetcher";
@@ -58,10 +58,10 @@ export default function Layout({ pagetitle, exp, children }: Readonly<LayoutProp
               {exp}
               {pagetitle}
               {children}
-              <Analytics debug={false} />
             </main>
           </div>
         </GlobalContextFetcher>
+        <Analytics debug={false} />
       </body>
     </html>
   );
