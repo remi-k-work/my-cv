@@ -48,10 +48,10 @@ export const metadata: Metadata = {
     url: process.env.WEBSITE_URL,
     siteName: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
     authors: ["Remi"],
-    images: "/og-image.jpg",
+    images: { url: "/og-image.jpg", width: 1200, height: 630 },
   },
   twitter: {
-    images: "/og-image.jpg",
+    images: { url: "/og-image.jpg", width: 1200, height: 630 },
   },
 };
 
