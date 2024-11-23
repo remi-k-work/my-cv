@@ -79,7 +79,10 @@ export default class DataLoader {
     // if (lang === "pl") return "pl";
 
     // Otherwise, use the client's preferred language
-    const acceptLang = resolveAcceptLanguage(headers().get("Accept-Language") as string, ["en-US", "en-GB", "pl-PL"], "en-US");
-    return acceptLang.includes("en") ? "en" : "pl";
+    const acceptLanguageHeader = headers().get("Accept-Language");
+    if (acceptLanguageHeader == null) return "en";
+
+    const resolvedLanguage = resolveAcceptLanguage(acceptLanguageHeader, ["en-US", "en-GB", "pl-PL"], "en-US");
+    return resolvedLanguage.includes("en") ? "en" : "pl";
   }
 }
