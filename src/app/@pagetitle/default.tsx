@@ -1,6 +1,11 @@
 // components
+import GlobalContextFetcher from "@/lib/GlobalContextFetcher";
 import PageTitle from "@/components/PageTitle";
 
 export default function Default() {
-  return <PageTitle />;
+  return (
+    <GlobalContextFetcher>
+      <PageTitle />
+    </GlobalContextFetcher>
+  );
 }
