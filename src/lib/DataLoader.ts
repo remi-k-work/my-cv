@@ -73,6 +73,7 @@ export default class DataLoader {
   }
 
   private static get preferredLang(): Lang {
+    return "en";
     // Try obtaining the lang value from a local cookie
     const lang: Lang | undefined = cookies().get(LANG_COOKIE)?.value as Lang;
     if (lang) return lang;

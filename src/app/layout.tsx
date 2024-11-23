@@ -68,7 +68,7 @@ export default function Layout({ pagetitle, exp, children }: Readonly<LayoutProp
             </aside>
             <main className={styles["main"]}>
               {exp}
-              {/* {pagetitle} */}
+              {pagetitle}
               {children}
             </main>
           </div>
