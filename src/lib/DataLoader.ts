@@ -18,7 +18,7 @@ export default class DataLoader {
   private readonly dataDir: string;
 
   private constructor(
-    public readonly lang: Lang,
+    public readonly lang: Lang = "en",
     public readonly localizedContent: LocalizedContent,
   ) {
     if (this.lang === "pl") {
@@ -74,9 +74,9 @@ export default class DataLoader {
 
   private static get preferredLang(): Lang {
     // Try obtaining the lang value from a local cookie
-    // const lang = cookies().get(LANG_COOKIE)?.value;
-    // if (lang === "en") return "en";
-    // if (lang === "pl") return "pl";
+    const lang = cookies().get(LANG_COOKIE)?.value;
+    if (lang === "en") return "en";
+    if (lang === "pl") return "pl";
 
     // Otherwise, use the client's preferred language
     const acceptLanguageHeader = headers().get("Accept-Language");
