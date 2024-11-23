@@ -11,6 +11,9 @@ import { getRandomInt } from "@/lib/helpers";
 interface GlobalContextType {
   preferredLang: Lang;
   localizedContent: LocalizedContent;
+  pageTitles: PageTitles[];
+  allExperiences: JobExperience[][];
+  educationSchools: EducationSchool[];
 
   titleTheme: number;
 
@@ -25,13 +28,17 @@ interface GlobalContextType {
 interface GlobalContextProviderProps {
   preferredLang: Lang;
   localizedContent: LocalizedContent;
+  pageTitles: PageTitles[];
+  allExperiences: JobExperience[][];
+  educationSchools: EducationSchool[];
   children: React.ReactNode;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
-export function GlobalContextProvider({ preferredLang, localizedContent, children }: GlobalContextProviderProps) {
+export function GlobalContextProvider({ preferredLang, localizedContent, pageTitles, allExperiences, educationSchools, children }: GlobalContextProviderProps) {
   const [titleTheme, setTitleTheme] = useState(0);
+
   const [isTypedHome, setIsTypedHome] = useState(false);
   const [isTypedEduc, setIsTypedEduc] = useState(false);
   const [isTypedCont, setIsTypedCont] = useState(false);
@@ -44,7 +51,20 @@ export function GlobalContextProvider({ preferredLang, localizedContent, childre
 
   return (
     <GlobalContext.Provider
-      value={{ preferredLang, localizedContent, titleTheme, isTypedHome, setIsTypedHome, isTypedEduc, setIsTypedEduc, isTypedCont, setIsTypedCont }}
+      value={{
+        preferredLang,
+        localizedContent,
+        pageTitles,
+        allExperiences,
+        educationSchools,
+        titleTheme,
+        isTypedHome,
+        setIsTypedHome,
+        isTypedEduc,
+        setIsTypedEduc,
+        isTypedCont,
+        setIsTypedCont,
+      }}
     >
       {children}
     </GlobalContext.Provider>

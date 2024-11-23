@@ -1,5 +1,4 @@
 .page {
-  clear: both;
   display: grid;
   gap: 1em;
 
@@ -14,23 +13,4 @@
   border-end-end-radius: 1em;
   padding-inline: 1em;
   padding-block: 1em;
-}
-
-.page > section > header {
-  inline-size: 100%;
-  max-inline-size: 36em;
-  margin-inline: auto;
-}
-
-.page > section > header > span {
-  background: var(--clr-primary-300);
-  font-style: italic;
-  padding-inline: 0.35em;
-  padding-block: 0.35em;
-  float: inline-end;
-  margin-block: 0 1em;
-  border-start-start-radius: 1em;
-  border-start-end-radius: 0;
-  border-end-start-radius: 0;
-  border-end-end-radius: 1em;
 }

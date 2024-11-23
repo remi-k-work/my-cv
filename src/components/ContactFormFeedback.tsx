@@ -4,7 +4,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 // other libraries
-import { ContactFormState } from "../lib/ContactFormSchema";
+import { ContactFormState } from "@/lib/ContactFormSchema";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components

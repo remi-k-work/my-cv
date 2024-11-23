@@ -7,12 +7,12 @@ import styles from "./ContactForm.module.css";
 import { useState } from "react";
 
 // server actions and mutations
-import { newContact } from "../lib/actionsContactForm";
+import { newContact } from "@/lib/actionsContactForm";
 
 // other libraries
-import ContactFormSchema, { ContactFormSchemaType, ContactFormState } from "../lib/ContactFormSchema";
+import ContactFormSchema, { ContactFormSchemaType, ContactFormState } from "@/lib/ContactFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import useFormActionWithVal from "../lib/useFormActionWithVal";
+import useFormActionWithVal from "@/lib/useFormActionWithVal";
 import { FormProvider } from "react-hook-form";
 import { useGlobalContext } from "@/lib/GlobalContext";
 

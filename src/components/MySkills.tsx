@@ -5,7 +5,7 @@ import styles from "./MySkills.module.css";
 import Image from "next/image";
 
 // assets
-import * as assets from "../assets/my-skills";
+import * as assets from "@/assets/my-skills";
 
 export default function MySkills() {
   return (

@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // other libraries
-import { useGlobalContext } from "../lib/GlobalContext";
+import { useGlobalContext } from "@/lib/GlobalContext";
 import useTypeWriter from "@/lib/useTypeWriter";
 
 // assets
-import avatar from "../assets/components/page-title/avatar.jpg";
+import avatar from "@/assets/components/page-title/avatar.jpg";
 
 // types
 interface TypeWriterOutputProps {

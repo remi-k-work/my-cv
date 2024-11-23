@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./ExperienceDetails.module.css";
 
@@ -7,7 +9,7 @@ import Link from "next/link";
 
 // other libraries
 import clsx from "clsx";
-import DataLoader from "@/lib/DataLoader";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // types
 interface ExperienceDetailsProps {
@@ -15,12 +17,11 @@ interface ExperienceDetailsProps {
   index: number;
 }
 
-export default async function ExperienceDetails({ type, index }: ExperienceDetailsProps) {
-  // Obtain a list of all job experiences from an outside source
-  const dataLoader = await DataLoader.init();
-  const [listExp, listPor] = await dataLoader.allExperiences();
-
-  const { localizedContent } = dataLoader;
+export default function ExperienceDetails({ type, index }: ExperienceDetailsProps) {
+  const {
+    localizedContent,
+    allExperiences: [listExp, listPor],
+  } = useGlobalContext();
 
   let experience: JobExperience | undefined = undefined;
   if (type === "e") {

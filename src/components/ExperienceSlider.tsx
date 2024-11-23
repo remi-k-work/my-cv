@@ -8,6 +8,7 @@ import { useState } from "react";
 
 // other libraries
 import clsx from "clsx";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import ExperienceSlide from "./ExperienceSlide";
@@ -18,11 +19,16 @@ import { ArrowLeftCircleIcon, ArrowRightCircleIcon, CubeIcon, CubeTransparentIco
 // types
 interface ExperienceSliderProps {
   type: "e" | "p";
-  jobExperienceList: JobExperience[];
 }
 
-export default function ExperienceSlider({ type, jobExperienceList }: ExperienceSliderProps) {
+export default function ExperienceSlider({ type }: ExperienceSliderProps) {
+  const {
+    localizedContent,
+    allExperiences: [listExp, listPor],
+  } = useGlobalContext();
   const [viewedJobIndex, setViewedJobIndex] = useState(0);
+
+  const jobExperienceList = type === "e" ? listExp : listPor;
 
   function handleNextExpClicked() {
     setViewedJobIndex((index) => {
@@ -39,7 +45,8 @@ export default function ExperienceSlider({ type, jobExperienceList }: Experience
   }
 
   return (
-    <section className={styles["experience-slider"]}>
+    <figure className={styles["experience-slider"]}>
+      <figcaption>{type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}</figcaption>
       <button type="button" className={clsx(styles["experience-slider__pjob"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
         <ArrowLeftCircleIcon width={24} height={24} />
       </button>
@@ -65,6 +72,6 @@ export default function ExperienceSlider({ type, jobExperienceList }: Experience
           <ExperienceSlide key={jobIndex} type={type} index={jobIndex} experience={singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
         ))}
       </div>
-    </section>
+    </figure>
   );
 }

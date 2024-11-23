@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
-import * as assets from "../assets/my-certificates";
+import * as assets from "@/assets/my-certificates";
 
 export default function MyCertificates() {
   const { localizedContent } = useGlobalContext();

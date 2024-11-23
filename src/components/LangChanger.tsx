@@ -8,15 +8,15 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // server actions and mutations
-import { setLangCookie } from "../lib/actionsLangChanger";
+import { setLangCookie } from "@/lib/actionsLangChanger";
 
 // other libraries
 import { Lang } from "@/lib/DataLoader";
-import { useGlobalContext } from "../lib/GlobalContext";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
-import pl from "../assets/pl.svg";
-import us from "../assets/us.svg";
+import pl from "@/assets/pl.svg";
+import us from "@/assets/us.svg";
 
 export default function LangChanger() {
   const { preferredLang } = useGlobalContext();

@@ -7,8 +7,8 @@ import { ChangeEventHandler, ComponentProps, FocusEventHandler } from "react";
 // other libraries
 import clsx from "clsx";
 import { RefCallBack } from "react-hook-form";
-import { AllFieldErrors } from "../lib/FormSchemaBase";
-import useRegisterWithRHF from "../lib/useRegisterWithRHF";
+import { AllFieldErrors } from "@/lib/FormSchemaBase";
+import useRegisterWithRHF from "@/lib/useRegisterWithRHF";
 
 // assets
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";

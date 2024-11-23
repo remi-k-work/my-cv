@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./MyEducation.module.css";
 
@@ -5,14 +7,10 @@ import styles from "./MyEducation.module.css";
 import { Fragment } from "react";
 
 // other libraries
-import DataLoader from "@/lib/DataLoader";
+import { useGlobalContext } from "@/lib/GlobalContext";
 
-export default async function MyEducation() {
-  // Obtain a list of all education schools from an outside source
-  const dataLoader = await DataLoader.init();
-  const educationSchools = await dataLoader.allEducationSchools();
-
-  const { localizedContent } = dataLoader;
+export default function MyEducation() {
+  const { localizedContent, educationSchools } = useGlobalContext();
 
   return (
     <figure className={styles["my-education"]}>
