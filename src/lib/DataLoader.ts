@@ -73,9 +73,11 @@ export default class DataLoader {
   }
 
   private static get preferredLang(): Lang {
-    return "en";
+    const lang = "en";
+    return lang;
+
     // Try obtaining the lang value from a local cookie
-    const lang: Lang | undefined = cookies().get(LANG_COOKIE)?.value as Lang;
+    // const lang: Lang | undefined = cookies().get(LANG_COOKIE)?.value as Lang;
     if (lang) return lang;
 
     // Otherwise, use the client's preferred language
