@@ -29,16 +29,16 @@ export default class DataLoader {
   }
 
   static async init() {
-    const lang = DataLoader.preferredLang;
+    const lang = "en"; // = DataLoader.preferredLang;
 
     let fileLoc: string;
-    if (lang === "pl") {
-      const dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
-      fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
-    } else {
-      const dataDir = path.resolve(process.cwd(), DATA_DIR, "en");
-      fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
-    }
+    // if (lang === "pl") {
+    //   const dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
+    //   fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
+    // } else {
+    const dataDir = path.resolve(process.cwd(), DATA_DIR, "en");
+    fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
+    // }
 
     const localizedContent = JSON.parse(fileLoc) as LocalizedContent;
     return new DataLoader(lang, localizedContent);
