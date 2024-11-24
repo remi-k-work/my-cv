@@ -11,7 +11,7 @@ import { resolveAcceptLanguage } from "resolve-accept-language";
 // types
 export type Lang = "en" | "pl";
 
-const DATA_DIR = "public/data";
+const DATA_DIR = "/app/data";
 const LANG_COOKIE = "lang";
 
 export default class DataLoader {

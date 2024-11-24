@@ -1,0 +1,96 @@
+[
+  {
+    "year": "Czerwiec 2024",
+    "role": "NoLine-Deli Manager",
+    "company": "Projekt Osobisty",
+    "txt": "NoLine-Deli Manager to szyty na miarę system zarządzania treścią (CMS), który zbudowałem do prowadzenia NoLine-Deli, fikcyjnego europejskiego sklepu z ekologiczną żywnością, który stworzyłem jako osobiste przedsięwzięcie e-commerce. Dzięki tej przyjaznej dla użytkownika platformie każdy może poeksperymentować z zarządzaniem backendem sklepu internetowego. Użytkownicy mogą tworzyć, aktualizować i usuwać marki, kategorie, podkategorie i towary, zdobywając doświadczenie z pierwszej ręki w zakresie zarządzania treścią e-commerce. Płynne zarządzanie obrazami zapewnia piękną wizualnie witrynę sklepową, a połączenie systemu z front-endem NoLine-Deli (który również zaprojektowałem) zapewnia płynny przepływ danych i aktualizację w czasie rzeczywistym.",
+    "gitHubLink": "https://github.com/remi-k-work/noline-deli",
+    "liveLink": "https://noline-deli.vercel.app/manager",
+    "lgPic": "job-experience-noline-deli-manager-lg.webp",
+    "skillsUsed": [
+      "Next.js",
+      "E-Commerce",
+      "MongoDB",
+      "Prisma ORM",
+      "Projektowanie Responsywne (RWD)",
+      "Autoryzacja",
+      "TypeScript",
+      "Systemy Zarządzania Treścią (CMS)"
+    ]
+  },
+
+  {
+    "year": "Marzec 2024",
+    "role": "NoLine-Deli",
+    "company": "Projekt Osobisty",
+    "txt": "Witamy w NoLine-Deli, europejskim sklepie z ekologiczną, zdrową żywnością, który szanuje Twój czas i jest miejscem, w którym nigdy nie doświadczysz stania w długich kolejkach. Dostarczymy towar bezpośrednio do Twojego domu. Oprócz zapewnienia Ci wygody mamy jeszcze inny cel. Chcemy przedstawiać Ci świeże, zdrowe, organiczne i wysokiej jakości produkty europejskie, niezależnie od tego, w której części Stanów Zjednoczonych się znajdujesz. Jeśli masz środkowoeuropejskie korzenie, to chcemy dostarczyć Ci Twoje ulubione potrawy i wspomnienia oraz sprawić, że poczujesz się jak w swoim rodzinnym mieście. Każdego klienta traktujemy indywidualnie. W naszej ofercie znajdą Państwo produkty specyficzne dla Polski, słynącej na przykład z kiełbasy i pierogów. Jednakże stale poszerzamy nasz asortyment i jesteśmy otwarci na Państwa sugestie. Celem naszego sklepu ze zdrową żywnością ekologiczną jest dostarczanie wszelkich produktów, o które poprosisz. Jeżeli mają Państwo indywidualne potrzeby wykraczające poza listę naszych pozycji, prosimy o informację, a my postaramy się je dla Państwa znaleźć. Jeśli organizujesz przyjęcie i potrzebujesz porady dotyczącej menu, również możemy pomóc.",
+    "gitHubLink": "https://github.com/remi-k-work/noline-deli",
+    "liveLink": "https://noline-deli.vercel.app/",
+    "lgPic": "job-experience-noline-deli-lg.webp",
+    "skillsUsed": [
+      "Next.js",
+      "E-Commerce",
+      "MongoDB",
+      "Prisma ORM",
+      "Projektowanie Responsywne (RWD)",
+      "Autoryzacja",
+      "TypeScript",
+      "Systemy Zarządzania Treścią (CMS)"
+    ]
+  },
+
+  {
+    "year": "Luty 2024",
+    "role": "Word Wave",
+    "company": "Projekt Osobisty",
+    "txt": "Co masz dzisiaj na myśli? Pozwól swoim myślom odlecieć i dołącz do naszej tętniącej życiem społeczności blogowej. Uwolnij swoją kreatywność i nawiąż kontakt z osobami o podobnych poglądach. Masz historię do opowiedzenia? Pomysł, który kipi w środku? Nasza platforma zapewnia przestrzeń do swobodnego wyrażania siebie i nawiązywania kontaktu z innymi, którzy podzielają Twoje pasje. Zbudowałem prostą aplikację do obsługi sieci społecznościowych, inspirowaną tutorialem Marka Eriksona „Redux Essentials” z oficjalnej dokumentacji Redux.",
+    "gitHubLink": "https://github.com/remi-k-work/word-wave",
+    "liveLink": "https://word-wave-two.vercel.app/",
+    "lgPic": "job-experience-word-wave-lg.webp",
+    "skillsUsed": ["Redux", "Blogi i Media Społecznościowe", "REST API", "React.js", "Interfejs Użytkownika (UX)", "Projektowanie Responsywne (RWD)"]
+  },
+
+  {
+    "year": "Grudzień 2023",
+    "role": "Home Budget",
+    "company": "Projekt Osobisty",
+    "txt": "Po długiej przerwie w branży ciężko pracuję, aby nadążać za wszystkimi najnowszymi trendami w tworzeniu stron internetowych. Bardzo podoba mi się React, ponieważ pozwala myśleć bardziej modułowo podczas tworzenia aplikacji, a także pomaga w enkapsulacji. Ćwiczę z React Router, który jest kolejnym przydatnym narzędziem, dzięki któremu SPA Reacta zachowuje się bardziej jak tradycyjna witryna internetowa z oddzielnymi stronami. Wzorowałem się na jedenym z tutoriali „Coding in Public” i stworzyłem przykład aplikacji do prowadzenia domowego budżetu. Także, zacznij budżetować swoje wydatki już teraz, zwłaszcza w okresie świątecznym!",
+    "gitHubLink": "https://github.com/remi-k-work/home-budget",
+    "liveLink": "https://react-router-budget.vercel.app/",
+    "lgPic": "job-experience-home-budget-lg.webp",
+    "skillsUsed": ["React.js", "Tworzenie Aplikacji Internetowych", "Doświadczenie Użytkownika (UX)"]
+  },
+
+  {
+    "year": "Styczeń 2024",
+    "role": "Wordle Game",
+    "company": "Projekt Osobisty",
+    "txt": "Zanurz się w urzekającym świecie łamigłówek słownych z moim klonem gry Wordle, największym wyzwaniem słownictwa. Każdego dnia czeka na Ciebie nowe tajemnicze słowo do rozszyfrowania, oferujące nowe wyzwanie, które pozwoli Ci napiąć mięśnie językowe. Z każdym odgadnięciem otrzymasz wskazówki pozwalające rozwikłać tajemnicze słowo, stopniowo zawężając możliwości. Wykorzystaj żywy, oznaczony kolorami system informacji zwrotnych, aby poprowadzić swoją podróż, delektując się satysfakcją z każdego prawidłowego umieszczenia litery. Niezależnie od tego, czy jesteś doświadczonym twórcą słów, czy początkującym lingwistą, ta gra oferuje każdemu wciągające i satysfakcjonujące doświadczenie. Uwolnij swoją kreatywność, doskonal swoje słownictwo i rozkoszuj się dreszczykiem emocji związanym z rozwiązywaniem każdej zagadki. Rozpocznij przygodę z rozwiązywaniem słów! W tę grę można grać z zestawami słownictwa angielskiego lub polskiego. Pracując nad tym projektem zastosowałem technikę Redux.",
+    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
+    "liveLink": "https://wordle-game-beta-five.vercel.app/",
+    "lgPic": "job-experience-wordle-game-lg.webp",
+    "skillsUsed": ["Redux", "React.js", "Projektowanie Gier"]
+  },
+
+  {
+    "year": "Grudzień 2023",
+    "role": "Memory Game",
+    "company": "Projekt Osobisty",
+    "txt": "Czy chciałbyś poprawić swoją pamięć wzrokową, wystawiając ją na próbę? Zobaczmy, ile tur zajmie Ci odsłonięcie całej planszy. Będziesz mógł wybierać spośród szerokiej gamy kolekcji obrazów, które zawsze Cię zaskoczą, ponieważ są pobierane losowo z serwerów PixaBay. Powinno to zwiększyć zainteresowanie grą i sprawić, że będzie ona dość nieprzewidywalna. Kiedy uznasz, że robisz postępy, wypróbuj trudniejszy poziom. Śledź swoje wyniki i porównuj je z poprzednimi. Dojdź do granic możliwości i spróbuj pobić swój najlepszy wynik. Ciesz się wyzwaniem i baw się dobrze!",
+    "gitHubLink": "https://github.com/remi-k-work/memory-game",
+    "liveLink": "https://memory-game-nine-rho-39.vercel.app/",
+    "lgPic": "job-experience-memory-game-lg.webp",
+    "skillsUsed": ["React.js", "RESTful WebServices", "Projektowanie Gier"]
+  },
+
+  {
+    "year": "Październik 2023",
+    "role": "My CV",
+    "company": "Projekt Osobisty",
+    "txt": "Czy myślisz, że widziałeś już tę stronę? Tak, bo właśnie się na niej teraz znajdujesz 😄 To jest moje CV. Możesz argumentować, że muszę być nieco zdesperowany, aby włączyć to do swojego portfolio. I miałbyś rację, ale ponieważ jest to projekt oparty na React, możesz przynajmniej sprawdzić jego kod źródłowy na GitHubie. Jest to projekt, z którego jestem dumny i wierzę, że Cię zainteresuje. Może znajdziesz coś, co możesz dodać do swojego portfolio lub czegoś się z niego nauczyć? Rzuć okiem i daj mi znać, co o nim myślisz.",
+    "gitHubLink": "https://github.com/remi-k-work/my-cv",
+    "liveLink": "https://my-cv-remi.vercel.app/",
+    "lgPic": "job-experience-my-cv-lg.webp",
+    "skillsUsed": ["React.js", "GitHub", "Doświadczenie Użytkownika (UX)", "Lokalizacja"]
+  }
+]
