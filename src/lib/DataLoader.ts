@@ -11,12 +11,13 @@ import { resolveAcceptLanguage } from "resolve-accept-language";
 // types
 export type Lang = "en" | "pl";
 
-const DATA_DIR = "data";
+const DATA_DIR = "public/data";
 const LANG_COOKIE = "lang";
 
 export default class DataLoader {
   public readonly lang: Lang = "en";
   private readonly dataDir: string = path.resolve(process.cwd(), DATA_DIR, "en");
+  private readonly dataUrl: string = "/data/en/";
 
   constructor() {
     // Try obtaining the lang value from a local cookie
@@ -36,13 +37,22 @@ export default class DataLoader {
     // Determine the right place for all data based on the desired language
     if (this.lang === "en") {
       this.dataDir = path.resolve(process.cwd(), DATA_DIR, "en");
+      this.dataUrl = "/data/en/";
     } else {
       this.dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
+      this.dataUrl = "/data/pl/";
     }
   }
 
   // Obtain the localized content for the preferred language
   async localizedContent() {
+    const fileLoc = await fetch(new URL(this.dataUrl + "localized-content.json", process.env.WEBSITE_URL));
+    const localizedContent = (await fileLoc.json()) as LocalizedContent;
+
+    return localizedContent;
+  }
+
+  async localizedContent_old() {
     const fileLoc = await fs.readFile(path.join(this.dataDir, "localized-content.json"), "utf8");
     const localizedContent = JSON.parse(fileLoc) as LocalizedContent;
 
@@ -51,6 +61,17 @@ export default class DataLoader {
 
   // Obtain a list of all job experiences from an outside source
   async allExperiences() {
+    const [fileExp, filePor] = await Promise.all([
+      fetch(new URL(this.dataUrl + "experience.json", process.env.WEBSITE_URL)),
+      fetch(new URL(this.dataUrl + "portfolio-projects.json", process.env.WEBSITE_URL)),
+    ]);
+    const listExp = (await fileExp.json()) as JobExperience[];
+    const listPor = (await filePor.json()) as JobExperience[];
+
+    return [listExp, listPor];
+  }
+
+  async allExperiences_old() {
     const [fileExp, filePor] = await Promise.all([
       fs.readFile(path.join(this.dataDir, "experience.json"), "utf8"),
       fs.readFile(path.join(this.dataDir, "portfolio-projects.json"), "utf8"),
@@ -63,6 +84,13 @@ export default class DataLoader {
 
   // Get all the page titles from an outside source
   async allPageTitles() {
+    const fileTit = await fetch(new URL(this.dataUrl + "page-titles.json", process.env.WEBSITE_URL));
+    const pageTitles = (await fileTit.json()) as PageTitles[];
+
+    return pageTitles;
+  }
+
+  async allPageTitles_old() {
     const fileTit = await fs.readFile(path.join(this.dataDir, "page-titles.json"), "utf8");
     const pageTitles = JSON.parse(fileTit) as PageTitles[];
 
@@ -71,6 +99,13 @@ export default class DataLoader {
 
   // Obtain a list of all education schools from an outside source
   async allEducationSchools() {
+    const fileEdu = await fetch(new URL(this.dataUrl + "education-schools.json", process.env.WEBSITE_URL));
+    const educationSchools = (await fileEdu.json()) as EducationSchool[];
+
+    return educationSchools;
+  }
+
+  async allEducationSchools_old() {
     const fileEdu = await fs.readFile(path.join(this.dataDir, "education-schools.json"), "utf8");
     const educationSchools = JSON.parse(fileEdu) as EducationSchool[];
 
