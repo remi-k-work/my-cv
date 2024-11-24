@@ -15,33 +15,38 @@ const DATA_DIR = "public/data";
 const LANG_COOKIE = "lang";
 
 export default class DataLoader {
-  private readonly dataDir: string;
+  public readonly lang: Lang = "en";
+  private readonly dataDir: string = path.resolve(process.cwd(), DATA_DIR, "en");
 
-  private constructor(
-    public readonly lang: Lang,
-    public readonly localizedContent: LocalizedContent,
-  ) {
-    if (this.lang === "pl") {
-      this.dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
+  constructor() {
+    // Try obtaining the lang value from a local cookie
+    const langCookieValue = cookies().get(LANG_COOKIE)?.value;
+    if (langCookieValue) {
+      if (langCookieValue === "en") this.lang = "en";
+      if (langCookieValue === "pl") this.lang = "pl";
     } else {
+      // Otherwise, use the client's preferred language
+      const acceptLanguageHeader = headers().get("Accept-Language");
+      if (acceptLanguageHeader) {
+        const resolvedLanguage = resolveAcceptLanguage(acceptLanguageHeader, ["en-US", "en-GB", "pl-PL"], "en-US");
+        this.lang = resolvedLanguage.includes("en") ? "en" : "pl";
+      }
+    }
+
+    // Determine the right place for all data based on the desired language
+    if (this.lang === "en") {
       this.dataDir = path.resolve(process.cwd(), DATA_DIR, "en");
+    } else {
+      this.dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
     }
   }
 
-  static async init() {
-    const lang = "en"; // = DataLoader.preferredLang;
-
-    let fileLoc: string;
-    // if (lang === "pl") {
-    //   const dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
-    //   fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
-    // } else {
-    const dataDir = path.resolve(process.cwd(), DATA_DIR, "en");
-    fileLoc = await fs.readFile(path.join(dataDir, "localized-content.json"), "utf8");
-    // }
-
+  // Obtain the localized content for the preferred language
+  async localizedContent() {
+    const fileLoc = await fs.readFile(path.join(this.dataDir, "localized-content.json"), "utf8");
     const localizedContent = JSON.parse(fileLoc) as LocalizedContent;
-    return new DataLoader(lang, localizedContent);
+
+    return localizedContent;
   }
 
   // Obtain a list of all job experiences from an outside source
@@ -70,21 +75,5 @@ export default class DataLoader {
     const educationSchools = JSON.parse(fileEdu) as EducationSchool[];
 
     return educationSchools;
-  }
-
-  private static get preferredLang(): Lang {
-    return "en";
-
-    // // Try obtaining the lang value from a local cookie
-    // const lang = cookies().get(LANG_COOKIE)?.value;
-    // if (lang === "en") return "en";
-    // if (lang === "pl") return "pl";
-
-    // // Otherwise, use the client's preferred language
-    // const acceptLanguageHeader = headers().get("Accept-Language");
-    // if (acceptLanguageHeader == null) return "en";
-
-    // const resolvedLanguage = resolveAcceptLanguage(acceptLanguageHeader, ["en-US", "en-GB", "pl-PL"], "en-US");
-    // return resolvedLanguage.includes("en") ? "en" : "pl";
   }
 }

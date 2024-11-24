@@ -14,8 +14,10 @@ interface GlobalContextFetcherProps {
 
 export default async function GlobalContextFetcher({ children }: GlobalContextFetcherProps) {
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.init();
-  const { lang, localizedContent } = dataLoader;
+  const dataLoader = new DataLoader();
+
+  // Obtain the localized content for the preferred language
+  const localizedContent = await dataLoader.localizedContent();
 
   // Get all the page titles from an outside source
   const pageTitles = await dataLoader.allPageTitles();
@@ -28,7 +30,7 @@ export default async function GlobalContextFetcher({ children }: GlobalContextFe
 
   return (
     <GlobalContextProvider
-      preferredLang={lang}
+      preferredLang={dataLoader.lang}
       localizedContent={localizedContent}
       pageTitles={pageTitles}
       allExperiences={allExperiences}

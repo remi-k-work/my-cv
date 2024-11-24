@@ -12,7 +12,10 @@ import { CaptchaSession } from "@/app/auth/captcha/[name]/route";
 
 export async function newContact(formState: ContactFormState, formData: FormData): Promise<ContactFormState> {
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.init();
+  const dataLoader = new DataLoader();
+
+  // Obtain the localized content for the preferred language
+  const localizedContent = await dataLoader.localizedContent();
 
   const contactFormSchema = new ContactFormSchema(dataLoader.lang, formData);
   const { isSuccess, allFieldErrorsServer, validatedData } = contactFormSchema;
@@ -36,7 +39,7 @@ export async function newContact(formState: ContactFormState, formData: FormData
         ...formState,
         actionStatus: "invalid",
         allFieldErrors: {
-          captcha: [dataLoader.localizedContent["contactFormFeedback"]["invalidCaptcha"]],
+          captcha: [localizedContent["contactFormFeedback"]["invalidCaptcha"]],
         },
       };
     }
