@@ -1,5 +1,16 @@
 [
   {
+    "year": "Jan 2025",
+    "role": "Full-Stack Developer",
+    "company": "ARTCOM",
+    "txt": "Recognizing the need for ARTCOM, a team of specialists in IT training, language instruction, and EU-funded projects, to efficiently manage their dynamic content, I developed a custom Content Management System (CMS) to seamlessly integrate with the revamped front-end. I leveraged Payload CMS to build a user-friendly system with a drag-and-drop interface and intuitive workflows, significantly improving content workflow efficiency, reducing content management time, and empowering non-technical team members to independently manage website content. A live demo of the CMS is available for exploration, showcasing its functionality and user-friendliness (simply click on a screenshot and log in with prefilled demo user credentials).",
+    "gitHubLink": "https://github.com/remi-k-work/artcom",
+    "liveLink": "https://artcom-pink.vercel.app/admin",
+    "lgPic": "job-experience-artcom-a-lg.webp",
+    "skillsUsed": ["Back-End Development", "Payload CMS", "PostgreSQL", "Next.js", "Cloud Computing & Storage", "Content Management Systems (CMS)"]
+  },
+
+  {
     "year": "Nov 2024",
     "role": "React Developer",
     "company": "ARTCOM",

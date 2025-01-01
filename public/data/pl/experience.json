@@ -1,5 +1,16 @@
 [
   {
+    "year": "Styczeń 2025",
+    "role": "Programista Full-Stack",
+    "company": "ARTCOM",
+    "txt": "Zauważając potrzebę ARTCOM (zespołu specjalistów w zakresie szkoleń informatycznych, nauczania języków obcych i projektów finansowanych przez UE), żeby móc skutecznie zarządzać dynamiczną treścią, opracowałem dla nich system zarządzania treścią (CMS), tak aby płynnie zintegrować go z odnowionym front-endem. Wykorzystałem Payload CMS do zbudowania przyjaznego dla użytkownika systemu z interfejsem typu „przeciągnij i upuść” oraz intuicyjnymi formularzami, znacznie poprawiając wydajność pracy nad treścią, skracając czas zarządzania nią i umożliwiając członkom zespołu bez wykształcenia technicznego samodzielne zarządzanie treścią witryny. Dostępna jest demonstracja na żywo CMS do eksploracji, prezentująca jego funkcjonalność i łatwość obsługi (wystarczy kliknąć zrzut ekranu i zalogować się przy użyciu wstępnie wypełnionym użytkownikiem demonstracyjnym).",
+    "gitHubLink": "https://github.com/remi-k-work/artcom",
+    "liveLink": "https://artcom-pink.vercel.app/admin",
+    "lgPic": "job-experience-artcom-a-lg.webp",
+    "skillsUsed": ["Rozwój Back-Endu", "Payload CMS", "PostgreSQL", "Next.js", "Usługi w Chmurze", "Systemy Zarządzania Treścią (CMS)"]
+  },
+
+  {
     "year": "Listopad 2024",
     "role": "Programista React",
     "company": "ARTCOM",
