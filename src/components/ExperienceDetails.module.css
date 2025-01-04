@@ -75,6 +75,14 @@
 
 .live-link__img {
   grid-area: img;
+
+  outline: 2px solid var(--clr-primary-800);
+  outline-offset: 2px;
+  outline-style: outset;
+
+  &:hover {
+    outline-style: inset;
+  }
 }
 
 .live-link__inf {
@@ -92,16 +100,23 @@
   align-items: center;
 
   gap: var(--size-3);
+
+  outline: 2px solid var(--clr-primary-400);
+  outline-style: outset;
 }
 
 .live-link__inf > a {
   display: block;
+
   border-start-start-radius: 1em;
   border-end-start-radius: 1em;
   border-start-end-radius: 1em;
   border-end-end-radius: 1em;
-}
 
-.live-link__inf > a:hover {
-  outline: 1px solid var(--clr-accent-400);
+  outline: 2px solid var(--clr-primary-800);
+  outline-style: outset;
+
+  &:hover {
+    outline-style: inset;
+  }
 }

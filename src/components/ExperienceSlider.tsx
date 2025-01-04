@@ -47,31 +47,37 @@ export default function ExperienceSlider({ type }: ExperienceSliderProps) {
   return (
     <figure className={styles["experience-slider"]}>
       <figcaption>{type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}</figcaption>
-      <button type="button" className={clsx(styles["experience-slider__pjob"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
+      <button type="button" className={clsx(styles["experience-slider__pjobt"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
         <ArrowLeftCircleIcon width={24} height={24} />
       </button>
-      <button type="button" className={clsx(styles["experience-slider__njob"], styles["experience-slider__button"])} onClick={handleNextExpClicked}>
+      <button type="button" className={clsx(styles["experience-slider__njobt"], styles["experience-slider__button"])} onClick={handleNextExpClicked}>
         <ArrowRightCircleIcon width={24} height={24} />
       </button>
-      <header className={styles["experience-slider__cjobt"]}>
+      <button type="button" className={clsx(styles["experience-slider__pjobb"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
+        <ArrowLeftCircleIcon width={24} height={24} />
+      </button>
+      <button type="button" className={clsx(styles["experience-slider__njobb"], styles["experience-slider__button"])} onClick={handleNextExpClicked}>
+        <ArrowRightCircleIcon width={24} height={24} />
+      </button>
+      <header>
         {jobExperienceList.map((_, jobIndex) => (
           <button key={jobIndex} type="button" className={styles["experience-slider__button-dot"]} onClick={() => setViewedJobIndex(jobIndex)}>
             {viewedJobIndex === jobIndex ? <CubeIcon width={24} height={24} /> : <CubeTransparentIcon width={24} height={24} />}
           </button>
         ))}
       </header>
-      <footer className={styles["experience-slider__cjobb"]}>
+      <footer>
         {jobExperienceList.map((_, jobIndex) => (
           <button key={jobIndex} type="button" className={styles["experience-slider__button-dot"]} onClick={() => setViewedJobIndex(jobIndex)}>
             {viewedJobIndex === jobIndex ? <CubeIcon width={24} height={24} /> : <CubeTransparentIcon width={24} height={24} />}
           </button>
         ))}
       </footer>
-      <div className={styles["experience-slider__view"]}>
+      <article>
         {jobExperienceList.map((singleJobExperience, jobIndex) => (
           <ExperienceSlide key={jobIndex} type={type} index={jobIndex} experience={singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
         ))}
-      </div>
+      </article>
     </figure>
   );
 }

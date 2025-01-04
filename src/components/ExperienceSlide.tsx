@@ -15,7 +15,7 @@ import clsx from "clsx";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
-import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import { GlobeAltIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 interface ExperienceSlideProps {
@@ -39,13 +39,24 @@ export default function ExperienceSlide({ type, index, experience: { year, role,
       </header>
 
       <footer className={styles["experience-slide__live-link"]}>
-        <Link href={liveLink} target="_blank" className={clsx(styles["live-link__img"], "transition-shadow hover:shadow-xl")}>
-          <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} className="w-full object-contain" />
-        </Link>
+        {liveLink ? (
+          <Link href={liveLink} target="_blank" className={styles["live-link__img"]}>
+            <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} className="w-full object-contain" />
+          </Link>
+        ) : (
+          <div className={styles["live-link__img"]}>
+            <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} className="w-full object-contain" />
+          </div>
+        )}
         <div className={styles["live-link__inf"]}>
           <Link href={`/exp/${type}/${index}`}>
             <InformationCircleIcon width={48} height={48} title={localizedContent["experienceSlide"]["moreInfo"]} />
           </Link>
+          {liveLink && (
+            <Link href={liveLink} target="_blank" className={styles["live-link__img"]}>
+              <GlobeAltIcon width={48} height={48} title={localizedContent["experienceSlide"]["liveLink"]} />
+            </Link>
+          )}
           {gitHubLink && (
             <Link href={gitHubLink} target="_blank" title={localizedContent["experienceSlide"]["goAndSee"]} prefetch={false}>
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">

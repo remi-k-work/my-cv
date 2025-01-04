@@ -37,6 +37,7 @@
   },
 
   "experienceDetails": {
+    "liveLink": "Link na Żywo",
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
     "gitHubRepo": "Repozytorium GitHuba",
     "skillsUsed": "Wykorzystane Umiejętności:"
@@ -49,6 +50,7 @@
 
   "experienceSlide": {
     "moreInfo": "Więcej Informacji",
+    "liveLink": "Link na Żywo",
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
     "gitHubRepo": "Repozytorium GitHuba"
   },

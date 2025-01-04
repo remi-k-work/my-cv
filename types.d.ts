@@ -5,7 +5,7 @@ interface JobExperience {
   company: string;
   txt: string;
   gitHubLink?: string;
-  liveLink: string;
+  liveLink?: string;
   lgPic: string;
   skillsUsed: string[];
 }

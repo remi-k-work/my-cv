@@ -10,10 +10,10 @@
   grid-template-rows: auto auto 1fr auto;
 
   grid-template-areas:
-    "hdr  hdr   hdr "
-    "pjob cjobt njob"
-    "pjob jview njob"
-    "pjob cjobb njob";
+    "hdr   hdr   hdr  "
+    "pjobt cjobt njobt"
+    "jview jview jview"
+    "pjobb cjobb njobb";
 
   & > figcaption {
     grid-area: hdr;
@@ -29,47 +29,53 @@
     border-end-start-radius: 0;
     border-end-end-radius: 1em;
   }
+
+  & > header {
+    grid-area: cjobt;
+    place-self: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  & > footer {
+    grid-area: cjobb;
+    place-self: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  & > article {
+    grid-area: jview;
+
+    display: flex;
+    overflow: hidden auto;
+
+    scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
+
+    container: job-list / inline-size;
+  }
 }
 
-.experience-slider__pjob {
-  grid-area: pjob;
+.experience-slider__pjobt {
+  grid-area: pjobt;
+}
+.experience-slider__pjobb {
+  grid-area: pjobb;
 }
 
-.experience-slider__njob {
-  grid-area: njob;
+.experience-slider__njobt {
+  grid-area: njobt;
 }
-
-.experience-slider__cjobt {
-  grid-area: cjobt;
-  place-self: center;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.experience-slider__cjobb {
-  grid-area: cjobb;
-  place-self: center;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.experience-slider__view {
-  grid-area: jview;
-
-  display: flex;
-  overflow: hidden auto;
-
-  scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
-
-  container: job-list / inline-size;
+.experience-slider__njobb {
+  grid-area: njobb;
 }
 
 .experience-slider__button,

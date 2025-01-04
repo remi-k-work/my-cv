@@ -35,6 +35,5 @@
 }
 
 .page-title__intro {
-  max-inline-size: 65ch;
-  text-align: justify;
+  max-inline-size: 120ch;
 }

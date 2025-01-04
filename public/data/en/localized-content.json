@@ -37,6 +37,7 @@
   },
 
   "experienceDetails": {
+    "liveLink": "Live Link",
     "goAndSee": "Go and see the GitHub Repo",
     "gitHubRepo": "GitHub Repo",
     "skillsUsed": "Skills Used:"
@@ -49,6 +50,7 @@
 
   "experienceSlide": {
     "moreInfo": "More Info",
+    "liveLink": "Live Link",
     "goAndSee": "Go and see the GitHub Repo",
     "gitHubRepo": "GitHub Repo"
   },
