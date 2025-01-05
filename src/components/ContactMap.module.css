@@ -26,9 +26,3 @@
   padding-block: 1em;
   z-index: 1;
 }
-
-.contact-map :global .leaflet-container {
-  inline-size: 100%;
-  block-size: 100%;
-  z-index: 0;
-}

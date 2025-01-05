@@ -1,6 +1,5 @@
 // react
-import { useState, useTransition } from "react";
-import { useFormState } from "react-dom";
+import { useState, useTransition, useActionState } from "react";
 
 // other libraries
 import { useForm, SubmitHandler, FieldValues, Resolver } from "react-hook-form";
@@ -22,7 +21,7 @@ export default function useFormActionWithVal<FormStateT extends FormStateBase, F
   const [isPending, startTransition] = useTransition();
 
   // To be able to use the information returned by a form action
-  const [formState, formAction] = useFormState<FormStateT, FormData>(formActionFunc, { actionStatus: "idle" } as Awaited<FormStateT>);
+  const [formState, formAction] = useActionState<FormStateT, FormData>(formActionFunc, { actionStatus: "idle" } as Awaited<FormStateT>);
   const useFormMethods = useForm<FormSchemaT>({ shouldUnregister: true, resolver });
 
   // We will show form validation errors from server-side first and client-side afterwards

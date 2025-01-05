@@ -19,20 +19,9 @@ export default class DataLoader {
   private readonly dataDir: string = path.resolve(process.cwd(), DATA_DIR, "en");
   private readonly dataUrl: string = "/data/en/";
 
-  constructor() {
-    // Try obtaining the lang value from a local cookie
-    const langCookieValue = cookies().get(LANG_COOKIE)?.value;
-    if (langCookieValue) {
-      if (langCookieValue === "en") this.lang = "en";
-      if (langCookieValue === "pl") this.lang = "pl";
-    } else {
-      // Otherwise, use the client's preferred language
-      const acceptLanguageHeader = headers().get("Accept-Language");
-      if (acceptLanguageHeader) {
-        const resolvedLanguage = resolveAcceptLanguage(acceptLanguageHeader, ["en-US", "en-GB", "pl-PL"], "en-US");
-        this.lang = resolvedLanguage.includes("en") ? "en" : "pl";
-      }
-    }
+  private constructor(lang: Lang) {
+    // Save the just-established preferred language by the user
+    this.lang = lang;
 
     // Determine the right place for all data based on the desired language
     if (this.lang === "en") {
@@ -41,6 +30,34 @@ export default class DataLoader {
     } else {
       this.dataDir = path.resolve(process.cwd(), DATA_DIR, "pl");
       this.dataUrl = "/data/pl/";
+    }
+  }
+
+  // Create a new instance of DataLoader (we use a factory method because constructors cannot be async)
+  public static async create(): Promise<DataLoader> {
+    return new DataLoader(await DataLoader.prefferedLanguage());
+  }
+
+  // Establish the preferred language by the user
+  private static async prefferedLanguage(): Promise<Lang> {
+    // Try obtaining the lang value from a local cookie
+    const langCookieValue = (await cookies()).get(LANG_COOKIE)?.value;
+    if (langCookieValue) {
+      if (langCookieValue === "en") return "en";
+      if (langCookieValue === "pl") return "pl";
+
+      // Unrecognized language? use english by default
+      return "en";
+    } else {
+      // Otherwise, use the client's preferred language
+      const acceptLanguageHeader = (await headers()).get("Accept-Language");
+      if (acceptLanguageHeader) {
+        const resolvedLanguage = resolveAcceptLanguage(acceptLanguageHeader, ["en-US", "en-GB", "pl-PL"], "en-US");
+        return resolvedLanguage.includes("en") ? "en" : "pl";
+      }
+
+      // Unrecognized language? use english by default
+      return "en";
     }
   }
 

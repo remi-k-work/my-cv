@@ -6,10 +6,17 @@ import ExperienceDetails from "@/components/ExperienceDetails";
 
 // types
 interface PageProps {
-  params: { type: "e" | "p"; index: number };
+  params: Promise<{ type: "e" | "p"; index: number }>;
 }
 
-export default async function Page({ params: { type, index } }: PageProps) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
+
+  const {
+    type,
+    index
+  } = params;
+
   return (
     <article className={styles["page"]}>
       <ExperienceDetails type={type} index={index} />

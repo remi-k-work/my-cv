@@ -1,12 +1,9 @@
 // component css styles
 import styles from "./page.module.css";
 
-// next
-import dynamic from "next/dynamic";
-
 // components
 import ContactForm from "@/components/ContactForm";
-const ContactMap = dynamic(() => import("@/components/ContactMap"), { ssr: false });
+import ContactMap from "@/components/ContactMap";
 
 export default async function Page() {
   return (

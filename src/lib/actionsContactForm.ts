@@ -12,7 +12,7 @@ import { CaptchaSession } from "@/app/auth/captcha/[name]/route";
 
 export async function newContact(formState: ContactFormState, formData: FormData): Promise<ContactFormState> {
   // Create an instance of the data loader needed for localization
-  const dataLoader = new DataLoader();
+  const dataLoader = await DataLoader.create();
 
   // Obtain the localized content for the preferred language
   const localizedContent = await dataLoader.localizedContent();
@@ -28,7 +28,7 @@ export async function newContact(formState: ContactFormState, formData: FormData
 
   try {
     // Check the captcha to ensure it matches
-    const { captchaString } = await getIronSession<CaptchaSession>(cookies(), {
+    const { captchaString } = await getIronSession<CaptchaSession>(await cookies(), {
       password: process.env.SESSION_SECRET as string,
       cookieName: "captcha",
     });

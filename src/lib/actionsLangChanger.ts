@@ -21,7 +21,7 @@ const LANG_COOKIE_OPTIONS = {
 
 export async function setLangCookie(lang: Lang) {
   // Save the user's selected language option in a secure cookie
-  cookies().set(LANG_COOKIE, lang, LANG_COOKIE_OPTIONS);
+  (await cookies()).set(LANG_COOKIE, lang, LANG_COOKIE_OPTIONS);
 
   // Revalidate, so the fresh data will be fetched from the server next time this path is visited
   revalidatePath("/");
