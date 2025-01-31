@@ -37,12 +37,7 @@ export default function Header() {
         <Link href={localizedContent["header"]["hrefPdf"]} target="_blank" title={localizedContent["header"]["pdf"]} prefetch={false}>
           <DocumentTextIcon width={32} height={32} />
         </Link>
-        <Link
-          href={"https://ibmyszutfuecg1zb.public.blob.vercel-storage.com/my-cv-video-6jtu2EQop6urquIb0Hcqyj8lKCruxd.mp4"}
-          target="_blank"
-          title={localizedContent["header"]["video"]}
-          prefetch={false}
-        >
+        <Link href={"/videos/my-cv-video-6jtu2EQop6urquIb0Hcqyj8lKCruxd.mp4"} target="_blank" title={localizedContent["header"]["video"]} prefetch={false}>
           <VideoCameraIcon width={32} height={32} />
         </Link>
         <Link href={"https://linkedin.com/in/remi-k-work"} target="_blank" title={"LinkedIn"} prefetch={false}>
