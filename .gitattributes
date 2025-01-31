@@ -1,1 +1,1 @@
-public/video/*.mp4 filter=lfs diff=lfs merge=lfs -text
+public/videos/my-cv-video-6jtu2EQop6urquIb0Hcqyj8lKCruxd.mp4 filter=lfs diff=lfs merge=lfs
