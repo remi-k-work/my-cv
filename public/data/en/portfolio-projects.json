@@ -5,7 +5,7 @@
     "company": "Personal",
     "txt": "Would you like to enhance your visual memory by putting it to the test? Let us see how many turns it takes you to reveal the entire board. You will be able to select from a wide range of image collections that will always surprise you because they are acquired at random from PixaBay servers. This should increase the game's interest and make it quite unpredictable. When you believe you are improving, try a more difficult level. Keep track of your scores and compare them with your previous ones. Push yourself to the limit and try to beat your best score. Enjoy the challenge and have fun!",
     "gitHubLink": "https://github.com/remi-k-work/memory-game-native",
-    "liveLink": "https://expo.dev/accounts/remi-k-work/projects/pixamory/builds/94eb6f5d-0e1c-41e4-8731-75d4ecbdcd2e",
+    "liveLink": "https://github.com/remi-k-work/memory-game-native/releases/latest/download/PixaMory.apk",
     "lgPic": "job-experience-pixamory-lg.webp",
     "skillsUsed": ["React Native", "Expo", "RESTful WebServices", "Game Design", "PostgreSQL", "Zustand"]
   },

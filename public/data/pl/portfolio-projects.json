@@ -5,7 +5,7 @@
     "company": "Projekt Osobisty",
     "txt": "Czy chciałbyś poprawić swoją pamięć wzrokową, wystawiając ją na próbę? Zobaczmy, ile tur zajmie Ci odsłonięcie całej planszy. Będziesz mógł wybierać spośród szerokiej gamy kolekcji obrazów, które zawsze Cię zaskoczą, ponieważ są pobierane losowo z serwerów PixaBay. Powinno to zwiększyć zainteresowanie grą i sprawić, że będzie ona dość nieprzewidywalna. Kiedy uznasz, że robisz postępy, wypróbuj trudniejszy poziom. Śledź swoje wyniki i porównuj je z poprzednimi. Dojdź do granic możliwości i spróbuj pobić swój najlepszy wynik. Ciesz się wyzwaniem i baw się dobrze!",
     "gitHubLink": "https://github.com/remi-k-work/memory-game-native",
-    "liveLink": "https://expo.dev/accounts/remi-k-work/projects/pixamory/builds/94eb6f5d-0e1c-41e4-8731-75d4ecbdcd2e",
+    "liveLink": "https://github.com/remi-k-work/memory-game-native/releases/latest/download/PixaMory.apk",
     "lgPic": "job-experience-pixamory-lg.webp",
     "skillsUsed": ["React Native", "Expo", "RESTful WebServices", "Projektowanie Gier", "PostgreSQL", "Zustand"]
   },
