@@ -1,13 +1,10 @@
 "use client";
 
-// component css styles
-import styles from "./ExperienceSlider.module.css";
-
 // react
 import { useState } from "react";
 
 // other libraries
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
@@ -45,35 +42,69 @@ export default function ExperienceSlider({ type }: ExperienceSliderProps) {
   }
 
   return (
-    <figure className={styles["experience-slider"]}>
-      <figcaption>{type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}</figcaption>
-      <button type="button" className={clsx(styles["experience-slider__pjobt"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
-        <ArrowLeftCircleIcon width={24} height={24} />
+    <figure className="mx-auto grid w-full max-w-xl grid-cols-[auto_1fr_auto] grid-rows-[auto_auto_1fr_auto] gap-1 [grid-template-areas:'hdr_hdr_hdr''pjobt_cjobt_njobt''jview_jview_jview''pjobb_cjobb_njobb']">
+      <figcaption className="bg-clr-primary-300 mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic [grid-area:hdr]">
+        {type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}
+      </figcaption>
+      <button
+        type="button"
+        className="text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2 [grid-area:pjobt]"
+        onClick={handlePrevExpClicked}
+      >
+        <ArrowLeftCircleIcon className="size-9" />
       </button>
-      <button type="button" className={clsx(styles["experience-slider__njobt"], styles["experience-slider__button"])} onClick={handleNextExpClicked}>
-        <ArrowRightCircleIcon width={24} height={24} />
+      <button
+        type="button"
+        className="text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2 [grid-area:njobt]"
+        onClick={handleNextExpClicked}
+      >
+        <ArrowRightCircleIcon className="size-9" />
       </button>
-      <button type="button" className={clsx(styles["experience-slider__pjobb"], styles["experience-slider__button"])} onClick={handlePrevExpClicked}>
-        <ArrowLeftCircleIcon width={24} height={24} />
+      <button
+        type="button"
+        className="text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2 [grid-area:pjobb]"
+        onClick={handlePrevExpClicked}
+      >
+        <ArrowLeftCircleIcon className="size-9" />
       </button>
-      <button type="button" className={clsx(styles["experience-slider__njobb"], styles["experience-slider__button"])} onClick={handleNextExpClicked}>
-        <ArrowRightCircleIcon width={24} height={24} />
+      <button
+        type="button"
+        className="text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2 [grid-area:njobb]"
+        onClick={handleNextExpClicked}
+      >
+        <ArrowRightCircleIcon className="size-9" />
       </button>
-      <header>
+      <header className="flex flex-wrap items-center justify-center gap-2 place-self-center [grid-area:cjobt]">
         {jobExperienceList.map((_, jobIndex) => (
-          <button key={jobIndex} type="button" className={styles["experience-slider__button-dot"]} onClick={() => setViewedJobIndex(jobIndex)}>
-            {viewedJobIndex === jobIndex ? <CubeIcon width={24} height={24} /> : <CubeTransparentIcon width={24} height={24} />}
+          <button
+            key={jobIndex}
+            type="button"
+            className={cn(
+              "text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2",
+              viewedJobIndex === jobIndex && "text-clr-primary-200",
+            )}
+            onClick={() => setViewedJobIndex(jobIndex)}
+          >
+            {viewedJobIndex === jobIndex ? <CubeIcon className="size-9" /> : <CubeTransparentIcon className="size-9" />}
           </button>
         ))}
       </header>
-      <footer>
+      <footer className="flex flex-wrap items-center justify-center gap-2 place-self-center [grid-area:cjobb]">
         {jobExperienceList.map((_, jobIndex) => (
-          <button key={jobIndex} type="button" className={styles["experience-slider__button-dot"]} onClick={() => setViewedJobIndex(jobIndex)}>
-            {viewedJobIndex === jobIndex ? <CubeIcon width={24} height={24} /> : <CubeTransparentIcon width={24} height={24} />}
+          <button
+            key={jobIndex}
+            type="button"
+            className={cn(
+              "text-clr-primary-300 border-clr-primary-700 hover:text-clr-primary-200 hover:border-clr-primary-200 rounded-xl border p-2",
+              viewedJobIndex === jobIndex && "text-clr-primary-200",
+            )}
+            onClick={() => setViewedJobIndex(jobIndex)}
+          >
+            {viewedJobIndex === jobIndex ? <CubeIcon className="size-9" /> : <CubeTransparentIcon className="size-9" />}
           </button>
         ))}
       </footer>
-      <article>
+      <article className="flex overflow-x-hidden [grid-area:jview]">
         {jobExperienceList.map((singleJobExperience, jobIndex) => (
           <ExperienceSlide key={jobIndex} type={type} index={jobIndex} experience={singleJobExperience} style={{ translate: `${-100 * viewedJobIndex}%` }} />
         ))}

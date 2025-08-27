@@ -1,104 +1,184 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* our colors */
+  --clr-neutral-100: hsla(0, 0%, 100%, 1);
+  --clr-primary-200: hsla(229, 21%, 53%, 1);
+  --clr-primary-300: hsla(229, 36%, 39%, 1);
+  --clr-primary-400: hsla(230, 50%, 58%, 0.9);
+  --clr-primary-700: hsla(229, 43%, 20%, 1);
+  --clr-primary-800: hsla(229, 47%, 17%, 1);
+  --clr-accent-400: hsla(147, 93%, 43%, 1);
+  --clr-secondary-400: hsla(229, 78%, 60%, 1);
+
+  /* shadcn/ui (dark) */
+  --background: var(--clr-primary-700);
+  --foreground: var(--clr-neutral-100);
+  --card: oklch(0.216 0.006 56.043);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: var(--clr-primary-200);
+  --primary-foreground: var(--clr-primary-800);
+  --secondary: var(--clr-secondary-400);
+  --secondary-foreground: var(--clr-primary-800);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: var(--clr-primary-300);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: var(--clr-accent-400);
+  --border: oklch(1 0 0 / 10%);
+  --input: var(--clr-primary-300);
+  --ring: var(--clr-accent-400);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
+
+  /* shadcn/ui (shared) */
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --font-outfit: var(--font-outfit);
+
+  --color-clr-neutral-100: var(--clr-neutral-100);
+  --color-clr-primary-200: var(--clr-primary-200);
+  --color-clr-primary-300: var(--clr-primary-300);
+  --color-clr-primary-400: var(--clr-primary-400);
+  --color-clr-primary-700: var(--clr-primary-700);
+  --color-clr-primary-800: var(--clr-primary-800);
+  --color-clr-accent-400: var(--clr-accent-400);
+  --color-clr-secondary-400: var(--clr-secondary-400);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-slide-lr: slide-lr 1s ease-in-out forwards;
+  --animate-slide-bt: slide-bt 1s ease-in-out forwards;
+  --animate-slide-lr-fade-out: slide-lr 1s ease-in-out forwards, fade-out 24s ease-in-out alternate infinite;
+  --animate-slide-lr-fade-in: slide-lr 1s ease-in-out forwards, fade-in 24s ease-in-out alternate infinite;
+  --animate-slide-bt-fade-out: slide-bt 1s ease-in-out forwards, fade-out 24s ease-in-out alternate infinite;
+  --animate-slide-bt-fade-in: slide-bt 1s ease-in-out forwards, fade-in 24s ease-in-out alternate infinite;
+
+  @keyframes slide-lr {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      opacity: var(--_dest-opacity);
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes slide-bt {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      opacity: var(--_dest-opacity);
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 1;
+    }
+    66% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    33% {
+      opacity: 0;
+    }
+    66% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@utility container {
+  @apply mx-auto max-w-[min(90vw,65ch)];
+}
 
 @layer base {
-  :root {
-    /* 
-      The numbering system goes from 100 to 900
-      The base is 400 (the default color, font size, or font weight)
-    */
-    --clr-neutral-100: hsla(0, 0%, 100%, 1);
-
-    --clr-primary-200: hsla(229, 21%, 53%, 1);
-    --clr-primary-300: hsla(229, 36%, 39%, 1);
-    --clr-primary-400: hsla(230, 50%, 58%, 0.9);
-    --clr-primary-700: hsla(229, 43%, 20%, 1);
-    --clr-primary-800: hsla(229, 47%, 17%, 1);
-
-    --clr-accent-400: hsla(147, 93%, 43%, 1);
-
-    --clr-secondary-400: hsla(229, 78%, 60%, 1);
-
-    --ff-base: "Outfit", sans-serif;
-
-    --fw-regular: 300;
-    --fw-semi-bold: 400;
-    --fw-bold: 700;
-
-    --fs-200: clamp(0.6944rem, 0.6576rem + 0.1837vw, 0.8rem);
-    --fs-300: clamp(0.8331rem, 0.7751rem + 0.2902vw, 1rem);
-    --fs-400: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
-    --fs-500: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
-    --fs-600: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
-    --fs-700: clamp(1.7281rem, 1.4801rem + 1.2402vw, 2.4413rem);
+  * {
+    @apply border-border outline-ring/50;
   }
 
   html {
     color-scheme: dark;
-    scroll-padding-block: 9em 0;
-    scrollbar-color: var(--clr-accent-400) var(--clr-primary-800);
+    scrollbar-color: var(--clr-primary-300) var(--clr-primary-700);
   }
 
   body {
-    font: var(--fw-regular) var(--fs-400) / 1.5 var(--ff-base);
-    color: var(--clr-neutral-100);
-    background: var(--clr-primary-700);
-    min-block-size: 100vh;
-    min-block-size: 100svh;
-    min-block-size: 100dvh;
-    margin-inline: 0;
-    margin-block: 0;
-    padding-inline: 0;
-    padding-block: 0;
+    @apply bg-background text-foreground min-h-dvh text-base font-light;
   }
 
+  a,
   button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25em;
-
-    border-inline: 0;
-    border-block: 0;
-    border-start-start-radius: 0.5em;
-    border-end-start-radius: 0.5em;
-    border-start-end-radius: 0.5em;
-    border-end-end-radius: 0.5em;
-    padding-inline: 0.5em;
-    padding-block: 0.5em;
-
-    text-align: center;
-    color: var(--clr-neutral-100);
-    text-shadow: 1px 1px 1px var(--clr-primary-700);
-    background: var(--clr-primary-800);
-    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
-    box-shadow:
-      inset 1px 1px 2px var(--clr-primary-200),
-      inset -1px -1px 2px var(--clr-primary-800);
-  }
-
-  /* 
-    On touch devices, like iPads, the hover state is sticky, so the button stays blue after tapping it. I do not want that:
-    https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
-  */
-  @media (hover: hover) and (pointer: fine) {
-    button:hover {
-      color: var(--clr-accent-400);
-    }
-  }
-
-  button:active {
-    box-shadow:
-      inset -1px -1px 2px var(--clr-primary-200),
-      inset 1px 1px 2px var(--clr-primary-800);
-  }
-
-  button:disabled {
-    color: var(--clr-primary-400);
-  }
-
-  button:focus-visible {
-    outline: 1px solid var(--clr-neutral-100);
+    @apply focus-visible:outline-clr-accent-400 transition duration-1000 ease-in-out focus-visible:outline focus-visible:outline-offset-1;
   }
 
   h1,
@@ -107,26 +187,10 @@
   h4,
   h5,
   h6 {
-    text-wrap: balance;
-  }
-
-  h1 {
-    max-inline-size: var(--size-header-3);
-  }
-
-  h2 {
-    max-inline-size: var(--size-header-3);
-  }
-
-  h3,
-  h4,
-  h5,
-  h6 {
-    max-inline-size: var(--size-header-3);
+    @apply max-w-[35ch] text-balance;
   }
 
   p {
-    max-inline-size: var(--size-content-3);
-    text-wrap: pretty;
+    @apply max-w-prose text-pretty;
   }
 }

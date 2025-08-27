@@ -1,8 +1,5 @@
 "use client";
 
-// component css styles
-import styles from "./Captcha.module.css";
-
 // react
 import { useEffect, useState } from "react";
 
@@ -12,6 +9,9 @@ import Image from "next/image";
 // other libraries
 import PathFinder from "@/lib/PathFinder";
 import { CAPTCHA_HEIGHT, CAPTCHA_WIDTH } from "@/features/auth/components/CaptchaBackground";
+
+// components
+import { Button } from "@/components/ui/button";
 
 // assets
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
@@ -30,11 +30,11 @@ export default function Captcha({ captchaName }: CaptchaProps) {
   }, [captchaName]);
 
   return (
-    <article className={styles["captcha"]}>
-      <Image src={captchaSrc} overrideSrc={captchaSrc} width={CAPTCHA_WIDTH} height={CAPTCHA_HEIGHT} alt={captchaName} unoptimized />
-      <button type="button" onClick={() => setCaptchaSrc(PathFinder.toCaptcha(captchaName, true))}>
-        <ArrowPathIcon width={24} height={24} />
-      </button>
+    <article className="flex items-center justify-center gap-3">
+      <Image src={captchaSrc} overrideSrc={captchaSrc} width={CAPTCHA_WIDTH} height={CAPTCHA_HEIGHT} alt={captchaName} unoptimized className="rounded" />
+      <Button type="button" size="lg" onClick={() => setCaptchaSrc(PathFinder.toCaptcha(captchaName, true))}>
+        <ArrowPathIcon className="size-9" />
+      </Button>
     </article>
   );
 }

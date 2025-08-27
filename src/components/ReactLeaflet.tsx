@@ -9,7 +9,7 @@ export default function ReactLeaflet() {
   const { localizedContent } = useGlobalContext();
 
   return (
-    <MapContainer center={[50.05142444038861, 21.98322537033913]} zoom={17} className="z-0 h-full w-full">
+    <MapContainer center={[50.05142444038861, 21.98322537033913]} zoom={17} className="z-0 size-full">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={[50.05142444038861, 21.98322537033913]}>
         <Popup>

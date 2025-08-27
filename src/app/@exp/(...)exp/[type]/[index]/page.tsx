@@ -7,13 +7,8 @@ interface PageProps {
   params: Promise<{ type: "e" | "p"; index: number }>;
 }
 
-export default async function Page(props: PageProps) {
-  const params = await props.params;
-
-  const {
-    type,
-    index
-  } = params;
+export default async function Page({ params: paramsPromise }: PageProps) {
+  const { type, index } = await paramsPromise;
 
   return (
     <ExperienceModal>

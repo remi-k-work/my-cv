@@ -1,78 +1,59 @@
 import "./globals.css";
 
-/* the props */
-import "open-props/style";
-
-/* optional imports that use the props */
-// import "open-props/normalize";
-
-// component css styles
-import styles from "./layout.module.css";
-
-// next
-import type { Metadata } from "next";
-
 // other libraries
+import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 
 // components
 import GlobalContextFetcher from "@/lib/GlobalContextFetcher";
 import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
+import { Toaster } from "@/components/ui/sonner";
 
 // assets
 import { outfit } from "@/assets/fonts";
 
 // types
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 interface LayoutProps {
-  pagetitle: React.ReactNode;
-  exp: React.ReactNode;
-  children: React.ReactNode;
+  pagetitle: ReactNode;
+  exp: ReactNode;
+  children: ReactNode;
 }
 
+// constants
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.WEBSITE_URL as string),
   title: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
   description:
     "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
   authors: [{ name: "Remi" }],
   robots: { index: true, follow: true },
   category: "technology",
-  other: {
-    google: "notranslate",
-  },
-  openGraph: {
-    title: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
-    description:
-      "Passionate, self-taught web developer with a hunger for knowledge and a proven track record of success. Seeking internship opportunities to gain hands-on experience, collaborate with experienced professionals, and contribute to innovative web projects.",
-    url: process.env.WEBSITE_URL,
-    siteName: "Curious Web Dev: Eager to Learn, Collaborate, and Make a Splash",
-    authors: ["Remi"],
-    images: { url: "/og-image.jpg", width: 1200, height: 630 },
-  },
-  twitter: {
-    images: { url: "/og-image.jpg", width: 1200, height: 630 },
-  },
+  other: { google: "notranslate" },
 };
 
-export default function Layout({ pagetitle, exp, children }: Readonly<LayoutProps>) {
+export default function RootLayout({ pagetitle, exp, children }: LayoutProps) {
   return (
-    <html lang="en" translate="no" data-theme="synthwave">
-      <body className={outfit.className}>
+    <html lang="en" translate="no">
+      <body
+        className={cn(
+          `${outfit.variable} font-outfit grid antialiased`,
+          "grid-cols-[1fr] grid-rows-[11rem_1fr_7rem] [grid-template-areas:'header''main''skills']",
+          "lg:grid-cols-[11rem_1rem_1fr_1rem] lg:grid-rows-[7rem_1fr] lg:[grid-template-areas:'skills_header_header_header''skills_._main_.']",
+        )}
+      >
         <GlobalContextFetcher>
-          <div className={styles["main-grid"]}>
-            <div className={styles["main-grid__placehl"]}></div>
-            <Header />
-            <aside className={styles["aside"]}>
-              <MySkills />
-            </aside>
-            <main className={styles["main"]}>
-              {exp}
-              {pagetitle}
-              {children}
-            </main>
-          </div>
+          <Header />
+          <MySkills />
+          <main className="[grid-area:main]">
+            {exp}
+            {pagetitle}
+            {children}
+          </main>
         </GlobalContextFetcher>
+        <Toaster richColors />
         <Analytics debug={false} />
       </body>
     </html>

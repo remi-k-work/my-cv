@@ -1,8 +1,5 @@
 "use client";
 
-// component css styles
-import styles from "./MyCertificates.module.css";
-
 // next
 import Image from "next/image";
 import Link from "next/link";
@@ -11,19 +8,24 @@ import Link from "next/link";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
-import * as assets from "@/assets/my-certificates";
+import artcom from "@/assets/my-certificates-artcom.webp";
+import alcc from "@/assets/my-certificates-alcc.webp";
+import prattOrig from "@/assets/my-certificates-pratt-orig.webp";
+import prattTrans from "@/assets/my-certificates-pratt-trans.webp";
 
 export default function MyCertificates() {
   const { localizedContent } = useGlobalContext();
 
   return (
-    <figure className={styles["my-certificates"]}>
-      <figcaption>{localizedContent["myCertificates"]["myCertificates"]}</figcaption>
-      <Link href="/my-certificates.pdf" target="_blank" prefetch={false}>
-        <Image src={assets.artcom} alt="ARTCOM" />
-        <Image src={assets.alcc} alt="ALCC" />
-        <Image src={assets.prattOrig} alt="Pratt" />
-        <Image src={assets.prattTrans} alt="Pratt" />
+    <figure className="mx-auto w-full max-w-xl">
+      <figcaption className="bg-clr-primary-300 mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
+        {localizedContent["myCertificates"]["myCertificates"]}
+      </figcaption>
+      <Link href="/my-certificates.pdf" target="_blank" prefetch={false} className="space-y-4">
+        <Image src={artcom} alt="ARTCOM" />
+        <Image src={alcc} alt="ALCC" />
+        <Image src={prattOrig} alt="Pratt" />
+        <Image src={prattTrans} alt="Pratt" />
       </Link>
     </figure>
   );

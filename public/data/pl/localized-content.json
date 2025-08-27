@@ -27,7 +27,7 @@
     "pleaseCorrect": "Popraw pola formularza kontaktowego i spróbuj ponownie.",
     "serverError": "Błąd serwera!",
     "messageNotSent": "Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później.",
-    "invalidCaptcha": "Captcha jest nieprawidłowa; proszę spróbuj ponownie"
+    "invalidCaptcha": "Captcha jest nieprawidłowa; proszę spróbuj ponownie."
   },
 
   "contactMap": {
@@ -40,7 +40,7 @@
     "liveLink": "Link na Żywo",
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
     "gitHubRepo": "Repozytorium GitHuba",
-    "skillsUsed": "Wykorzystane Umiejętności:"
+    "skillsUsed": "Wykorzystane Umiejętności"
   },
 
   "experienceModal": {

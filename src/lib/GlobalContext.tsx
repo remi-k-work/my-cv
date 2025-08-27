@@ -4,10 +4,12 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 // other libraries
-import { Lang } from "@/lib/DataLoader";
 import { getRandomInt } from "@/lib/helpers";
 
 // types
+import type { Lang } from "@/lib/DataLoader";
+import type { EducationSchool, JobExperience, LocalizedContent, PageTitles } from "@/types/shared";
+
 interface GlobalContextType {
   preferredLang: Lang;
   localizedContent: LocalizedContent;

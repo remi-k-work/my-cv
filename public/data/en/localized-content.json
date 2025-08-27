@@ -27,7 +27,7 @@
     "pleaseCorrect": "Please correct the contact form fields and try again.",
     "serverError": "Server error!",
     "messageNotSent": "The message was not sent successfully; please try again later.",
-    "invalidCaptcha": "The captcha is invalid; please try again"
+    "invalidCaptcha": "The captcha is invalid; please try again."
   },
 
   "contactMap": {
@@ -40,7 +40,7 @@
     "liveLink": "Live Link",
     "goAndSee": "Go and see the GitHub Repo",
     "gitHubRepo": "GitHub Repo",
-    "skillsUsed": "Skills Used:"
+    "skillsUsed": "Skills Used"
   },
 
   "experienceModal": {

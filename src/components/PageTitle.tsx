@@ -1,16 +1,10 @@
 "use client";
 
-// component css styles
-import styles from "./PageTitle.module.css";
-
 // next
 import { usePathname } from "next/navigation";
 
 // other libraries
 import { useGlobalContext } from "@/lib/GlobalContext";
-
-// components
-import TypeWriterOutput from "./TypeWriterOutput";
 
 export default function PageTitle() {
   const pathname = usePathname();
@@ -23,12 +17,10 @@ export default function PageTitle() {
   const { eyebrow, heading, intro } = pageTitles[titleTheme][pathname];
 
   return (
-    <section className={styles["page-title"]}>
-      <p className={styles["page-title__eyebrow"]}>{eyebrow}</p>
-      <h1 className={styles["page-title__heading"]}>{heading}</h1>
-      <p className={styles["page-title__intro"]}>
-        <TypeWriterOutput key={pathname} fullText={intro} />
-      </p>
+    <section className="mx-4 my-3 lg:mx-0">
+      <p className="text-clr-secondary-400 text-lg tracking-widest uppercase">{eyebrow}</p>
+      <h1 className="text-3xl uppercase">{heading}</h1>
+      <p>{intro}</p>
     </section>
   );
 }

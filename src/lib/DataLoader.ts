@@ -9,8 +9,10 @@ import { cookies, headers } from "next/headers";
 import { resolveAcceptLanguage } from "resolve-accept-language";
 
 // types
+import type { EducationSchool, JobExperience, LocalizedContent, PageTitles } from "@/types/shared";
 export type Lang = "en" | "pl";
 
+// constants
 const DATA_DIR = "public/data";
 const LANG_COOKIE = "lang";
 

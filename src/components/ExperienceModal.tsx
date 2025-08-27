@@ -1,8 +1,5 @@
 "use client";
 
-// component css styles
-import styles from "./ExperienceModal.module.css";
-
 // react
 import { useEffect, useRef } from "react";
 
@@ -10,15 +7,24 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 // other libraries
+import { cn } from "@/lib/utils";
 import { useGlobalContext } from "@/lib/GlobalContext";
+
+// components
+import { Button } from "@/components/ui/button";
 
 // assets
 import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
+import type { ReactNode } from "react";
+
 interface ExperienceModalProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
+
+// constants
+const CLOSE_DURATION = 1000;
 
 export default function ExperienceModal({ children }: ExperienceModalProps) {
   const { localizedContent } = useGlobalContext();
@@ -29,28 +35,49 @@ export default function ExperienceModal({ children }: ExperienceModalProps) {
   // To be able to close the modal
   const { back } = useRouter();
 
+  // Create a ref to hold the timeout id
+  const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     // Show the dialog as a modal
     dialogRef.current?.showModal();
+
+    // The cleanup function runs when the component unmounts
+    return () => {
+      // If a timeout is scheduled, clear it
+      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
+    };
   }, []);
 
+  function handleClosed() {
+    // Wait for animation to complete before navigating back
+    timeoutIdRef.current = setTimeout(() => back(), CLOSE_DURATION);
+  }
+
   return (
-    <dialog ref={dialogRef} className={styles["experience-modal"]} onClose={() => back()}>
-      <form method="dialog">
-        <header>
-          <InformationCircleIcon width={48} height={48} />
-          <h3 className="text-center">{localizedContent["experienceModal"]["projectInfo"]}</h3>
-          <button type="submit">
-            <XCircleIcon width={32} height={32} />
-          </button>
+    <dialog
+      ref={dialogRef}
+      className={cn(
+        "text-foreground fixed inset-0 z-50 grid size-full max-h-none max-w-none place-items-center overflow-hidden overscroll-contain bg-transparent transition-all transition-discrete duration-1000 ease-in-out",
+        "not-open:pointer-events-none not-open:invisible not-open:opacity-0 open:pointer-events-auto open:visible open:opacity-100 focus-visible:outline-none",
+        "backdrop:backdrop-blur-xl backdrop:[transition:backdrop-filter_1s_ease]",
+      )}
+      onClose={handleClosed}
+    >
+      <form
+        method="dialog"
+        className="bg-background grid max-h-[min(95dvb,100%)] max-w-[min(75ch,100%)] grid-rows-[auto_1fr] items-start overflow-hidden rounded-xl"
+      >
+        <header className="flex items-center justify-between gap-4 p-1">
+          <section className="flex items-center gap-2">
+            <InformationCircleIcon className="text-clr-secondary-400 size-11" />
+            <h3 className="text-clr-secondary-400 text-xl tracking-widest uppercase">{localizedContent["experienceModal"]["projectInfo"]}</h3>
+          </section>
+          <Button type="submit" size="lg">
+            <XCircleIcon className="size-9" />
+          </Button>
         </header>
-        <article>{children}</article>
-        <footer>
-          <button type="submit" autoFocus>
-            <XCircleIcon width={24} height={24} />
-            {localizedContent["experienceModal"]["close"]}
-          </button>
-        </footer>
+        <article className="z-1 grid max-h-full overflow-y-auto overscroll-y-contain">{children}</article>
       </form>
     </dialog>
   );

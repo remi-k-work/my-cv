@@ -1,35 +1,122 @@
-// component css styles
-import styles from "./MySkills.module.css";
-
 // next
 import Image from "next/image";
 
+// other libraries
+import { cn } from "@/lib/utils";
+
 // assets
-import * as assets from "@/assets/my-skills";
+import html from "@/assets/my-skills-html.svg";
+import css from "@/assets/my-skills-css.svg";
+import javascript from "@/assets/my-skills-javascript.svg";
+import typescript from "@/assets/my-skills-typescript.svg";
+import react from "@/assets/my-skills-react.svg";
+import nextjs from "@/assets/my-skills-nextjs.svg";
+import inkscape from "@/assets/my-skills-inkscape.svg";
+import gimp from "@/assets/my-skills-gimp.svg";
 
 export default function MySkills() {
   return (
-    <article className={styles["my-skills"]}>
-      <ul className={styles["my-skills__list"]}>
+    <aside
+      className={cn(
+        "bg-clr-primary-800 z-9 grid w-full [grid-area:skills]",
+        "max-lg:fixed max-lg:bottom-0 max-lg:h-28",
+        "before:border-clr-primary-300 before:fixed before:content-['']",
+        "after:border-clr-primary-300 after:fixed after:-z-1 after:content-['']",
+        "max-lg:before:bottom-14 max-lg:before:left-0 max-lg:before:w-full max-lg:before:border-b",
+        "lg:before:left-11 lg:before:h-full lg:before:border-r",
+        "lg:after:left-33 lg:after:h-full lg:after:border-r",
+      )}
+    >
+      <ul
+        className={cn(
+          "grid place-content-evenly place-items-center",
+          "grid-flow-col grid-cols-none",
+          "lg:sticky lg:top-28 lg:h-[calc(100dvh-7rem)] lg:grid-flow-row lg:grid-cols-2",
+        )}
+      >
         <li>
-          <Image src={assets.html} width="48" height="48" alt="HTML" className={styles["html"]} />
+          <Image
+            src={html}
+            alt="HTML"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:1]",
+              "max-lg:animate-slide-bt max-lg:translate-y-full",
+              "lg:animate-slide-lr lg:-translate-x-full",
+            )}
+          />
         </li>
         <li>
-          <Image src={assets.css} width="48" height="48" alt="CSS" className={styles["css"]} />
+          <Image
+            src={css}
+            alt="CSS"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:1]",
+              "max-lg:animate-slide-bt max-lg:translate-y-full max-lg:[animation-delay:0.2s]",
+              "lg:animate-slide-lr lg:-translate-x-full lg:[animation-delay:0.2s]",
+            )}
+          />
         </li>
-        <li className={styles["stack"]}>
-          <Image src={assets.javascript} width="48" height="48" alt="JavaScript" className={styles["javascript"]} />
-          <Image src={assets.typescript} width="48" height="48" alt="TypeScript" className={styles["typescript"]} />
+        <li className="grid *:col-span-full *:row-span-full">
+          <Image
+            src={javascript}
+            alt="JavaScript"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:1]",
+              "max-lg:animate-slide-bt-fade-out max-lg:translate-y-full max-lg:[animation-delay:0.4s]",
+              "lg:animate-slide-lr-fade-out lg:-translate-x-full lg:[animation-delay:0.4s]",
+            )}
+          />
+          <Image
+            src={typescript}
+            alt="TypeScript"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:0]",
+              "max-lg:animate-slide-bt-fade-in max-lg:translate-y-full max-lg:[animation-delay:0.4s]",
+              "lg:animate-slide-lr-fade-in lg:-translate-x-full lg:[animation-delay:0.4s]",
+            )}
+          />
         </li>
-        <li className={styles["stack"]}>
-          <Image src={assets.react} width="48" height="48" alt="React" className={styles["react"]} />
-          <Image src={assets.nextjs} width="48" height="48" alt="NextJS" className={styles["nextjs"]} />
+        <li className="grid *:col-span-full *:row-span-full">
+          <Image
+            src={react}
+            alt="React"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:1]",
+              "max-lg:animate-slide-bt-fade-out max-lg:translate-y-full max-lg:[animation-delay:0.6s,8s]",
+              "lg:animate-slide-lr-fade-out lg:-translate-x-full lg:[animation-delay:0.6s,8s]",
+            )}
+          />
+          <Image
+            src={nextjs}
+            alt="NextJS"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:0]",
+              "max-lg:animate-slide-bt-fade-in max-lg:translate-y-full max-lg:[animation-delay:0.6s,8s]",
+              "lg:animate-slide-lr-fade-in lg:-translate-x-full lg:[animation-delay:0.6s,8s]",
+            )}
+          />
         </li>
-        <li className={styles["stack"]}>
-          <Image src={assets.inkscape} width="48" height="48" alt="Inkscape" className={styles["inkscape"]} />
-          <Image src={assets.gimp} width="48" height="48" alt="GIMP" className={styles["gimp"]} />
+        <li className="grid *:col-span-full *:row-span-full">
+          <Image
+            src={inkscape}
+            alt="Inkscape"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:1]",
+              "max-lg:animate-slide-bt-fade-out max-lg:translate-y-full max-lg:[animation-delay:0.8s,16s]",
+              "lg:animate-slide-lr-fade-out lg:-translate-x-full lg:[animation-delay:0.8s,16s]",
+            )}
+          />
+          <Image
+            src={gimp}
+            alt="GIMP"
+            className={cn(
+              "max-h-24 w-full max-w-24 opacity-0 [--_dest-opacity:0]",
+              "max-lg:animate-slide-bt-fade-in max-lg:translate-y-full max-lg:[animation-delay:0.8s,16s]",
+              "lg:animate-slide-lr-fade-in lg:-translate-x-full lg:[animation-delay:0.8s,16s]",
+            )}
+          />
         </li>
       </ul>
-    </article>
+    </aside>
   );
 }

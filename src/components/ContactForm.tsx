@@ -1,134 +1,133 @@
+/* eslint-disable react/no-children-prop */
+
 "use client";
 
-// component css styles
-import styles from "./ContactForm.module.css";
-
 // react
-import { useState } from "react";
+import { useActionState, useEffect } from "react";
 
 // server actions and mutations
-import { newContact } from "@/lib/actionsContactForm";
+import newContact from "@/actions/contactForm";
 
 // other libraries
-import ContactFormSchema, { ContactFormSchemaType, ContactFormState } from "@/lib/ContactFormSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import useFormActionWithVal from "@/lib/useFormActionWithVal";
-import { FormProvider } from "react-hook-form";
 import { useGlobalContext } from "@/lib/GlobalContext";
+import { mergeForm, useTransform } from "@tanstack/react-form";
+import { useAppForm } from "@/components/form";
+import { FORM_OPTIONS_EN, FORM_OPTIONS_PL, INITIAL_FORM_STATE } from "@/schemas/formFactory";
+import { ContactFormSchemaEn, ContactFormSchemaPl } from "@/schemas/contactForm";
 
 // components
-import { FormInputField, FormTextArea } from "./FormControls";
-import FormSubmit from "./FormSubmit";
-import ContactFormFeedback from "./ContactFormFeedback";
 import Captcha from "@/features/auth/components/Captcha";
-
-// types
-interface TheFormWrappedProps {
-  onResetClicked: () => void;
-}
+import { toast } from "sonner";
 
 export default function ContactForm() {
-  // Resetting a form with a key: you can force a subtree to reset its state by giving it a different key
-  const [formResetKey, setFormResetKey] = useState("ContactForm");
-
-  return <TheFormWrapped key={formResetKey} onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />;
-}
-
-function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
   const { preferredLang, localizedContent } = useGlobalContext();
 
-  const {
-    isPending,
-    formState: contactFormState,
-    formAction,
-    allFieldErrors,
-    showFeedback,
-    setShowFeedback,
-    onSubmit,
-    useFormMethods,
-  } = useFormActionWithVal<ContactFormState, ContactFormSchemaType>({
-    formActionFunc: newContact,
-    resolver: zodResolver(preferredLang === "pl" ? ContactFormSchema.schemaPl : ContactFormSchema.schemaEn),
-    formSchema: new ContactFormSchema(preferredLang === "pl" ? "pl" : "en"),
+  const [formState, formAction, isPending] = useActionState(newContact, INITIAL_FORM_STATE);
+  const { AppField, AppForm, FormFieldErrors, FormSubmit, handleSubmit } = useAppForm({
+    ...(preferredLang === "en" ? FORM_OPTIONS_EN : FORM_OPTIONS_PL),
+    transform: useTransform((baseForm) => mergeForm(baseForm, formState), [formState]),
   });
 
+  useEffect(() => {
+    if (formState.actionStatus === "succeeded") {
+      toast.success(localizedContent["contactFormFeedback"]["success"], { description: localizedContent["contactFormFeedback"]["messageSent"] });
+    } else if (formState.actionStatus === "invalid") {
+      toast.warning(localizedContent["contactFormFeedback"]["missingFields"], { description: localizedContent["contactFormFeedback"]["pleaseCorrect"] });
+    } else if (formState.actionStatus === "failed") {
+      toast.error(localizedContent["contactFormFeedback"]["serverError"], { description: localizedContent["contactFormFeedback"]["messageNotSent"] });
+    } else if (formState.actionStatus === "invalid-captcha") {
+      toast.warning(localizedContent["contactFormFeedback"]["missingFields"], { description: localizedContent["contactFormFeedback"]["invalidCaptcha"] });
+    }
+  }, [formState, localizedContent]);
+
   return (
-    <>
-      <FormProvider {...useFormMethods}>
-        <form className={styles["contact-form"]} action={formAction} noValidate={true} onSubmit={useFormMethods.handleSubmit(onSubmit)}>
-          {/* <form className={styles["contact-form"]} action={formAction} noValidate={true} onSubmit={(ev) => onSubmit({} as ContactFormSchemaType, ev)}> */}
-          <FormInputField
-            fieldName={"name"}
-            fieldLabel={localizedContent["contactForm"]["labelName"]}
-            allFieldErrors={allFieldErrors}
-            size={40}
-            maxLength={26}
-            spellCheck={"false"}
-            autoComplete={"name"}
-            required={true}
-            placeholder={localizedContent["contactForm"]["placeholderName"]}
-            defaultValue={""}
-          />
-          <br />
-          <FormInputField
-            fieldType={"email"}
-            fieldName={"email"}
-            fieldLabel={localizedContent["contactForm"]["labelEmail"]}
-            allFieldErrors={allFieldErrors}
-            size={40}
-            maxLength={50}
-            spellCheck={"false"}
-            autoComplete={"email"}
-            required={true}
-            placeholder={localizedContent["contactForm"]["placeholderEmail"]}
-            defaultValue={""}
-          />
-          <br />
-          <FormInputField
-            fieldName={"subject"}
-            fieldLabel={localizedContent["contactForm"]["labelSubject"]}
-            allFieldErrors={allFieldErrors}
-            size={40}
-            maxLength={41}
-            spellCheck={"true"}
-            autoComplete={"off"}
-            required={true}
-            placeholder={localizedContent["contactForm"]["placeholderSubject"]}
-            defaultValue={""}
-          />
-          <br />
-          <FormTextArea
-            fieldName={"message"}
-            fieldLabel={localizedContent["contactForm"]["labelMessage"]}
-            allFieldErrors={allFieldErrors}
-            cols={50}
-            rows={6}
-            maxLength={2049}
-            spellCheck={"true"}
-            autoComplete={"off"}
-            required={true}
-            placeholder={localizedContent["contactForm"]["placeholderMessage"]}
-            defaultValue={""}
-          />
-          <br />
-          <Captcha captchaName="captcha" />
-          <br />
-          <FormInputField
-            fieldName={"captcha"}
-            fieldLabel={localizedContent["contactForm"]["labelCaptcha"]}
-            allFieldErrors={allFieldErrors}
-            size={40}
-            maxLength={7}
-            spellCheck={"false"}
-            autoComplete={"off"}
-            required={true}
-            placeholder={localizedContent["contactForm"]["placeholderCaptcha"]}
-            defaultValue={""}
-          />
-          <FormSubmit isPending={isPending} onSubmitCompleted={() => setShowFeedback(true)} onResetClicked={onResetClicked} />
-        </form>
-      </FormProvider>
-      {showFeedback && <ContactFormFeedback contactFormState={contactFormState} setShowFeedback={setShowFeedback} onResetClicked={onResetClicked} />}
-    </>
+    <AppForm>
+      <form action={formAction} className="bg-clr-primary-700 mx-auto w-full max-w-xl rounded-xl p-3" onSubmit={() => handleSubmit()}>
+        <AppField
+          name="name"
+          validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.name : ContactFormSchemaPl.shape.name }}
+          children={(field) => (
+            <field.TextField
+              label={localizedContent["contactForm"]["labelName"]}
+              size={40}
+              maxLength={26}
+              spellCheck={false}
+              autoComplete="name"
+              placeholder={localizedContent["contactForm"]["placeholderName"]}
+            />
+          )}
+        />
+        <FormFieldErrors name="name" />
+        <br />
+        <AppField
+          name="email"
+          validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.email : ContactFormSchemaPl.shape.email }}
+          children={(field) => (
+            <field.TextField
+              label={localizedContent["contactForm"]["labelEmail"]}
+              size={40}
+              maxLength={50}
+              spellCheck={false}
+              autoComplete="email"
+              placeholder={localizedContent["contactForm"]["placeholderEmail"]}
+            />
+          )}
+        />
+        <FormFieldErrors name="email" />
+        <br />
+        <AppField
+          name="subject"
+          validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.subject : ContactFormSchemaPl.shape.subject }}
+          children={(field) => (
+            <field.TextField
+              label={localizedContent["contactForm"]["labelSubject"]}
+              size={40}
+              maxLength={41}
+              spellCheck
+              autoComplete="off"
+              placeholder={localizedContent["contactForm"]["placeholderSubject"]}
+            />
+          )}
+        />
+        <FormFieldErrors name="subject" />
+        <br />
+        <AppField
+          name="message"
+          validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.message : ContactFormSchemaPl.shape.message }}
+          children={(field) => (
+            <field.TextAreaField
+              label={localizedContent["contactForm"]["labelMessage"]}
+              cols={50}
+              rows={6}
+              maxLength={2049}
+              spellCheck
+              autoComplete="off"
+              placeholder={localizedContent["contactForm"]["placeholderMessage"]}
+            />
+          )}
+        />
+        <FormFieldErrors name="message" />
+        <br />
+        <Captcha captchaName="captcha" />
+        <br />
+        <AppField
+          name="captcha"
+          validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.captcha : ContactFormSchemaPl.shape.captcha }}
+          children={(field) => (
+            <field.TextField
+              label={localizedContent["contactForm"]["labelCaptcha"]}
+              size={40}
+              maxLength={7}
+              spellCheck={false}
+              autoComplete="off"
+              placeholder={localizedContent["contactForm"]["placeholderCaptcha"]}
+            />
+          )}
+        />
+        <FormFieldErrors name="captcha" />
+        <br />
+        <FormSubmit isPending={isPending} />
+      </form>
+    </AppForm>
   );
 }

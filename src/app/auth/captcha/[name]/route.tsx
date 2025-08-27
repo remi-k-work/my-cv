@@ -12,7 +12,7 @@ import { getRandomInt } from "@/lib/helpers";
 import { getIronSession } from "iron-session";
 
 // components
-import CaptchaBackground, { CAPTCHA_HEIGHT, CAPTCHA_WIDTH } from "@/features/auth/components/CaptchaBackground";
+import CaptchaBackground from "@/features/auth/components/CaptchaBackground";
 import CaptchaString from "@/features/auth/components/CaptchaString";
 
 // types
@@ -24,16 +24,14 @@ interface RouteProps {
   params: Promise<{ name: string }>;
 }
 
+// constants
+import { CAPTCHA_HEIGHT, CAPTCHA_WIDTH } from "@/features/auth/components/CaptchaBackground";
 const FONTS_DIR = "public/fonts";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest, props: RouteProps) {
-  const params = await props.params;
-
-  const {
-    name
-  } = params;
+export async function GET(req: NextRequest, { params: paramsPromise }: RouteProps) {
+  const { name } = await paramsPromise;
 
   // Load the pool of fonts used by our captcha
   const fontsDir = path.resolve(process.cwd(), FONTS_DIR);
