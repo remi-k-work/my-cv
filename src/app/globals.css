@@ -171,6 +171,7 @@
 
   html {
     color-scheme: dark;
+    @apply scroll-pt-44 lg:scroll-pt-28;
     scrollbar-color: var(--clr-primary-300) var(--clr-primary-700);
   }
 
