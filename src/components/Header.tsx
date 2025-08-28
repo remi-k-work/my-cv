@@ -26,10 +26,11 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "bg-clr-primary-800 sticky top-0 z-10 [grid-area:header]",
-        "before:border-clr-primary-300 before:fixed before:top-14 before:left-0 before:-z-1 before:w-full before:border-b before:content-['']",
-        "max-lg:before:top-12",
-        "max-lg:after:border-clr-primary-300 max-lg:after:fixed max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:w-full max-lg:after:border-b max-lg:after:content-['']",
+        "bg-clr-primary-800 z-10 [grid-area:header]",
+        "lg:sticky lg:top-0",
+        "before:border-clr-primary-300 before:absolute before:top-12 before:left-0 before:-z-1 before:w-full before:border-b before:content-['']",
+        "lg:before:fixed lg:before:top-14",
+        "max-lg:after:border-clr-primary-300 max-lg:after:absolute max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:w-full max-lg:after:border-b max-lg:after:content-['']",
       )}
     >
       <nav
