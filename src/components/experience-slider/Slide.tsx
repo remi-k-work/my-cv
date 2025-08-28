@@ -12,21 +12,19 @@ import { GlobeAltIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 import type { JobExperience } from "@/types/shared";
-import type { CSSProperties } from "react";
 
-interface ExperienceSlideProps {
+interface SlideProps {
   type: "e" | "p";
   index: number;
   experience: JobExperience;
-  style: CSSProperties;
 }
 
-export default function ExperienceSlide({ type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic }, style }: ExperienceSlideProps) {
+export default function Slide({ type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic } }: SlideProps) {
   const { localizedContent } = useGlobalContext();
 
   return (
-    <article className="bg-clr-primary-700 flex-1 shrink-0 basis-full rounded-xl p-3 transition-transform duration-1000 ease-in-out" style={style}>
-      <header className="mb-4 flex min-h-28 gap-4 sm:min-h-auto">
+    <article className="bg-clr-primary-700 rounded-xl p-3 select-none">
+      <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
         <section className="flex-4">
           <p className="text-clr-accent-400 text-sm font-semibold tracking-widest">{year}</p>
           <h2 className="text-xl">{role}</h2>

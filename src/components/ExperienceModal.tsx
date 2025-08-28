@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/custom/button";
 
 // assets
 import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
@@ -73,7 +73,7 @@ export default function ExperienceModal({ children }: ExperienceModalProps) {
             <InformationCircleIcon className="text-clr-secondary-400 size-11" />
             <h3 className="text-clr-secondary-400 text-xl tracking-widest uppercase">{localizedContent["experienceModal"]["projectInfo"]}</h3>
           </section>
-          <Button type="submit" size="lg">
+          <Button type="submit">
             <XCircleIcon className="size-9" />
           </Button>
         </header>

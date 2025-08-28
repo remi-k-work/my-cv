@@ -40,8 +40,8 @@ export default function ExperienceDetails({ type, index }: ExperienceDetailsProp
   const { year, role, company, txt, gitHubLink, liveLink, lgPic, skillsUsed } = experience;
 
   return (
-    <article className="bg-clr-primary-800 container rounded-xl p-3 transition-transform duration-1000 ease-in-out">
-      <header className="mb-4 flex min-h-28 gap-4 sm:min-h-auto">
+    <article className="bg-clr-primary-800 container rounded-xl p-3">
+      <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
         <section className="flex-4">
           <p className="text-clr-accent-400 text-sm font-semibold tracking-widest">{year}</p>
           <h2 className="text-xl">{role}</h2>

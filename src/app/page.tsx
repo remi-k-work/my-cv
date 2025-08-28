@@ -1,5 +1,5 @@
 // components
-import ExperienceSlider from "@/components/ExperienceSlider";
+import ExperienceSlider from "@/components/experience-slider";
 
 export default async function Page() {
   return (

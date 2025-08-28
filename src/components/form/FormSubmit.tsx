@@ -6,7 +6,7 @@ import { useFormContext } from ".";
 import { useStore } from "@tanstack/react-form";
 
 // components
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/custom/button";
 
 // assets
 import { HandThumbDownIcon, HandThumbUpIcon, XCircleIcon } from "@heroicons/react/24/solid";
@@ -28,7 +28,7 @@ export default function FormSubmit({ isPending }: FormSubmitProps) {
 
   return (
     <section className="flex w-full flex-wrap items-center justify-around gap-6">
-      <Button type="submit" size="lg" disabled={isPending || isPristine || isSubmitting || !canSubmit}>
+      <Button type="submit" disabled={isPending || isPristine || isSubmitting || !canSubmit}>
         {isPending || isSubmitting ? (
           <>
             <Loader2 className="size-9 animate-spin" />
@@ -41,11 +41,11 @@ export default function FormSubmit({ isPending }: FormSubmitProps) {
           </>
         )}
       </Button>
-      <Button type="button" size="lg" variant="destructive" className="text-clr-primary-800" onClick={() => reset()}>
+      <Button type="button" variant="destructive" onClick={() => reset()}>
         <XCircleIcon className="size-9" />
         Reset
       </Button>
-      <Button type="button" size="lg" variant="secondary" onClick={() => back()}>
+      <Button type="button" variant="secondary" onClick={() => back()}>
         <HandThumbDownIcon className="size-9" />
         Cancel
       </Button>

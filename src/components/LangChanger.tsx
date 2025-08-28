@@ -13,6 +13,9 @@ import { setLangCookie } from "@/actions/langChanger";
 import { Lang } from "@/lib/DataLoader";
 import { useGlobalContext } from "@/lib/GlobalContext";
 
+// components
+import { Button } from "@/components/ui/custom/button";
+
 export default function LangChanger() {
   const { preferredLang } = useGlobalContext();
 
@@ -31,7 +34,7 @@ export default function LangChanger() {
   }
 
   return (
-    <button type="button" disabled={isPending} title={preferredLang === "en" ? "English" : "Polish"} onClick={handleLangToggled}>
+    <Button type="button" disabled={isPending} title={preferredLang === "en" ? "English" : "Polish"} onClick={handleLangToggled}>
       {preferredLang &&
         (preferredLang === "en" ? (
           <svg viewBox="0 0 512 512" className="size-11">
@@ -55,6 +58,6 @@ export default function LangChanger() {
             </g>
           </svg>
         ))}
-    </button>
+    </Button>
   );
 }
