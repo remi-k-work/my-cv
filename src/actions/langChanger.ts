@@ -5,8 +5,8 @@ import { ResponseCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 
-// other libraries
-import { Lang } from "@/lib/DataLoader";
+// types
+import type { Lang } from "@/types/shared";
 
 // constants
 const LANG_COOKIE = "lang";

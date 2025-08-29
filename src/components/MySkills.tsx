@@ -20,8 +20,8 @@ export default function MySkills() {
       className={cn(
         "bg-clr-primary-800 z-9 grid w-full [grid-area:skills]",
         "max-lg:fixed max-lg:bottom-0 max-lg:h-28",
-        "before:border-clr-primary-300 before:fixed before:content-['']",
-        "after:border-clr-primary-300 after:fixed after:-z-1 after:content-['']",
+        "before:border-primary-foreground before:fixed before:content-['']",
+        "after:border-primary-foreground after:fixed after:-z-1 after:content-['']",
         "max-lg:before:bottom-14 max-lg:before:left-0 max-lg:before:w-full max-lg:before:border-b",
         "lg:before:left-11 lg:before:h-full lg:before:border-r",
         "lg:after:left-33 lg:after:h-full lg:after:border-r",
@@ -29,7 +29,7 @@ export default function MySkills() {
     >
       <ul
         className={cn(
-          "grid place-content-evenly place-items-center",
+          "grid place-content-evenly place-items-center gap-2",
           "grid-flow-col grid-cols-none",
           "lg:sticky lg:top-28 lg:h-[calc(100dvh-7rem)] lg:grid-flow-row lg:grid-cols-2",
         )}

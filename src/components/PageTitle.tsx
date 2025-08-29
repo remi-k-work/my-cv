@@ -1,24 +1,22 @@
-"use client";
-
-// next
-import { usePathname } from "next/navigation";
-
 // other libraries
-import { useGlobalContext } from "@/lib/GlobalContext";
+import DataLoader from "@/lib/DataLoader";
 
-export default function PageTitle() {
-  const pathname = usePathname();
+// types
+interface PageTitleProps {
+  titleTheme: number;
+  pathname: string;
+}
 
-  // Choose a random theme for the current page title to make it more engaging
-  const { pageTitles, titleTheme } = useGlobalContext();
+export default async function PageTitle({ titleTheme, pathname }: PageTitleProps) {
+  // Create an instance of the data loader needed for localization
+  const dataLoader = await DataLoader.create();
 
-  // Get the current page title data depending on the pathname of the location
-  if (!pageTitles[titleTheme][pathname]) return null;
-  const { eyebrow, heading, intro } = pageTitles[titleTheme][pathname];
+  // Get the current page title data depending on the theme and pathname
+  const { eyebrow, heading, intro } = dataLoader.allPageTitles()[titleTheme][pathname];
 
   return (
     <section className="mx-4 my-3 lg:mx-0">
-      <p className="text-clr-secondary-400 text-lg tracking-widest uppercase">{eyebrow}</p>
+      <p className="text-secondary-foreground text-lg tracking-widest uppercase">{eyebrow}</p>
       <h1 className="text-3xl uppercase">{heading}</h1>
       <p>{intro}</p>
     </section>

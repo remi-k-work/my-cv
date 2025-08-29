@@ -1,11 +1,11 @@
 import "./globals.css";
 
 // other libraries
+import DataLoader from "@/lib/DataLoader";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 
 // components
-import GlobalContextFetcher from "@/lib/GlobalContextFetcher";
 import Header from "@/components/Header";
 import MySkills from "@/components/MySkills";
 import { Toaster } from "@/components/ui/sonner";
@@ -18,7 +18,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 interface LayoutProps {
-  pagetitle: ReactNode;
   exp: ReactNode;
   children: ReactNode;
 }
@@ -34,7 +33,10 @@ export const metadata: Metadata = {
   other: { google: "notranslate" },
 };
 
-export default function RootLayout({ pagetitle, exp, children }: LayoutProps) {
+export default async function RootLayout({ exp, children }: LayoutProps) {
+  // Create an instance of the data loader needed for localization
+  const dataLoader = await DataLoader.create();
+
   return (
     <html lang="en" translate="no">
       <body
@@ -44,15 +46,12 @@ export default function RootLayout({ pagetitle, exp, children }: LayoutProps) {
           "lg:grid-cols-[11rem_1rem_1fr_1rem] lg:grid-rows-[7rem_1fr] lg:[grid-template-areas:'skills_header_header_header''skills_._main_.']",
         )}
       >
-        <GlobalContextFetcher>
-          <Header />
-          <MySkills />
-          <main className="[grid-area:main]">
-            {exp}
-            {pagetitle}
-            {children}
-          </main>
-        </GlobalContextFetcher>
+        <Header preferredLang={dataLoader.lang} localizedContent={dataLoader.localizedContent()} />
+        <MySkills />
+        <main className="[grid-area:main]">
+          {children}
+          {exp}
+        </main>
         <Toaster richColors />
         <Analytics debug={false} />
       </body>

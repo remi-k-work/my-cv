@@ -13,11 +13,14 @@ import { HandThumbDownIcon, HandThumbUpIcon, XCircleIcon } from "@heroicons/reac
 import { Loader2 } from "lucide-react";
 
 // types
+import type { LocalizedContent } from "@/types/shared";
+
 interface FormSubmitProps {
+  localizedContent: LocalizedContent;
   isPending: boolean;
 }
 
-export default function FormSubmit({ isPending }: FormSubmitProps) {
+export default function FormSubmit({ localizedContent, isPending }: FormSubmitProps) {
   // Get the form context
   const { store, reset } = useFormContext();
 
@@ -32,22 +35,22 @@ export default function FormSubmit({ isPending }: FormSubmitProps) {
         {isPending || isSubmitting ? (
           <>
             <Loader2 className="size-9 animate-spin" />
-            Submitting...
+            {localizedContent["formSubmit"]["sending"]}
           </>
         ) : (
           <>
             <HandThumbUpIcon className="size-9" />
-            Submit
+            {localizedContent["formSubmit"]["send"]}
           </>
         )}
       </Button>
       <Button type="button" variant="destructive" onClick={() => reset()}>
         <XCircleIcon className="size-9" />
-        Reset
+        {localizedContent["formSubmit"]["reset"]}
       </Button>
       <Button type="button" variant="secondary" onClick={() => back()}>
         <HandThumbDownIcon className="size-9" />
-        Cancel
+        {localizedContent["formSubmit"]["cancel"]}
       </Button>
     </section>
   );

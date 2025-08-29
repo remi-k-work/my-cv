@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 
 // other libraries
 import { cn } from "@/lib/utils";
-import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import { Button } from "@/components/ui/custom/button";
@@ -18,17 +17,17 @@ import { InformationCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
 import type { ReactNode } from "react";
+import type { LocalizedContent } from "@/types/shared";
 
 interface ExperienceModalProps {
+  localizedContent: LocalizedContent;
   children: ReactNode;
 }
 
 // constants
 const CLOSE_DURATION = 1000;
 
-export default function ExperienceModal({ children }: ExperienceModalProps) {
-  const { localizedContent } = useGlobalContext();
-
+export default function ExperienceModal({ localizedContent, children }: ExperienceModalProps) {
   // To be able to call showModal() method on the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -70,8 +69,8 @@ export default function ExperienceModal({ children }: ExperienceModalProps) {
       >
         <header className="flex items-center justify-between gap-4 p-1">
           <section className="flex items-center gap-2">
-            <InformationCircleIcon className="text-clr-secondary-400 size-11" />
-            <h3 className="text-clr-secondary-400 text-xl tracking-widest uppercase">{localizedContent["experienceModal"]["projectInfo"]}</h3>
+            <InformationCircleIcon className="text-secondary-foreground size-11" />
+            <h3 className="text-secondary-foreground text-xl tracking-widest uppercase">{localizedContent["experienceModal"]["projectInfo"]}</h3>
           </section>
           <Button type="submit">
             <XCircleIcon className="size-9" />

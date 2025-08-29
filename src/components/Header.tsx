@@ -6,7 +6,6 @@ import Link from "next/link";
 
 // other libraries
 import { cn } from "@/lib/utils";
-import { useGlobalContext } from "@/lib/GlobalContext";
 
 // components
 import LangChanger from "./LangChanger";
@@ -14,9 +13,15 @@ import LangChanger from "./LangChanger";
 // assets
 import { AcademicCapIcon, DocumentTextIcon, HomeIcon, PhoneIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 
-export default function Header() {
-  const { localizedContent } = useGlobalContext();
+// types
+import type { Lang, LocalizedContent } from "@/types/shared";
 
+interface HeaderProps {
+  preferredLang: Lang;
+  localizedContent: LocalizedContent;
+}
+
+export default function Header({ preferredLang, localizedContent }: HeaderProps) {
   const pathname = usePathname();
 
   const isHome = pathname === "/";
@@ -28,46 +33,46 @@ export default function Header() {
       className={cn(
         "bg-clr-primary-800 z-10 [grid-area:header]",
         "lg:sticky lg:top-0",
-        "before:border-clr-primary-300 before:absolute before:top-12 before:left-0 before:-z-1 before:w-full before:border-b before:content-['']",
+        "before:border-primary-foreground before:absolute before:top-12 before:left-0 before:-z-1 before:w-full before:border-b before:content-['']",
         "lg:before:fixed lg:before:top-14",
-        "max-lg:after:border-clr-primary-300 max-lg:after:absolute max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:w-full max-lg:after:border-b max-lg:after:content-['']",
+        "max-lg:after:border-primary-foreground max-lg:after:absolute max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:w-full max-lg:after:border-b max-lg:after:content-['']",
       )}
     >
       <nav
         className={cn(
-          "grid place-content-evenly place-items-center gap-x-4 gap-y-1",
+          "mx-2 grid place-content-evenly place-items-center gap-x-4 gap-y-1",
           "h-44 grid-flow-row grid-cols-4",
           "lg:h-28 lg:grid-flow-col lg:grid-cols-none",
-          "*:bg-clr-primary-700 *:text-clr-primary-200 *:hover:text-clr-accent-400 *:border *:p-3",
+          "*:bg-background *:text-clr-primary-200 *:hover:text-accent-foreground *:border *:p-3",
         )}
       >
         <Link
           href="/"
           title={localizedContent["header"]["home"]}
-          className={cn(isHome ? "border-clr-neutral-100" : "border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110")}
+          className={cn(isHome ? "border-foreground" : "border-primary-foreground hover:border-accent-foreground hover:scale-110")}
         >
-          <HomeIcon className={cn("size-11", isHome && "text-clr-neutral-100 size-13")} />
+          <HomeIcon className={cn("size-11", isHome && "text-foreground size-13")} />
         </Link>
         <Link
           href="/education"
           title={localizedContent["header"]["education"]}
-          className={cn(isEduc ? "border-clr-neutral-100" : "border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110")}
+          className={cn(isEduc ? "border-foreground" : "border-primary-foreground hover:border-accent-foreground hover:scale-110")}
         >
-          <AcademicCapIcon className={cn("size-11", isEduc && "text-clr-neutral-100 size-13")} />
+          <AcademicCapIcon className={cn("size-11", isEduc && "text-foreground size-13")} />
         </Link>
         <Link
           href="/contact"
           title={localizedContent["header"]["contact"]}
-          className={cn(isCont ? "border-clr-neutral-100" : "border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110")}
+          className={cn(isCont ? "border-foreground" : "border-primary-foreground hover:border-accent-foreground hover:scale-110")}
         >
-          <PhoneIcon className={cn("size-11", isCont && "text-clr-neutral-100 size-13")} />
+          <PhoneIcon className={cn("size-11", isCont && "text-foreground size-13")} />
         </Link>
         <Link
           href={localizedContent["header"]["hrefPdf"]}
           target="_blank"
           title={localizedContent["header"]["pdf"]}
           prefetch={false}
-          className="border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110"
+          className="border-primary-foreground hover:border-accent-foreground hover:scale-110"
         >
           <DocumentTextIcon className="size-11" />
         </Link>
@@ -76,7 +81,7 @@ export default function Header() {
           target="_blank"
           title={localizedContent["header"]["video"]}
           prefetch={false}
-          className="border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110"
+          className="border-primary-foreground hover:border-accent-foreground hover:scale-110"
         >
           <VideoCameraIcon className="size-11" />
         </Link>
@@ -85,7 +90,7 @@ export default function Header() {
           target="_blank"
           title="LinkedIn"
           prefetch={false}
-          className="border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110"
+          className="border-primary-foreground hover:border-accent-foreground hover:scale-110"
         >
           <svg viewBox="0 0 24 24" className="size-11">
             <path
@@ -99,7 +104,7 @@ export default function Header() {
           target="_blank"
           title="GitHub"
           prefetch={false}
-          className="border-clr-primary-300 hover:border-clr-accent-400 hover:scale-110"
+          className="border-primary-foreground hover:border-accent-foreground hover:scale-110"
         >
           <svg viewBox="0 0 24 24" className="size-11">
             <path
@@ -108,7 +113,7 @@ export default function Header() {
             />
           </svg>
         </Link>
-        <LangChanger />
+        <LangChanger preferredLang={preferredLang} />
       </nav>
     </header>
   );

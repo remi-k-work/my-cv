@@ -1,3 +1,6 @@
+// other libraries
+import DataLoader from "@/lib/DataLoader";
+
 // components
 import ExperienceModal from "@/components/ExperienceModal";
 import ExperienceDetails from "@/components/ExperienceDetails";
@@ -10,9 +13,12 @@ interface PageProps {
 export default async function Page({ params: paramsPromise }: PageProps) {
   const { type, index } = await paramsPromise;
 
+  // Create an instance of the data loader needed for localization
+  const dataLoader = await DataLoader.create();
+
   return (
-    <ExperienceModal>
-      <ExperienceDetails type={type} index={index} />
+    <ExperienceModal localizedContent={dataLoader.localizedContent()}>
+      <ExperienceDetails localizedContent={dataLoader.localizedContent()} allExperiences={dataLoader.allExperiences()} type={type} index={index} />
     </ExperienceModal>
   );
 }

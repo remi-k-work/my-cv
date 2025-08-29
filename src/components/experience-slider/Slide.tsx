@@ -1,32 +1,26 @@
-"use client";
-
 // next
 import Image from "next/image";
 import Link from "next/link";
-
-// other libraries
-import { useGlobalContext } from "@/lib/GlobalContext";
 
 // assets
 import { GlobeAltIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 
 // types
-import type { JobExperience } from "@/types/shared";
+import type { JobExperience, LocalizedContent } from "@/types/shared";
 
 interface SlideProps {
+  localizedContent: LocalizedContent;
   type: "e" | "p";
   index: number;
   experience: JobExperience;
 }
 
-export default function Slide({ type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic } }: SlideProps) {
-  const { localizedContent } = useGlobalContext();
-
+export default function Slide({ localizedContent, type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic } }: SlideProps) {
   return (
-    <article className="bg-clr-primary-700 rounded-xl p-3 select-none">
+    <article className="bg-background rounded-xl p-3 select-none">
       <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
         <section className="flex-4">
-          <p className="text-clr-accent-400 text-sm font-semibold tracking-widest">{year}</p>
+          <p className="text-accent-foreground text-sm font-semibold tracking-widest">{year}</p>
           <h2 className="text-xl">{role}</h2>
           <p className="text-clr-primary-200">{company}</p>
         </section>
@@ -35,7 +29,7 @@ export default function Slide({ type, index, experience: { year, role, company, 
             <Link
               href={`/exp/${type}/${index}`}
               title={localizedContent["experienceSlide"]["moreInfo"]}
-              className="text-clr-primary-300 border-clr-primary-300 hover:text-clr-accent-400 hover:border-clr-accent-400 rounded-full border p-1 hover:scale-110"
+              className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
             >
               <InformationCircleIcon className="size-11" />
             </Link>
@@ -44,7 +38,7 @@ export default function Slide({ type, index, experience: { year, role, company, 
                 href={liveLink}
                 target="_blank"
                 title={localizedContent["experienceSlide"]["liveLink"]}
-                className="text-clr-primary-300 border-clr-primary-300 hover:text-clr-accent-400 hover:border-clr-accent-400 rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <GlobeAltIcon className="size-11" />
               </Link>
@@ -55,7 +49,7 @@ export default function Slide({ type, index, experience: { year, role, company, 
                 target="_blank"
                 title={localizedContent["experienceSlide"]["goAndSee"]}
                 prefetch={false}
-                className="text-clr-primary-300 border-clr-primary-300 hover:text-clr-accent-400 hover:border-clr-accent-400 rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <svg viewBox="0 0 24 24" className="size-11">
                   <path

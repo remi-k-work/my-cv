@@ -9,7 +9,6 @@ import { useActionState, useEffect } from "react";
 import newContact from "@/actions/contactForm";
 
 // other libraries
-import { useGlobalContext } from "@/lib/GlobalContext";
 import { mergeForm, useTransform } from "@tanstack/react-form";
 import { useAppForm } from "@/components/form";
 import { FORM_OPTIONS_EN, FORM_OPTIONS_PL, INITIAL_FORM_STATE } from "@/schemas/formFactory";
@@ -19,9 +18,15 @@ import { ContactFormSchemaEn, ContactFormSchemaPl } from "@/schemas/contactForm"
 import Captcha from "@/features/auth/components/Captcha";
 import { toast } from "sonner";
 
-export default function ContactForm() {
-  const { preferredLang, localizedContent } = useGlobalContext();
+// types
+import type { Lang, LocalizedContent } from "@/types/shared";
 
+interface ContactFormProps {
+  preferredLang: Lang;
+  localizedContent: LocalizedContent;
+}
+
+export default function ContactForm({ preferredLang, localizedContent }: ContactFormProps) {
   const [formState, formAction, isPending] = useActionState(newContact, INITIAL_FORM_STATE);
   const { AppField, AppForm, FormFieldErrors, FormSubmit, handleSubmit } = useAppForm({
     ...(preferredLang === "en" ? FORM_OPTIONS_EN : FORM_OPTIONS_PL),
@@ -42,7 +47,7 @@ export default function ContactForm() {
 
   return (
     <AppForm>
-      <form action={formAction} className="bg-clr-primary-700 mx-auto w-full max-w-xl rounded-xl p-3" onSubmit={() => handleSubmit()}>
+      <form action={formAction} className="bg-background mx-auto w-full max-w-xl rounded-xl p-3" onSubmit={() => handleSubmit()}>
         <AppField
           name="name"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.name : ContactFormSchemaPl.shape.name }}
@@ -126,7 +131,7 @@ export default function ContactForm() {
         />
         <FormFieldErrors name="captcha" />
         <br />
-        <FormSubmit isPending={isPending} />
+        <FormSubmit localizedContent={localizedContent} isPending={isPending} />
       </form>
     </AppForm>
   );

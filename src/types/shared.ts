@@ -1,4 +1,6 @@
 // types
+export type Lang = "en" | "pl";
+
 export interface JobExperience {
   year: string;
   role: string;
@@ -17,16 +19,13 @@ export interface EducationSchool {
   info: string;
 }
 
-export interface PageTitles {
-  [key: string]: {
+export type PageTitles = Record<
+  string,
+  {
     eyebrow: string;
     heading: string;
     intro: string;
-  };
-}
+  }
+>;
 
-export interface LocalizedContent {
-  [key: string]: {
-    [key: string]: string;
-  };
-}
+export type LocalizedContent = Record<string, Record<string, string>>;

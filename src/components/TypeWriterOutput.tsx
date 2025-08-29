@@ -14,7 +14,7 @@ export default function TypeWriterOutput({ fullText }: TypeWriterOutputProps) {
   return (
     <>
       <p className="sr-only">{fullText}</p>
-      <p className="after:bg-clr-accent-400 text-center after:inline-block after:size-4 after:content-[''] sm:text-justify">{typedText}</p>
+      <p className="after:bg-accent-foreground text-center after:inline-block after:size-4 after:content-[''] sm:text-justify">{typedText}</p>
     </>
   );
 }

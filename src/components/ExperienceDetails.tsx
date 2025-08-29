@@ -1,49 +1,28 @@
-"use client";
-
 // next
 import Image from "next/image";
 import Link from "next/link";
-
-// other libraries
-import { useGlobalContext } from "@/lib/GlobalContext";
-
-// components
-// import TypeWriterOutput from "./TypeWriterOutput";
 
 // assets
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
 
 // types
-import type { JobExperience } from "@/types/shared";
+import type { JobExperience, LocalizedContent } from "@/types/shared";
 
 interface ExperienceDetailsProps {
+  localizedContent: LocalizedContent;
+  allExperiences: [JobExperience[], JobExperience[]];
   type: "e" | "p";
   index: number;
 }
 
-export default function ExperienceDetails({ type, index }: ExperienceDetailsProps) {
-  const {
-    localizedContent,
-    allExperiences: [listExp, listPor],
-  } = useGlobalContext();
-
-  let experience: JobExperience | undefined = undefined;
-  if (type === "e") {
-    experience = listExp[index];
-  } else if (type === "p") {
-    experience = listPor[index];
-  }
-
-  // Ensure the experience exists
-  // To prevent receiving the "cannot destructure property of undefined" exception, do not attempt to render anything
-  if (!experience) return null;
-  const { year, role, company, txt, gitHubLink, liveLink, lgPic, skillsUsed } = experience;
+export default function ExperienceDetails({ localizedContent, allExperiences, type, index }: ExperienceDetailsProps) {
+  const { year, role, company, txt, gitHubLink, liveLink, lgPic, skillsUsed } = allExperiences[type === "e" ? 0 : 1][index];
 
   return (
     <article className="bg-clr-primary-800 container rounded-xl p-3">
       <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
         <section className="flex-4">
-          <p className="text-clr-accent-400 text-sm font-semibold tracking-widest">{year}</p>
+          <p className="text-accent-foreground text-sm font-semibold tracking-widest">{year}</p>
           <h2 className="text-xl">{role}</h2>
           <p className="text-clr-primary-200">{company}</p>
         </section>
@@ -54,7 +33,7 @@ export default function ExperienceDetails({ type, index }: ExperienceDetailsProp
                 href={liveLink}
                 target="_blank"
                 title={localizedContent["experienceSlide"]["liveLink"]}
-                className="text-clr-primary-300 border-clr-primary-300 hover:text-clr-accent-400 hover:border-clr-accent-400 rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-acctext-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <GlobeAltIcon className="size-11" />
               </Link>
@@ -65,7 +44,7 @@ export default function ExperienceDetails({ type, index }: ExperienceDetailsProp
                 target="_blank"
                 title={localizedContent["experienceSlide"]["goAndSee"]}
                 prefetch={false}
-                className="text-clr-primary-300 border-clr-primary-300 hover:text-clr-accent-400 hover:border-clr-accent-400 rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-acctext-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <svg viewBox="0 0 24 24" className="size-11">
                   <path
@@ -86,10 +65,13 @@ export default function ExperienceDetails({ type, index }: ExperienceDetailsProp
         <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} />
       )}
       <aside className="my-4">
-        <h4 className="text-clr-accent-400 text-sm font-semibold tracking-widest">{localizedContent["experienceDetails"]["skillsUsed"]}</h4>
+        <h4 className="text-accent-foreground text-sm font-semibold tracking-widest">{localizedContent["experienceDetails"]["skillsUsed"]}</h4>
         <ul className="flex list-none flex-wrap items-center sm:justify-around">
           {skillsUsed.map((skillUsed, skillIndex) => (
-            <li key={skillIndex} className="before:text-clr-accent-400 odd:text-clr-primary-200 even:text-clr-primary-300 before:mx-2 before:content-['●']">
+            <li
+              key={skillIndex}
+              className="before:text-accent-foreground odd:text-clr-primary-200 even:text-primary-foreground before:mx-2 before:content-['●']"
+            >
               {skillUsed}
             </li>
           ))}

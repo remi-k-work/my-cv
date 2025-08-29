@@ -4,22 +4,24 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-// other libraries
-import { useGlobalContext } from "@/lib/GlobalContext";
-
 // components
 const ReactLeaflet = dynamic(() => import("@/components/ReactLeaflet"), { ssr: false });
 
 // assets
 import avatar from "@/assets/avatar.jpg";
 
-export default function ContactMap() {
-  const { localizedContent } = useGlobalContext();
+// types
+import type { LocalizedContent } from "@/types/shared";
 
+interface ContactMapProps {
+  localizedContent: LocalizedContent;
+}
+
+export default function ContactMap({ localizedContent }: ContactMapProps) {
   return (
     <div className="relative z-0 mx-auto size-full min-h-72 max-w-xl">
-      <ReactLeaflet />
-      <div className="bg-clr-primary-700/90 absolute end-4 top-4 p-3 text-sm">
+      <ReactLeaflet localizedContent={localizedContent} />
+      <div className="bg-background/90 absolute end-4 top-4 p-3 text-sm">
         <Image src={avatar} alt="Avatar" className="max-h-32 w-full object-cover" />
         <p className="mt-4">Remi</p>
         <p className="text-clr-primary-200">Broniewskiego 24</p>

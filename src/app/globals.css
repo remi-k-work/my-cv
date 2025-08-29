@@ -5,35 +5,30 @@
 
 :root {
   /* our colors */
-  --clr-neutral-100: oklch(1 0 89.88 / 1);
   --clr-primary-200: oklch(0.5783 0.0643 274.44 / 1);
-  --clr-primary-300: oklch(0.4374 0.0976 272.26 / 1);
   --clr-primary-400: oklch(0.5744 0.1383 272.82 / 0.9);
-  --clr-primary-700: oklch(0.2779 0.0668 271.89 / 1);
   --clr-primary-800: oklch(0.2506 0.0647 270.92 / 1);
-  --clr-accent-400: oklch(0.7478 0.1765 163.47 / 1);
-  --clr-secondary-400: oklch(0.6242 0.1884 274.19 / 1);
 
   /* shadcn/ui (dark) */
-  --background: var(--clr-primary-700);
-  --foreground: var(--clr-neutral-100);
+  --background: oklch(0.2779 0.0668 271.89 / 1);
+  --foreground: oklch(1 0 89.88 / 1);
   --card: oklch(0.216 0.006 56.043);
   --card-foreground: oklch(0.985 0.001 106.423);
   --popover: oklch(0.216 0.006 56.043);
   --popover-foreground: oklch(0.985 0.001 106.423);
   --primary: transparent;
-  --primary-foreground: var(--clr-primary-300);
+  --primary-foreground: oklch(0.4374 0.0976 272.26 / 1);
   --secondary: transparent;
-  --secondary-foreground: var(--clr-secondary-400);
+  --secondary-foreground: oklch(0.6242 0.1884 274.19 / 1);
   --muted: oklch(0.268 0.007 34.298);
-  --muted-foreground: var(--clr-primary-300);
+  --muted-foreground: oklch(0.4374 0.0976 272.26 / 1);
   --accent: transparent;
-  --accent-foreground: var(--clr-accent-400);
+  --accent-foreground: oklch(0.7478 0.1765 163.47 / 1);
   --destructive: transparent;
-  --destructive-foreground: var(--clr-accent-400);
+  --destructive-foreground: oklch(0.7478 0.1765 163.47 / 1);
   --border: oklch(1 0 0 / 10%);
-  --input: var(--clr-primary-300);
-  --ring: var(--clr-accent-400);
+  --input: oklch(0.4374 0.0976 272.26 / 1);
+  --ring: oklch(0.7478 0.1765 163.47 / 1);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -55,14 +50,9 @@
 @theme inline {
   --font-outfit: var(--font-outfit);
 
-  --color-clr-neutral-100: var(--clr-neutral-100);
   --color-clr-primary-200: var(--clr-primary-200);
-  --color-clr-primary-300: var(--clr-primary-300);
   --color-clr-primary-400: var(--clr-primary-400);
-  --color-clr-primary-700: var(--clr-primary-700);
   --color-clr-primary-800: var(--clr-primary-800);
-  --color-clr-accent-400: var(--clr-accent-400);
-  --color-clr-secondary-400: var(--clr-secondary-400);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -171,7 +161,7 @@
 
   html {
     color-scheme: dark;
-    scrollbar-color: var(--clr-primary-300) var(--clr-primary-700);
+    scrollbar-color: var(--primary-foreground) var(--background);
   }
 
   body {

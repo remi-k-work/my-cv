@@ -9,26 +9,26 @@ import { useRouter } from "next/navigation";
 // server actions and mutations
 import { setLangCookie } from "@/actions/langChanger";
 
-// other libraries
-import { Lang } from "@/lib/DataLoader";
-import { useGlobalContext } from "@/lib/GlobalContext";
-
 // components
 import { Button } from "@/components/ui/custom/button";
 
-export default function LangChanger() {
-  const { preferredLang } = useGlobalContext();
+// types
+import type { Lang } from "@/types/shared";
 
+interface LangChangerProps {
+  preferredLang: Lang;
+}
+
+export default function LangChanger({ preferredLang }: LangChangerProps) {
   // To display a pending status while the server action is running
   const [isPending, startTransition] = useTransition();
 
+  // To be able to refresh the page
   const { refresh } = useRouter();
 
   function handleLangToggled() {
-    const newLang: Lang = preferredLang === "en" ? "pl" : "en";
-
     startTransition(async () => {
-      await setLangCookie(newLang);
+      await setLangCookie(preferredLang === "en" ? "pl" : "en");
       refresh();
     });
   }
