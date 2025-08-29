@@ -33,7 +33,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
                 href={liveLink}
                 target="_blank"
                 title={localizedContent["experienceSlide"]["liveLink"]}
-                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-acctext-accent-foreground rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <GlobeAltIcon className="size-11" />
               </Link>
@@ -44,7 +44,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
                 target="_blank"
                 title={localizedContent["experienceSlide"]["goAndSee"]}
                 prefetch={false}
-                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-acctext-accent-foreground rounded-full border p-1 hover:scale-110"
+                className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
               >
                 <svg viewBox="0 0 24 24" className="size-11">
                   <path
