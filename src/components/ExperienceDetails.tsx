@@ -1,6 +1,8 @@
 // next
-import Image from "next/image";
 import Link from "next/link";
+
+// components
+import ScreenShots from "./experience-slider/ScreenShots";
 
 // assets
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
@@ -16,7 +18,8 @@ interface ExperienceDetailsProps {
 }
 
 export default function ExperienceDetails({ localizedContent, allExperiences, type, index }: ExperienceDetailsProps) {
-  const { year, role, company, txt, gitHubLink, liveLink, lgPic, skillsUsed } = allExperiences[type === "e" ? 0 : 1][index];
+  const experience = allExperiences[type === "e" ? 0 : 1][index];
+  const { year, role, company, txt, gitHubLink, liveLink, skillsUsed } = experience;
 
   return (
     <article className="bg-clr-primary-800 container rounded-xl p-3">
@@ -59,10 +62,10 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
       </header>
       {liveLink ? (
         <Link href={liveLink} target="_blank">
-          <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} />
+          <ScreenShots experience={experience} />
         </Link>
       ) : (
-        <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} />
+        <ScreenShots experience={experience} />
       )}
       <aside className="my-4">
         <h4 className="text-accent-foreground text-sm font-semibold tracking-widest">{localizedContent["experienceDetails"]["skillsUsed"]}</h4>

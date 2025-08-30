@@ -98,6 +98,7 @@
   --animate-slide-lr-fade-in: slide-lr 1s ease-in-out forwards, fade-in 24s ease-in-out alternate infinite;
   --animate-slide-bt-fade-out: slide-bt 1s ease-in-out forwards, fade-out 24s ease-in-out alternate infinite;
   --animate-slide-bt-fade-in: slide-bt 1s ease-in-out forwards, fade-in 24s ease-in-out alternate infinite;
+  --animate-fade-in-out: fade-in-out 48s ease-in-out infinite;
 
   @keyframes slide-lr {
     0% {
@@ -146,6 +147,21 @@
     }
     100% {
       opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-out {
+    0%,
+    10% {
+      opacity: 0;
+    }
+    20%,
+    40% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
     }
   }
 }

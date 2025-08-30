@@ -8,7 +8,7 @@ export interface JobExperience {
   txt: string;
   gitHubLink?: string;
   liveLink?: string;
-  lgPic: string;
+  imageName: string;
   skillsUsed: string[];
 }
 

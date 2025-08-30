@@ -1,6 +1,8 @@
 // next
-import Image from "next/image";
 import Link from "next/link";
+
+// components
+import ScreenShots from "./ScreenShots";
 
 // assets
 import { GlobeAltIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
@@ -15,7 +17,7 @@ interface SlideProps {
   experience: JobExperience;
 }
 
-export default function Slide({ localizedContent, type, index, experience: { year, role, company, gitHubLink, liveLink, lgPic } }: SlideProps) {
+export default function Slide({ localizedContent, type, index, experience, experience: { year, role, company, gitHubLink, liveLink } }: SlideProps) {
   return (
     <article className="bg-background rounded-xl p-3 select-none">
       <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
@@ -64,10 +66,10 @@ export default function Slide({ localizedContent, type, index, experience: { yea
       </header>
       {liveLink ? (
         <Link href={liveLink} target="_blank">
-          <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} />
+          <ScreenShots experience={experience} />
         </Link>
       ) : (
-        <Image src={`/images/${lgPic}`} width={1200} height={1187} alt={role} />
+        <ScreenShots experience={experience} />
       )}
     </article>
   );
