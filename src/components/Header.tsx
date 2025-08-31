@@ -33,9 +33,11 @@ export default function Header({ preferredLang, localizedContent }: HeaderProps)
       className={cn(
         "bg-clr-primary-800 z-10 [grid-area:header]",
         "lg:sticky lg:top-0",
-        "before:border-primary-foreground before:absolute before:top-12 before:left-0 before:-z-1 before:w-full before:border-b before:content-['']",
+        "before:absolute before:top-12 before:left-0 before:-z-1 before:h-px before:w-full before:content-['']",
+        "before:animate-spark-h before:from-primary-foreground before:to-primary-foreground before:via-accent-foreground before:bg-gradient-to-r before:via-[0.5%] before:to-[1%] before:bg-size-[200%]",
         "lg:before:fixed lg:before:top-14",
-        "max-lg:after:border-primary-foreground max-lg:after:absolute max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:w-full max-lg:after:border-b max-lg:after:content-['']",
+        "max-lg:after:absolute max-lg:after:top-34 max-lg:after:left-0 max-lg:after:-z-1 max-lg:after:h-px max-lg:after:w-full max-lg:after:content-['']",
+        "max-lg:after:animate-spark-h max-lg:after:from-primary-foreground max-lg:after:to-primary-foreground max-lg:after:via-accent-foreground max-lg:after:bg-gradient-to-r max-lg:after:via-[0.5%] max-lg:after:to-[1%] max-lg:after:bg-size-[200%] max-lg:after:[animation-direction:reverse]",
       )}
     >
       <nav

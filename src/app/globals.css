@@ -99,6 +99,8 @@
   --animate-slide-bt-fade-out: slide-bt 1s ease-in-out forwards, fade-out 24s ease-in-out alternate infinite;
   --animate-slide-bt-fade-in: slide-bt 1s ease-in-out forwards, fade-in 24s ease-in-out alternate infinite;
   --animate-fade-in-out: fade-in-out 48s ease-in-out infinite;
+  --animate-spark-h: spark-h 24s linear infinite;
+  --animate-spark-v: spark-v 24s linear infinite;
 
   @keyframes slide-lr {
     0% {
@@ -121,30 +123,22 @@
   }
 
   @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
+    0%,
     33% {
       opacity: 1;
     }
-    66% {
-      opacity: 0;
-    }
+    66%,
     100% {
       opacity: 0;
     }
   }
 
   @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
+    0%,
     33% {
       opacity: 0;
     }
-    66% {
-      opacity: 1;
-    }
+    66%,
     100% {
       opacity: 1;
     }
@@ -162,6 +156,24 @@
     50%,
     100% {
       opacity: 0;
+    }
+  }
+
+  @keyframes spark-h {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+
+  @keyframes spark-v {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 200%;
     }
   }
 }

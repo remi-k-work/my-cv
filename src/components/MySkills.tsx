@@ -20,11 +20,19 @@ export default function MySkills() {
       className={cn(
         "bg-clr-primary-800 z-9 grid w-full [grid-area:skills]",
         "max-lg:fixed max-lg:bottom-0 max-lg:h-28",
-        "before:border-primary-foreground before:fixed before:content-['']",
-        "after:border-primary-foreground after:fixed after:-z-1 after:content-['']",
-        "max-lg:before:bottom-14 max-lg:before:left-0 max-lg:before:w-full max-lg:before:border-b",
-        "lg:before:left-11 lg:before:h-full lg:before:border-r",
-        "lg:after:left-33 lg:after:h-full lg:after:border-r",
+
+        "before:fixed before:content-['']",
+        "lg:after:fixed lg:after:left-33 lg:after:-z-1 lg:after:h-full lg:after:w-px lg:after:content-['']",
+
+        "max-lg:before:bottom-14 max-lg:before:left-0 max-lg:before:h-px max-lg:before:w-full",
+        "lg:before:left-11 lg:before:h-full lg:before:w-px",
+
+        "before:from-primary-foreground before:to-primary-foreground before:via-accent-foreground before:via-[1%] before:to-[1.5%]",
+        "max-lg:before:animate-spark-h max-lg:before:bg-gradient-to-r max-lg:before:bg-size-[200%]",
+        "lg:before:animate-spark-v lg:before:bg-gradient-to-b lg:before:bg-size-[100%_200%]",
+
+        "lg:after:from-primary-foreground lg:after:to-primary-foreground lg:after:via-accent-foreground lg:after:via-[1%] lg:after:to-[1.5%]",
+        "lg:after:animate-spark-v lg:after:bg-gradient-to-b lg:after:bg-size-[100%_200%] lg:after:[animation-direction:reverse]",
       )}
     >
       <ul
