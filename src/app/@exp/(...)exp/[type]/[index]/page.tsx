@@ -3,7 +3,7 @@ import DataLoader from "@/lib/DataLoader";
 
 // components
 import ExperienceModal from "@/components/ExperienceModal";
-import ExperienceDetails from "@/components/ExperienceDetails";
+import ExperienceDetails from "@/components/experience-details";
 
 // types
 interface PageProps {

@@ -27,11 +27,11 @@ export default function MySkills() {
         "max-lg:before:bottom-14 max-lg:before:left-0 max-lg:before:h-px max-lg:before:w-full",
         "lg:before:left-11 lg:before:h-full lg:before:w-px",
 
-        "before:from-primary-foreground before:to-primary-foreground before:via-accent-foreground before:via-[1%] before:to-[1.5%]",
+        "before:from-primary-foreground before:to-primary-foreground before:via-accent-foreground before:via-5% before:to-10%",
         "max-lg:before:animate-spark-h max-lg:before:bg-gradient-to-r max-lg:before:bg-size-[200%]",
         "lg:before:animate-spark-v lg:before:bg-gradient-to-b lg:before:bg-size-[100%_200%]",
 
-        "lg:after:from-primary-foreground lg:after:to-primary-foreground lg:after:via-accent-foreground lg:after:via-[1%] lg:after:to-[1.5%]",
+        "lg:after:from-primary-foreground lg:after:to-primary-foreground lg:after:via-accent-foreground lg:after:via-5% lg:after:to-10%",
         "lg:after:animate-spark-v lg:after:bg-gradient-to-b lg:after:bg-size-[100%_200%] lg:after:[animation-direction:reverse]",
       )}
     >

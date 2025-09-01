@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 
 // components
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import MySkills from "@/components/MySkills";
 import { Toaster } from "@/components/ui/sonner";
 

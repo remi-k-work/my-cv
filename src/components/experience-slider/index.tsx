@@ -4,7 +4,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 
 // components
-import Slide from "./Slide";
+import Slide from "./slide";
 import Prev from "./buttons/Prev";
 import Next from "./buttons/Next";
 import Dot from "./buttons/Dot";

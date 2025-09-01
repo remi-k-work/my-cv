@@ -4,7 +4,7 @@ import { getRandomInt } from "@/lib/helpers";
 
 // components
 import PageTitle from "@/components/PageTitle";
-import ExperienceDetails from "@/components/ExperienceDetails";
+import ExperienceDetails from "@/components/experience-details";
 
 // types
 interface PageProps {
