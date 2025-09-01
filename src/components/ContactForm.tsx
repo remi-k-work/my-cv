@@ -47,7 +47,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
 
   return (
     <AppForm>
-      <form action={formAction} className="bg-background mx-auto w-full max-w-xl rounded-xl p-3" onSubmit={() => handleSubmit()}>
+      <form action={formAction} className="bg-background mx-auto w-full max-w-4xl rounded-xl p-3" onSubmit={() => handleSubmit()}>
         <AppField
           name="name"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.name : ContactFormSchemaPl.shape.name }}

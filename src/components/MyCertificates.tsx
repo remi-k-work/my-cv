@@ -16,7 +16,7 @@ export default async function MyCertificates() {
   const dataLoader = await DataLoader.create();
 
   return (
-    <figure className="mx-auto w-full max-w-xl">
+    <figure className="mx-auto w-full max-w-4xl">
       <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
         {dataLoader.localizedContent()["myCertificates"]["myCertificates"]}
       </figcaption>

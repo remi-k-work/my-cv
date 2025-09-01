@@ -9,7 +9,7 @@ export default async function MyEducation() {
   const dataLoader = await DataLoader.create();
 
   return (
-    <figure className="mx-auto w-full max-w-xl">
+    <figure className="mx-auto w-full max-w-2xl">
       <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
         {dataLoader.localizedContent()["myEducation"]["myEducation"]}
       </figcaption>
@@ -21,7 +21,9 @@ export default async function MyEducation() {
               <p className="text-accent-foreground text-sm font-semibold tracking-widest">{year}</p>
               <p className="text-primary-foreground">{location}</p>
             </dt>
-            <dd className="mb-8 last:mb-0">{info}</dd>
+            <dd className="mb-8 last:mb-0">
+              <p>{info}</p>
+            </dd>
           </Fragment>
         ))}
       </dl>

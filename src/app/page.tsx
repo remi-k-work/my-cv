@@ -13,7 +13,7 @@ export default async function Page() {
   return (
     <>
       <PageTitle titleTheme={getRandomInt(0, 2)} pathname="/" />
-      <article className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-4">
+      <article className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <section className="bg-clr-primary-800 rounded-xl p-4">
           <ExperienceSlider localizedContent={dataLoader.localizedContent()} allExperiences={dataLoader.allExperiences()} type="e" />
         </section>

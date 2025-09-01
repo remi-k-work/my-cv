@@ -22,7 +22,7 @@ export default function ExperienceSlider({ localizedContent, allExperiences, typ
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   return (
-    <figure className="mx-auto w-full max-w-xl">
+    <figure className="mx-auto w-full max-w-4xl">
       <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
         {type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}
       </figcaption>

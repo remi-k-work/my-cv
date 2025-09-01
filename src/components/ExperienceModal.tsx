@@ -65,7 +65,7 @@ export default function ExperienceModal({ localizedContent, children }: Experien
     >
       <form
         method="dialog"
-        className="bg-background grid max-h-[min(95dvb,100%)] max-w-[min(75ch,100%)] grid-rows-[auto_1fr] items-start overflow-hidden rounded-xl"
+        className="bg-background grid max-h-[min(95dvb,100%)] max-w-[min(96ch,100%)] grid-rows-[auto_1fr] items-start overflow-hidden rounded-xl"
       >
         <header className="flex items-center justify-between gap-4 p-1">
           <section className="flex items-center gap-2">

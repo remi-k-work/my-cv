@@ -19,7 +19,7 @@ interface ContactMapProps {
 
 export default function ContactMap({ localizedContent }: ContactMapProps) {
   return (
-    <div className="relative z-0 mx-auto size-full min-h-72 max-w-xl">
+    <div className="relative z-0 mx-auto size-full max-w-4xl">
       <ReactLeaflet localizedContent={localizedContent} />
       <div className="bg-background/90 absolute end-4 top-4 p-3 text-sm">
         <Image src={avatar} alt="Avatar" className="max-h-32 w-full object-cover" />

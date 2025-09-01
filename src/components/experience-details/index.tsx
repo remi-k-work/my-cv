@@ -21,7 +21,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
   const { txt, liveLink } = experience;
 
   return (
-    <article className="bg-clr-primary-800 container rounded-xl p-3">
+    <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">
       <Header localizedContent={localizedContent} experience={experience} />
       {liveLink ? (
         <Link href={liveLink} target="_blank">
@@ -31,7 +31,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
         <ScreenShots experience={experience} />
       )}
       <SkillsUsed localizedContent={localizedContent} experience={experience} />
-      <p className="text-center sm:text-justify">{txt}</p>
+      <p className="mx-auto text-center sm:text-justify">{txt}</p>
     </article>
   );
 }
