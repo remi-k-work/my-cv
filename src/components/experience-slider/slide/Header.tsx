@@ -17,7 +17,7 @@ interface HeaderProps {
 
 export default function Header({ localizedContent, type, index, experience: { year, role, company, gitHubLink, liveLink } }: HeaderProps) {
   return (
-    <header className="mb-4 flex min-h-28 gap-4 xl:min-h-auto">
+    <header className="mb-4 flex min-h-28 gap-4 @md:min-h-auto">
       <section className="flex-4">
         <p className="text-accent-foreground text-sm font-semibold tracking-widest">{year}</p>
         <h2 className="text-xl">{role}</h2>

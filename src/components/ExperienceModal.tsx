@@ -57,6 +57,7 @@ export default function ExperienceModal({ localizedContent, children }: Experien
     <dialog
       ref={dialogRef}
       className={cn(
+        "@container",
         "text-foreground fixed inset-0 z-50 grid size-full max-h-none max-w-none place-items-center overflow-hidden overscroll-contain bg-transparent transition-all transition-discrete duration-1000 ease-in-out",
         "not-open:pointer-events-none not-open:invisible not-open:opacity-0 open:pointer-events-auto open:visible open:opacity-100 focus-visible:outline-none",
         "backdrop:backdrop-blur-xl backdrop:[transition:backdrop-filter_1s_ease]",

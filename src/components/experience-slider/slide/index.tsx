@@ -17,7 +17,7 @@ interface SlideProps {
 
 export default function Slide({ localizedContent, type, index, experience, experience: { liveLink } }: SlideProps) {
   return (
-    <article className="bg-background rounded-xl p-3 select-none">
+    <article className="bg-background @container rounded-xl p-3 select-none">
       <Header localizedContent={localizedContent} type={type} index={index} experience={experience} />
       {liveLink ? (
         <Link href={liveLink} target="_blank">
