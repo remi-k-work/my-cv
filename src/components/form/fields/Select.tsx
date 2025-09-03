@@ -5,7 +5,7 @@ import { useId } from "react";
 import { useFieldContext } from "@/components/form";
 
 // components
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/ui/custom/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import FieldErrors from "@/components/form/FieldErrors";
 
@@ -37,9 +37,7 @@ export default function SelectField({ label, options, placeholder, ...props }: S
 
   return (
     <>
-      <Label htmlFor={id} className="text-clr-primary-200 p-1 text-sm font-semibold tracking-widest uppercase">
-        {label}
-      </Label>
+      <Label htmlFor={id}>{label}</Label>
       <Select name={name} value={value} onValueChange={(value) => handleChange(value)} {...props}>
         <SelectTrigger id={id} onBlur={handleBlur}>
           <SelectValue placeholder={placeholder} />

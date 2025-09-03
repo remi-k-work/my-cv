@@ -5,8 +5,8 @@ import { useId } from "react";
 import { useFieldContext } from "@/components/form";
 
 // components
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/custom/label";
+import { Input } from "@/components/ui/custom/input";
 import FieldErrors from "@/components/form/FieldErrors";
 
 // types
@@ -30,9 +30,7 @@ export default function TextField({ label, ...props }: TextFieldProps) {
 
   return (
     <>
-      <Label htmlFor={id} className="text-clr-primary-200 p-1 text-sm font-semibold tracking-widest uppercase">
-        {label}
-      </Label>
+      <Label htmlFor={id}>{label}</Label>
       <Input id={id} name={name} value={value} onChange={(ev) => handleChange(ev.target.value)} onBlur={handleBlur} {...props} />
       <FieldErrors meta={meta} />
     </>

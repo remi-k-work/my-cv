@@ -5,7 +5,7 @@ import { useId } from "react";
 import { useFieldContext } from "@/components/form";
 
 // components
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/ui/custom/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import FieldErrors from "@/components/form/FieldErrors";
 
@@ -32,9 +32,7 @@ export default function CheckBoxField({ label, ...props }: CheckBoxFieldProps) {
     <>
       <div className="flex items-center gap-1">
         <Checkbox id={id} name={name} checked={value} onCheckedChange={(checked) => handleChange(checked === true)} onBlur={handleBlur} {...props} />
-        <Label htmlFor={id} className="p-1">
-          {label}
-        </Label>
+        <Label htmlFor={id}>{label}</Label>
       </div>
       <FieldErrors meta={meta} />
     </>

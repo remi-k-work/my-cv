@@ -64,6 +64,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
         />
         <FormFieldErrors name="name" />
         <br />
+        <br />
         <AppField
           name="email"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.email : ContactFormSchemaPl.shape.email }}
@@ -79,6 +80,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
           )}
         />
         <FormFieldErrors name="email" />
+        <br />
         <br />
         <AppField
           name="subject"
@@ -96,6 +98,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
         />
         <FormFieldErrors name="subject" />
         <br />
+        <br />
         <AppField
           name="message"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.message : ContactFormSchemaPl.shape.message }}
@@ -103,7 +106,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             <field.TextAreaField
               label={localizedContent["contactForm"]["labelMessage"]}
               cols={50}
-              rows={6}
+              rows={8}
               maxLength={2049}
               spellCheck
               autoComplete="off"
@@ -130,6 +133,7 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
           )}
         />
         <FormFieldErrors name="captcha" />
+        <br />
         <br />
         <FormSubmit localizedContent={localizedContent} isPending={isPending} />
       </form>
