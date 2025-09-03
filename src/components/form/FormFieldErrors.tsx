@@ -27,7 +27,11 @@ export default function FormFieldErrors({ name }: FormFieldErrorsProps) {
 
   if (error) {
     return error[name].map(({ message }, index) => (
-      <p key={index} role="alert" className="border-destructive-foreground text-destructive-foreground flex items-center gap-2 rounded-b-xl border px-3 py-2">
+      <p
+        key={index}
+        role="alert"
+        className="border-destructive-foreground text-destructive-foreground animate-valid-error flex max-w-none items-center gap-2 rounded-b-xl border px-3 py-2"
+      >
         <ExclamationTriangleIcon className="size-9 flex-none" />
         {message}
       </p>
