@@ -7,6 +7,7 @@ import GitHubIcon from "@/assets/icons/GitHub";
 
 // types
 import type { JobExperience, LocalizedContent } from "@/types/shared";
+import type { UrlObject } from "url";
 
 interface HeaderProps {
   localizedContent: LocalizedContent;
@@ -25,7 +26,7 @@ export default function Header({ localizedContent, experience: { year, role, com
         <div className="flex flex-wrap items-center justify-end gap-2">
           {liveLink && (
             <Link
-              href={liveLink}
+              href={liveLink as UrlObject}
               target="_blank"
               title={localizedContent["experienceSlide"]["liveLink"]}
               className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
@@ -35,7 +36,7 @@ export default function Header({ localizedContent, experience: { year, role, com
           )}
           {gitHubLink && (
             <Link
-              href={gitHubLink}
+              href={gitHubLink as UrlObject}
               target="_blank"
               title={localizedContent["experienceSlide"]["goAndSee"]}
               prefetch={false}

@@ -1,4 +1,6 @@
 // types
+import type { UrlObject } from "url";
+
 export type Lang = "en" | "pl";
 
 export interface JobExperience {
@@ -6,8 +8,8 @@ export interface JobExperience {
   role: string;
   company: string;
   txt: string;
-  gitHubLink?: string;
-  liveLink?: string;
+  gitHubLink?: UrlObject | string;
+  liveLink?: UrlObject | string;
   imageName: string;
   skillsUsed: string[];
 }

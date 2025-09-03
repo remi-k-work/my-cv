@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 
 // types
 import type { ReactNode } from "react";
+import type { UrlObject } from "url";
 
 interface NavItemProps {
-  href: string;
+  href: UrlObject | string;
   title: string;
   icon: ReactNode;
   isExternal?: boolean;
@@ -24,7 +25,7 @@ export default function NavItem({ href, title, icon, isExternal = false, animDel
 
   return (
     <Link
-      href={href}
+      href={href as UrlObject}
       title={title}
       prefetch={!isExternal}
       target={isExternal ? "_blank" : undefined}

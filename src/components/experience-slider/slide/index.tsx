@@ -7,6 +7,7 @@ import ScreenShots from "./ScreenShots";
 
 // types
 import type { JobExperience, LocalizedContent } from "@/types/shared";
+import type { UrlObject } from "url";
 
 interface SlideProps {
   localizedContent: LocalizedContent;
@@ -20,7 +21,7 @@ export default function Slide({ localizedContent, type, index, experience, exper
     <article className="bg-background @container rounded-xl p-3 select-none">
       <Header localizedContent={localizedContent} type={type} index={index} experience={experience} />
       {liveLink ? (
-        <Link href={liveLink} target="_blank">
+        <Link href={liveLink as UrlObject} target="_blank">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

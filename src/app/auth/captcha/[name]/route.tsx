@@ -20,17 +20,13 @@ export interface CaptchaSession {
   captchaString: string;
 }
 
-interface RouteProps {
-  params: Promise<{ name: string }>;
-}
-
 // constants
 import { CAPTCHA_HEIGHT, CAPTCHA_WIDTH } from "@/features/auth/components/CaptchaBackground";
 const FONTS_DIR = "public/fonts";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest, { params: paramsPromise }: RouteProps) {
+export async function GET(_req: NextRequest, { params: paramsPromise }: RouteContext<"/auth/captcha/[name]">) {
   const { name } = await paramsPromise;
 
   // Load the pool of fonts used by our captcha

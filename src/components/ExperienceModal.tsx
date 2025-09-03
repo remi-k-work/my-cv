@@ -71,7 +71,18 @@ export default function ExperienceModal({ localizedContent, children }: Experien
         <header className="flex items-center justify-between gap-4 p-1">
           <section className="flex items-center gap-2">
             <InformationCircleIcon className="text-secondary-foreground size-11 flex-none" />
-            <h3 className="text-secondary-foreground flex-1 text-xl tracking-widest uppercase">{localizedContent["experienceModal"]["projectInfo"]}</h3>
+            <h3 className="text-secondary-foreground inline-grid flex-1 overflow-clip text-xl tracking-widest uppercase">
+              <span className="animate-reveal-text col-span-full row-span-full [clip-path:inset(0_100%_0_0)]">
+                {localizedContent["experienceModal"]["projectInfo"]}
+              </span>
+              <span
+                className={cn(
+                  "animate-sweep-light-bar col-span-full row-span-full flex",
+                  "before:bg-accent-foreground before:h-full before:w-2 before:flex-none before:rounded-lg before:shadow-[0_0_6px_#DFFF00,0_0_12px_#DFFF00] before:content-['']",
+                  "after:bg-background after:-z-1 after:flex-1 after:content-['']",
+                )}
+              />
+            </h3>
           </section>
           <Button type="submit">
             <XCircleIcon className="size-9" />

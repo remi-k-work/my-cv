@@ -8,6 +8,7 @@ import SkillsUsed from "./SkillsUsed";
 
 // types
 import type { JobExperience, LocalizedContent } from "@/types/shared";
+import type { UrlObject } from "url";
 
 interface ExperienceDetailsProps {
   localizedContent: LocalizedContent;
@@ -24,7 +25,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
     <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">
       <Header localizedContent={localizedContent} experience={experience} />
       {liveLink ? (
-        <Link href={liveLink} target="_blank">
+        <Link href={liveLink as UrlObject} target="_blank">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

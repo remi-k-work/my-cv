@@ -15,12 +15,6 @@ import { outfit } from "@/assets/fonts";
 
 // types
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
-
-interface LayoutProps {
-  exp: ReactNode;
-  children: ReactNode;
-}
 
 // constants
 export const metadata: Metadata = {
@@ -33,7 +27,7 @@ export const metadata: Metadata = {
   other: { google: "notranslate" },
 };
 
-export default async function RootLayout({ exp, children }: LayoutProps) {
+export default async function RootLayout({ exp, children }: LayoutProps<"/">) {
   // Create an instance of the data loader needed for localization
   const dataLoader = await DataLoader.create();
 
