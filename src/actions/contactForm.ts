@@ -20,7 +20,7 @@ export interface ContactFormActionResult extends ServerFormState<any, any> {
   actionStatus: "idle" | "succeeded" | "failed" | "invalid" | "invalid-captcha";
 }
 
-export default async function newContact(_prevState: unknown, formData: FormData) {
+export default async function newContact(_prevState: unknown, formData: FormData): Promise<ContactFormActionResult> {
   try {
     // Create an instance of the data loader needed for localization
     const { lang, localizedContent } = await DataLoader.create();

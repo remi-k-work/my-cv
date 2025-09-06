@@ -3,7 +3,7 @@
 "use client";
 
 // react
-import { useActionState, useEffect } from "react";
+import { useActionState } from "react";
 
 // server actions and mutations
 import newContact from "@/actions/contactForm";
@@ -12,10 +12,10 @@ import newContact from "@/actions/contactForm";
 import { mergeForm, useTransform } from "@tanstack/react-form";
 import { useAppForm } from "@/components/form";
 import { ContactFormSchemaEn, ContactFormSchemaPl } from "@/schemas/contactForm";
+import useContactFormFeedback from "@/hooks/useContactFormFeedback";
 
 // components
 import Captcha from "@/features/auth/components/Captcha";
-import { toast } from "sonner";
 
 // types
 import type { Lang, LocalizedContent } from "@/types/shared";
@@ -30,22 +30,13 @@ import { FORM_OPTIONS_EN, FORM_OPTIONS_PL, INITIAL_FORM_STATE } from "@/schemas/
 
 export default function ContactForm({ preferredLang, localizedContent }: ContactFormProps) {
   const [formState, formAction, isPending] = useActionState(newContact, INITIAL_FORM_STATE);
-  const { AppField, AppForm, FormSubmit, handleSubmit } = useAppForm({
+  const { AppField, AppForm, FormSubmit, handleSubmit, reset } = useAppForm({
     ...(preferredLang === "en" ? FORM_OPTIONS_EN : FORM_OPTIONS_PL),
     transform: useTransform((baseForm) => mergeForm(baseForm, formState), [formState]),
   });
 
-  useEffect(() => {
-    if (formState.actionStatus === "succeeded") {
-      toast.success(localizedContent["contactFormFeedback"]["success"], { description: localizedContent["contactFormFeedback"]["messageSent"] });
-    } else if (formState.actionStatus === "invalid") {
-      toast.warning(localizedContent["contactFormFeedback"]["missingFields"], { description: localizedContent["contactFormFeedback"]["pleaseCorrect"] });
-    } else if (formState.actionStatus === "failed") {
-      toast.error(localizedContent["contactFormFeedback"]["serverError"], { description: localizedContent["contactFormFeedback"]["messageNotSent"] });
-    } else if (formState.actionStatus === "invalid-captcha") {
-      toast.warning(localizedContent["contactFormFeedback"]["missingFields"], { description: localizedContent["contactFormFeedback"]["invalidCaptcha"] });
-    }
-  }, [formState, localizedContent]);
+  // Provide feedback to the user regarding contact form actions
+  useContactFormFeedback(formState, localizedContent, reset);
 
   return (
     <AppForm>
