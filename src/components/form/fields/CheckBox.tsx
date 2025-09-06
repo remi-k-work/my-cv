@@ -7,7 +7,7 @@ import { useFieldContext } from "@/components/form";
 // components
 import { Label } from "@/components/ui/custom/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import FieldErrors from "@/components/form/FieldErrors";
+import FieldErrors from "@/components/form/field-errors";
 
 // types
 import type { ComponentPropsWithoutRef } from "react";
@@ -20,7 +20,7 @@ export default function CheckBoxField({ label, ...props }: CheckBoxFieldProps) {
   // Get the field context
   const {
     name,
-    state: { value, meta },
+    state: { value },
     handleChange,
     handleBlur,
   } = useFieldContext<boolean>();
@@ -34,7 +34,7 @@ export default function CheckBoxField({ label, ...props }: CheckBoxFieldProps) {
         <Checkbox id={id} name={name} checked={value} onCheckedChange={(checked) => handleChange(checked === true)} onBlur={handleBlur} {...props} />
         <Label htmlFor={id}>{label}</Label>
       </div>
-      <FieldErrors meta={meta} />
+      <FieldErrors />
     </>
   );
 }

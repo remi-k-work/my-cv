@@ -6,16 +6,12 @@ import { ContactFormSchemaEn, ContactFormSchemaPl } from "./contactForm";
 import type { ContactFormActionResult } from "@/actions/contactForm";
 
 // constants
-export const FORM_OPTIONS_EN = formOptions({
-  defaultValues: { name: "", email: "", subject: "", message: "", captcha: "" },
-  validators: { onMount: ContactFormSchemaEn },
-});
-export const FORM_OPTIONS_PL = formOptions({
-  defaultValues: { name: "", email: "", subject: "", message: "", captcha: "" },
-  validators: { onMount: ContactFormSchemaPl },
-});
+const DEFAULT_VALUES = { name: "", email: "", subject: "", message: "", captcha: "" };
+
+export const FORM_OPTIONS_EN = formOptions({ defaultValues: DEFAULT_VALUES, validators: { onMount: ContactFormSchemaEn } });
+export const FORM_OPTIONS_PL = formOptions({ defaultValues: DEFAULT_VALUES, validators: { onMount: ContactFormSchemaPl } });
 
 export const INITIAL_FORM_STATE: ContactFormActionResult = { ...initialFormState, actionStatus: "idle" };
 
-export const SERVER_VALIDATE_EN = createServerValidate({ ...FORM_OPTIONS_EN, onServerValidate: ContactFormSchemaEn });
-export const SERVER_VALIDATE_PL = createServerValidate({ ...FORM_OPTIONS_PL, onServerValidate: ContactFormSchemaPl });
+export const SERVER_VALIDATE_EN = createServerValidate({ defaultValues: DEFAULT_VALUES, onServerValidate: ContactFormSchemaEn });
+export const SERVER_VALIDATE_PL = createServerValidate({ defaultValues: DEFAULT_VALUES, onServerValidate: ContactFormSchemaPl });

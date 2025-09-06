@@ -12,12 +12,12 @@ export default async function Page({ params: paramsPromise }: PageProps<"/exp/[t
   const validIndex = Number(index);
 
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.create();
+  const { localizedContent, allExperiences } = await DataLoader.create();
 
   return (
     <>
       <PageTitle titleTheme={getRandomInt(0, 2)} pathname="/" />
-      <ExperienceDetails localizedContent={dataLoader.localizedContent()} allExperiences={dataLoader.allExperiences()} type={validType} index={validIndex} />
+      <ExperienceDetails localizedContent={localizedContent()} allExperiences={allExperiences()} type={validType} index={validIndex} />
     </>
   );
 }

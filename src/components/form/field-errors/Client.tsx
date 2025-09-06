@@ -1,15 +1,20 @@
+// other libraries
+import { useFieldContext } from "@/components/form";
+
 // assets
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 
 // types
-import type { AnyFieldMeta } from "@tanstack/react-form";
 import type { ZodError } from "zod";
 
-interface FieldErrorsProps {
-  meta: AnyFieldMeta;
-}
+export default function Client() {
+  // Get the field context
+  const {
+    state: {
+      meta: { errors, isPristine, isTouched },
+    },
+  } = useFieldContext();
 
-export default function FieldErrors({ meta: { isPristine, isTouched, errors } }: FieldErrorsProps) {
   if (isPristine || !isTouched) return null;
 
   return errors.map(({ message }: ZodError, index) => (

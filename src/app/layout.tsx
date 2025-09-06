@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ exp, children }: LayoutProps<"/">) {
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.create();
+  const { lang, localizedContent } = await DataLoader.create();
 
   return (
     <html lang="en" translate="no">
@@ -40,7 +40,7 @@ export default async function RootLayout({ exp, children }: LayoutProps<"/">) {
           "lg:grid-cols-[11rem_1rem_1fr_1rem] lg:grid-rows-[7rem_1fr] lg:[grid-template-areas:'skills_header_header_header''skills_._main_.']",
         )}
       >
-        <Header preferredLang={dataLoader.lang} localizedContent={dataLoader.localizedContent()} />
+        <Header preferredLang={lang} localizedContent={localizedContent()} />
         <MySkills />
         <main className="[grid-area:main]">
           {children}

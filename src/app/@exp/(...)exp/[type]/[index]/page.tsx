@@ -11,11 +11,11 @@ export default async function Page({ params: paramsPromise }: PageProps<"/exp/[t
   const validIndex = Number(index);
 
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.create();
+  const { localizedContent, allExperiences } = await DataLoader.create();
 
   return (
-    <ExperienceModal localizedContent={dataLoader.localizedContent()}>
-      <ExperienceDetails localizedContent={dataLoader.localizedContent()} allExperiences={dataLoader.allExperiences()} type={validType} index={validIndex} />
+    <ExperienceModal localizedContent={localizedContent()}>
+      <ExperienceDetails localizedContent={localizedContent()} allExperiences={allExperiences()} type={validType} index={validIndex} />
     </ExperienceModal>
   );
 }

@@ -9,17 +9,17 @@ import ContactMap from "@/components/ContactMap";
 
 export default async function Page() {
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.create();
+  const { lang, localizedContent } = await DataLoader.create();
 
   return (
     <>
       <PageTitle titleTheme={getRandomInt(0, 2)} pathname="/contact" />
       <article className="grid auto-rows-fr grid-cols-1 gap-4 xl:grid-cols-2">
         <section className="bg-clr-primary-800 rounded-xl p-4">
-          <ContactForm preferredLang={dataLoader.lang} localizedContent={dataLoader.localizedContent()} />
+          <ContactForm preferredLang={lang} localizedContent={localizedContent()} />
         </section>
         <section className="bg-clr-primary-800 rounded-xl p-4">
-          <ContactMap localizedContent={dataLoader.localizedContent()} />
+          <ContactMap localizedContent={localizedContent()} />
         </section>
       </article>
     </>

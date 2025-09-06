@@ -11,7 +11,6 @@ import newContact from "@/actions/contactForm";
 // other libraries
 import { mergeForm, useTransform } from "@tanstack/react-form";
 import { useAppForm } from "@/components/form";
-import { FORM_OPTIONS_EN, FORM_OPTIONS_PL, INITIAL_FORM_STATE } from "@/schemas/formFactory";
 import { ContactFormSchemaEn, ContactFormSchemaPl } from "@/schemas/contactForm";
 
 // components
@@ -26,9 +25,12 @@ interface ContactFormProps {
   localizedContent: LocalizedContent;
 }
 
+// constants
+import { FORM_OPTIONS_EN, FORM_OPTIONS_PL, INITIAL_FORM_STATE } from "@/schemas/formFactory";
+
 export default function ContactForm({ preferredLang, localizedContent }: ContactFormProps) {
   const [formState, formAction, isPending] = useActionState(newContact, INITIAL_FORM_STATE);
-  const { AppField, AppForm, FormFieldErrors, FormSubmit, handleSubmit } = useAppForm({
+  const { AppField, AppForm, FormSubmit, handleSubmit } = useAppForm({
     ...(preferredLang === "en" ? FORM_OPTIONS_EN : FORM_OPTIONS_PL),
     transform: useTransform((baseForm) => mergeForm(baseForm, formState), [formState]),
   });
@@ -62,7 +64,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <FormFieldErrors name="name" />
         <br />
         <br />
         <AppField
@@ -79,7 +80,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <FormFieldErrors name="email" />
         <br />
         <br />
         <AppField
@@ -96,7 +96,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <FormFieldErrors name="subject" />
         <br />
         <br />
         <AppField
@@ -114,7 +113,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <FormFieldErrors name="message" />
         <br />
         <Captcha captchaName="captcha" />
         <br />
@@ -132,7 +130,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <FormFieldErrors name="captcha" />
         <br />
         <br />
         <FormSubmit localizedContent={localizedContent} isPending={isPending} />

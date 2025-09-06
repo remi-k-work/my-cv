@@ -13,29 +13,34 @@ import { SERVER_VALIDATE_EN, SERVER_VALIDATE_PL } from "@/schemas/formFactory";
 import { getIronSession } from "iron-session";
 
 // types
-import type { ServerFormState } from "@tanstack/react-form/nextjs";
+import type { ServerFormState, StandardSchemaV1Issue } from "@tanstack/react-form/nextjs";
 import type { CaptchaSession } from "@/app/auth/captcha/[name]/route";
 
 export interface ContactFormActionResult extends ServerFormState<any, any> {
   actionStatus: "idle" | "succeeded" | "failed" | "invalid" | "invalid-captcha";
 }
 
-export default async function newContact(prevState: unknown, formData: FormData) {
+export default async function newContact(_prevState: unknown, formData: FormData) {
   try {
     // Create an instance of the data loader needed for localization
-    const dataLoader = await DataLoader.create();
+    const { lang, localizedContent } = await DataLoader.create();
 
-    const validatedData = dataLoader.lang === "en" ? await SERVER_VALIDATE_EN(formData) : await SERVER_VALIDATE_PL(formData);
+    const validatedData = lang === "en" ? await SERVER_VALIDATE_EN(formData) : await SERVER_VALIDATE_PL(formData);
 
     // Check the captcha to ensure it matches
-    const { captchaString } = await getIronSession<CaptchaSession>(await cookies(), {
-      password: process.env.SESSION_SECRET as string,
-      cookieName: "captcha",
-    });
+    const { captchaString } = await getIronSession<CaptchaSession>(await cookies(), { password: process.env.SESSION_SECRET as string, cookieName: "captcha" });
 
     if (validatedData?.captcha !== captchaString) {
       // The captcha is invalid; please try again
-      return { ...initialFormState, actionStatus: "invalid-captcha" };
+      const formErrors: Record<string, StandardSchemaV1Issue[]> = {
+        captcha: [{ message: localizedContent()["contactFormFeedback"]["invalidCaptcha"], path: ["captcha"] }],
+      };
+      return {
+        ...initialFormState,
+        errors: [formErrors],
+        errorMap: { onServer: { form: { ...formErrors }, fields: { ...formErrors } } },
+        actionStatus: "invalid-captcha",
+      };
     }
 
     // Submit the contact form with validated data

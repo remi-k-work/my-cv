@@ -10,10 +10,10 @@ interface PageTitleProps {
 
 export default async function PageTitle({ titleTheme, pathname }: PageTitleProps) {
   // Create an instance of the data loader needed for localization
-  const dataLoader = await DataLoader.create();
+  const { allPageTitles } = await DataLoader.create();
 
   // Get the current page title data depending on the theme and pathname
-  const { eyebrow, heading, intro } = dataLoader.allPageTitles()[titleTheme][pathname];
+  const { eyebrow, heading, intro } = allPageTitles()[titleTheme][pathname];
 
   return (
     <section className="mx-4 my-3 lg:mx-0">

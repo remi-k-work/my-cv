@@ -7,7 +7,7 @@ import { useFieldContext } from "@/components/form";
 // components
 import { Label } from "@/components/ui/custom/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import FieldErrors from "@/components/form/FieldErrors";
+import FieldErrors from "@/components/form/field-errors";
 
 // types
 import type { ComponentPropsWithoutRef } from "react";
@@ -27,7 +27,7 @@ export default function SelectField({ label, options, placeholder, ...props }: S
   // Get the field context
   const {
     name,
-    state: { value, meta },
+    state: { value },
     handleChange,
     handleBlur,
   } = useFieldContext<string>();
@@ -50,7 +50,7 @@ export default function SelectField({ label, options, placeholder, ...props }: S
           ))}
         </SelectContent>
       </Select>
-      <FieldErrors meta={meta} />
+      <FieldErrors />
     </>
   );
 }
