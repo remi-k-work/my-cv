@@ -1,8 +1,9 @@
 // other libraries
 import { useFieldContext } from "@/components/form";
+import useAnimatedErrors from "@/hooks/useAnimatedErrors";
 
-// assets
-import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+// components
+import { ErrorLine } from "./ErrorLine";
 
 // types
 import type { ZodError } from "zod";
@@ -15,16 +16,11 @@ export default function Client() {
     },
   } = useFieldContext();
 
-  if (isPristine || !isTouched) return null;
+  // Live error messages (unique strings)
+  const liveErrorMessages = errors.map(({ message }: ZodError) => message);
 
-  return errors.map(({ message }: ZodError, index) => (
-    <p
-      key={index}
-      role="alert"
-      className="border-destructive-foreground text-destructive-foreground animate-valid-error flex max-w-none items-center gap-2 rounded-b-xl border px-3 py-2"
-    >
-      <ExclamationTriangleIcon className="size-9 flex-none" />
-      {message}
-    </p>
-  ));
+  // Only render errors once the field has been touched and is no longer pristine
+  const animatedErrors = useAnimatedErrors(liveErrorMessages, { gated: true, show: !isPristine && isTouched });
+
+  return animatedErrors.map(({ message, isShowing }) => <ErrorLine key={message} isShowing={isShowing} message={message} />);
 }

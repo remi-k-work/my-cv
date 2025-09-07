@@ -2,9 +2,10 @@
 import { useFormContext } from "@/components/form";
 import { useFieldContext } from "@/components/form";
 import { useStore } from "@tanstack/react-form";
+import useAnimatedErrors from "@/hooks/useAnimatedErrors";
 
-// assets
-import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+// components
+import { ErrorLine } from "./ErrorLine";
 
 // types
 import type { StandardSchemaV1Issue } from "@tanstack/react-form";
@@ -16,16 +17,11 @@ export default function Server() {
   // Get the field context
   const { name } = useFieldContext();
 
-  const formServerErrors: Record<string, StandardSchemaV1Issue[]> | undefined = useStore(store, (state) => state.errorMap.onServer?.form);
+  // Live error messages (unique strings)
+  const liveErrorMessages: string[] =
+    useStore(store, (state) => state.errorMap.onServer?.form?.[name])?.map((issue: StandardSchemaV1Issue) => issue.message) ?? [];
 
-  return formServerErrors?.[name]?.map(({ message }, index) => (
-    <p
-      key={index}
-      role="alert"
-      className="border-destructive-foreground text-destructive-foreground animate-valid-error flex max-w-none items-center gap-2 rounded-b-xl border px-3 py-2"
-    >
-      <ExclamationTriangleIcon className="size-9 flex-none" />
-      {message}
-    </p>
-  ));
+  const animatedErrors = useAnimatedErrors(liveErrorMessages);
+
+  return animatedErrors.map(({ message, isShowing }) => <ErrorLine key={message} isShowing={isShowing} message={message} />);
 }
