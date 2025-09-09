@@ -18,12 +18,29 @@ interface ExperienceDetailsProps {
   index: number;
 }
 
+// constants
+const MIN_PARA_LENGTH = 60;
+
 export default function ExperienceDetails({ localizedContent, allExperiences, type, index }: ExperienceDetailsProps) {
   const experience = allExperiences[type === "e" ? 0 : 1][index];
   const { txt, liveLink } = experience;
 
-  // Split the full text into an array of pragraphs
-  const paras = txt.split(". ");
+  // Split the full text into an array of sentences (and filter out any empty strings)
+  const sentences = txt.split(". ").filter((sentence) => sentence.trim() !== "");
+
+  // Use "reduce" to combine short sentences into proper paragraphs
+  const paras = sentences.reduce<string[]>((accumulator, currentSentence) => {
+    // Get the last paragraph added to our new array
+    const lastPara = accumulator[accumulator.length - 1];
+
+    // If the last paragraph exists and is shorter than our minimal length, add the current sentence to it
+    if (lastPara && lastPara.length < MIN_PARA_LENGTH) accumulator[accumulator.length - 1] = `${lastPara}. ${currentSentence}`;
+    else
+      // Otherwise, start a new paragraph with the current sentence
+      accumulator.push(currentSentence);
+
+    return accumulator;
+  }, []);
 
   return (
     <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">

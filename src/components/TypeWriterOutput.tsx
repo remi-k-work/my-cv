@@ -15,7 +15,7 @@ export default function TypeWriterOutput({ fullText }: TypeWriterOutputProps) {
   return (
     <>
       <p className="sr-only">{fullText}</p>
-      <p ref={elementRef} className={cn("mx-auto min-h-6 text-wrap", isRunning && "after:animate-cursor-blink after:content-['▋']")} />
+      <p ref={elementRef} className={cn("mx-auto min-h-6 text-center text-wrap", isRunning && "after:animate-cursor-blink after:content-['▋']")} />
     </>
   );
 }
