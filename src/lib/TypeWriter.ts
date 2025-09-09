@@ -16,8 +16,8 @@ export default class TypeWriter {
     private readonly globalSignal: AbortSignal,
     private readonly onUpdate: (text: string) => void,
     private readonly shouldLoop: boolean = false,
-    private readonly typingSpeed: number = 60,
-    private readonly deletingSpeed: number = 60,
+    private readonly typingSpeed: number = 80,
+    private readonly deletingSpeed: number = 80,
   ) {}
 
   // A private setter to automatically call the onUpdate callback
@@ -33,11 +33,11 @@ export default class TypeWriter {
       // Simulate making a typo
       const typo = this.makeTypo(word, 0.03);
       if (word === typo) {
-        this.typeWord(word + " ").pauseFor(this.getRandomInt(30, 100));
+        this.typeWord(word + " ").pauseFor(this.getRandomInt(60, 100));
       } else {
-        this.typeWord(typo + " ").pauseFor(this.getRandomInt(30, 250));
+        this.typeWord(typo + " ").pauseFor(this.getRandomInt(60, 250));
         this.deleteChars(typo.length + 1);
-        this.typeWord(word + " ").pauseFor(this.getRandomInt(30, 100));
+        this.typeWord(word + " ").pauseFor(this.getRandomInt(60, 100));
       }
     }
 
@@ -48,7 +48,7 @@ export default class TypeWriter {
     this.addNewAction((resolve) => {
       let i = 0;
       const controller = new AbortController();
-      animationInterval(this.getRandomInt(30, this.typingSpeed), [controller.signal, this.globalSignal], () => {
+      animationInterval(this.getRandomInt(60, this.typingSpeed), [controller.signal, this.globalSignal], () => {
         this.typedText = this._typedText + word[i];
         i++;
         if (i >= word.length) {
@@ -65,7 +65,7 @@ export default class TypeWriter {
     this.addNewAction((resolve) => {
       let i = 0;
       const controller = new AbortController();
-      animationInterval(this.getRandomInt(30, this.deletingSpeed), [controller.signal, this.globalSignal], () => {
+      animationInterval(this.getRandomInt(60, this.deletingSpeed), [controller.signal, this.globalSignal], () => {
         this.typedText = this._typedText.slice(0, -1);
         i++;
         if (i >= howMany) {
