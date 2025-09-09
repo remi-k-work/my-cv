@@ -55,8 +55,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <br />
-        <br />
         <AppField
           name="email"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.email : ContactFormSchemaPl.shape.email }}
@@ -71,8 +69,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <br />
-        <br />
         <AppField
           name="subject"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.subject : ContactFormSchemaPl.shape.subject }}
@@ -87,8 +83,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <br />
-        <br />
         <AppField
           name="message"
           validators={{ onChange: preferredLang === "en" ? ContactFormSchemaEn.shape.message : ContactFormSchemaPl.shape.message }}
@@ -121,7 +115,6 @@ export default function ContactForm({ preferredLang, localizedContent }: Contact
             />
           )}
         />
-        <br />
         <br />
         <FormSubmit localizedContent={localizedContent} isPending={isPending} />
       </form>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ScreenShots from "./ScreenShots";
 import SkillsUsed from "./SkillsUsed";
+import TypeWriterOutput from "@/components/TypeWriterOutput";
 
 // types
 import type { JobExperience, LocalizedContent } from "@/types/shared";
@@ -21,6 +22,9 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
   const experience = allExperiences[type === "e" ? 0 : 1][index];
   const { txt, liveLink } = experience;
 
+  // Split the full text into an array of pragraphs
+  const paras = txt.split(". ");
+
   return (
     <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">
       <Header localizedContent={localizedContent} experience={experience} />
@@ -32,7 +36,11 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
         <ScreenShots experience={experience} />
       )}
       <SkillsUsed localizedContent={localizedContent} experience={experience} />
-      <p className="mx-auto text-center sm:text-justify">{txt}</p>
+      <footer className="min-h-72">
+        {paras.map((para, index) => (
+          <TypeWriterOutput key={index} fullText={para + (index < paras.length - 1 ? "." : "")} />
+        ))}
+      </footer>
     </article>
   );
 }

@@ -6,6 +6,7 @@
 @import "../styles/anim/slide-and-fade.css";
 @import "../styles/anim/sparks.css";
 @import "../styles/anim/sweep-light-bar.css";
+@import "../styles/anim/cursor-blink.css";
 
 @custom-variant dark (&:is(.dark *));
 

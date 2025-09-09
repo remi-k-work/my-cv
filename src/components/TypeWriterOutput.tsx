@@ -1,6 +1,7 @@
 "use client";
 
 // other libraries
+import { cn } from "@/lib/utils";
 import useTypeWriter from "@/hooks/useTypeWriter";
 
 // types
@@ -9,12 +10,12 @@ interface TypeWriterOutputProps {
 }
 
 export default function TypeWriterOutput({ fullText }: TypeWriterOutputProps) {
-  const { typedText } = useTypeWriter({ fullText, onFinished: () => {} });
+  const { elementRef, isRunning } = useTypeWriter(fullText);
 
   return (
     <>
       <p className="sr-only">{fullText}</p>
-      <p className="after:bg-accent-foreground text-center after:inline-block after:size-4 after:content-[''] sm:text-justify">{typedText}</p>
+      <p ref={elementRef} className={cn("mx-auto min-h-6 text-wrap", isRunning && "after:animate-cursor-blink after:content-['▋']")} />
     </>
   );
 }

@@ -19,5 +19,5 @@ export default function FieldErrors() {
 
   const formServerErrors: Record<string, StandardSchemaV1Issue[]> | undefined = useStore(store, (state) => state.errorMap.onServer?.form);
 
-  return formServerErrors?.[name] ? <Server /> : <Client />;
+  return <div className="min-h-14">{formServerErrors?.[name] ? <Server /> : <Client />}</div>;
 }

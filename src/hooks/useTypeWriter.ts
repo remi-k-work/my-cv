@@ -4,36 +4,35 @@ import { useRef, useState, useEffect } from "react";
 // other libraries
 import TypeWriter from "@/lib/TypeWriter";
 
-// types
-interface UseTypeWriterProps {
-  fullText: string;
-  onFinished: () => void;
-}
+export default function useTypeWriter(fullText: string) {
+  // State to track the animation status, causing minimal re-renders
+  const [isRunning, setIsRunning] = useState(true);
 
-interface UseTypeWriterReturn {
-  typedText: string;
-}
-
-export default function useTypeWriter({ fullText, onFinished }: UseTypeWriterProps): UseTypeWriterReturn {
-  // To maintain referential equality and minimize excessive effect dependencies
-  const onFinishedRef = useRef(onFinished);
-
-  // Currently typed text on the typewriter
-  const [typedText, setTypedText] = useState("");
+  // Ref to hold the DOM element
+  const elementRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    function handleChanged(typedText: string) {
-      setTypedText(typedText);
-    }
+    // We check elementRef to make sure the component is still mounted
+    if (!elementRef.current) return;
 
+    // Create a new typewriter instance for the given text
     const controller = new AbortController();
-    const typewriter = new TypeWriter(false, 50, 50, handleChanged, onFinishedRef.current, controller.signal);
-
+    const typewriter = new TypeWriter(controller.signal, (text: string) => {
+      if (elementRef.current) elementRef.current.textContent = text;
+    });
     typewriter.typeFullText(fullText);
-    typewriter.start();
 
-    return () => controller.abort();
+    // Start the typewriter logic
+    typewriter.start(() => {
+      // Check if the component is still mounted implicitly by checking the ref
+      if (elementRef.current) setIsRunning(false);
+    });
+
+    // Cleanup function
+    return () => {
+      controller.abort();
+    };
   }, [fullText]);
 
-  return { typedText };
+  return { elementRef, isRunning };
 }
