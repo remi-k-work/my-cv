@@ -1,5 +1,26 @@
 [
   {
+    "year": "Listopad 2025",
+    "role": "Total Recall AI",
+    "company": "Projekt Osobisty",
+    "txt": "Masz dość gubienia genialnych pomysłów w bałaganie cyfrowych notatek? Czy łapiesz się na tym, że bez końca szukasz tej jednej, kluczowej informacji, którą wiesz, że zapisałeś? Witamy w Total Recall AI, kolejnej generacji osobistego zarządzania wiedzą. To nie jest kolejna aplikacja do robienia notatek; to Twój osobisty asystent poznawczy, oparty na najnowszej technologii AI. Zamiast przeszukiwać foldery i tagi, wyobraź sobie, że po prostu zadajesz pytanie. Nasza sztuczna inteligencja ma pełną pamięć każdej notatki, jaką kiedykolwiek napisałeś, natychmiast znajdując i syntetyzując dokładnie te informacje, których potrzebujesz. Niezależnie od tego, czy jesteś studentem przygotowującym się do egzaminu, profesjonalistą burzy mózgów nad projektem, czy po prostu kimś, kto chce zapamiętać, gdzie zaparkował samochód, Total Recall AI jest gotowe pomóc Ci na nowo odkryć własne myśli. Przestań szukać i zacznij zapamiętywać. Total Recall AI dba o to, aby Twoja wiedza nigdy nie zginęła — czeka tylko, aż ją sobie przypomnisz.",
+    "gitHubLink": "https://github.com/remi-k-work/total-recall-ai",
+    "liveLink": "https://total-recall-ai.vercel.app",
+    "imageName": "15",
+    "skillsUsed": [
+      "Next.js",
+      "PostgreSQL",
+      "Autoryzacja",
+      "Drizzle ORM",
+      "Usługi Sieciowe RESTful",
+      "Wyszukiwanie RAG",
+      "Tailwind CSS",
+      "TypeScript",
+      "Sztuczna Inteligencja"
+    ]
+  },
+
+  {
     "year": "Maj 2025",
     "role": "PixaMory",
     "company": "Projekt Osobisty",
