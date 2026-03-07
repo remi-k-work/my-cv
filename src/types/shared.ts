@@ -12,6 +12,7 @@ export interface JobExperience {
   liveLink?: UrlObject | string;
   imageName: string;
   skillsUsed: string[];
+  videoLink?: UrlObject | string;
 }
 
 export interface EducationSchool {

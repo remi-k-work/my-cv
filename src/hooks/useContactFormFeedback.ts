@@ -9,8 +9,10 @@ import type { ContactFormActionResult } from "@/actions/contactForm";
 import type { LocalizedContent } from "@/types/shared";
 
 // Provide feedback to the user regarding contact form actions
-export default function useContactFormFeedback({ actionStatus }: ContactFormActionResult, localizedContent: LocalizedContent, reset: () => void) {
+export default function useContactFormFeedback(formState: ContactFormActionResult, localizedContent: LocalizedContent, reset: () => void) {
   useEffect(() => {
+    const { actionStatus } = formState;
+
     if (actionStatus === "succeeded") {
       toast.success(localizedContent["contactFormFeedback"]["success"], { description: localizedContent["contactFormFeedback"]["messageSent"] });
 
@@ -23,5 +25,5 @@ export default function useContactFormFeedback({ actionStatus }: ContactFormActi
     } else if (actionStatus === "invalid-captcha") {
       toast.warning(localizedContent["contactFormFeedback"]["missingFields"], { description: localizedContent["contactFormFeedback"]["invalidCaptcha"] });
     }
-  }, [actionStatus, localizedContent, reset]);
+  }, [formState, localizedContent, reset]);
 }

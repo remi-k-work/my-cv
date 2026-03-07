@@ -1,5 +1,5 @@
 // other libraries
-import { createServerValidate, formOptions, initialFormState } from "@tanstack/react-form/nextjs";
+import { createServerValidate, formOptions, initialFormState } from "@tanstack/react-form-nextjs";
 import { ContactFormSchemaEn, ContactFormSchemaPl } from "./contactForm";
 
 // types

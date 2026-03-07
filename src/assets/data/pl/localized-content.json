@@ -40,7 +40,8 @@
     "liveLink": "Link na Żywo",
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
     "gitHubRepo": "Repozytorium GitHuba",
-    "skillsUsed": "Wykorzystane Umiejętności"
+    "skillsUsed": "Wykorzystane Umiejętności",
+    "watchVideo": "Zobacz Video"
   },
 
   "experienceModal": {
@@ -52,7 +53,8 @@
     "moreInfo": "Więcej Informacji",
     "liveLink": "Link na Żywo",
     "goAndSee": "Kliknij aby zobaczyć repozytorium GitHub",
-    "gitHubRepo": "Repozytorium GitHuba"
+    "gitHubRepo": "Repozytorium GitHuba",
+    "watchVideo": "Zobacz Video"
   },
 
   "formSubmit": {

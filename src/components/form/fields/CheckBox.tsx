@@ -31,7 +31,15 @@ export default function CheckBoxField({ label, ...props }: CheckBoxFieldProps) {
   return (
     <>
       <div className="flex items-center gap-1">
-        <Checkbox id={id} name={name} checked={value} onCheckedChange={(checked) => handleChange(checked === true)} onBlur={handleBlur} {...props} />
+        <Checkbox
+          id={id}
+          name={name}
+          checked={!!value}
+          value="true"
+          onCheckedChange={(checked) => handleChange(checked === true)}
+          onBlur={handleBlur}
+          {...props}
+        />
         <Label htmlFor={id}>{label}</Label>
       </div>
       <FieldErrors />

@@ -8,12 +8,12 @@ import { cookies } from "next/headers";
 
 // other libraries
 import DataLoader from "@/lib/DataLoader";
-import { initialFormState, ServerValidateError } from "@tanstack/react-form/nextjs";
+import { initialFormState, ServerValidateError } from "@tanstack/react-form-nextjs";
 import { SERVER_VALIDATE_EN, SERVER_VALIDATE_PL } from "@/schemas/formFactory";
 import { getIronSession } from "iron-session";
 
 // types
-import type { ServerFormState, StandardSchemaV1Issue } from "@tanstack/react-form/nextjs";
+import type { ServerFormState, StandardSchemaV1Issue } from "@tanstack/react-form-nextjs";
 import type { CaptchaSession } from "@/app/auth/captcha/[name]/route";
 
 export interface ContactFormActionResult extends ServerFormState<any, any> {
@@ -58,7 +58,9 @@ export default async function newContact(_prevState: unknown, formData: FormData
     if (!res.ok) throw new Error(res.statusText);
   } catch (error) {
     // Validation has failed
-    if (error instanceof ServerValidateError) return { ...error.formState, actionStatus: "invalid" };
+    if (error instanceof ServerValidateError) {
+      return { ...error.formState, actionStatus: "invalid" };
+    }
 
     // Some other error occurred
     return { ...initialFormState, actionStatus: "failed" };

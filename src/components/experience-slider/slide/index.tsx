@@ -16,12 +16,12 @@ interface SlideProps {
   experience: JobExperience;
 }
 
-export default function Slide({ localizedContent, type, index, experience, experience: { liveLink } }: SlideProps) {
+export default function Slide({ localizedContent, type, index, experience, experience: { liveLink, videoLink } }: SlideProps) {
   return (
-    <article className="bg-background @container rounded-xl p-3 select-none">
+    <article className="bg-background @container relative rounded-xl p-3 select-none">
       <Header localizedContent={localizedContent} type={type} index={index} experience={experience} />
-      {liveLink ? (
-        <Link href={liveLink as UrlObject} target="_blank">
+      {liveLink || videoLink ? (
+        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

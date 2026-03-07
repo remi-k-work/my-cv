@@ -40,7 +40,8 @@
     "liveLink": "Live Link",
     "goAndSee": "Go and see the GitHub Repo",
     "gitHubRepo": "GitHub Repo",
-    "skillsUsed": "Skills Used"
+    "skillsUsed": "Skills Used",
+    "watchVideo": "Watch Video"
   },
 
   "experienceModal": {
@@ -52,7 +53,8 @@
     "moreInfo": "More Info",
     "liveLink": "Live Link",
     "goAndSee": "Go and see the GitHub Repo",
-    "gitHubRepo": "GitHub Repo"
+    "gitHubRepo": "GitHub Repo",
+    "watchVideo": "Watch Video"
   },
 
   "formSubmit": {

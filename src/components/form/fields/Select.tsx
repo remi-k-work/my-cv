@@ -11,6 +11,7 @@ import FieldErrors from "@/components/form/field-errors";
 
 // types
 import type { ComponentPropsWithoutRef } from "react";
+import type { Updater } from "@tanstack/react-form";
 
 interface SelectOption {
   value: string;
@@ -38,7 +39,7 @@ export default function SelectField({ label, options, placeholder, ...props }: S
   return (
     <>
       <Label htmlFor={id}>{label}</Label>
-      <Select name={name} value={value} onValueChange={(value) => handleChange(value)} {...props}>
+      <Select name={name} value={value ?? ""} onValueChange={(value: Updater<string>) => handleChange(value)} {...props}>
         <SelectTrigger id={id} onBlur={handleBlur}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>

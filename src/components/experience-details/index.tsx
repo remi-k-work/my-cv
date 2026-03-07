@@ -23,7 +23,7 @@ const MAX_CHUNK_LENGTH = 80;
 
 export default function ExperienceDetails({ localizedContent, allExperiences, type, index }: ExperienceDetailsProps) {
   const experience = allExperiences[type === "e" ? 0 : 1][index];
-  const { txt, liveLink } = experience;
+  const { txt, liveLink, videoLink } = experience;
 
   // Use the helper function to create perfectly chunked paragraphs
   const paras = chunkTextByWords(txt, MAX_CHUNK_LENGTH);
@@ -31,8 +31,8 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
   return (
     <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">
       <Header localizedContent={localizedContent} experience={experience} />
-      {liveLink ? (
-        <Link href={liveLink as UrlObject} target="_blank">
+      {liveLink || videoLink ? (
+        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

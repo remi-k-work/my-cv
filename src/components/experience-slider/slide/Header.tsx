@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 // assets
-import { GlobeAltIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
+import { GlobeAltIcon, InformationCircleIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 import GitHubIcon from "@/assets/icons/GitHub";
 
 // types
@@ -16,7 +16,7 @@ interface HeaderProps {
   experience: JobExperience;
 }
 
-export default function Header({ localizedContent, type, index, experience: { year, role, company, gitHubLink, liveLink } }: HeaderProps) {
+export default function Header({ localizedContent, type, index, experience: { year, role, company, gitHubLink, liveLink, videoLink } }: HeaderProps) {
   return (
     <header className="mb-4 flex min-h-28 gap-4 @md:min-h-auto">
       <section className="flex-4">
@@ -52,6 +52,17 @@ export default function Header({ localizedContent, type, index, experience: { ye
               className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
             >
               <GitHubIcon className="size-11" />
+            </Link>
+          )}
+          {videoLink && (
+            <Link
+              href={videoLink as UrlObject}
+              target="_blank"
+              title={localizedContent["experienceSlide"]["watchVideo"]}
+              prefetch={false}
+              className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
+            >
+              <VideoCameraIcon className="size-11" />
             </Link>
           )}
         </div>

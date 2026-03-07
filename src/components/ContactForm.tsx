@@ -9,7 +9,7 @@ import { useActionState } from "react";
 import newContact from "@/actions/contactForm";
 
 // other libraries
-import { mergeForm, useTransform } from "@tanstack/react-form";
+import { mergeForm, useTransform } from "@tanstack/react-form-nextjs";
 import { useAppForm } from "@/components/form";
 import { ContactFormSchemaEn, ContactFormSchemaPl } from "@/schemas/contactForm";
 import useContactFormFeedback from "@/hooks/useContactFormFeedback";
