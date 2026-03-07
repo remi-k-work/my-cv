@@ -1,4 +1,5 @@
 // other libraries
+import { z } from "zod";
 import { createServerValidate, formOptions, initialFormState } from "@tanstack/react-form-nextjs";
 import { ContactFormSchemaEn, ContactFormSchemaPl } from "./contactForm";
 
@@ -6,7 +7,7 @@ import { ContactFormSchemaEn, ContactFormSchemaPl } from "./contactForm";
 import type { ContactFormActionResult } from "@/actions/contactForm";
 
 // constants
-const DEFAULT_VALUES = { name: "", email: "", subject: "", message: "", captcha: "" };
+const DEFAULT_VALUES: z.input<typeof ContactFormSchemaEn> = { name: "", email: "", subject: "", message: "", captcha: "" };
 
 export const FORM_OPTIONS_EN = formOptions({ defaultValues: DEFAULT_VALUES });
 export const FORM_OPTIONS_PL = formOptions({ defaultValues: DEFAULT_VALUES });
