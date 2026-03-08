@@ -1,5 +1,27 @@
 [
   {
+    "year": "Marzec 2026",
+    "role": "Programista Full-Stack",
+    "company": "Benefit Finance",
+    "txt": "Budowa platformy cyfrowej dla Benefit Finance. Dla Benefit Finance, rodzinnej firmy, która od ponad 13 lat wspiera klientów w zakresie rozwiązań finansowych, kredytowych i ubezpieczeniowych, zaprojektowałem i stworzyłem nowoczesną platformę cyfrową, której celem jest poprawa zaangażowania klientów, usprawnienie wewnętrznych przepływów pracy i dostępności usług. Wykorzystując Next.js i React, stworzyłem szybką, responsywną stronę internetową, która zapewnia płynne działanie na komputerach stacjonarnych i urządzeniach mobilnych, a jednocześnie integruje pełny system uwierzytelniania i zarządzania użytkownikami. Aby pomóc firmie w rozwoju bazy klientów, wdrożyłem rozbudowany system zarządzania leadami i poleceń, który pozwala użytkownikom w uporządkowany sposób polecać nowych klientów i śledzić napływające leady. System ten usprawnia proces pozyskiwania i przetwarzania zapytań potencjalnych klientów, ułatwiając firmie kontakt z osobami potrzebującymi pomocy finansowej. Jednym z najbardziej innowacyjnych elementów projektu jest Agent Wsparcia oparty na sztucznej inteligencji. Zbudowałem asystenta konwersacyjnego z własną bazą wiedzy o firmie, wykorzystując podejście Retrieval-Augmented Generation (RAG), aby udzielać klientom precyzyjnych i kontekstowych odpowiedzi na pytania za pośrednictwem interfejsu czatu. Pozwala to klientom szybko uzyskać informacje o usługach, opcjach finansowania i procedurach bez czekania na pomoc człowieka. Aby zarządzać całym ekosystemem, opracowałem niestandardowy system CMS i panel administracyjny, który daje firmie pełną kontrolę nad użytkownikami, leadami i bazą wiedzy agenta AI. Ten scentralizowany system upraszcza codzienne operacje i umożliwia zespołowi utrzymanie i rozbudowę platformy bez konieczności posiadania wiedzy technicznej. Projekt został sfinansowany w ramach inicjatywy Unii Europejskiej „STOP Wykluczeniu!”, programu mającego na celu wspieranie możliwości zatrudnienia osób z niepełnosprawnościami. Jako programista z niepełnosprawnościami, udział w tym projekcie pozwolił mi wnieść zarówno techniczny, jak i osobisty wkład w inicjatywę mającą na celu wspieranie integracji i równych szans w miejscu pracy.",
+    "gitHubLink": "https://github.com/remi-k-work/benefit-finance",
+    "liveLink": "https://benefit-finance.vercel.app",
+    "imageName": "16",
+    "skillsUsed": [
+      "Next.js",
+      "PostgreSQL",
+      "Autoryzacja",
+      "Drizzle ORM",
+      "Usługi Sieciowe RESTful",
+      "Wyszukiwanie RAG",
+      "Tailwind CSS",
+      "TypeScript",
+      "Sztuczna Inteligencja",
+      "Effect"
+    ]
+  },
+
+  {
     "year": "Styczeń 2025",
     "role": "Programista Full-Stack",
     "company": "ARTCOM",

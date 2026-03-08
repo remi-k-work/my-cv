@@ -1,5 +1,16 @@
 [
   {
+    "year": "Mar 2026",
+    "role": "Full-Stack Developer",
+    "company": "Benefit Finance",
+    "txt": "Building a Digital Platform for Benefit Finance. For Benefit Finance, a family-owned company that has been supporting clients with financial, credit, and insurance solutions for over 13 years, I designed and developed a modern digital platform aimed at improving client engagement, internal workflows, and accessibility of services. Using Next.js and React, I created a fast, responsive website that provides a seamless experience across desktop and mobile devices while integrating a full authentication and user management system. To help the company grow its client base, I implemented an extensive lead management and referral system that allows users to recommend new customers and track incoming leads in an organized manner. This system streamlines the process of capturing and processing potential client inquiries, making it easier for the company to connect with people who need financial assistance. One of the most innovative components of the project is a Support Agent powered by AI. I built a conversational assistant with its own knowledge base about the company, using a Retrieval-Augmented Generation (RAG) approach to provide accurate and context-aware answers to customer questions through a chat interface. This allows clients to quickly obtain information about services, financing options, and procedures without waiting for human assistance. To manage the entire ecosystem, I developed a custom CMS and administrative panel that gives the company full control over users, leads, and the AI agent’s knowledge base. This centralized system simplifies daily operations and enables the team to maintain and expand the platform without requiring technical expertise. The project was financed through the European Union initiative “STOP Exclusion!”, a program aimed at supporting employment opportunities for people with disabilities. As a developer with a disability, participating in this project allowed me to contribute both technically and personally to an initiative designed to foster inclusion and equal opportunities in the workforce.",
+    "gitHubLink": "https://github.com/remi-k-work/benefit-finance",
+    "liveLink": "https://benefit-finance.vercel.app",
+    "imageName": "16",
+    "skillsUsed": ["Next.js", "PostgreSQL", "Authorization", "Drizzle ORM", "RESTful WebServices", "RAG Search", "Tailwind CSS", "TypeScript", "AI", "Effect"]
+  },
+
+  {
     "year": "Jan 2025",
     "role": "Full-Stack Developer",
     "company": "ARTCOM",
