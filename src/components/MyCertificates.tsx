@@ -20,7 +20,7 @@ export default async function MyCertificates() {
       <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
         {localizedContent()["myCertificates"]["myCertificates"]}
       </figcaption>
-      <Link href="https://my-cv-remi.vercel.app/my-certificates.pdf" target="_blank" prefetch={false} className="space-y-4">
+      <Link href="https://my-cv-remi.remiforge.dev/my-certificates.pdf" target="_blank" prefetch={false} className="space-y-4">
         <Image src={artcom} alt="ARTCOM" />
         <Image src={alcc} alt="ALCC" />
         <Image src={prattOrig} alt="Pratt" />

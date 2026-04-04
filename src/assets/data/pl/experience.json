@@ -5,7 +5,7 @@
     "company": "Benefit Finance",
     "txt": "Budowa platformy cyfrowej dla Benefit Finance. Dla Benefit Finance, rodzinnej firmy, która od ponad 13 lat wspiera klientów w zakresie rozwiązań finansowych, kredytowych i ubezpieczeniowych, zaprojektowałem i stworzyłem nowoczesną platformę cyfrową, której celem jest poprawa zaangażowania klientów, usprawnienie wewnętrznych przepływów pracy i dostępności usług. Wykorzystując Next.js i React, stworzyłem szybką, responsywną stronę internetową, która zapewnia płynne działanie na komputerach stacjonarnych i urządzeniach mobilnych, a jednocześnie integruje pełny system uwierzytelniania i zarządzania użytkownikami. Aby pomóc firmie w rozwoju bazy klientów, wdrożyłem rozbudowany system zarządzania leadami i poleceń, który pozwala użytkownikom w uporządkowany sposób polecać nowych klientów i śledzić napływające leady. System ten usprawnia proces pozyskiwania i przetwarzania zapytań potencjalnych klientów, ułatwiając firmie kontakt z osobami potrzebującymi pomocy finansowej. Jednym z najbardziej innowacyjnych elementów projektu jest Agent Wsparcia oparty na sztucznej inteligencji. Zbudowałem asystenta konwersacyjnego z własną bazą wiedzy o firmie, wykorzystując podejście Retrieval-Augmented Generation (RAG), aby udzielać klientom precyzyjnych i kontekstowych odpowiedzi na pytania za pośrednictwem interfejsu czatu. Pozwala to klientom szybko uzyskać informacje o usługach, opcjach finansowania i procedurach bez czekania na pomoc człowieka. Aby zarządzać całym ekosystemem, opracowałem niestandardowy system CMS i panel administracyjny, który daje firmie pełną kontrolę nad użytkownikami, leadami i bazą wiedzy agenta AI. Ten scentralizowany system upraszcza codzienne operacje i umożliwia zespołowi utrzymanie i rozbudowę platformy bez konieczności posiadania wiedzy technicznej. Projekt został sfinansowany w ramach inicjatywy Unii Europejskiej „STOP Wykluczeniu!”, programu mającego na celu wspieranie możliwości zatrudnienia osób z niepełnosprawnościami. Jako programista z niepełnosprawnościami, udział w tym projekcie pozwolił mi wnieść zarówno techniczny, jak i osobisty wkład w inicjatywę mającą na celu wspieranie integracji i równych szans w miejscu pracy.",
     "gitHubLink": "https://github.com/remi-k-work/benefit-finance",
-    "liveLink": "https://benefit-finance.vercel.app",
+    "liveLink": "https://benefit-finance.remiforge.dev",
     "imageName": "16",
     "skillsUsed": [
       "Next.js",
@@ -27,7 +27,7 @@
     "company": "ARTCOM",
     "txt": "Zauważając potrzebę ARTCOM (zespołu specjalistów w zakresie szkoleń informatycznych, nauczania języków obcych i projektów finansowanych przez UE), żeby móc skutecznie zarządzać dynamiczną treścią, opracowałem dla nich system zarządzania treścią (CMS), tak aby płynnie zintegrować go z odnowionym front-endem. Wykorzystałem Payload CMS do zbudowania przyjaznego dla użytkownika systemu z interfejsem typu „przeciągnij i upuść” oraz intuicyjnymi formularzami, znacznie poprawiając wydajność pracy nad treścią, skracając czas zarządzania nią i umożliwiając członkom zespołu bez wykształcenia technicznego samodzielne zarządzanie treścią witryny. Dostępna jest demonstracja na żywo CMS do eksploracji, prezentująca jego funkcjonalność i łatwość obsługi (wystarczy kliknąć zrzut ekranu i zalogować się przy użyciu wstępnie wypełnionym użytkownikiem demonstracyjnym).",
     "gitHubLink": "https://github.com/remi-k-work/artcom",
-    "liveLink": "https://artcom-pink.vercel.app/admin",
+    "liveLink": "https://artcom.remiforge.dev/admin",
     "imageName": "01",
     "skillsUsed": ["Rozwój Back-Endu", "Payload CMS", "PostgreSQL", "Next.js", "Usługi w Chmurze", "Systemy Zarządzania Treścią (CMS)"]
   },
@@ -38,7 +38,7 @@
     "company": "ARTCOM",
     "txt": "Modernizacja cyfrowej obecności ARTCOM. Odegrałem kluczową rolę w przeprojektowaniu witryny ARTCOM, gdzie wykorzystałem moc Next.js i React, aby stworzyć dynamiczne i angażujące doświadczenie użytkownika. Wykorzystując nowoczesne techniki tworzenia stron internetowych, stworzyłem wizualnie atrakcyjny interfejs, który płynnie integruje się z tożsamością marki firmy. Aby podnieść estetykę witryny, włączyłem urzekające animacje zasilane przez „Motion”, wzmacniając interakcję użytkownika i pozostawiając trwałe wrażenie. Ten projekt pozwolił mi ugruntować moje umiejętności w zakresie rozwoju front-end, demonstrując moją zdolność do tworzenia responsywnych i wydajnych aplikacji internetowych.",
     "gitHubLink": "https://github.com/remi-k-work/artcom",
-    "liveLink": "https://artcom-pink.vercel.app",
+    "liveLink": "https://artcom.remiforge.dev",
     "imageName": "02",
     "skillsUsed": ["Rozwój Front-Endu", "Nowoczesny Projekt UI/UX", "Integracja Animacji", "React", "Next.js", "Responsywny Projekt Stron Internetowych"]
   },
