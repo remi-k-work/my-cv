@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   category: "technology",
   other: { google: "notranslate" },
+
+  metadataBase: new URL("https://www.remiforge.dev"),
+  alternates: { canonical: "/" },
 };
 
 export default async function RootLayout({ exp, children }: LayoutProps<"/">) {

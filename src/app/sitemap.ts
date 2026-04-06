@@ -2,7 +2,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://remiforge.dev";
+  const baseUrl = "https://www.remiforge.dev";
   const eIds = [0, 1, 2, 3, 4, 5, 6, 7] as const;
   const pIds = [0, 1, 2, 3, 4, 5, 6, 7] as const;
 
