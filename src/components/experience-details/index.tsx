@@ -39,6 +39,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
         <ScreenShots experience={experience} />
       )}
       <SkillsUsed localizedContent={localizedContent} experience={experience} />
+      <p className="sr-only">{txt}</p>
       {paras.map((para, index) => (
         <TypeWriterOutput key={index} fullText={para} />
       ))}
