@@ -4,6 +4,7 @@ import DataLoader from "@/lib/DataLoader";
 // components
 import ExperienceModal from "@/components/ExperienceModal";
 import ExperienceDetails from "@/components/experience-details";
+import ExperienceDetailsSeo from "@/components/experience-details/SeoVer";
 
 export default async function Page({ params: paramsPromise }: PageProps<"/exp/[type]/[index]">) {
   const { type, index } = await paramsPromise;
@@ -15,6 +16,7 @@ export default async function Page({ params: paramsPromise }: PageProps<"/exp/[t
 
   return (
     <ExperienceModal localizedContent={localizedContent()}>
+      <ExperienceDetailsSeo allExperiences={allExperiences()} type={validType} index={validIndex} />
       <ExperienceDetails localizedContent={localizedContent()} allExperiences={allExperiences()} type={validType} index={validIndex} />
     </ExperienceModal>
   );

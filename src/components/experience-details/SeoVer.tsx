@@ -8,13 +8,18 @@ import Link from "next/link";
 import type { JobExperience } from "@/types/shared";
 import type { UrlObject } from "url";
 
-interface SlideSeoProps {
-  experience: JobExperience;
+interface ExperienceDetailsSeoProps {
+  allExperiences: [JobExperience[], JobExperience[]];
+  type: "e" | "p";
+  index: number;
 }
 
-export default function SlideSeo({ experience: { year, role, company, txt, skillsUsed, gitHubLink, liveLink, videoLink } }: SlideSeoProps) {
+export default function ExperienceDetailsSeo({ allExperiences, type, index }: ExperienceDetailsSeoProps) {
+  const experience = allExperiences[type === "e" ? 0 : 1][index];
+  const { year, role, company, txt, skillsUsed, gitHubLink, liveLink, videoLink } = experience;
+
   return (
-    <>
+    <article className="sr-only">
       <h2 className="text-xl">{role}</h2>
       <h3>{company}</h3>
       <h4>
@@ -38,6 +43,6 @@ export default function SlideSeo({ experience: { year, role, company, txt, skill
         </p>
       )}
       <p>{txt}</p>
-    </>
+    </article>
   );
 }

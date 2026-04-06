@@ -20,7 +20,7 @@ export default async function Page() {
             <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
               {localizedContent()["pageHome"]["experience"]}
             </figcaption>
-            <ExperienceSliderSeo localizedContent={localizedContent()} allExperiences={allExperiences()} type="e" />
+            <ExperienceSliderSeo allExperiences={allExperiences()} type="e" />
             <ExperienceSlider localizedContent={localizedContent()} allExperiences={allExperiences()} type="e" />
           </figure>
         </section>
@@ -29,7 +29,7 @@ export default async function Page() {
             <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
               {localizedContent()["pageHome"]["portfolioProjects"]}
             </figcaption>
-            <ExperienceSliderSeo localizedContent={localizedContent()} allExperiences={allExperiences()} type="p" />
+            <ExperienceSliderSeo allExperiences={allExperiences()} type="p" />
             <ExperienceSlider localizedContent={localizedContent()} allExperiences={allExperiences()} type="p" />
           </figure>
         </section>
