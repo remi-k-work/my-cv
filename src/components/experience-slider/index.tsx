@@ -22,30 +22,25 @@ export default function ExperienceSlider({ localizedContent, allExperiences, typ
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   return (
-    <figure className="mx-auto w-full max-w-4xl">
-      <figcaption className="bg-primary-foreground mb-4 place-self-end rounded-ss-xl rounded-ee-xl p-3 italic">
-        {type === "e" ? localizedContent["pageHome"]["experience"] : localizedContent["pageHome"]["portfolioProjects"]}
-      </figcaption>
-      <article className="grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] gap-4 [grid-template-areas:'viewport_viewport''prevnext_dots']">
-        <section ref={emblaRef} className="overflow-hidden [grid-area:viewport]">
-          <div className="-ms-4 flex touch-pan-y touch-pinch-zoom">
-            {allExperiences[type === "e" ? 0 : 1].map((singleJobExperience, jobIndex) => (
-              <div key={jobIndex} className="min-w-0 shrink-0 grow-0 basis-full ps-4">
-                <Slide localizedContent={localizedContent} type={type} index={jobIndex} experience={singleJobExperience} />
-              </div>
-            ))}
-          </div>
-        </section>
-        <header className="flex items-center gap-4 [grid-area:prevnext]">
-          <Prev emblaApi={emblaApi} />
-          <Next emblaApi={emblaApi} />
-        </header>
-        <footer className="flex flex-wrap items-center justify-end gap-1 [grid-area:dots]">
-          {emblaApi?.scrollSnapList().map((_, index) => (
-            <Dot key={index} emblaApi={emblaApi} index={index} />
+    <article className="grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] gap-4 [grid-template-areas:'viewport_viewport''prevnext_dots']">
+      <section ref={emblaRef} className="overflow-hidden [grid-area:viewport]">
+        <div className="-ms-4 flex touch-pan-y touch-pinch-zoom">
+          {allExperiences[type === "e" ? 0 : 1].map((singleJobExperience, jobIndex) => (
+            <div key={jobIndex} className="min-w-0 shrink-0 grow-0 basis-full ps-4">
+              <Slide localizedContent={localizedContent} type={type} index={jobIndex} experience={singleJobExperience} />
+            </div>
           ))}
-        </footer>
-      </article>
-    </figure>
+        </div>
+      </section>
+      <header className="flex items-center gap-4 [grid-area:prevnext]">
+        <Prev emblaApi={emblaApi} />
+        <Next emblaApi={emblaApi} />
+      </header>
+      <footer className="flex flex-wrap items-center justify-end gap-1 [grid-area:dots]">
+        {emblaApi?.scrollSnapList().map((_, index) => (
+          <Dot key={index} emblaApi={emblaApi} index={index} />
+        ))}
+      </footer>
+    </article>
   );
 }
