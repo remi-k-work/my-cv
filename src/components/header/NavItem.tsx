@@ -29,6 +29,7 @@ export default function NavItem({ href, title, icon, isExternal = false, animDel
       title={title}
       prefetch={!isExternal}
       target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn(
         "relative isolate",
         "[&>svg]:size-11",

@@ -25,14 +25,14 @@ export default function SlideSeo({ experience: { year, role, company, txt, skill
       <p>{year}</p>
       {(liveLink || videoLink) && (
         <p>
-          <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank">
+          <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank" rel="noopener noreferrer">
             <>{videoLink ?? liveLink}</>
           </Link>
         </p>
       )}
       {gitHubLink && (
         <p>
-          <Link href={gitHubLink as UrlObject} prefetch={false} target="_blank">
+          <Link href={gitHubLink as UrlObject} prefetch={false} target="_blank" rel="noopener noreferrer">
             <>{gitHubLink}</>
           </Link>
         </p>

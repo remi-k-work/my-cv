@@ -21,7 +21,7 @@ export default function Slide({ localizedContent, type, index, experience, exper
     <article className="bg-background @container relative rounded-xl p-3 select-none">
       <Header localizedContent={localizedContent} type={type} index={index} experience={experience} />
       {liveLink || videoLink ? (
-        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank">
+        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank" rel="noopener noreferrer">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

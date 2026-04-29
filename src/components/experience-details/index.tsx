@@ -32,7 +32,7 @@ export default function ExperienceDetails({ localizedContent, allExperiences, ty
     <article className="bg-clr-primary-800 mx-auto w-full max-w-4xl rounded-xl p-3">
       <Header localizedContent={localizedContent} experience={experience} />
       {liveLink || videoLink ? (
-        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank">
+        <Link href={(videoLink ?? liveLink) as UrlObject} prefetch={false} target="_blank" rel="noopener noreferrer">
           <ScreenShots experience={experience} />
         </Link>
       ) : (

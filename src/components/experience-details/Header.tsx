@@ -28,6 +28,7 @@ export default function Header({ localizedContent, experience: { year, role, com
             <Link
               href={liveLink as UrlObject}
               target="_blank"
+              rel="noopener noreferrer"
               title={localizedContent["experienceDetails"]["liveLink"]}
               className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
             >
@@ -38,6 +39,7 @@ export default function Header({ localizedContent, experience: { year, role, com
             <Link
               href={gitHubLink as UrlObject}
               target="_blank"
+              rel="noopener noreferrer"
               title={localizedContent["experienceDetails"]["goAndSee"]}
               prefetch={false}
               className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
@@ -49,6 +51,7 @@ export default function Header({ localizedContent, experience: { year, role, com
             <Link
               href={videoLink as UrlObject}
               target="_blank"
+              rel="noopener noreferrer"
               title={localizedContent["experienceDetails"]["watchVideo"]}
               prefetch={false}
               className="text-primary-foreground border-primary-foreground hover:text-accent-foreground hover:border-accent-foreground rounded-full border p-1 hover:scale-110"
