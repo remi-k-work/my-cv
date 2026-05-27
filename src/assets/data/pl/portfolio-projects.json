@@ -1,5 +1,28 @@
 [
   {
+    "year": "Czerwiec 2026",
+    "role": "Wordle Overdrive",
+    "company": "Projekt Osobisty",
+    "txt": "Co się dzieje, gdy spokojne, metodyczne tempo tradycyjnej łamigłówki słownej zderza się z presją niekończącej się, arcade'owej rozgrywki survivalowej? Wordle Overdrive powstało, aby odpowiedzieć właśnie na to pytanie. Zamiast rozwiązywać pojedynczą, odizolowaną łamigłówkę, gracze uczestniczą w ciągłej, wysokiej stawce, gdzie każde rozwiązane słowo przyczynia się do rosnącego mnożnika punktów i passy zwycięstw, a jeden błąd może zniweczyć całą rozgrywkę. Aby przekształcić klasyczną formułę w coś bardziej dynamicznego i opartego na umiejętnościach, zaprojektowałem system punktacji w czasie rzeczywistym, w którym potencjał nagrody stale maleje w zależności od upływu czasu i skuteczności zgadywania. Szybkie, trafne rozwiązania zapewniają agresywne mnożniki, a wahanie stopniowo wyczerpuje potencjalną nagrodę, tworząc ciągłą pilność i napięcie przez całą rozgrywkę. Aby rozszerzyć tę pętlę przetrwania poza pojedynczą sesję, wdrożyłem globalny system High Score. Gracze nie tylko optymalizują swoje wyniki pod kątem wewnętrznych systemów gry, ale także rywalizują z szerszą bazą graczy, gdzie każda rozgrywka staje się próbą osiągnięcia globalnego mistrzostwa. Aby zmniejszyć trudność związaną ze zgadywaniem na ślepo, zintegrowałem system generowania zagadek oparty na sztucznej inteligencji, wykorzystujący modele Gemini i generując unikalne wskazówki dla każdego słowa. To przesuwa rozgrywkę w kierunku dedukcji i rozpoznawania wzorców, a nie czystego zapamiętywania. Doświadczenie jest dodatkowo wzmocnione przez klawiaturę zorientowaną na przetrwanie, która dynamicznie usuwa nieprawidłowe litery w trakcie gry, usprawniając podejmowanie decyzji pod presją. Cały system został zbudowany w oparciu o Next.js i TypeScript, w dużym stopniu wykorzystując zasady programowania funkcyjnego i reaktywne zarządzanie stanem oparte na atomach. Projekt obejmuje również w pełni zlokalizowane tryby angielski i polski z obszernymi, niezależnymi słownikami oraz responsywnym interfejsem użytkownika zaprojektowanym w oparciu o nowoczesne systemy kolorów OKLCH, zarówno dla ciemnych, jak i jasnych motywów. Wordle Overdrive to w zasadzie eksperyment w projektowaniu gier zręcznościowych, łączący wspomaganą sztuczną inteligencją rozgrywkę, systemy punktacji i funkcjonalną architekturę w szybką, reaktywną i wciągającą przygodę.",
+    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
+    "liveLink": "https://wordle-game.remiforge.dev",
+    "imageName": "12",
+    "skillsUsed": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Orkiestracja Sztucznej Inteligencji",
+      "Model Gemini od Google",
+      "Effect",
+      "Programowanie Funkcyjne",
+      "Zarządzanie Stanem Reaktywnym",
+      "Projektowanie Gier",
+      "Tailwind CSS",
+      "Najlepsze Wyniki w Grze i ich Przechowywanie"
+    ]
+  },
+
+  {
     "year": "Listopad 2025",
     "role": "Total Recall AI",
     "company": "Projekt Osobisty",
@@ -28,7 +51,7 @@
     "gitHubLink": "https://github.com/remi-k-work/memory-game-native",
     "liveLink": "https://github.com/remi-k-work/memory-game-native/releases/latest/download/PixaMory.apk",
     "imageName": "14",
-    "skillsUsed": ["React Native", "Expo", "RESTful WebServices", "Projektowanie Gier", "PostgreSQL", "Zustand"],
+    "skillsUsed": ["React Native", "Expo", "Usługi Sieciowe RESTful", "Projektowanie Gier", "PostgreSQL", "Zustand"],
     "videoLink": "https://fyxk1xpcf8.ufs.sh/f/l5x42vpjizuQ8I0aihPUfBmtn1HJYGFeZq0yMzNl4w6cQb9s"
   },
 
@@ -92,17 +115,6 @@
     "liveLink": "https://home-budget.remiforge.dev",
     "imageName": "11",
     "skillsUsed": ["React.js", "Tworzenie Aplikacji Internetowych", "Doświadczenie Użytkownika (UX)"]
-  },
-
-  {
-    "year": "Styczeń 2024",
-    "role": "Wordle Game",
-    "company": "Projekt Osobisty",
-    "txt": "Zanurz się w urzekającym świecie łamigłówek słownych z moim klonem gry Wordle, największym wyzwaniem słownictwa. Każdego dnia czeka na Ciebie nowe tajemnicze słowo do rozszyfrowania, oferujące nowe wyzwanie, które pozwoli Ci napiąć mięśnie językowe. Z każdym odgadnięciem otrzymasz wskazówki pozwalające rozwikłać tajemnicze słowo, stopniowo zawężając możliwości. Wykorzystaj żywy, oznaczony kolorami system informacji zwrotnych, aby poprowadzić swoją podróż, delektując się satysfakcją z każdego prawidłowego umieszczenia litery. Niezależnie od tego, czy jesteś doświadczonym twórcą słów, czy początkującym lingwistą, ta gra oferuje każdemu wciągające i satysfakcjonujące doświadczenie. Uwolnij swoją kreatywność, doskonal swoje słownictwo i rozkoszuj się dreszczykiem emocji związanym z rozwiązywaniem każdej zagadki. Rozpocznij przygodę z rozwiązywaniem słów! W tę grę można grać z zestawami słownictwa angielskiego lub polskiego. Pracując nad tym projektem zastosowałem technikę Redux.",
-    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
-    "liveLink": "https://wordle-game.remiforge.dev",
-    "imageName": "12",
-    "skillsUsed": ["Redux", "React.js", "Projektowanie Gier"]
   },
 
   {

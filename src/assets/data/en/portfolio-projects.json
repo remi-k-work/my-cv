@@ -1,5 +1,28 @@
 [
   {
+    "year": "Jun 2026",
+    "role": "Wordle Overdrive",
+    "company": "Personal",
+    "txt": "What happens when the calm, methodical pace of a traditional word puzzle collides with the pressure of an endless arcade survival run? Wordle Overdrive was built to answer exactly that question. Instead of solving a single isolated puzzle, players enter a continuous high-stakes session where every solved word contributes to a growing score multiplier and winning streak, while a single mistake can wipe out the entire run. To transform the classic formula into something more dynamic and skill-driven, I designed a real-time scoring system where reward potential constantly decays based on both elapsed time and guess efficiency. Fast, accurate solutions grant aggressive multipliers, while hesitation steadily drains the possible reward, creating constant urgency and tension throughout the run. To extend this survival loop beyond a single session, I implemented a global High Score system that turns every run into a permanent competitive benchmark. Players are not only optimizing against the game’s internal systems but also competing against the broader player base, where each run becomes a bid for mastery on a shared leaderboard. To reduce the friction of blind guessing, I integrated an AI-powered riddle generation system using Gemini models, producing unique cryptic clues for every word. This shifts gameplay toward deduction and pattern recognition rather than pure memorization. The experience is further reinforced by a survival-focused keypad that dynamically removes incorrect letters during play, tightening decision-making under pressure. The entire system was built with Next.js and TypeScript, heavily embracing functional programming principles through Effect and atom-based reactive state management. Instead of scattered asynchronous logic, the game lifecycle, scoring pipeline, AI interactions, and session handling are coordinated through explicit type-safe effects and generators, ensuring predictable behavior even under fast-paced gameplay conditions. The project also includes fully localized English and Polish modes with large independent dictionaries and a responsive UI designed around modern OKLCH color systems for both dark and light themes. Wordle Overdrive ultimately serves as an experiment in arcade game design, combining AI-assisted gameplay, competitive scoring systems, and functional architecture into a fast, reactive, and replayable browser experience.",
+    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
+    "liveLink": "https://wordle-game.remiforge.dev",
+    "imageName": "12",
+    "skillsUsed": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "AI Orchestration",
+      "Gemini API",
+      "Effect",
+      "Functional Programming",
+      "Reactive State Management",
+      "Game Systems Design",
+      "Tailwind CSS",
+      "Leaderboards & Persistence"
+    ]
+  },
+
+  {
     "year": "Nov 2025",
     "role": "Total Recall AI",
     "company": "Personal",
@@ -64,17 +87,6 @@
     "liveLink": "https://home-budget.remiforge.dev",
     "imageName": "11",
     "skillsUsed": ["React.js", "Web Application Development", "User Experience (UX)"]
-  },
-
-  {
-    "year": "Jan 2024",
-    "role": "Wordle Game",
-    "company": "Personal",
-    "txt": "Immerse yourselves in the captivating world of word puzzles with my Wordle Game clone, the ultimate vocabulary challenge. Each day, a new mystery word awaits you for deciphering, offering a fresh challenge to flex your linguistic muscles. With each guess, you will receive clues to unravel the secret word, gradually narrowing down the possibilities. Utilize the vibrant color-coded feedback system to guide your journey, savoring the satisfaction of each correct letter placement. Whether you are a seasoned wordsmith or a budding linguist, this game offers an engaging and rewarding experience for all. Unleash your creativity, hone your vocabulary, and relish the thrill of solving each puzzle. Let the word-solving adventure begin! This game can be played with either English or Polish vocabulary sets. While working on this project, I employed the Redux technique.",
-    "gitHubLink": "https://github.com/remi-k-work/wordle-game",
-    "liveLink": "https://wordle-game.remiforge.dev",
-    "imageName": "12",
-    "skillsUsed": ["Redux", "React.js", "Game Design"]
   },
 
   {
